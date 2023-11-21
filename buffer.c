@@ -13,9 +13,8 @@
 #define BLOCK_SIZE 4096
 
 /**
- * 
+ * 임시함수
 */
-
 int readMemBuffer(int block_nr){
 	return block_nr;
 }
@@ -81,19 +80,14 @@ int init()
 	
 	//printf("start setting memory buffer wrapper\n");
 	memory_buffer_wrapper =(struct MemoryBufferWrapper*) malloc(sizeof(struct MemoryBufferWrapper));
-	//printf("memory buffer wrapper allocated\n");
 	int n = 128;
 	memory_buffer_wrapper->number_of_memory_buffers = n;
 	memory_buffer_wrapper->explicit_block_size = BLOCK_SIZE;
-	//printf("memory buffer wrapper set constant values\n");
 	memory_buffer_wrapper->memory_buffers = (char**)calloc(n,sizeof(char*));
-	//printf("memory buffer wrapper allocates memory buffer 2d\n");
 	for(int i=0;i<n;i++){
 		memory_buffer_wrapper->memory_buffers[i] = (char*)malloc(sizeof(char)*BLOCK_SIZE);
 	}
 	memory_buffer_wrapper->readMemoryBuffer = &readMemBuffer;
-	//printf("memory buffer wrapper allocates memory buffer contents\n");
-
 
 	disk_buffer = aligned_alloc(BLOCK_SIZE, BLOCK_SIZE);
 	if (disk_buffer == NULL)
