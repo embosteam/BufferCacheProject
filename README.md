@@ -25,7 +25,7 @@
         #혹은
         make buffer_cache
     ``` 
-  * 빌드 명령어
+  * clean 명령어
       ``` shell
           make clean
           #혹은
