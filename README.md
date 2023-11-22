@@ -2,6 +2,9 @@
 ---
 * 코드 패턴은 가급적이면 MVC 나 MVP패턴을 유지시키면서 작성하는 것이 좋음
     - 패턴 설명: https://beomy.tistory.com/43
+* Git 업로드 및 브랜치 규칙은 가급적이면
+  *  각 폴더를 개발할때는 [Trunk Based Development](https://helloinyong.tistory.com/335) 를 사용하도록 하고
+  *  buffer.c 를 직접적으로 수정 및 추가할 때는 [Git-flow](https://techblog.woowahan.com/2553/) 를 사용해서 작성하는 것을 권고
 * 폴더 설명
   
   | 폴더 | 설명 |  비고 |  
@@ -31,3 +34,7 @@
           #혹은
           make clean-all
       ``` 
+
+기타 참조 링크
+---
+* https://github.com/melody1214/Trapfetch
