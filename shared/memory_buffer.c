@@ -6,6 +6,13 @@ struct MemoryBuffer* createNewMemoryBuffer(int block_size,int block_number){
         buffer->buffer = (char*)aligned_alloc(block_size,block_size*sizeof(char));
         return buffer;
     }
+    /**
+     * 
+     * 새로운 메모리 버퍼 관리 객체를 생성하는 함수
+     *      n: 디스크의 버퍼의 총 갯수
+     *      manageable_n: 4KB 버퍼가 만약 n=10000개이상이 되면, 실질적으로 RAM에 탑재가 불가능하므로, RAM에 올릴 수 있는 버퍼의 최대 갯수
+     *      block_size: 각 메모리 버퍼가 가지는 실질적인 크기(단위는 바이트(B))
+     */
     struct MemoryBufferManager* createNewMemoryBufferManager(int n,int manageable_n,long long block_size){
         if(manageable_n>n){
             perror("error: manageable_n>n");
