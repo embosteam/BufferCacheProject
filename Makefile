@@ -10,8 +10,6 @@ OBJS=main.o delayed_write.o buffered_read.o replacement_policy.o shared.o
 MAIN_FILE=buffer.c
 MAIN_NAME=buffer_cache
 
-
-
 DELAYED_WRITE_FILE=$(DELAYED_WRITE_FOLDER)/*.c $(DELAYED_WRITE_FOLDER)/*.h
 BUFFERED_READ_FILE=$(BUFFERED_READ_FOLDER)/*.c $(BUFFERED_READ_FOLDER)/*.h
 REPLACEMENT_POLICY_FILE=$(REPLACEMENT_POLICY_FOLDER)/*.c $(REPLACEMENT_POLICY_FOLDER)/*.h
@@ -36,7 +34,6 @@ shared.o:  # $(SHARED_FILE)
 	@$(MAKE) -C $(SHARED_FOLDER)
 #	$(CC) -o $@ -c $(wildcard $(SHARED_FOLDER)/*.o) $(LDLIBS)
 main.o:$(MAIN_FILE)
-
 	$(CC) -o $@ -c $< $(LDLIBS)
 clean: 
 	rm -rf *.o

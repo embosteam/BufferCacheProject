@@ -20,7 +20,7 @@ int readMemBuffer(int block_nr){
 }
 
 char *disk_buffer;
-struct MemoryBufferWrapper* memory_buffer_wrapper=NULL;
+struct MemoryBufferManager* memory_buffer_manager=NULL;
 int disk_fd;
 
 int os_read(int block_nr, char *user_buffer)
@@ -77,21 +77,25 @@ int lib_write(int block_nr, char *user_buffer)
 
 int init()
 {
-	
+	int n = 1024;
+	memory_buffer_manager  = createNewMemoryBufferManager(n,(int)(0.3f*(float)n),(long long)BLOCK_SIZE*1024);
 	//printf("start setting memory buffer wrapper\n");
-	memory_buffer_wrapper =(struct MemoryBufferWrapper*) malloc(sizeof(struct MemoryBufferWrapper));
-	int n = 128;
-	memory_buffer_wrapper->number_of_memory_buffers = n;
-	memory_buffer_wrapper->explicit_block_size = BLOCK_SIZE;
-	memory_buffer_wrapper->memory_buffers = (char**)calloc(n,sizeof(char*));
+	/*memory_buffer_manager =(struct MemoryBufferManager*) malloc(sizeof(struct MemoryBufferManager));
+	int n = 1024;
+	memory_buffer_manager->number_of_memory_buffers = n;
+	memory_buffer_manager->explicit_block_size = BLOCK_SIZE;
+	memory_buffer_manager->memory_buffers = (char**)malloc(n*sizeof(char*));
 	for(int i=0;i<n;i++){
-		memory_buffer_wrapper->memory_buffers[i] = (char*)malloc(sizeof(char)*BLOCK_SIZE);
+		memory_buffer_manager->memory_buffers[i] = (char*)malloc(sizeof(char)*BLOCK_SIZE);
 	}
-	memory_buffer_wrapper->readMemoryBuffer = &readMemBuffer;
+	memory_buffer_manager->readMemoryBuffer = &readMemBuffer;
+	*/
+
 
 	disk_buffer = aligned_alloc(BLOCK_SIZE, BLOCK_SIZE);
-	if (disk_buffer == NULL)
+	if (disk_buffer == NULL){
 		return -errno;
+	}
 
 	printf("disk_buffer: %p\n", disk_buffer);
 	#ifdef __APPLE__
@@ -113,24 +117,53 @@ int main (int argc, char *argv[])
 	int ret;
 
 	init();
-	if(memory_buffer_wrapper!=NULL){
-		printf("n=%d, blksize=%d, total=%d\n, read=%d\n",
-		memory_buffer_wrapper->number_of_memory_buffers,
-		memory_buffer_wrapper->explicit_block_size,
-		memory_buffer_wrapper->explicit_block_size*memory_buffer_wrapper->number_of_memory_buffers,
-		((memory_buffer_wrapper->readMemoryBuffer(1234)))
+	printf("disk_fd:%d\n",disk_fd);
+	if(memory_buffer_manager!=NULL){
+		printf("n=%d,mn=%d, blksize=%d, total=%d\n",
+		memory_buffer_manager->total_number_of_memory_buffers,
+		memory_buffer_manager->manageable_number_of_memory_buffers,
+		memory_buffer_manager->explicit_block_size,
+		memory_buffer_manager->explicit_block_size*memory_buffer_manager->total_number_of_memory_buffers
+		//((memory_buffer_manager->readMemoryBuffer(1234)))
 		);
 	}
 	else{
 		printf("memory buffer wrapper is NULL\n");
 	}
-	buffer = malloc(BLOCK_SIZE);
-
-    ret = lib_read(0, buffer);
+	buffer = aligned_alloc(BLOCK_SIZE,BLOCK_SIZE);
+	ret = lib_read(0, buffer);
 	printf("nread: %d\n", ret);
+	for(int i=0;i<BLOCK_SIZE;i++){
+			buffer[i] = (255-buffer[i]+i)%256; //(i)%256;
+	}
+	printf("buffer content: \n");
+	for(int i=0;i<100;i++){
+		printf("%d ",buffer[i]);
+	}
+	printf("\n");
+	uint8_t md5_result[16];
+	md5String(buffer,md5_result);
+	printf("md5 result: ");
+	for(int i=0;i<16;i++){
+		printf("%02x",md5_result[i]);
+	}
+	printf("\n");
+
+    //ret = lib_read(0, buffer);
+	//printf("nread: %d\n", ret);
 
     ret = lib_write(0, buffer);
 	printf("nwrite: %d\n", ret);
+
+	
+
+	printf("buffer content after read: \n");
+	for(int i=0;i<100;i++){
+		printf("%d ",buffer[i]);
+	}
+	printf("\n");
+	
+	close(disk_fd);
 	bufferedread_exporttest();
 	delayedwrite_exporttest();
 	replacementpolicy_exporttest();
