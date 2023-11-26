@@ -6,6 +6,7 @@
 int main(){
     int n;
     char* filename = "diskfile\0";
+    char* source_dev_path = "/dev/zero\0";
     printf("n값을 지정해주세요: ");
     scanf("%d",&n);
     if(n<1){
@@ -20,13 +21,14 @@ int main(){
     char bs_char[256] = {0,};
     char count_char[512] = {0,};
     char file_path_char[1024] = {0,};
+    char source_path[1024] = {0,};
 
-    sprintf(bs_char,"bs=%d",(int)BLOCK_SIZE);
-    sprintf(count_char,"count=%lld",(long long)n*1024);
-    sprintf(file_path_char,"of=%s",filename);
+    snprintf(bs_char,sizeof(bs_char),"bs=%d",(int)BLOCK_SIZE);
+    snprintf(count_char,sizeof(count_char),"count=%lld",(long long)n*1024);
+    snprintf(file_path_char,sizeof(file_path_char),"of=%s",filename);
+    snprintf(source_path,sizeof(source_path),"if=%s",source_dev_path);
     
-    char* argv[] = {"dd","if=/dev/zero",file_path_char,(char*)bs_char,(char*)count_char,NULL};
+    char* argv[] = {"dd",source_path,file_path_char,(char*)bs_char,(char*)count_char,NULL};
     execvp(argv[0],argv);
-        
     return 0;
 }
