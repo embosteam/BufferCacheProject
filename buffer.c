@@ -79,17 +79,6 @@ int init()
 {
 	int n = 1024;
 	memory_buffer_manager  = createNewMemoryBufferManager(n,(int)(0.3f*(float)n),(long long)BLOCK_SIZE*1024);
-	//printf("start setting memory buffer wrapper\n");
-	/*memory_buffer_manager =(struct MemoryBufferManager*) malloc(sizeof(struct MemoryBufferManager));
-	int n = 1024;
-	memory_buffer_manager->number_of_memory_buffers = n;
-	memory_buffer_manager->explicit_block_size = BLOCK_SIZE;
-	memory_buffer_manager->memory_buffers = (char**)malloc(n*sizeof(char*));
-	for(int i=0;i<n;i++){
-		memory_buffer_manager->memory_buffers[i] = (char*)malloc(sizeof(char)*BLOCK_SIZE);
-	}
-	memory_buffer_manager->readMemoryBuffer = &readMemBuffer;
-	*/
 
 
 	disk_buffer = aligned_alloc(BLOCK_SIZE, BLOCK_SIZE);

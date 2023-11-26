@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/c,c++,cmake,macos,windows,linux
 # Edit at https://www.toptal.com/developers/gitignore?templates=c,c++,cmake,macos,windows,linux
 
+buffer_cache
+buffer_cache.exe
+
 ### C ###
 # Prerequisites
 *.d
