@@ -1,5 +1,5 @@
 #ifndef __FLUSH_THREAD__
-#define FLUSH_THREAD
+#define __FLUSH_THREAD__
     #include <pthread.h>
     #include <semaphore.h>
     #include <unistd.h>
