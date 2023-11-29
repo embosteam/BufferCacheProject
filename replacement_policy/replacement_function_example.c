@@ -17,6 +17,7 @@
  * }
  * 아래는 단지 예제이므로 이런 느낌이면 좋다라는 의미의 코드
  * 
+ * 
 */
 int initializeReplacementPolicyAlgorithms(void* args){
     int is_finished = 1;
@@ -31,6 +32,12 @@ int putOrCalcuateNewItem(struct DoublyLinkedList* currentItemContainer,void* arg
      * 해당 버퍼를 각 캐시 알고리즘에 넣음
     */
     return success;
+}
+void updateCacheStateDueToFetching(struct DoublyLinkedList* selected_item,void* args){
+    struct MemoryBuffer* current_buffer =  (struct MemoryBuffer*) selected_item->value;
+    /**
+     * 각 캐시 알고리즘별로 접근 횟수 카운터등을 업데이트해주는 함수
+    */
 }
 struct DoublyLinkedList* pickEvictableItem(struct DoublyLinkedListWrapper* container,int replacement_algorithm_type){// 이후 캐시나 arc알고리즘의 데이터 구조로 변경될 수 있음
     if(replacement_algorithm_type<0){
