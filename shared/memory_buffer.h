@@ -4,13 +4,19 @@
     #include <stdio.h>
     #include <unistd.h>
     #include <memory.h>
+    #include <semaphore.h>
     /**
      * 각 버퍼에 붙는 메모리 버퍼 헤더
     */
     struct MemoryBufferHeader{
         unsigned char isValid:1;
         unsigned char isDirty:1;
+        unsigned char isBufferBeingWrittenNow:1;//데이터 동기화주기 약간불안정, sem_getvalue 함수등을 사용해 체크하는게 조금더 바람직
+        pthread_t writeThreadId;
+        sem_t write_lock;
         long block_number;
+        long long block_size_byte;
+        void* block_precalculated_key;
         long lastestAccessedTimeStamp;
     };
     /**
@@ -24,10 +30,10 @@
      * 
     */
     struct MemoryBufferManager{
-        int total_number_of_memory_buffers;
+        int total_number_of_memory_buffers; 
         int manageable_number_of_memory_buffers;
         long long explicit_block_size;
-        
+        unsigned int current_memory_buffer_count;
         struct MemoryBuffer** memory_buffers;
         //char** memory_buffers;
         int (* readMemoryBuffer)(int);

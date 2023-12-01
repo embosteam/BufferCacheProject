@@ -3,7 +3,11 @@ struct MemoryBuffer* createNewMemoryBuffer(int block_size,int block_number){
         struct MemoryBuffer* buffer = NULL;
         buffer = (struct MemoryBuffer*)malloc(sizeof(struct MemoryBuffer));
         memset(buffer,0,sizeof(struct MemoryBuffer));
-        buffer->buffer = (char*)aligned_alloc(block_size,block_size*sizeof(char));
+        buffer->buffer = (char*)malloc(block_size*1024);//aligned_alloc(block_size,block_size*sizeof(char));
+        buffer->header.block_number = block_number;
+        buffer->header.block_size_byte = block_size*1024;
+        printf("[createNewMemoryBuffer] isBufferNULL: %d\n",buffer->buffer==NULL);
+        sem_init(&buffer->header.write_lock,0,1);
         return buffer;
     }
     /**
@@ -32,6 +36,7 @@ struct MemoryBuffer* createNewMemoryBuffer(int block_size,int block_number){
             struct MemoryBuffer* buffer = memory_buffer_wrapper->memory_buffers[index];
             free(buffer->buffer);
             free(memory_buffer_wrapper->memory_buffers[index]);
+            sem_destroy(&buffer->header.write_lock);
             memory_buffer_wrapper->memory_buffers[index] = NULL;
         }
     }
