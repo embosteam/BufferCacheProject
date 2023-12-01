@@ -40,6 +40,10 @@
           make clean-all
       ``` 
 
+폴더및 업무별 간략 참조관계
+---
+![간략 참조관계](mdfile_pictures/전체_참조도.jpeg)
+
 기타 참조 링크
 ---
 * https://github.com/melody1214/Trapfetch
