@@ -1,6 +1,7 @@
 #ifndef __HEADER_EXPORT_API_DELAYED_WRITE__
  #define __HEADER_EXPORT_API_DELAYED_WRITE__
     #include "flush_thread.h"
+    #include "thread_pool.h"
     #include "buffer_write.h"
     #include "disk_write.h"
     

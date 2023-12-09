@@ -5,6 +5,8 @@
     */
 int write2Disk(int disk_fd,struct MemoryBuffer* memory_buffer){
     int ret;
+    //printf("[write2Disk] (disk_fd:%d , blk_nr:%d)\n",disk_fd,memory_buffer->header.block_number);
+    //printf("\t membuffer: %x\n",memory_buffer);
     struct MemoryBufferHeader memory_buffer_header = memory_buffer->header;
     const int block_number = memory_buffer_header.block_number;
     const char* buffer_content = memory_buffer->buffer;
@@ -53,8 +55,12 @@ struct WriteParametersInThread{
      * 로 변환해 write2Disk를 호출함
     */
 int write2DiskInThread(void* args){
-    struct WriteParametersInThread params = *(struct WriteParametersInThread*)args;
-    int ret = write2Disk(params.disk_fd,params.memory_buffer);
-
+    struct WriteParametersInThread* params = (struct WriteParametersInThread*)args;
+    int disk_fd = params->disk_fd;
+    struct MemoryBuffer* mem_buffer = params->memory_buffer;
+    int block_number = mem_buffer->header.block_number;
+    free(params);
+    int ret = write2Disk(disk_fd,mem_buffer);
+    //free(params);
     return ret;
 }

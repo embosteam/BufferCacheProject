@@ -25,5 +25,5 @@
      * runfunction(*arg) 에 해당하는 함수를 thread로 실행하게 해주는 함수
      * 리턴값: runfunction 함수를 실행하는 쓰레드의 id를 반환
     */
-    pthread_t createAndRunFlushThread(void* runfunction,void* arg);
+    pthread_t createAndRunFlushThread(int (*runfunction)(void*) ,void* arg);
 #endif

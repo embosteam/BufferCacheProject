@@ -12,7 +12,7 @@ struct WriteParametersInThread{
      * runfunction(*arg) 에 해당하는 함수를 thread로 실행하게 해주는 함수
      * 리턴값: runfunction 함수를 실행하는 쓰레드의 id를 반환
     */
-pthread_t createAndRunFlushThread(void* runfunction,void* arg){
+pthread_t createAndRunFlushThread(int (*runfunction)(void*),void* arg){
     /**
      * thread 종료시 thread가 알아서 자원을 반환하도록 하는 attribute
     */
@@ -27,10 +27,9 @@ pthread_t createAndRunFlushThread(void* runfunction,void* arg){
     return 0;
    }
    */
-    
-    struct WriteParametersInThread params = *(struct WriteParametersInThread*)arg;
-    params.attr = attr;
-    if(pthread_create(&tid,NULL/*&attr*/,runfunction,&params)<0){
+    struct WriteParametersInThread* params = (struct WriteParametersInThread*)arg;
+    //params.attr = attr;
+    if(pthread_create(&tid,NULL/*&attr*/,runfunction,params)<0){
         perror("[createAndRunFlushThread] can not create flush thread\n");
         return 0;
     }
