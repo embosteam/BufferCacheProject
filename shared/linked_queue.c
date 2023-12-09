@@ -31,11 +31,9 @@
             sem_wait(&q->concurrent_lock);
         }
         unsigned int value = q->size==0;
-        //printf("[LQueue_isEmpty]middle\n");
         if(q->isEnableConcurrentMode){
             sem_post(&q->concurrent_lock);
         }
-        //printf("[LQueue_isEmpty]last\n");
         return value;
     }
     void LQueue_clear(struct LQueue* q){
@@ -45,7 +43,7 @@
     }
     void LQueue_freeInternal(struct LQueue* q){
         q->clear(q);
-        //sem_destroy(&q->concurrent_lock);
+        sem_destroy(&q->concurrent_lock);
 
     }
     void* LQueue_front(struct LQueue* q)
@@ -63,7 +61,7 @@
         else{
             return NULL;
         }
-    };
+    }
     void LQueue_pop(struct LQueue* q){
         if(q->isEnableConcurrentMode){
             sem_wait(&q->concurrent_lock);
@@ -95,13 +93,13 @@
         return node;
     }
     void LQueue_push(struct LQueue* q,void* value){
-        if(q->isEnableConcurrentMode){
+         if(q->isEnableConcurrentMode){
             sem_wait(&q->concurrent_lock);
         }
-        struct LQueueInternalNode* last_ptr = q->last_pointer;
-        struct LQueueInternalNode* ptr = q->pointer;
+         struct LQueueInternalNode* last_ptr = q->last_pointer;
+        //struct LQueueInternalNode* ptr = q->pointer;
         struct LQueueInternalNode* node = LQueue_newEmptyInternalNode();
-        node->value = value;
+         node->value = value;
         if(last_ptr==NULL){
             
             q->last_pointer = node;

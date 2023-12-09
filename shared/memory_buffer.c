@@ -4,10 +4,11 @@ struct MemoryBuffer* createNewMemoryBuffer(int block_size,int block_number){
         buffer = (struct MemoryBuffer*)malloc(sizeof(struct MemoryBuffer));
         memset(buffer,0,sizeof(struct MemoryBuffer));
         buffer->buffer = (char*)malloc(block_size*1024);//aligned_alloc(block_size,block_size*sizeof(char));
-        buffer->header.block_number = block_number;
+        *(&buffer->header.block_number) = block_number;
         buffer->header.block_size_byte = block_size*1024;
-        printf("[createNewMemoryBuffer] isBufferNULL: %d\n",buffer->buffer==NULL);
+        //printf("[createNewMemoryBuffer] isBufferNULL: %d\n",buffer->buffer==NULL);
         sem_init(&buffer->header.write_lock,0,1);
+        //printf("[createNewMemoryBuffer] lock initialized\n");
         return buffer;
     }
     /**
