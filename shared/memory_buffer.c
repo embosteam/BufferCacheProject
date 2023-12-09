@@ -28,7 +28,7 @@ struct MemoryBuffer* createNewMemoryBuffer(int block_size,int block_number){
         manager->explicit_block_size=block_size;
         manager->total_number_of_memory_buffers = n;
         manager->manageable_number_of_memory_buffers=manageable_n;
-        manager->memory_buffers = (struct MemoryBufferManager**)malloc(manageable_n*sizeof(struct MemoryBuffer*));
+        manager->memory_buffers = (struct MemoryBuffer**)malloc(manageable_n*sizeof(struct MemoryBuffer*));
         return manager;
     }
     void freeMemoryBufferAt(struct MemoryBufferManager* memory_buffer_wrapper,int index){
