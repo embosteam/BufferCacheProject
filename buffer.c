@@ -21,6 +21,7 @@ int readMemBuffer(int block_nr){
 
 char *disk_buffer;
 struct MemoryBufferManager* memory_buffer_manager=NULL;
+struct ThreadPool* tp = NULL;
 int disk_fd;
 
 int os_read(int block_nr, char *user_buffer)
@@ -44,8 +45,11 @@ int os_read(int block_nr, char *user_buffer)
 
 int os_write(int block_nr, char *user_buffer)
 {
-	int ret;
-
+	int ret = 0;
+	struct MemoryBuffer* buffer = createNewMemoryBuffer(BLOCK_SIZE,block_nr);
+	memcpy(buffer->buffer,user_buffer,buffer->header.block_size_byte);
+	tp->addQueue(tp,disk_fd,buffer);
+	/*
 	// implement BUFFERED_WRITE
 
 	ret = lseek(disk_fd, block_nr * BLOCK_SIZE, SEEK_SET); 
@@ -55,7 +59,7 @@ int os_write(int block_nr, char *user_buffer)
 	ret = write(disk_fd, user_buffer, BLOCK_SIZE);
 	if (ret < 0)
 		return ret;
-
+	*/
 	return ret;
 }
 
@@ -79,8 +83,7 @@ int init()
 {
 	int n = 1024;
 	memory_buffer_manager  = createNewMemoryBufferManager(n,(int)(0.3f*(float)n),(long long)BLOCK_SIZE*1024);
-
-
+	tp = newThreadPool(5);
 	disk_buffer = aligned_alloc(BLOCK_SIZE, BLOCK_SIZE);
 	if (disk_buffer == NULL){
 		return -errno;
@@ -119,12 +122,11 @@ int main (int argc, char *argv[])
 	else{
 		printf("memory buffer wrapper is NULL\n");
 	}
-	buffer = aligned_alloc(BLOCK_SIZE,BLOCK_SIZE);
+	buffer = (char*)malloc(1024*BLOCK_SIZE*sizeof(char)); //aligned_alloc(BLOCK_SIZE,BLOCK_SIZE);
 	ret = lib_read(0, buffer);
 	printf("nread: %d\n", ret);
-	for(int i=0;i<BLOCK_SIZE;i++){
-			buffer[i] = (255-buffer[i]+i)%256; //(i)%256;
-	}
+	srand(time(NULL));
+	
 	printf("buffer content: \n");
 	for(int i=0;i<100;i++){
 		printf("%d ",buffer[i]);
@@ -140,7 +142,9 @@ int main (int argc, char *argv[])
 
     //ret = lib_read(0, buffer);
 	//printf("nread: %d\n", ret);
-
+	for(int i=0;i<BLOCK_SIZE;i++){
+			buffer[i] = (rand())%256; //(i)%256;
+	}
     ret = lib_write(0, buffer);
 	printf("nwrite: %d\n", ret);
 
@@ -152,9 +156,12 @@ int main (int argc, char *argv[])
 	}
 	printf("\n");
 	
-	close(disk_fd);
+	
 	bufferedread_exporttest();
 	delayedwrite_exporttest();
 	replacementpolicy_exporttest();
+	//usleep(1000*1000);
+	tp->releaseInternalResource(tp);
+	close(disk_fd);
     return 0;
 }
