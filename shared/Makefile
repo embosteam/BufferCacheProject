@@ -1,6 +1,7 @@
 CC=gcc
 CFLAGS=-g -Wall
-LDLIBS=-pthread
+#LDLIBS=-pthread -nostartfiles
+LDLIBS=-pthread -fPIC
 UNAME := $(shell uname)
 SRCS=$(wildcard *.c)
 OBJS=$(SRCS:.c=.o)
@@ -14,7 +15,7 @@ $(MAIN_NAME): $(OBJS)
 ifeq ($(UNAME),Darwin)
 	@$(CC) -shared -o $@ $(OBJS) $(LDLIBS)
 else
-	@$(CC) -static -o $@ $(OBJS) $(LDLIBS)
+	@$(CC) -c -o $@ $(OBJS) $(LDLIBS)
 endif
 	@mv $@ ../$@
 clean:

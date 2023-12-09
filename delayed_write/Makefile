@@ -1,7 +1,8 @@
 CC=gcc
-CFLAGS=-g -Wall
+CFLAGS=-g -Wall -pedantic
 PWD := $(shell pwd)
-LDLIBS=-pthread -L$(PWD:/delayed_write=/shared/)
+#LDLIBS=-pthread -fPIC -L$(PWD:/delayed_write=/shared/)
+LDLIBS=-pthread -fPIC -lpthread -fno-stack-protector
 UNAME := $(shell uname)
 SRCS=$(wildcard *.c)
 OBJS=$(SRCS:.c=.o)
@@ -19,7 +20,7 @@ $(MAIN_NAME): $(OBJS_SHARED) $(OBJS)
 ifeq ($(UNAME),Darwin)
 	$(CC) -shared -o $@ $(OBJS) $(OBJS_SHARED_MOVED) $(LDLIBS)
 else
-	@$(CC) -static -o $@ $(OBJS) $(OBJS_SHARED_MOVED) $(LDLIBS)
+	@$(CC) -c -o $@ $(OBJS) $(OBJS_SHARED_MOVED) $(LDLIBS)
 endif
 	@mv $@ ../$@
 clean:
