@@ -44,6 +44,35 @@
 ---
 ![간략_참조관계](mdfile_pictures/전체_참조도.jpeg)
 
+
+기능구현 상황
+---
+* Buffered Read 영역
+  * [ ] OS 레이어(os_read, os_write 함수)에 버퍼 기능을 구현한다.  
+  * [x] 버퍼는 메모리를 사용하며, 총 N개를 관리할 수 있도록 한다.  
+  * [x] 버퍼 각각은 하나의 블록 내용을 저장(4KB)할 수 있으며, 데이터 저장 공간과 메타데이터 (블록 번호, 빠른 탐색을 위한 데이터) 저장 공간으로 구성된다.  
+  * [x] 빠른 탐색을 위한 데이터 구조 (e.g., hash)는 자유롭게 정한다.  
+  * [x] 읽기 요청 블록이 Buffer에 없다면 Disk에서 Buffer로 읽은 후, Buffer의 내용을 상위 레이어에 전달한다. 요청한 블록이 Buffer에 있다면 파일에서 읽지 않고 Buffer의 내용을 전달한다.
+  * [ ] 자료구조 및 탐색구조 최적화
+  * [ ] hit , miss에 관한 경과시간 그래프 데이터 산출
+* Delayed Write 영역
+  * [x] 응용이 Write한 내용을 Buffer에 기록하고 리턴한다.
+  * [ ] 모든 Buffer가 사용 중인 경우, Victim을 선정하여 Buffer에서 방출시킨 후, 빈 Buffer를 만들어 기록한다.
+  * [ ] Dirty 상태의 Buffer가 Victim으로 선정된 경우, Disk에 내용을 쓴 후, 회수할 수 있다.
+  * [x] Buffer에 Write된 내용이 Disk에 쓰여지지 않았다면 Dirty 상태로 표시한다.
+  * [x] Dirty Buffer를 Disk에 Write하는 기능을 Thread (flush thread)를 이용하여 해볼 것
+  * [x] Buffer가 flush thread에 의해 Disk에 Write 중인 경우, 응용이 overwrite하지 못하도록 동기화 (locking) 메커니즘을 사용할 것
+  * [ ] (버퍼읽는 알고리즘의 성능을 평가함)빠른 write 알고리즘 구현 및 최적화
+  * [ ] 이전 버퍼값을 write후 새 버퍼 값을 쓰도록 알고리즘 세부 구현
+ ㅇ
+* Replacement Policy 영역
+  * [ ] Buffer 부족 시(read/write시 둘다 포함), Victim을 선정하는 FIFO, LRU, LFU 등 널리 알려진 알고리즘을 3개 이상 구현한다.
+  * [ ] Normal distribution 또는 Zipfian Distribution을 따르는 Block Access Sequence를 생성하고, 구현한 Replacement Policy에서 Hit가 얼마나 발생하는 지 테스트해 본다. 여기서 Block Access Sequence는 Block Read만 포함하도록 한다.
+  * [ ] 방출할 버퍼 디스크 상태 최신으로 동기화 요청 구현
+  * [ ] replacement policy 잘 동작하는지 보여주도록 데이터 산출및 시각화 구현
+
+
+
 기타 참조 링크
 ---
 * https://github.com/melody1214/Trapfetch
