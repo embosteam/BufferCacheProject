@@ -30,15 +30,34 @@ int os_read(int block_nr, char *user_buffer)
 
 	// implement BUFFERED_READ
 
-	ret = lseek(disk_fd, block_nr * BLOCK_SIZE, SEEK_SET); 
-	if (ret < 0)
-		return ret;
+	struct hashmap* memory_buffers = memory_buffer_manager->memory_buffers;
+	struct MemoryBufferController* memory_buffer_controller = memory_buffer_manager->controller;
+	struct MemoryBuffer* memory_buffer = memory_buffer_controller->getMemoryBufferMap(memory_buffer_manager,block_nr);
+	const long long default_block_size_byte = memory_buffer_manager->explicit_block_size;
+	if(memory_buffer!=NULL){
+		printf("[os_read] memory buffer is not NULL (at %d)\n",block_nr);
+		memcpy(user_buffer, memory_buffer->buffer, memory_buffer->header.block_size_byte);
+		return (int)memory_buffer->header.block_size_byte;
+	}
+	else{
+		printf("[os_read] memory buffer is NULL(at %d)\n",block_nr);
+		int disk_fd2 = dup(disk_fd);
+		if(disk_fd2==-1){
+			disk_fd2 =disk_fd;
+		}
+		ret = lseek(disk_fd2, block_nr * default_block_size_byte, SEEK_SET); 
+		if (ret < 0)
+			return ret;
 
-	ret = read(disk_fd, disk_buffer, BLOCK_SIZE);
-	if (ret < 0)
-		return ret;
-
-	memcpy(user_buffer, disk_buffer, BLOCK_SIZE);
+		ret = read(disk_fd2, disk_buffer, default_block_size_byte);
+		if (ret < 0)
+			return ret;
+		memory_buffer = createNewMemoryBuffer(default_block_size_byte,block_nr);
+		memcpy(memory_buffer->buffer,user_buffer,default_block_size_byte);
+		memory_buffer_controller->putMemoryBufferAt(memory_buffer_manager,block_nr,memory_buffer);
+		memcpy(user_buffer, disk_buffer, default_block_size_byte);
+		
+	}
 
 	return ret;
 }
@@ -46,9 +65,15 @@ int os_read(int block_nr, char *user_buffer)
 int os_write(int block_nr, char *user_buffer)
 {
 	int ret = 0;
-	struct MemoryBuffer* buffer = createNewMemoryBuffer(BLOCK_SIZE,block_nr);
-	memcpy(buffer->buffer,user_buffer,buffer->header.block_size_byte);
+	const long long default_block_size_byte = memory_buffer_manager->explicit_block_size;
+	struct hashmap* memory_buffers = memory_buffer_manager->memory_buffers;
+	struct MemoryBufferController* memory_buffer_controller = memory_buffer_manager->controller;
+
+	struct MemoryBuffer* buffer = createNewMemoryBuffer(default_block_size_byte,block_nr);
+	memcpy(buffer->buffer,user_buffer,default_block_size_byte);
+	printf("[os_write] membuffer: %x , blknm: %d\n",buffer, buffer->header.block_number);
 	tp->addQueue(tp,disk_fd,buffer);
+	memory_buffer_controller->putMemoryBufferAt(memory_buffer_manager,block_nr,buffer);
 	/*
 	// implement BUFFERED_WRITE
 
@@ -83,8 +108,11 @@ int init()
 {
 	int n = 1024;
 	memory_buffer_manager  = createNewMemoryBufferManager(n,(int)(0.3f*(float)n),(long long)BLOCK_SIZE*1024);
+	const long long default_block_size_byte = memory_buffer_manager->explicit_block_size;
+	printf("before tp\n");
 	tp = newThreadPool(5);
-	disk_buffer = aligned_alloc(BLOCK_SIZE, BLOCK_SIZE);
+	printf("after tp\n");
+	disk_buffer =  aligned_alloc(default_block_size_byte, default_block_size_byte);
 	if (disk_buffer == NULL){
 		return -errno;
 	}
@@ -122,7 +150,7 @@ int main (int argc, char *argv[])
 	else{
 		printf("memory buffer wrapper is NULL\n");
 	}
-	buffer = (char*)malloc(1024*BLOCK_SIZE*sizeof(char)); //aligned_alloc(BLOCK_SIZE,BLOCK_SIZE);
+	buffer = (char*)malloc(memory_buffer_manager->explicit_block_size*sizeof(char)); //aligned_alloc(BLOCK_SIZE,BLOCK_SIZE);
 	ret = lib_read(0, buffer);
 	printf("nread: %d\n", ret);
 	srand(time(NULL));
@@ -145,11 +173,13 @@ int main (int argc, char *argv[])
 	for(int i=0;i<BLOCK_SIZE;i++){
 			buffer[i] = (rand())%256; //(i)%256;
 	}
-    ret = lib_write(0, buffer);
+	for(int i=0;i<30;i++){
+    	ret = lib_write(i, buffer);
+	}
 	printf("nwrite: %d\n", ret);
 
 	
-
+	ret = lib_read(0, buffer);
 	printf("buffer content after read: \n");
 	for(int i=0;i<100;i++){
 		printf("%d ",buffer[i]);
@@ -160,8 +190,8 @@ int main (int argc, char *argv[])
 	bufferedread_exporttest();
 	delayedwrite_exporttest();
 	replacementpolicy_exporttest();
-	//usleep(1000*1000);
+	usleep(4000*1000);
 	tp->releaseInternalResource(tp);
-	close(disk_fd);
+	//close(disk_fd);
     return 0;
 }
