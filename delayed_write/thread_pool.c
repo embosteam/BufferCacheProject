@@ -1,7 +1,5 @@
 #include "thread_pool.h"
-#include "../shared/linked_queue.h"
-#include <errno.h>
-#include <locale.h>
+
 
 /**
  * 매개변수 임시 할당을 위한 구조체
@@ -18,7 +16,14 @@ pthread_t startMainPooling(struct ThreadPool* tp){
     pthread_t tid = 0;
     struct ThreadParam* param = (struct ThreadParam*)malloc(sizeof(struct ThreadParam));
     param->tp = tp;
-    if(pthread_create(&tid,NULL/*&attr*/,&ThreadPoolMainPooling1,(void*)param)<0){
+    if(pthread_create(&tid,NULL/*&attr*/,
+    #ifdef __APPLE__
+        &ThreadPoolMainPooling1
+    #else
+        tp->pooling?tp->pooling:&ThreadPoolMainPooling1
+    #endif
+    
+    ,(void*)param)<0){
         perror("[startMainPooling] can not create flush thread\n");
         return 0;
     }
@@ -57,6 +62,7 @@ pthread_t startMainPooling(struct ThreadPool* tp){
         tp->pooling_tid = 0;
 
         tp->pooling_tid = startMainPooling(tp);
+        printf("[tp pooling] created\n");
         return tp;
     }
     /**
@@ -160,7 +166,7 @@ pthread_t startMainPooling(struct ThreadPool* tp){
                 }
             }
             else{
-                usleep(1000);
+                usleep(1);
             }
         }
         printf("[ThreadPoolMainPooling1] finished\n");
@@ -179,6 +185,7 @@ pthread_t startMainPooling(struct ThreadPool* tp){
             free(raw_wrapper);
             long long status;
             pthread_join(raw,&status);
+            printf("[ThreadPoolWaitInternalThread] subthread %d finished\n",raw);
             if(pooling_mode>0){
                 sem_post(&tp->thread_unit_queue_lock);
                 break;

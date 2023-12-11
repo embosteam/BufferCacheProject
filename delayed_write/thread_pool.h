@@ -9,6 +9,9 @@
     #include <memory.h>
     #include <time.h>
     #include <sys/time.h>
+    #include <errno.h>
+    #include <locale.h>
+    #include "../shared/linked_queue.h"
     #include "../shared/memory_buffer.h"
     #include "../shared/linked_queue.h"
     #include "disk_write.h"

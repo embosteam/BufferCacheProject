@@ -5,22 +5,31 @@
     */
 int write2Disk(int disk_fd,struct MemoryBuffer* memory_buffer){
     int ret;
-    //printf("[write2Disk] (disk_fd:%d , blk_nr:%d)\n",disk_fd,memory_buffer->header.block_number);
+    //printf("[write2Disk] (disk_fd:%d , blk_nr:%d , blocksize: %x)\n",disk_fd,memory_buffer->header.block_number,memory_buffer->header.block_size_byte);
     //printf("\t membuffer: %x\n",memory_buffer);
-    struct MemoryBufferHeader memory_buffer_header = memory_buffer->header;
-    const int block_number = memory_buffer_header.block_number;
+    struct MemoryBufferHeader* memory_buffer_header = &memory_buffer->header;
+    if(memory_buffer_header->isBufferBeingWrittenNow){
+        return (ret=0);
+    }
+    const int block_number = memory_buffer_header->block_number;
     const char* buffer_content = memory_buffer->buffer;
-    const int block_size = memory_buffer_header.block_size_byte;
+    const int block_size = memory_buffer_header->block_size_byte;
     int disk_fd2 = dup(disk_fd);
     if(disk_fd2==-1){
         perror("\t  error: ");
         return -1;
     }
     sem_wait(&memory_buffer->header.write_lock);
+    if((&memory_buffer->header)->isDirty==0){
+        sem_post(&memory_buffer->header.write_lock);
+        return 0;
+    }
     memory_buffer->header.isBufferBeingWrittenNow = 1;
-    ret = lseek(disk_fd2,block_number*block_size,SEEK_SET);
+    long long offset = block_number*block_size;
+    ret = lseek(disk_fd2,offset,SEEK_SET);
     if(ret<0){
         sem_post(&memory_buffer->header.write_lock);
+        perror("[write2Disk]file seek error");
         close(disk_fd2);
         return ret;
     }
@@ -28,12 +37,14 @@ int write2Disk(int disk_fd,struct MemoryBuffer* memory_buffer){
     if(ret<0){
         sem_post(&memory_buffer->header.write_lock);
         close(disk_fd2);
+        perror("[write2Disk]file write error");
         return ret;
     }
     close(disk_fd2);
     memory_buffer->header.isDirty = 0;
     sem_post(&memory_buffer->header.write_lock);
     memory_buffer->header.isBufferBeingWrittenNow = 0;
+    
     return ret;
 }
 /**
