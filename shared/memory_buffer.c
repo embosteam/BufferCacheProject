@@ -1,15 +1,32 @@
 #include "memory_buffer.h"
-struct MemoryBuffer* createNewMemoryBuffer(int block_size,int block_number){
+struct MemoryBuffer* createNewMemoryBuffer(int block_size_byte,int block_number){
         struct MemoryBuffer* buffer = NULL;
         buffer = (struct MemoryBuffer*)malloc(sizeof(struct MemoryBuffer));
         memset(buffer,0,sizeof(struct MemoryBuffer));
-        buffer->buffer = (char*)malloc(block_size*1024);//aligned_alloc(block_size,block_size*sizeof(char));
-        *(&buffer->header.block_number) = block_number;
-        buffer->header.block_size_byte = block_size*1024;
+        buffer->buffer = (char*)malloc(block_size_byte);//aligned_alloc(block_size,block_size*sizeof(char));
+        (buffer->header.block_number) = block_number;
+        buffer->header.block_size_byte = block_size_byte;
+        
         //printf("[createNewMemoryBuffer] isBufferNULL: %d\n",buffer->buffer==NULL);
         sem_init(&buffer->header.write_lock,0,1);
         //printf("[createNewMemoryBuffer] lock initialized\n");
         return buffer;
+    }
+    union IntegerDecomposer{
+        int raw_int;
+        char value[4];
+    };
+    int compareMemBuffer(const void* a,const void* b, void* udata){
+        const struct MemoryBuffer* mem_buffer1 = a;
+        const struct MemoryBuffer* mem_buffer2 = b;
+        return mem_buffer1->header.block_number-mem_buffer2->header.block_number;
+    }
+    uint64_t fetchMemBufferHash(const void* item,uint64_t seed0,uint64_t seed1){
+        const struct MemoryBuffer* mem_buffer = item;
+        const int block_number = mem_buffer->header.block_number;
+        union IntegerDecomposer decomposer = {block_number};
+
+        return hashmap_sip(decomposer.value,sizeof(decomposer.value),seed0,seed1);
     }
     /**
      * 
@@ -29,30 +46,116 @@ struct MemoryBuffer* createNewMemoryBuffer(int block_size,int block_number){
         manager->explicit_block_size=block_size;
         manager->total_number_of_memory_buffers = n;
         manager->manageable_number_of_memory_buffers=manageable_n;
-        manager->memory_buffers = (struct MemoryBuffer**)malloc(manageable_n*sizeof(struct MemoryBuffer*));
+        manager->controller = newMemoryBufferController();
+        //manager->memory_buffers = (struct MemoryBuffer**)malloc(manageable_n*sizeof(struct MemoryBuffer*));
+        manager->memory_buffers = hashmap_new(sizeof(struct MemoryBuffer*),0,0,0,fetchMemBufferHash,compareMemBuffer,NULL,NULL);
+
         return manager;
     }
-    void freeMemoryBufferAt(struct MemoryBufferManager* memory_buffer_wrapper,int index){
-        if(0<=index&&index<memory_buffer_wrapper->manageable_number_of_memory_buffers){
-            struct MemoryBuffer* buffer = memory_buffer_wrapper->memory_buffers[index];
+    void freeMemoryBufferAt(struct MemoryBufferManager* memory_buffer_wrapper,int block_number,unsigned char free_content){
+        if(0<=block_number&&block_number<memory_buffer_wrapper->total_number_of_memory_buffers){
+            struct hashmap* memory_buffers = memory_buffer_wrapper->memory_buffers;
+            struct MemoryBuffer* mem_buffer = hashmap_get(memory_buffers,block_number);
+            hashmap_delete(memory_buffers,mem_buffer);
+            if(free_content>0){
+                free(mem_buffer->buffer);
+                sem_destroy(&mem_buffer->header.write_lock);
+                free(mem_buffer);
+            }
+            /*struct MemoryBuffer* buffer = memory_buffer_wrapper->memory_buffers[index];
             free(buffer->buffer);
             free(memory_buffer_wrapper->memory_buffers[index]);
             sem_destroy(&buffer->header.write_lock);
-            memory_buffer_wrapper->memory_buffers[index] = NULL;
+            memory_buffer_wrapper->memory_buffers[index] = NULL;*/
         }
     }
     void allFreeMemoryBuffer(struct MemoryBufferManager* memory_buffer_wrapper){
-        for(int i=0;i<memory_buffer_wrapper->manageable_number_of_memory_buffers;i++){
-            freeMemoryBufferAt(memory_buffer_wrapper,i);
-        }
+        struct hashmap* memory_buffers = memory_buffer_wrapper->memory_buffers;
+        //hashmap_clear(memory_buffers,1);
+    
     }
-    int setMemoryBufferAt(struct MemoryBufferManager* memory_buffer_wrapper,int index,char* buffer){
-        if(0<=index&&index<memory_buffer_wrapper->manageable_number_of_memory_buffers){
-            if(memory_buffer_wrapper->memory_buffers[index]==NULL){
-                memory_buffer_wrapper->memory_buffers[index] = createNewMemoryBuffer(memory_buffer_wrapper->explicit_block_size,-1);
+    int setMemoryBufferAt(struct MemoryBufferManager* memory_buffer_wrapper,int block_number,char* buffer,long long buffer_length_byte){
+        if(0<=block_number&&block_number<memory_buffer_wrapper->total_number_of_memory_buffers){
+            struct hashmap* memory_buffers = memory_buffer_wrapper->memory_buffers;
+            struct MemoryBuffer* mem_buffer = hashmap_get(memory_buffers,&(struct MemoryBuffer){.header.block_number=block_number});
+            if(mem_buffer==NULL){
+                mem_buffer = createNewMemoryBuffer(buffer_length_byte,-1);
+                //if()
+                mem_buffer->header.isDirty = 1;
+                memcpy(mem_buffer->buffer,buffer,buffer_length_byte*sizeof(char));
             }
-            memcpy(memory_buffer_wrapper->memory_buffers[index]->buffer,buffer,memory_buffer_wrapper->explicit_block_size*sizeof(char));
+            else{
+                sem_wait(&mem_buffer->header.write_lock);
+                
+                if(mem_buffer->header.block_size_byte!=buffer_length_byte){
+                    mem_buffer->header.isDirty = 1;
+                    free(mem_buffer->buffer);
+                   ( &mem_buffer->header)->block_size_byte = buffer_length_byte;
+                    mem_buffer->buffer = (char*)malloc(buffer_length_byte*sizeof(char));
+                    memcpy(mem_buffer->buffer,buffer,buffer_length_byte*sizeof(char));
+                }
+                else{
+                    //TODO: IMPLEMENTATION - check equal checksum
+                    memcpy(mem_buffer->buffer,buffer,buffer_length_byte*sizeof(char));
+                }
+                sem_post(&mem_buffer->header.write_lock);
+            }
             return 1;
         }
         return 0;
     }
+    int putMemoryBufferAt(struct MemoryBufferManager* memory_buffer_wrapper,int block_number,struct MemoryBuffer* mem_buffer){
+        if(0<=block_number&&block_number<memory_buffer_wrapper->total_number_of_memory_buffers){
+            struct hashmap* memory_buffers = memory_buffer_wrapper->memory_buffers;
+
+            hashmap_set(memory_buffers,mem_buffer);
+            return 1;
+        }
+        return 0;
+    }
+     struct MemoryBuffer* getMemoryBufferMap(struct MemoryBufferManager* memory_buffer_wrapper,int block_number){
+        if(0<=block_number&&block_number<memory_buffer_wrapper->total_number_of_memory_buffers){
+            struct hashmap* memory_buffers = memory_buffer_wrapper->memory_buffers;
+            struct MemoryBuffer* search_obj = (struct MemoryBuffer*)malloc(sizeof(struct MemoryBuffer));
+            memset(search_obj,0,sizeof(struct MemoryBuffer));
+            (&search_obj->header)->block_number = block_number;
+            struct MemoryBuffer* mem_buffer = hashmap_get(memory_buffers,search_obj);
+            free(search_obj);
+            printf("[getMemoryBufferMap] result is %sNULL (at %d)\n",mem_buffer!=NULL?"not ":"",block_number);
+            return mem_buffer;
+        }
+        return NULL;
+     }
+    unsigned char MemControllerCheckContentValidation(struct MemoryBufferController* self,struct MemoryBuffer* memory_buffer,char* buffer){
+        struct MD5Controller* hash_controller = self->hash_controller;
+        uint8_t* precaluclate_hash = (&memory_buffer->header)->buffer_precalculated_hash;
+        uint8_t* calculated_hash =  hash_controller->fetchHashValue(buffer,memory_buffer->header.block_size_byte);
+        return hash_controller->isEqualMd5Hash(precaluclate_hash,calculated_hash);
+    }
+    void MemControllerCheckContentValidationAndSetValidBit(struct MemoryBufferController* self,struct MemoryBuffer* memory_buffer,char* buffer){
+        struct MD5Controller* hash_controller = self->hash_controller;
+        uint8_t* precaluclate_hash = (&memory_buffer->header)->buffer_precalculated_hash;
+        uint8_t* calculated_hash =  hash_controller->fetchHashValue(buffer,memory_buffer->header.block_size_byte);
+        unsigned char isSameHash = hash_controller->isEqualMd5Hash(precaluclate_hash,calculated_hash);
+        if(!isSameHash){
+            hash_controller->copyHashValue(precaluclate_hash,calculated_hash);
+        }
+    }
+    void MemControllerSearchMapMemoryBuffer(struct MemoryBufferController* self,int block_number){
+
+    }
+    
+
+     struct MemoryBufferController* newMemoryBufferController(){
+        struct MemoryBufferController* controller = (struct MemoryBufferController*) malloc(sizeof(struct MemoryBufferController));
+        controller->hash_controller = newMD5Controller();
+        controller->checkContentValidation = MemControllerCheckContentValidation;
+        controller->checkContentValidationAndSetValidBit = MemControllerCheckContentValidationAndSetValidBit;
+        controller->getMemoryBufferMap = getMemoryBufferMap;
+        controller->freeMemoryBufferAt = freeMemoryBufferAt;
+        controller->allFreeMemoryBuffer = allFreeMemoryBuffer;
+        controller->setMemoryBufferAt = setMemoryBufferAt;
+        controller->putMemoryBufferAt = putMemoryBufferAt;
+        return controller;
+    }
+    

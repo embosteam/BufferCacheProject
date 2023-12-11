@@ -5,6 +5,10 @@
     #include <unistd.h>
     #include <memory.h>
     #include <semaphore.h>
+    #include <stdint.h>
+    #include "hash_controller.h"
+    #include "hashmap.h"
+    
     /**
      * 각 버퍼에 붙는 메모리 버퍼 헤더
     */
@@ -13,12 +17,15 @@
         unsigned char isDirty:1;
         unsigned char isBufferBeingWrittenNow:1;//데이터 동기화주기 약간불안정, sem_getvalue 함수등을 사용해 체크하는게 조금더 바람직
         pthread_t writeThreadId;
+        
         sem_t write_lock;
         long block_number;
         long long block_size_byte;
-        void* block_precalculated_key;
+        uint8_t buffer_precalculated_hash[16];
         long lastestAccessedTimeStamp;
     };
+
+
     /**
      * 실제 버퍼 내용과 헤더를 합쳐놓은 메모리 버퍼의 실질적인 개체
     */
@@ -26,6 +33,23 @@
         struct MemoryBufferHeader header;
         char* buffer;
     };
+
+    struct MemoryBufferController{
+        struct MD5Controller* hash_controller;
+
+        int (* readMemoryBuffer)(struct MemoryBufferController*,int);
+        void (* writeMemoryBuffer)(struct MemoryBufferController*,int,char*);
+        unsigned char (* checkContentValidation)(struct MemoryBufferController*,struct MemoryBuffer*,char*);
+        void (* checkContentValidationAndSetValidBit)(struct MemoryBufferController*,struct MemoryBuffer*,char*);
+        struct MemoryBuffer* (* getMemoryBufferMap)(struct MemoryBufferManager*,int);
+        void (*freeMemoryBufferAt)(struct MemoryBufferManager* memory_buffer_wrapper,int block_number,unsigned char free_content);
+        void (*allFreeMemoryBuffer)(struct MemoryBufferManager* memory_buffer_wrapper);
+        int (*putMemoryBufferAt)(struct MemoryBufferManager* memory_buffer_wrapper,int block_number,struct MemoryBuffer* mem_buffer);
+        int (*setMemoryBufferAt)(struct MemoryBufferManager* memory_buffer_wrapper,int block_number,char* buffer,long long buffer_length_byte);
+        
+    };
+    struct MemoryBufferController* newMemoryBufferController();
+
     /**
      * 
     */
@@ -34,10 +58,10 @@
         int manageable_number_of_memory_buffers;
         long long explicit_block_size;
         unsigned int current_memory_buffer_count;
-        struct MemoryBuffer** memory_buffers;
+        struct hashmap* memory_buffers;
+        struct MemoryBufferController* controller;
         //char** memory_buffers;
-        int (* readMemoryBuffer)(int);
-        void (* writeMemoryBuffer)(int,char*);
+        
     };
     //새로운 메모리 버퍼 객체를 생성하는 함수
     struct MemoryBuffer* createNewMemoryBuffer(int block_size,int block_number);
@@ -50,10 +74,11 @@
      */
     struct MemoryBufferManager* createNewMemoryBufferManager(int n,int manageable_n,long long block_size);
     //index에 위치한 메모리 버퍼 객체를 메모리 버퍼 메니저에서 리소스를 시스템에 반환하는 함수
-    void freeMemoryBufferAt(struct MemoryBufferManager* memory_buffer_wrapper,int index);
+    void freeMemoryBufferAt(struct MemoryBufferManager* memory_buffer_wrapper,int block_number,unsigned char free_content);
     //모든 메모리 버퍼 객체를 메모리 버퍼 메니저에서 리소스를 시스템에 반환하는 함수
     void allFreeMemoryBuffer(struct MemoryBufferManager* memory_buffer_wrapper);
     //index에 위치한 메모리 버퍼 객체의 내용을 적용하는 함수
-    int setMemoryBufferAt(struct MemoryBufferManager* memory_buffer_wrapper,int index,char* buffer);
-    
+    int setMemoryBufferAt(struct MemoryBufferManager* memory_buffer_wrapper,int block_number,char* buffer,long long buffer_length_byte);
+    int putMemoryBufferAt(struct MemoryBufferManager* memory_buffer_wrapper,int block_number,struct MemoryBuffer* mem_buffer);
+    struct MemoryBuffer*  getMemoryBufferMap(struct MemoryBufferManager* memory_buffer_wrapper,int);
 #endif  
