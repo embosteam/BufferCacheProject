@@ -53,7 +53,7 @@
   * [x] 버퍼 각각은 하나의 블록 내용을 저장(4KB)할 수 있으며, 데이터 저장 공간과 메타데이터 (블록 번호, 빠른 탐색을 위한 데이터) 저장 공간으로 구성된다.  
   * [x] 빠른 탐색을 위한 데이터 구조 (e.g., hash)는 자유롭게 정한다.  
   * [x] 읽기 요청 블록이 Buffer에 없다면 Disk에서 Buffer로 읽은 후, Buffer의 내용을 상위 레이어에 전달한다. 요청한 블록이 Buffer에 있다면 파일에서 읽지 않고 Buffer의 내용을 전달한다.
-  * [ ] 자료구조 및 탐색구조 최적화
+  * [ ] (버퍼읽는 알고리즘의 성능을 평가함)자료구조 및 탐색구조 최적화
   * [ ] hit , miss에 관한 경과시간 그래프 데이터 산출
 * Delayed Write 영역
   * [x] 응용이 Write한 내용을 Buffer에 기록하고 리턴한다.
@@ -62,7 +62,7 @@
   * [x] Buffer에 Write된 내용이 Disk에 쓰여지지 않았다면 Dirty 상태로 표시한다.
   * [x] Dirty Buffer를 Disk에 Write하는 기능을 Thread (flush thread)를 이용하여 해볼 것
   * [x] Buffer가 flush thread에 의해 Disk에 Write 중인 경우, 응용이 overwrite하지 못하도록 동기화 (locking) 메커니즘을 사용할 것
-  * [ ] (버퍼읽는 알고리즘의 성능을 평가함)빠른 write 알고리즘 구현 및 최적화
+  * [ ] (버퍼쓰는 알고리즘의 성능을 평가함)빠른 write 알고리즘 구현 및 최적화
   * [ ] 이전 버퍼값을 write후 새 버퍼 값을 쓰도록 알고리즘 세부 구현
  ㅇ
 * Replacement Policy 영역
