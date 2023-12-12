@@ -16,15 +16,15 @@ int main(){
     printf("생성할 파일의 정보 입니다.\n");
     printf("\tn=%d\n",n);
     printf("\tblock size=%dKB\n",BLOCK_SIZE);
-    long long blk_size = BLOCK_SIZE*1024;
-    printf("\t파일크기: %lldKB\n",(blk_size/1024)*n);
+    long long blk_size = BLOCK_SIZE;
+    printf("\t파일크기: %lldB\n",(blk_size)*n);
     char bs_char[256] = {0,};
     char count_char[512] = {0,};
     char file_path_char[1024] = {0,};
     char source_path[1024] = {0,};
 
     snprintf(bs_char,sizeof(bs_char),"bs=%d",(int)BLOCK_SIZE);
-    snprintf(count_char,sizeof(count_char),"count=%lld",(long long)n*1024);
+    snprintf(count_char,sizeof(count_char),"count=%lld",(long long)n);
     snprintf(file_path_char,sizeof(file_path_char),"of=%s",filename);
     snprintf(source_path,sizeof(source_path),"if=%s",source_dev_path);
     
