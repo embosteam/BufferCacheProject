@@ -47,7 +47,12 @@
         int (*putMemoryBufferAt)(struct MemoryBufferManager* memory_buffer_wrapper,int block_number,struct MemoryBuffer* mem_buffer);
         int (*setMemoryBufferAt)(struct MemoryBufferManager* memory_buffer_wrapper,int block_number,char* buffer,long long buffer_length_byte);
         
+        //policy 관련 함수
+        int (*shouldFindEvictableBuffer)(struct MemoryBufferController* self,struct MemoryBufferManager* manager);
+        struct MemoryBuffer* (*findEvictableBuffer)(struct MemoryBufferController* self,struct MemoryBufferManager* manager);
+        int (*deleteMemoryBuffer)(struct MemoryBufferController* self,struct MemoryBufferManager* manager,struct MemoryBuffer* mem_buffer);
     };
+    
     struct MemoryBufferController* newMemoryBufferController();
 
     /**
@@ -63,6 +68,10 @@
         //char** memory_buffers;
         
     };
+
+    
+
+
     //새로운 메모리 버퍼 객체를 생성하는 함수
     struct MemoryBuffer* createNewMemoryBuffer(int block_size,int block_number);
     /**
