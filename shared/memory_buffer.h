@@ -1,21 +1,81 @@
 #ifndef __MEMORY_BUFFER__
 #define __MEMORY_BUFFER__
+
+#define __TEST__
+
+#ifdef __TEST__
+    #define __STANDARD__
+        
+        #define __HIERARCHY_BUFFER_STRUCT__
+        
+        #define __HIERARCHY_SITE__
+        #define __HIERARCHY_SITE_END__
+
+    #ifdef __HIERARCHY_BUFFER_STRUCT__
+
+    #ifdef __STANDARD__
+        #define __HIERARCHY_2__
+    #endif
+        
+        #define __HIERARCHY_DEFINE_TYPE__(X) X
+        #define __HIERARCHY_DEFINE_NAME__(X) X
+
+        #define __GET_HIERARCHY_BUFFER_PREV__(MEM_BUFFER) (MEM_BUFFER.header.hierarchy_prev)
+        #define __GET_HIERARCHY_BUFFER_NEXT__(MEM_BUFFER) (MEM_BUFFER.header.hierarchy_prev)
+
+        #define __CLEAR__(...)\
+        do { \
+        } while (0)
+    
+    #else
+    
+        #define __HIERARCHY_DEFINE_TYPE__(X)
+        #define __HIERARCHY_DEFINE_NAME__(X)
+
+        #define __GET_HIERARCHY_BUFFER_PREV__(MEM_BUFFER) NULL
+        #define __GET_HIERARCHY_BUFFER_NEXT__(MEM_BUFFER) NULL
+       
+        #define __CLEAR__(...) \
+        do { \
+        __VA_ARGS__ \
+        } while (0)
+
+#endif
+
+#endif
+
     #include <stdlib.h>
     #include <stdio.h>
     #include <unistd.h>
     #include <memory.h>
     #include <semaphore.h>
     #include <stdint.h>
+    #include <pthread.h>
     #include "hash_controller.h"
     #include "hashmap.h"
     
+
     /**
      * 각 버퍼에 붙는 메모리 버퍼 헤더
     */
+    struct MemoryBuffer;
+
     struct MemoryBufferHeader{
         unsigned char isValid:1;
         unsigned char isDirty:1;
         unsigned char isBufferBeingWrittenNow:1;//데이터 동기화주기 약간불안정, sem_getvalue 함수등을 사용해 체크하는게 조금더 바람직
+
+        __HIERARCHY_SITE__
+        //계층의 수치를 나타내는 변수
+        __HIERARCHY_DEFINE_TYPE__(unsigned int) __HIERARCHY_DEFINE_NAME__(hierarchy_co);
+        
+        //계층 다음의 버퍼 포인터를 저장함.
+        __HIERARCHY_DEFINE_TYPE__(struct MemoryBuffer*) __HIERARCHY_DEFINE_NAME__(hierarchy_next);
+        //계층 이전의 버퍼 포인터를 저장함.
+        __HIERARCHY_DEFINE_TYPE__(struct MemoryBuffer*) __HIERARCHY_DEFINE_NAME__(hierarchy_prev);
+        
+        __HIERARCHY_SITE_END__
+        
         pthread_t writeThreadId;
         
         sem_t write_lock;
@@ -51,6 +111,12 @@
         int (*shouldFindEvictableBuffer)(struct MemoryBufferController* self,struct MemoryBufferManager* manager);
         struct MemoryBuffer* (*findEvictableBuffer)(struct MemoryBufferController* self,struct MemoryBufferManager* manager);
         int (*deleteMemoryBuffer)(struct MemoryBufferController* self,struct MemoryBufferManager* manager,struct MemoryBuffer* mem_buffer);
+        
+        //계층적 버퍼 구현
+
+        __HIERARCHY_SITE__
+        __HIERARCHY_DEFINE_TYPE__(int (*isHierarchyStruct)(struct MemoryBufferController* self,struct MemoryBufferManager* manager,struct MemoryBuffer* mem_buffer));
+        __HIERARCHY_SITE_END__
     };
     
     struct MemoryBufferController* newMemoryBufferController();
@@ -90,4 +156,6 @@
     int setMemoryBufferAt(struct MemoryBufferManager* memory_buffer_wrapper,int block_number,char* buffer,long long buffer_length_byte);
     int putMemoryBufferAt(struct MemoryBufferManager* memory_buffer_wrapper,int block_number,struct MemoryBuffer* mem_buffer);
     struct MemoryBuffer*  getMemoryBufferMap(struct MemoryBufferManager* memory_buffer_wrapper,int);
+
+    __HIERARCHY_DEFINE_TYPE__(int) __HIERARCHY_DEFINE_NAME__(isHierarchyStruct());
 #endif  

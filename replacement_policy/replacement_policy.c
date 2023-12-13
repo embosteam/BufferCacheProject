@@ -1,31 +1,15 @@
-#include "../shared/doubly_linked_list.h"
-#include "../shared/memory_buffer.h"
-//완벽하게 정해진 것은아니고 호출할 example 임
-/** flush thread쪽 호출할때 해당 로직을 검토중
- * if(isBufferContainerFull==true){
- *      int replacement_algorithm_type = -1;
- *      struct DoublyLinkedList* evictable_item = pickEvictableItem(buffer_container,replacement_algorithm_type);
- *      if(evictable_item!=NULL){
- *          write2DiskIfDirty(evictable_item);
- *          resourceCleanUpBeforeEvicting(buffer_container,evictable_item,replacement_algorithm_type);
- *          popFromDoublyLinkedList(evictable_item);
- *      }
- *      else{
- *      
- *      }
- *      putOrCalcuateNewItem(current_item,NULL);
- * }
- * 아래는 단지 예제이므로 이런 느낌이면 좋다라는 의미의 코드
- * 
- * 
-*/
+#include "replacement_policy.h"
+
 int initializeReplacementPolicyAlgorithms(void* args){
-    int is_finished = 1;
-    /**
-     * 캐시 알고리즘 관련 초기화(아마 인스턴스 생성시나 최초 1번만 사용될 가능성이 높음
-    */
-    return is_finished;
+    static int is_init = 0;
+
+    if(is_init == 0)
+    {
+        is_init = 1;
+    
+    }
 }
+
 int putOrCalcuateNewItem(struct DoublyLinkedList* currentItemContainer,void* args){
     int success = 0;
     /**
@@ -33,6 +17,7 @@ int putOrCalcuateNewItem(struct DoublyLinkedList* currentItemContainer,void* arg
     */
     return success;
 }
+
 void updateCacheStateDueToFetching(struct DoublyLinkedList* selected_item,void* args){
     struct MemoryBuffer* current_buffer =  (struct MemoryBuffer*) selected_item->value;
     /**

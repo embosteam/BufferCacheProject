@@ -1,19 +1,45 @@
 #include "memory_buffer.h"
+
+
 struct MemoryBuffer* createNewMemoryBuffer(int block_size_byte,int block_number){
         struct MemoryBuffer* buffer = NULL;
+        
+        __HIERARCHY_SITE__
+
+        __CLEAR__(
+            #ifdef __HIERARCHY_1__
+
+
+            #elif defined(__HIERARCHY_2__)
+
+                struct MemoryBuffer* buffer1 = NULL;
+
+            #endif
+
+        );
+        __HIERARCHY_SITE_END__
+
         buffer = (struct MemoryBuffer*)malloc(sizeof(struct MemoryBuffer));
+        
         memset(buffer,0,sizeof(struct MemoryBuffer));
+        
+        
         buffer->buffer = (char*)malloc(block_size_byte);//aligned_alloc(block_size,block_size*sizeof(char));
-        (buffer->header.block_number) = block_number;
+
+        buffer->header.block_number = block_number;
         buffer->header.block_size_byte = block_size_byte;
         
         sem_init(&buffer->header.write_lock,0,1);
+
         return buffer;
     }
+
+
     union IntegerDecomposer{
         int raw_int;
         char value[4];
     };
+
     struct HashMapWrapper{
         int block_number;
         struct MemoryBuffer* memory_buffer;
@@ -214,6 +240,9 @@ struct MemoryBuffer* createNewMemoryBuffer(int block_size_byte,int block_number)
      struct MemoryBufferController* newMemoryBufferController(){
         struct MemoryBufferController* controller = (struct MemoryBufferController*) malloc(sizeof(struct MemoryBufferController));
         controller->hash_controller = newMD5Controller();
+   
+    #ifdef __STANDARD__
+    #define __EVICTABLE_ALG_LRU__
         controller->checkContentValidation = MemControllerCheckContentValidation;
         controller->checkContentValidationAndSetValidBit = MemControllerCheckContentValidationAndSetValidBit;
         controller->getMemoryBufferMap = getMemoryBufferMap;
@@ -222,8 +251,32 @@ struct MemoryBuffer* createNewMemoryBuffer(int block_size_byte,int block_number)
         controller->setMemoryBufferAt = setMemoryBufferAt;
         controller->putMemoryBufferAt = putMemoryBufferAt;
         controller->deleteMemoryBuffer = deleteMemoryBuffer;
-        controller->findEvictableBuffer = findEvictableBuffer;
+        //controller->findEvictableBuffer = findEvictableBuffer;
         controller->shouldFindEvictableBuffer = shouldFindEvictableBuffer;
+    #else
+    
+    
+    #endif
+
+    #ifdef __EVICTABLE_ALG_LRU__
+
+    
+    #elif defined(__EVICTABLE_ALG_LFU__)
+
+
+    #endif
+
+
+   
         return controller;
+    }
+
+    __HIERARCHY_DEFINE_TYPE__(int) __HIERARCHY_DEFINE_NAME__(isHierarchyStruct())
+    {
+        #ifdef __HIERARCHY_BUFFER_STRUCT__
+            return 1;
+        #else
+            return 0;
+        #endif
     }
     
