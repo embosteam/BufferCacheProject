@@ -224,22 +224,59 @@ int switchNode(struct DoublyLinkedDeque* self,struct DoublyLinkedDequeInternalNo
     }
     int return_result =0;
     if(dest!=NULL&&src!=NULL){
+        
+        
+        const unsigned char isDestFirst = dest==self->first;
+        const unsigned char isDestLast = dest==self->last;
+        const unsigned char isSrcFirst = src==self->first;
+        const unsigned char isSrcLast = src==self->last;
+
+        if((isDestFirst||isDestLast)&&(isSrcFirst||isSrcLast)){
+            struct DoublyLinkedDequeInternalNode* tmp = self->first;
+            self->first = self->last;
+            self->last = tmp;
+        }
+        else if(isDestFirst){
+            self->first =src;
+        }
+        else if(isDestLast){
+            self->first = src;
+        }
+        else if(isSrcFirst){
+            self->first = dest;
+        }
+        else if(isSrcLast){
+            self->last = dest;
+        }
+        
         struct DoublyLinkedDequeInternalNode* dest_prev = dest->previous;
         struct DoublyLinkedDequeInternalNode* dest_next = dest->next;
 
         struct DoublyLinkedDequeInternalNode* src_prev = src->previous;
         struct DoublyLinkedDequeInternalNode* src_next = src->next;
         
-        dest_prev->next = src;
-        dest_next->previous = src;
+        if(dest_prev!=NULL){
+            dest_prev->next = src;
+        }
+        if(dest_next!=NULL){
+            dest_next->previous = src;
+        }
+        
         src->previous = dest_prev;
-        src->next = dest_next;
+        src->next = src_prev;
 
-        src_prev->next = dest;
-        src_next->previous = dest;
-        dest->previous = src_prev;
+
+        if(src_prev!=NULL){
+            src_prev->next = dest;
+        }
+        if(src_next!=NULL){
+            src_next->previous = dest;
+        }
+        dest->previous = dest_next;
         dest->next = src_next;
+
         return_result = 1;
+        
     }
     if(self->isLockSupported){
         sem_post(&self->lock);
