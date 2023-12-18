@@ -1,6 +1,6 @@
 #include "replacement_policy.h"
-
-int initializeReplacementPolicyAlgorithms(void* args){
+//빌드 안되는 코드 주석처리
+/*int initializeReplacementPolicyAlgorithms(void* args){
     static int is_init = 0;
 
     if(is_init == 0)
@@ -12,9 +12,7 @@ int initializeReplacementPolicyAlgorithms(void* args){
 
 int putOrCalcuateNewItem(struct DoublyLinkedList* currentItemContainer,void* args){
     int success = 0;
-    /**
-     * 해당 버퍼를 각 캐시 알고리즘에 넣음
-    */
+
     return success;
 }
 
@@ -41,23 +39,16 @@ struct DoublyLinkedList* pickEvictableItem(struct DoublyLinkedListWrapper* conta
         if(current_position->value!=NULL && sizeof(current_position->value)==sizeof(struct MemoryBuffer*)){
             current_buffer = (struct MemoryBuffer*) current_position->value;
         }
-        /**
-         * 여러 캐시 알고리즘으로 탐색 구현
-         * //current = found_buffer
-        */
+
        return current_buffer;
     }
     return NULL;
 }
 int resourceCleanUpBeforeEvicting(struct DoublyLinkedListWrapper* container,struct DoublyLinkedList* evictable_item,int replacement_algorithm_type){
     int  is_cleaned_resource = 1;//true
-    /**
-     * 내부 캐시알고리즘에서 리소스자체적으로 release하거나 축출할 리스트가 명시적으로 있을떄 사용
-     * 라이프 사이클상 destroy 나 exit에 해당하는 함수
-     * 
-    */
+
     if(is_cleaned_resource==1){
         return 1;
     }
     return 0;//false
-}
+}*/
