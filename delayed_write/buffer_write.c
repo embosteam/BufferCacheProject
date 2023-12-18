@@ -27,6 +27,6 @@ int writeToBuffer(int disk_fd,struct MemoryBuffer* memory_buffer){
     .memory_buffer = memory_buffer
    };
     pthread_t tid = createAndRunFlushThread(&write2DiskInThread,(void*)&params);
-    memory_buffer->header.writeThreadId = tid;
+    //memory_buffer->header.writeThreadId = tid;
     return ret;
 }

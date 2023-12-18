@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-g -Wall
+CFLAGS=-g -Wall -lm
 #LDLIBS=-pthread -nostartfiles
 LDLIBS=-pthread -fPIC
 UNAME := $(shell uname)
@@ -10,7 +10,7 @@ MAIN_NAME=shared.o
 
 default: $(MAIN_NAME)
 %.o : %.c
-	@$(CC) -c $< $(LDLIBS)
+	@$(CC) -c $< $(LDLIBS) $(CFLAGS)
 $(MAIN_NAME): $(OBJS)
 ifeq ($(UNAME),Darwin)
 	@$(CC) -shared -o $@ $(OBJS) $(LDLIBS)

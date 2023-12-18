@@ -8,7 +8,8 @@
     #include <stdio.h>
     #include <time.h>
     #include <sys/time.h>
-    #include "../shared/memory_buffer.h"
+    #include "disk_write.h"
+    #include "../shared/memory_buffer_structures.h"
 
     struct FlushThreadGlobalVariable{
         pthread_t main_flush_thread_id;//thread를 통해 주기적으로 체크해주는 thread를 추가해줄 경우 사용
@@ -26,4 +27,10 @@
      * 리턴값: runfunction 함수를 실행하는 쓰레드의 id를 반환
     */
     pthread_t createAndRunFlushThread(int (*runfunction)(void*) ,void* arg);
+
+    pthread_t flushBufferWithThread(int disk_fd,struct MemoryBuffer* mem_buffer);
+    pthread_t flushBuffersWithThread(int disk_fd,struct MemoryBuffer** mem_buffers,int mem_buffer_count);
+
+    pthread_t flushBufferWithThread2(char* disk_buffer,struct MemoryBuffer* mem_buffer);
+    pthread_t flushBuffersWithThread2(char* disk_buffer,struct MemoryBuffer** mem_buffers,int mem_buffer_count);
 #endif

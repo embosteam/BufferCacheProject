@@ -9,16 +9,25 @@
     #include <memory.h>
     #include <time.h>
     #include <sys/time.h>
-    #include <errno.h>
-    #include <locale.h>
-    #include "../shared/linked_queue.h"
     #include "../shared/memory_buffer.h"
     #include "../shared/linked_queue.h"
+    #include "../shared/linked_heap_queue.h"
     #include "disk_write.h"
     #include "flush_thread.h"
+    #include "../config.h"
+    #include <errno.h>
+    #include <locale.h>
     struct QueueUnit1{
         int disk_fd;
         int block_number;
+        int priority;
+        struct MemoryBuffer* buffer;
+    };
+    struct QueueUnit2{
+        char* disk_buffer;
+
+        int block_number;
+        int priority;
         struct MemoryBuffer* buffer;
     };
     struct ThreadPool{
@@ -27,21 +36,26 @@
         sem_t thread_should_terminate_state_lock;
         int thread_should_terminate_state;
         struct LQueue* running_queue;
-        struct LQueue* thread_unit_queue; //priority_queue로 바뀔 예정
+        //struct LQueue* thread_unit_queue; //priority_queue로 바뀔 예정
+        struct LHQueue* thread_unit_queue; //priority_queue로 바뀔 예정
+        //struct AQueue* thread_unit_queue;
         int number_of_thread;
+        unsigned int max_buffer_continous_sequential_length;
         pthread_t pooling_tid;
         void (*pooling)(void*);
         void (*releaseInternalResource)(struct ThreadPool*);
         void (*close)(struct ThreadPool*);
         void (*waitInternalThread)(struct ThreadPool*,unsigned char);
-        void (*addQueue)(struct ThreadPool*,int,struct MemoryBuffer*);
+        void (*addQueue)(struct ThreadPool*,int,struct MemoryBuffer*,int priority);
+        void (*addQueue2)(struct ThreadPool*,char*,struct MemoryBuffer*,int priority);
+        
         int (*shouldTerminateThreadPool)(struct ThreadPool*);
     };
 
     /**
      * ThreadPool 인스턴스를 생성
     */
-    struct ThreadPool* newThreadPool(int n);
+    struct ThreadPool* newThreadPool(int n,unsigned int max_buffer_continous_sequential_length);
     /**
      * 클래스 destructor 함수에 해당하는 함수
     */
@@ -54,7 +68,12 @@
     /**
      * threadpool에 작업 단위를 추가하는 내부 함수
     */
-    void ThreadPoolAddQueue(struct ThreadPool* tp,int disk_fd,struct MemoryBuffer* buffer);
+    void ThreadPoolAddQueue(struct ThreadPool* tp,int disk_fd,struct MemoryBuffer* buffer,int priority);
+   
+   /**
+     * threadpool에 작업 단위를 추가하는 내부 함수
+    */
+    void ThreadPoolAddQueue2(struct ThreadPool* tp,char* disk_buffer,struct MemoryBuffer* buffer,int priority);
    
    /**
      * 모든 쓰레드가 종료될때까지 기다리는 함수
