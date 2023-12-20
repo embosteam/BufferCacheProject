@@ -1,0 +1,70 @@
+\doxysection{Buffer\+Cache\+Project/shared/doubly\+\_\+linked\+\_\+deque.h File Reference}
+\hypertarget{doubly__linked__deque_8h}{}\label{doubly__linked__deque_8h}\index{BufferCacheProject/shared/doubly\_linked\_deque.h@{BufferCacheProject/shared/doubly\_linked\_deque.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$memory.\+h$>$}\newline
+{\ttfamily \#include $<$semaphore.\+h$>$}\newline
+Include dependency graph for doubly\+\_\+linked\+\_\+deque.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}}
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{doubly__linked__deque_8h_a6881435f2463a6ae8fdd818bfa9d66a2}{\+\_\+\+\_\+\+DOUBLY\+\_\+\+LINKED\+\_\+\+DEQUE\+\_\+\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{doubly__linked__deque_8h_a7dec34cd55d4ec3bb1801d17d5461e84}{new\+Doubly\+Linked\+Deque}} (unsigned int concurrent\+\_\+count)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{doubly__linked__deque_8h_a6881435f2463a6ae8fdd818bfa9d66a2}\label{doubly__linked__deque_8h_a6881435f2463a6ae8fdd818bfa9d66a2} 
+\index{doubly\_linked\_deque.h@{doubly\_linked\_deque.h}!\_\_DOUBLY\_LINKED\_DEQUE\_\_@{\_\_DOUBLY\_LINKED\_DEQUE\_\_}}
+\index{\_\_DOUBLY\_LINKED\_DEQUE\_\_@{\_\_DOUBLY\_LINKED\_DEQUE\_\_}!doubly\_linked\_deque.h@{doubly\_linked\_deque.h}}
+\doxysubsubsection{\texorpdfstring{\_\_DOUBLY\_LINKED\_DEQUE\_\_}{\_\_DOUBLY\_LINKED\_DEQUE\_\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+DOUBLY\+\_\+\+LINKED\+\_\+\+DEQUE\+\_\+\+\_\+}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{doubly__linked__deque_8h_a7dec34cd55d4ec3bb1801d17d5461e84}\label{doubly__linked__deque_8h_a7dec34cd55d4ec3bb1801d17d5461e84} 
+\index{doubly\_linked\_deque.h@{doubly\_linked\_deque.h}!newDoublyLinkedDeque@{newDoublyLinkedDeque}}
+\index{newDoublyLinkedDeque@{newDoublyLinkedDeque}!doubly\_linked\_deque.h@{doubly\_linked\_deque.h}}
+\doxysubsubsection{\texorpdfstring{newDoublyLinkedDeque()}{newDoublyLinkedDeque()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*} new\+Doubly\+Linked\+Deque (\begin{DoxyParamCaption}\item[{unsigned int}]{concurrent\+\_\+count }\end{DoxyParamCaption})}
+
+doubly linked deque를 생성하는 함수 사실상 new \doxylink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque(concurrent\+\_\+count)}; concurrent\+\_\+count\+: 세마포어 내부 갯수 Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8h_a7dec34cd55d4ec3bb1801d17d5461e84_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8h_a7dec34cd55d4ec3bb1801d17d5461e84_icgraph}
+\end{center}
+\end{figure}

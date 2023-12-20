@@ -1,0 +1,79 @@
+\doxysection{Buffer\+Cache\+Project/shared/linked\+\_\+heap.h File Reference}
+\hypertarget{linked__heap_8h}{}\label{linked__heap_8h}\index{BufferCacheProject/shared/linked\_heap.h@{BufferCacheProject/shared/linked\_heap.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$memory.\+h$>$}\newline
+{\ttfamily \#include "{}linked\+\_\+stack.\+h"{}}\newline
+{\ttfamily \#include "{}array\+\_\+stack.\+h"{}}\newline
+Include dependency graph for linked\+\_\+heap.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_l_heap_internal_node}{LHeap\+Internal\+Node}}
+\item 
+struct \mbox{\hyperlink{struct_l_heap}{LHeap}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linked__heap_8h_a7b48365fa0a0965610300bb621cba031}{new\+LHeap}} (unsigned int concurrent\+\_\+count, int(\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{thread__pool_8c_ae00f4b5af832677b4e133e3c343f1c39}{fetch\+Key\+From\+Value}})(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}), int(\texorpdfstring{$\ast$}{*}comparator)(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}))
+\item 
+struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linked__heap_8h_ab919e8b6817bb880b92052a97c6f91d6}{new\+LHeap2}} (unsigned int concurrent\+\_\+count, int(\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{thread__pool_8c_ae00f4b5af832677b4e133e3c343f1c39}{fetch\+Key\+From\+Value}})(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{linked__heap_8h_a7b48365fa0a0965610300bb621cba031}\label{linked__heap_8h_a7b48365fa0a0965610300bb621cba031} 
+\index{linked\_heap.h@{linked\_heap.h}!newLHeap@{newLHeap}}
+\index{newLHeap@{newLHeap}!linked\_heap.h@{linked\_heap.h}}
+\doxysubsubsection{\texorpdfstring{newLHeap()}{newLHeap()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*} new\+LHeap (\begin{DoxyParamCaption}\item[{unsigned int}]{concurrent\+\_\+count,  }\item[{int(\texorpdfstring{$\ast$}{*})(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})}]{fetch\+Key\+From\+Value,  }\item[{int(\texorpdfstring{$\ast$}{*})(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})}]{comparator }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap_8h_a7b48365fa0a0965610300bb621cba031_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap_8h_a7b48365fa0a0965610300bb621cba031_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap_8h_ab919e8b6817bb880b92052a97c6f91d6}\label{linked__heap_8h_ab919e8b6817bb880b92052a97c6f91d6} 
+\index{linked\_heap.h@{linked\_heap.h}!newLHeap2@{newLHeap2}}
+\index{newLHeap2@{newLHeap2}!linked\_heap.h@{linked\_heap.h}}
+\doxysubsubsection{\texorpdfstring{newLHeap2()}{newLHeap2()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*} new\+LHeap2 (\begin{DoxyParamCaption}\item[{unsigned int}]{concurrent\+\_\+count,  }\item[{int(\texorpdfstring{$\ast$}{*})(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})}]{fetch\+Key\+From\+Value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap_8h_ab919e8b6817bb880b92052a97c6f91d6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=261pt]{linked__heap_8h_ab919e8b6817bb880b92052a97c6f91d6_icgraph}
+\end{center}
+\end{figure}

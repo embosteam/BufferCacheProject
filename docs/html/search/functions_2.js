@@ -1,0 +1,11 @@
+var searchData=
+[
+  ['comparator4aqueue_0',['comparator4AQueue',['../thread__pool_8c.html#a9c19277ff34e7a29e38db3149020e56a',1,'thread_pool.c']]],
+  ['comparemembuffer_1',['compareMemBuffer',['../memory__buffer_8c.html#a975be7ba042f7c037d7adc81b5e49f4a',1,'memory_buffer.c']]],
+  ['crc32_2',['crc32',['../crc32_8c.html#a4391c664bf060a9209157151401d9b41',1,'crc32(const unsigned char *buffer, unsigned int len):&#160;crc32.c'],['../crc32_8h.html#a9c22491a3421016b353be297ca397af9',1,'crc32(const unsigned char *message, unsigned int len):&#160;crc32.c']]],
+  ['createandrunflushthread_3',['createandrunflushthread',['../flush__thread_8c.html#a1329bd878e23ae466de100027d9e666d',1,'createAndRunFlushThread(int(*runfunction)(void *), void *arg):&#160;flush_thread.c'],['../flush__thread_8h.html#a1329bd878e23ae466de100027d9e666d',1,'createAndRunFlushThread(int(*runfunction)(void *), void *arg):&#160;flush_thread.c']]],
+  ['createnewdoublylinkedlist_4',['createnewdoublylinkedlist',['../doubly__linked__list_8c.html#a3b87bd609f58261267793d44a464a631',1,'createNewDoublyLinkedList():&#160;doubly_linked_list.c'],['../doubly__linked__list_8h.html#a3b87bd609f58261267793d44a464a631',1,'createNewDoublyLinkedList():&#160;doubly_linked_list.c']]],
+  ['createnewmemorybuffer_5',['createnewmemorybuffer',['../memory__buffer_8c.html#af9cae4a0acf8ef2b21402dadac11f2c9',1,'createNewMemoryBuffer(int block_size_byte, int block_number):&#160;memory_buffer.c'],['../memory__buffer_8h.html#a51195902fe7593558903b4e452fa8199',1,'createNewMemoryBuffer(int block_size, int block_number):&#160;memory_buffer.c']]],
+  ['createnewmemorybuffermanager_6',['createnewmemorybuffermanager',['../memory__buffer_8c.html#ae7038fe6d7862928bae408defa365250',1,'createNewMemoryBufferManager(int n, int manageable_n, long long block_size, const unsigned char replacement_type):&#160;memory_buffer.c'],['../memory__buffer_8h.html#a028c0cdba27ea14d9e3e6a5b518b66ba',1,'createNewMemoryBufferManager(int n, int manageable_n, long long block_size, unsigned char replacement_type):&#160;memory_buffer.c']]],
+  ['createrandomsequessaccess_7',['createRandomSequessAccess',['../buffer_8c.html#a6d16808bac26519535560d30374a58fd',1,'buffer.c']]]
+];

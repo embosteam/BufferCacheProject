@@ -1,0 +1,36 @@
+\doxysection{Buffer\+Cache\+Project/delayed\+\_\+write/buffer\+\_\+write.c File Reference}
+\hypertarget{buffer__write_8c}{}\label{buffer__write_8c}\index{BufferCacheProject/delayed\_write/buffer\_write.c@{BufferCacheProject/delayed\_write/buffer\_write.c}}
+{\ttfamily \#include "{}buffer\+\_\+write.\+h"{}}\newline
+Include dependency graph for buffer\+\_\+write.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{buffer__write_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_write_parameters_in_thread}{Write\+Parameters\+In\+Thread}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{buffer__write_8c_a7cf10612f1bdee14fdc41a0393c552e5}{write\+To\+Buffer}} (int \mbox{\hyperlink{buffer_8c_ace5f86cdc8deb8e6196ddf6b0c02a73c}{disk\+\_\+fd}}, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}memory\+\_\+buffer)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{buffer__write_8c_a7cf10612f1bdee14fdc41a0393c552e5}\label{buffer__write_8c_a7cf10612f1bdee14fdc41a0393c552e5} 
+\index{buffer\_write.c@{buffer\_write.c}!writeToBuffer@{writeToBuffer}}
+\index{writeToBuffer@{writeToBuffer}!buffer\_write.c@{buffer\_write.c}}
+\doxysubsubsection{\texorpdfstring{writeToBuffer()}{writeToBuffer()}}
+{\footnotesize\ttfamily int write\+To\+Buffer (\begin{DoxyParamCaption}\item[{int}]{disk\+\_\+fd,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}}]{memory\+\_\+buffer }\end{DoxyParamCaption})}
+
+버퍼를 파라메터에서 넘어온 값들을 기준으로 구현한 버퍼 저장 구조체에 넣어줌 리턴값\+: buffer\+\_\+content의 크기 Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{buffer__write_8c_a7cf10612f1bdee14fdc41a0393c552e5_cgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,208 @@
+\doxysection{Buffer\+Cache\+Project/delayed\+\_\+write/disk\+\_\+write.h File Reference}
+\hypertarget{disk__write_8h}{}\label{disk__write_8h}\index{BufferCacheProject/delayed\_write/disk\_write.h@{BufferCacheProject/delayed\_write/disk\_write.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/mman.\+h$>$}\newline
+{\ttfamily \#include "{}../shared/memory\+\_\+buffer\+\_\+structures.\+h"{}}\newline
+{\ttfamily \#include "{}../shared/linked\+\_\+queue.\+h"{}}\newline
+{\ttfamily \#include "{}flush\+\_\+thread.\+h"{}}\newline
+{\ttfamily \#include "{}../shared/time\+\_\+utils.\+h"{}}\newline
+{\ttfamily \#include "{}../config.\+h"{}}\newline
+Include dependency graph for disk\+\_\+write.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{disk__write_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{disk__write_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{disk__write_8h_aad68a77f84489eddaa161eb3aec8258c}{write2\+Disk}} (int \mbox{\hyperlink{buffer_8c_ace5f86cdc8deb8e6196ddf6b0c02a73c}{disk\+\_\+fd}}, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}memory\+\_\+buffer)
+\item 
+int \mbox{\hyperlink{disk__write_8h_aa27fece15ca01a93f3c2aebfa05a8926}{write2\+Disk\+Multiple}} (int \mbox{\hyperlink{buffer_8c_ace5f86cdc8deb8e6196ddf6b0c02a73c}{disk\+\_\+fd}}, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}mem\+\_\+buffers, const int mem\+\_\+buffer\+\_\+count)
+\item 
+int \mbox{\hyperlink{disk__write_8h_a89a693d1c20f83a187713d7023c865f1}{write2\+Disk2}} (char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{buffer_8c_a3419d6e5ea39d2522ff48b26a1da52b9}{disk\+\_\+buffer}}, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}memory\+\_\+buffer)
+\item 
+int \mbox{\hyperlink{disk__write_8h_a848c121eecced414fadc9a55b13ee462}{write2\+Disk\+Multiple2}} (char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{buffer_8c_a3419d6e5ea39d2522ff48b26a1da52b9}{disk\+\_\+buffer}}, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}mem\+\_\+buffers, const int mem\+\_\+buffer\+\_\+count)
+\item 
+int \mbox{\hyperlink{disk__write_8h_a45ecd375b938a6497d581fc440931592}{write2\+Disk\+In\+Thread}} (void \texorpdfstring{$\ast$}{*}args)
+\item 
+int \mbox{\hyperlink{disk__write_8h_aee7f9f2f0379742e9d6981306afdbbd2}{write2\+Disk\+Multiple\+In\+Thread}} (void \texorpdfstring{$\ast$}{*}args)
+\item 
+int \mbox{\hyperlink{disk__write_8h_adc3f5db48f4de16571eb63356dac239c}{write2\+Disk\+In\+Thread2}} (void \texorpdfstring{$\ast$}{*}args)
+\item 
+int \mbox{\hyperlink{disk__write_8h_a9af27d7c7568b5e95b1807e3cb3c5fe1}{write2\+Disk\+Multiple\+In\+Thread2}} (void \texorpdfstring{$\ast$}{*}args)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{disk__write_8h_aad68a77f84489eddaa161eb3aec8258c}\label{disk__write_8h_aad68a77f84489eddaa161eb3aec8258c} 
+\index{disk\_write.h@{disk\_write.h}!write2Disk@{write2Disk}}
+\index{write2Disk@{write2Disk}!disk\_write.h@{disk\_write.h}}
+\doxysubsubsection{\texorpdfstring{write2Disk()}{write2Disk()}}
+{\footnotesize\ttfamily int write2\+Disk (\begin{DoxyParamCaption}\item[{int}]{disk\+\_\+fd,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}}]{memory\+\_\+buffer }\end{DoxyParamCaption})}
+
+thread를 내부적으로 쓰레드를 사용하지 않으며 disk\+\_\+fd위치를 dup()함수로 복사해서 memory\+\_\+buffer의 실제 내용(char\texorpdfstring{$\ast$}{*})을 디스크에 쓰는 함수 Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{disk__write_8h_aad68a77f84489eddaa161eb3aec8258c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{disk__write_8h_aad68a77f84489eddaa161eb3aec8258c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{disk__write_8h_a89a693d1c20f83a187713d7023c865f1}\label{disk__write_8h_a89a693d1c20f83a187713d7023c865f1} 
+\index{disk\_write.h@{disk\_write.h}!write2Disk2@{write2Disk2}}
+\index{write2Disk2@{write2Disk2}!disk\_write.h@{disk\_write.h}}
+\doxysubsubsection{\texorpdfstring{write2Disk2()}{write2Disk2()}}
+{\footnotesize\ttfamily int write2\+Disk2 (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{disk\+\_\+buffer,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}}]{memory\+\_\+buffer }\end{DoxyParamCaption})}
+
+해당 disk buffer 위치에 memory buffer 의 내용을 쓰는 함수 Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{disk__write_8h_a89a693d1c20f83a187713d7023c865f1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{disk__write_8h_a89a693d1c20f83a187713d7023c865f1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{disk__write_8h_a45ecd375b938a6497d581fc440931592}\label{disk__write_8h_a45ecd375b938a6497d581fc440931592} 
+\index{disk\_write.h@{disk\_write.h}!write2DiskInThread@{write2DiskInThread}}
+\index{write2DiskInThread@{write2DiskInThread}!disk\_write.h@{disk\_write.h}}
+\doxysubsubsection{\texorpdfstring{write2DiskInThread()}{write2DiskInThread()}}
+{\footnotesize\ttfamily int write2\+Disk\+In\+Thread (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{args }\end{DoxyParamCaption})}
+
+일종의 wrapper함수로 내부적으로 위쪽의 int \doxylink{disk__write_8h_aad68a77f84489eddaa161eb3aec8258c}{write2\+Disk(int disk\+\_\+fd,struct Memory\+Buffer\texorpdfstring{$\ast$}{*} memory\+\_\+buffer)}; 를 호출함 이때 내부에서 함수 파라매터 args를 struct $<$\+Parmas$>$\{ pthread\+\_\+attr\+\_\+t attr; int disk\+\_\+fd; struct Memory\+Buffer\texorpdfstring{$\ast$}{*} memory\+\_\+buffer; \} 로 변환해 write2\+Disk를 호출함 Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{disk__write_8h_a45ecd375b938a6497d581fc440931592_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{disk__write_8h_a45ecd375b938a6497d581fc440931592_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{disk__write_8h_adc3f5db48f4de16571eb63356dac239c}\label{disk__write_8h_adc3f5db48f4de16571eb63356dac239c} 
+\index{disk\_write.h@{disk\_write.h}!write2DiskInThread2@{write2DiskInThread2}}
+\index{write2DiskInThread2@{write2DiskInThread2}!disk\_write.h@{disk\_write.h}}
+\doxysubsubsection{\texorpdfstring{write2DiskInThread2()}{write2DiskInThread2()}}
+{\footnotesize\ttfamily int write2\+Disk\+In\+Thread2 (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{args }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{disk__write_8h_adc3f5db48f4de16571eb63356dac239c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{disk__write_8h_adc3f5db48f4de16571eb63356dac239c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{disk__write_8h_aa27fece15ca01a93f3c2aebfa05a8926}\label{disk__write_8h_aa27fece15ca01a93f3c2aebfa05a8926} 
+\index{disk\_write.h@{disk\_write.h}!write2DiskMultiple@{write2DiskMultiple}}
+\index{write2DiskMultiple@{write2DiskMultiple}!disk\_write.h@{disk\_write.h}}
+\doxysubsubsection{\texorpdfstring{write2DiskMultiple()}{write2DiskMultiple()}}
+{\footnotesize\ttfamily int write2\+Disk\+Multiple (\begin{DoxyParamCaption}\item[{int}]{disk\+\_\+fd,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{mem\+\_\+buffers,  }\item[{const int}]{\+\_\+mem\+\_\+buffers\+\_\+count }\end{DoxyParamCaption})}
+
+\+\_\+mem\+\_\+buffers\+\_\+count 만큼의 버퍼들의 내용들을 하나의 버퍼로 이어붙여서 첫번쨰 버퍼의 offset에서 한번에 write해주는 함수 Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=293pt]{disk__write_8h_aa27fece15ca01a93f3c2aebfa05a8926_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{disk__write_8h_aa27fece15ca01a93f3c2aebfa05a8926_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{disk__write_8h_a848c121eecced414fadc9a55b13ee462}\label{disk__write_8h_a848c121eecced414fadc9a55b13ee462} 
+\index{disk\_write.h@{disk\_write.h}!write2DiskMultiple2@{write2DiskMultiple2}}
+\index{write2DiskMultiple2@{write2DiskMultiple2}!disk\_write.h@{disk\_write.h}}
+\doxysubsubsection{\texorpdfstring{write2DiskMultiple2()}{write2DiskMultiple2()}}
+{\footnotesize\ttfamily int write2\+Disk\+Multiple2 (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{disk\+\_\+buffer,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{mem\+\_\+buffers,  }\item[{const int}]{mem\+\_\+buffer\+\_\+count }\end{DoxyParamCaption})}
+
+\+\_\+mem\+\_\+buffers\+\_\+count 만큼의 버퍼들의 내용들을 하나의 버퍼로 이어붙여서 첫번쨰 버퍼의 offset에서 한번에 write해주는 함수 Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{disk__write_8h_a848c121eecced414fadc9a55b13ee462_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{disk__write_8h_a848c121eecced414fadc9a55b13ee462_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{disk__write_8h_aee7f9f2f0379742e9d6981306afdbbd2}\label{disk__write_8h_aee7f9f2f0379742e9d6981306afdbbd2} 
+\index{disk\_write.h@{disk\_write.h}!write2DiskMultipleInThread@{write2DiskMultipleInThread}}
+\index{write2DiskMultipleInThread@{write2DiskMultipleInThread}!disk\_write.h@{disk\_write.h}}
+\doxysubsubsection{\texorpdfstring{write2DiskMultipleInThread()}{write2DiskMultipleInThread()}}
+{\footnotesize\ttfamily int write2\+Disk\+Multiple\+In\+Thread (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{args }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{disk__write_8h_aee7f9f2f0379742e9d6981306afdbbd2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{disk__write_8h_aee7f9f2f0379742e9d6981306afdbbd2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{disk__write_8h_a9af27d7c7568b5e95b1807e3cb3c5fe1}\label{disk__write_8h_a9af27d7c7568b5e95b1807e3cb3c5fe1} 
+\index{disk\_write.h@{disk\_write.h}!write2DiskMultipleInThread2@{write2DiskMultipleInThread2}}
+\index{write2DiskMultipleInThread2@{write2DiskMultipleInThread2}!disk\_write.h@{disk\_write.h}}
+\doxysubsubsection{\texorpdfstring{write2DiskMultipleInThread2()}{write2DiskMultipleInThread2()}}
+{\footnotesize\ttfamily int write2\+Disk\+Multiple\+In\+Thread2 (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{args }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{disk__write_8h_a9af27d7c7568b5e95b1807e3cb3c5fe1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{disk__write_8h_a9af27d7c7568b5e95b1807e3cb3c5fe1_icgraph}
+\end{center}
+\end{figure}

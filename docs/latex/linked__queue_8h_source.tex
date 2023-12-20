@@ -1,0 +1,44 @@
+\doxysection{linked\+\_\+queue.\+h}
+\hypertarget{linked__queue_8h_source}{}\label{linked__queue_8h_source}\index{BufferCacheProject/shared/linked\_queue.h@{BufferCacheProject/shared/linked\_queue.h}}
+\mbox{\hyperlink{linked__queue_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ \_\_HEADER\_LINKED\_QUEUE\_\_}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_HEADER\_LINKED\_QUEUE\_\_}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdio.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdlib.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\ \ \ \ \#include\ <unistd.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\ \ \ \ \#include\ <semaphore.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \ \ \ \#include\ <memory.h>}}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_queue_internal_node}{LQueueInternalNode}}\{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_queue_internal_node}{LQueueInternalNode}}*\ \mbox{\hyperlink{struct_l_queue_internal_node_aea84a2094b59a58b13fd5e9095e6a4d0}{next}};}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{struct_l_queue_internal_node_a0f61d63b009d0880a89c843bd50d8d76}{value}};}
+\DoxyCodeLine{00012\ \ \ \ \ \};}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_queue}{LQueue}}\{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_l_queue_a909a7655d69fcab8b42e5467cb46959d}{isEnableConcurrentMode}}:1;}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_l_queue_aac913b3a1f6ef005d66bf7a84428773e}{size}};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ sem\_t\ \mbox{\hyperlink{struct_l_queue_a353a9d20865795f01a3860d15bed0d43}{concurrent\_lock}};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_queue_internal_node}{LQueueInternalNode}}*\ \mbox{\hyperlink{struct_l_queue_a49b256c247bd675f59a982b381ee93b9}{pointer}};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_queue_internal_node}{LQueueInternalNode}}*\ \mbox{\hyperlink{struct_l_queue_a09ad0755a1d1a0d095202901a65b30a3}{last\_pointer}};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ (*front)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_queue}{LQueue}}*);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_l_queue_a28459b0a6debdf96f61bf9a6524d77f8}{pop}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_queue}{LQueue}}*);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ int\ (*\mbox{\hyperlink{struct_l_queue_a095896601282632436f9b13458ae73f8}{getSize}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_queue}{LQueue}}*);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ int\ (*\mbox{\hyperlink{struct_l_queue_a2c62efe589a9404c79d6736575823f4c}{isEmpty}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_queue}{LQueue}}*);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_l_queue_a28f0b0dd406fb2e50b0cf23c10e915c3}{push}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_queue}{LQueue}}*,\textcolor{keywordtype}{void}*);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_l_queue_aef4869f078e389758fe8fa0a4ff5bfaa}{clear}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_queue}{LQueue}}*);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_l_queue_a9d7a422be7477a6d846b1adfdd1caceb}{free}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_queue}{LQueue}}*);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \ \ \};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_queue}{LQueue}}*\ \mbox{\hyperlink{linked__queue_8h_a61c1ac7af743c965ca3a8ed40cc6850e}{newLQueue}}(\ \textcolor{keywordtype}{int}\ concurrent\_mode);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{linked__queue_8h_a1f24bddb671f546279537b955b6bc59f}{LQueue\_getSize}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_l_queue}{LQueue}}*\ q);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{linked__queue_8h_a2451529e56d743a5f6330b041fff6f99}{LQueue\_isEmpty}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_l_queue}{LQueue}}*\ q);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{linked__queue_8h_a2ee075cad3995efe382ba56f8a762e88}{LQueue\_clear}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_l_queue}{LQueue}}*\ q);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{linked__queue_8h_a75a46452be9745bc945c2afe907409d2}{LQueue\_freeInternal}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_l_queue}{LQueue}}*\ q);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{linked__queue_8h_ade116cd3e68600eaf7ab06c3442db049}{LQueue\_front}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_l_queue}{LQueue}}*\ q);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{linked__queue_8h_a4af2b03b56217266252cf6094733137b}{LQueue\_pop}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_l_queue}{LQueue}}*\ q);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{linked__queue_8h_aa2206ade22db432c09c305d46abd86f8}{LQueue\_push}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_l_queue}{LQueue}}*\ q,\textcolor{keywordtype}{void}*\ value);}
+\DoxyCodeLine{00037\ \ \ \ \ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

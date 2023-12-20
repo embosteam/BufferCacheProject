@@ -1,0 +1,151 @@
+\doxysection{Buffer\+Cache\+Project/shared/array\+\_\+stack.c File Reference}
+\hypertarget{array__stack_8c}{}\label{array__stack_8c}\index{BufferCacheProject/shared/array\_stack.c@{BufferCacheProject/shared/array\_stack.c}}
+{\ttfamily \#include "{}array\+\_\+stack.\+h"{}}\newline
+Include dependency graph for array\+\_\+stack.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{array__stack_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{array__stack_8c_a4f01d97fef35df4b9d5cd8990b7f0b37}{AStack\+Top}} (struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}self)
+\item 
+int \mbox{\hyperlink{array__stack_8c_aec052d7f1d311ebc35225d17a14f29f5}{AStack\+Push}} (struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}self, void \texorpdfstring{$\ast$}{*}value)
+\item 
+int \mbox{\hyperlink{array__stack_8c_a2093c0e1a3c2cce21296d0d9fb72bb0f}{AStack\+Pop}} (struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}self)
+\item 
+unsigned char \mbox{\hyperlink{array__stack_8c_ad757ab9ce64ca0e750eef3b6102c1f12}{AStack\+Is\+Empty}} (struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}self)
+\item 
+unsigned char \mbox{\hyperlink{array__stack_8c_a6dd75712512da6f583968824862a9195}{AStack\+Is\+Full}} (struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}self)
+\item 
+void \mbox{\hyperlink{array__stack_8c_af2597d9a2d2847526366a88ba4f0f48a}{AStack\+Release}} (struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}self)
+\item 
+unsigned int \mbox{\hyperlink{array__stack_8c_a95b7a36529c7a9864276df3ee129da9b}{Min\+Unsigned\+Int}} (unsigned int a, unsigned int b)
+\item 
+struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{array__stack_8c_a1a52ce8809bcb0eeb5dd8fd44ceedf37}{new\+AStack\+Pointer}} (unsigned int concurrent\+\_\+count, unsigned int fixed\+\_\+capacity)
+\item 
+struct \mbox{\hyperlink{struct_a_stack}{AStack}} \mbox{\hyperlink{array__stack_8c_ac9bd9078e49e59e5f59055ff975459f4}{new\+AStack}} (unsigned int concurrent\+\_\+count, unsigned int fixed\+\_\+capacity)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{array__stack_8c_ad757ab9ce64ca0e750eef3b6102c1f12}\label{array__stack_8c_ad757ab9ce64ca0e750eef3b6102c1f12} 
+\index{array\_stack.c@{array\_stack.c}!AStackIsEmpty@{AStackIsEmpty}}
+\index{AStackIsEmpty@{AStackIsEmpty}!array\_stack.c@{array\_stack.c}}
+\doxysubsubsection{\texorpdfstring{AStackIsEmpty()}{AStackIsEmpty()}}
+{\footnotesize\ttfamily unsigned char AStack\+Is\+Empty (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{array__stack_8c_ad757ab9ce64ca0e750eef3b6102c1f12_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{array__stack_8c_a6dd75712512da6f583968824862a9195}\label{array__stack_8c_a6dd75712512da6f583968824862a9195} 
+\index{array\_stack.c@{array\_stack.c}!AStackIsFull@{AStackIsFull}}
+\index{AStackIsFull@{AStackIsFull}!array\_stack.c@{array\_stack.c}}
+\doxysubsubsection{\texorpdfstring{AStackIsFull()}{AStackIsFull()}}
+{\footnotesize\ttfamily unsigned char AStack\+Is\+Full (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{array__stack_8c_a6dd75712512da6f583968824862a9195_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{array__stack_8c_a2093c0e1a3c2cce21296d0d9fb72bb0f}\label{array__stack_8c_a2093c0e1a3c2cce21296d0d9fb72bb0f} 
+\index{array\_stack.c@{array\_stack.c}!AStackPop@{AStackPop}}
+\index{AStackPop@{AStackPop}!array\_stack.c@{array\_stack.c}}
+\doxysubsubsection{\texorpdfstring{AStackPop()}{AStackPop()}}
+{\footnotesize\ttfamily int AStack\+Pop (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{array__stack_8c_a2093c0e1a3c2cce21296d0d9fb72bb0f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{array__stack_8c_aec052d7f1d311ebc35225d17a14f29f5}\label{array__stack_8c_aec052d7f1d311ebc35225d17a14f29f5} 
+\index{array\_stack.c@{array\_stack.c}!AStackPush@{AStackPush}}
+\index{AStackPush@{AStackPush}!array\_stack.c@{array\_stack.c}}
+\doxysubsubsection{\texorpdfstring{AStackPush()}{AStackPush()}}
+{\footnotesize\ttfamily int AStack\+Push (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{void \texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=283pt]{array__stack_8c_aec052d7f1d311ebc35225d17a14f29f5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{array__stack_8c_af2597d9a2d2847526366a88ba4f0f48a}\label{array__stack_8c_af2597d9a2d2847526366a88ba4f0f48a} 
+\index{array\_stack.c@{array\_stack.c}!AStackRelease@{AStackRelease}}
+\index{AStackRelease@{AStackRelease}!array\_stack.c@{array\_stack.c}}
+\doxysubsubsection{\texorpdfstring{AStackRelease()}{AStackRelease()}}
+{\footnotesize\ttfamily void AStack\+Release (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{array__stack_8c_af2597d9a2d2847526366a88ba4f0f48a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{array__stack_8c_a4f01d97fef35df4b9d5cd8990b7f0b37}\label{array__stack_8c_a4f01d97fef35df4b9d5cd8990b7f0b37} 
+\index{array\_stack.c@{array\_stack.c}!AStackTop@{AStackTop}}
+\index{AStackTop@{AStackTop}!array\_stack.c@{array\_stack.c}}
+\doxysubsubsection{\texorpdfstring{AStackTop()}{AStackTop()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} AStack\+Top (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{array__stack_8c_a4f01d97fef35df4b9d5cd8990b7f0b37_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{array__stack_8c_a95b7a36529c7a9864276df3ee129da9b}\label{array__stack_8c_a95b7a36529c7a9864276df3ee129da9b} 
+\index{array\_stack.c@{array\_stack.c}!MinUnsignedInt@{MinUnsignedInt}}
+\index{MinUnsignedInt@{MinUnsignedInt}!array\_stack.c@{array\_stack.c}}
+\doxysubsubsection{\texorpdfstring{MinUnsignedInt()}{MinUnsignedInt()}}
+{\footnotesize\ttfamily unsigned int Min\+Unsigned\+Int (\begin{DoxyParamCaption}\item[{unsigned int}]{a,  }\item[{unsigned int}]{b }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=295pt]{array__stack_8c_a95b7a36529c7a9864276df3ee129da9b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{array__stack_8c_ac9bd9078e49e59e5f59055ff975459f4}\label{array__stack_8c_ac9bd9078e49e59e5f59055ff975459f4} 
+\index{array\_stack.c@{array\_stack.c}!newAStack@{newAStack}}
+\index{newAStack@{newAStack}!array\_stack.c@{array\_stack.c}}
+\doxysubsubsection{\texorpdfstring{newAStack()}{newAStack()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_a_stack}{AStack}} new\+AStack (\begin{DoxyParamCaption}\item[{unsigned int}]{concurrent\+\_\+count,  }\item[{unsigned int}]{fixed\+\_\+capacity }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{array__stack_8c_ac9bd9078e49e59e5f59055ff975459f4_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{array__stack_8c_a1a52ce8809bcb0eeb5dd8fd44ceedf37}\label{array__stack_8c_a1a52ce8809bcb0eeb5dd8fd44ceedf37} 
+\index{array\_stack.c@{array\_stack.c}!newAStackPointer@{newAStackPointer}}
+\index{newAStackPointer@{newAStackPointer}!array\_stack.c@{array\_stack.c}}
+\doxysubsubsection{\texorpdfstring{newAStackPointer()}{newAStackPointer()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*} new\+AStack\+Pointer (\begin{DoxyParamCaption}\item[{unsigned int}]{concurrent\+\_\+count,  }\item[{unsigned int}]{fixed\+\_\+capacity }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{array__stack_8c_a1a52ce8809bcb0eeb5dd8fd44ceedf37_cgraph}
+\end{center}
+\end{figure}

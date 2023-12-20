@@ -1,0 +1,106 @@
+\doxysection{Replacement\+Policy\+Manager Struct Reference}
+\hypertarget{struct_replacement_policy_manager}{}\label{struct_replacement_policy_manager}\index{ReplacementPolicyManager@{ReplacementPolicyManager}}
+
+
+{\ttfamily \#include $<$replacement\+\_\+policy.\+h$>$}
+
+
+
+Collaboration diagram for Replacement\+Policy\+Manager\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_replacement_policy_manager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_replacement_policy_manager_a79ebec178248e0b4565965ea0327820c}{fifo}}
+\item 
+struct \mbox{\hyperlink{struct_l_r_u_policy}{LRUPolicy}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_replacement_policy_manager_adf73b1428faf56ab02bf9b5126044882}{lru}}
+\item 
+struct \mbox{\hyperlink{struct_l_f_u_policy}{LFUPolicy}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_replacement_policy_manager_a845251053de82d98428e85f6ee08c700}{lfu}}
+\item 
+unsigned char \mbox{\hyperlink{struct_replacement_policy_manager_a2c1b1150934005505b4dde8a2ca4a107}{primary\+\_\+policy\+\_\+type}}
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_replacement_policy_manager_a5252649a58cbd2921ec2fe00a7d1b980}{reset\+Cache\+Policies}} )(struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}self)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_replacement_policy_manager_a4b289ad7967825d40ceef95b3136777f}{update\+Access\+Info}} )(struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hashmap\+\_\+wrapper)
+\item 
+pthread\+\_\+t(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_replacement_policy_manager_a016fa4ffe29734f63dabc5fd4b5ee003}{update\+Access\+Info\+With\+Thread}} )(struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hashmap\+\_\+wrapper)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_replacement_policy_manager_a195305e79ad388dcbf533f29b5122348}{delete\+At}} )(struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hashmap\+\_\+wrapper)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_replacement_policy_manager_aff3f58a9be8bef8c1f67ba7252e08471}{debug\+Policy\+Content}} )(struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}self, int policy\+\_\+type)
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_replacement_policy_manager_ad6075cf26b8066993e6794a31ca1a27e}{get\+Evictable\+Node}} )(struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}self, int policy\+\_\+type)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_replacement_policy_manager_aff3f58a9be8bef8c1f67ba7252e08471}\label{struct_replacement_policy_manager_aff3f58a9be8bef8c1f67ba7252e08471} 
+\index{ReplacementPolicyManager@{ReplacementPolicyManager}!debugPolicyContent@{debugPolicyContent}}
+\index{debugPolicyContent@{debugPolicyContent}!ReplacementPolicyManager@{ReplacementPolicyManager}}
+\doxysubsubsection{\texorpdfstring{debugPolicyContent}{debugPolicyContent}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} debug\+Policy\+Content) (struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}self, int policy\+\_\+type)}
+
+\Hypertarget{struct_replacement_policy_manager_a195305e79ad388dcbf533f29b5122348}\label{struct_replacement_policy_manager_a195305e79ad388dcbf533f29b5122348} 
+\index{ReplacementPolicyManager@{ReplacementPolicyManager}!deleteAt@{deleteAt}}
+\index{deleteAt@{deleteAt}!ReplacementPolicyManager@{ReplacementPolicyManager}}
+\doxysubsubsection{\texorpdfstring{deleteAt}{deleteAt}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} delete\+At) (struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hashmap\+\_\+wrapper)}
+
+\Hypertarget{struct_replacement_policy_manager_a79ebec178248e0b4565965ea0327820c}\label{struct_replacement_policy_manager_a79ebec178248e0b4565965ea0327820c} 
+\index{ReplacementPolicyManager@{ReplacementPolicyManager}!fifo@{fifo}}
+\index{fifo@{fifo}!ReplacementPolicyManager@{ReplacementPolicyManager}}
+\doxysubsubsection{\texorpdfstring{fifo}{fifo}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}}\texorpdfstring{$\ast$}{*} fifo}
+
+\Hypertarget{struct_replacement_policy_manager_ad6075cf26b8066993e6794a31ca1a27e}\label{struct_replacement_policy_manager_ad6075cf26b8066993e6794a31ca1a27e} 
+\index{ReplacementPolicyManager@{ReplacementPolicyManager}!getEvictableNode@{getEvictableNode}}
+\index{getEvictableNode@{getEvictableNode}!ReplacementPolicyManager@{ReplacementPolicyManager}}
+\doxysubsubsection{\texorpdfstring{getEvictableNode}{getEvictableNode}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} get\+Evictable\+Node) (struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}self, int policy\+\_\+type)}
+
+policy\+\_\+type 0\+: fifo 1\+: lfu 2\+: lru \Hypertarget{struct_replacement_policy_manager_a845251053de82d98428e85f6ee08c700}\label{struct_replacement_policy_manager_a845251053de82d98428e85f6ee08c700} 
+\index{ReplacementPolicyManager@{ReplacementPolicyManager}!lfu@{lfu}}
+\index{lfu@{lfu}!ReplacementPolicyManager@{ReplacementPolicyManager}}
+\doxysubsubsection{\texorpdfstring{lfu}{lfu}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_l_f_u_policy}{LFUPolicy}}\texorpdfstring{$\ast$}{*} lfu}
+
+\Hypertarget{struct_replacement_policy_manager_adf73b1428faf56ab02bf9b5126044882}\label{struct_replacement_policy_manager_adf73b1428faf56ab02bf9b5126044882} 
+\index{ReplacementPolicyManager@{ReplacementPolicyManager}!lru@{lru}}
+\index{lru@{lru}!ReplacementPolicyManager@{ReplacementPolicyManager}}
+\doxysubsubsection{\texorpdfstring{lru}{lru}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_l_r_u_policy}{LRUPolicy}}\texorpdfstring{$\ast$}{*} lru}
+
+\Hypertarget{struct_replacement_policy_manager_a2c1b1150934005505b4dde8a2ca4a107}\label{struct_replacement_policy_manager_a2c1b1150934005505b4dde8a2ca4a107} 
+\index{ReplacementPolicyManager@{ReplacementPolicyManager}!primary\_policy\_type@{primary\_policy\_type}}
+\index{primary\_policy\_type@{primary\_policy\_type}!ReplacementPolicyManager@{ReplacementPolicyManager}}
+\doxysubsubsection{\texorpdfstring{primary\_policy\_type}{primary\_policy\_type}}
+{\footnotesize\ttfamily unsigned char primary\+\_\+policy\+\_\+type}
+
+\Hypertarget{struct_replacement_policy_manager_a5252649a58cbd2921ec2fe00a7d1b980}\label{struct_replacement_policy_manager_a5252649a58cbd2921ec2fe00a7d1b980} 
+\index{ReplacementPolicyManager@{ReplacementPolicyManager}!resetCachePolicies@{resetCachePolicies}}
+\index{resetCachePolicies@{resetCachePolicies}!ReplacementPolicyManager@{ReplacementPolicyManager}}
+\doxysubsubsection{\texorpdfstring{resetCachePolicies}{resetCachePolicies}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} reset\+Cache\+Policies) (struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}self)}
+
+\Hypertarget{struct_replacement_policy_manager_a4b289ad7967825d40ceef95b3136777f}\label{struct_replacement_policy_manager_a4b289ad7967825d40ceef95b3136777f} 
+\index{ReplacementPolicyManager@{ReplacementPolicyManager}!updateAccessInfo@{updateAccessInfo}}
+\index{updateAccessInfo@{updateAccessInfo}!ReplacementPolicyManager@{ReplacementPolicyManager}}
+\doxysubsubsection{\texorpdfstring{updateAccessInfo}{updateAccessInfo}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} update\+Access\+Info) (struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hashmap\+\_\+wrapper)}
+
+\Hypertarget{struct_replacement_policy_manager_a016fa4ffe29734f63dabc5fd4b5ee003}\label{struct_replacement_policy_manager_a016fa4ffe29734f63dabc5fd4b5ee003} 
+\index{ReplacementPolicyManager@{ReplacementPolicyManager}!updateAccessInfoWithThread@{updateAccessInfoWithThread}}
+\index{updateAccessInfoWithThread@{updateAccessInfoWithThread}!ReplacementPolicyManager@{ReplacementPolicyManager}}
+\doxysubsubsection{\texorpdfstring{updateAccessInfoWithThread}{updateAccessInfoWithThread}}
+{\footnotesize\ttfamily pthread\+\_\+t(\texorpdfstring{$\ast$}{*} update\+Access\+Info\+With\+Thread) (struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hashmap\+\_\+wrapper)}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Buffer\+Cache\+Project/shared/\mbox{\hyperlink{replacement__policy_8h}{replacement\+\_\+policy.\+h}}\end{DoxyCompactItemize}

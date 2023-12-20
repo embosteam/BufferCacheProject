@@ -1,0 +1,334 @@
+\doxysection{Buffer\+Cache\+Project/shared/memory\+\_\+buffer.c File Reference}
+\hypertarget{memory__buffer_8c}{}\label{memory__buffer_8c}\index{BufferCacheProject/shared/memory\_buffer.c@{BufferCacheProject/shared/memory\_buffer.c}}
+{\ttfamily \#include "{}memory\+\_\+buffer.\+h"{}}\newline
+Include dependency graph for memory\+\_\+buffer.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{union_integer_decomposer}{Integer\+Decomposer}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{memory__buffer_8c_af9cae4a0acf8ef2b21402dadac11f2c9}{create\+New\+Memory\+Buffer}} (int block\+\_\+size\+\_\+byte, int block\+\_\+number)
+\item 
+struct \mbox{\hyperlink{struct_hash_map_wrapper}{Hash\+Map\+Wrapper}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{memory__buffer_8c_a4c53ef71dd578d93f6687d3957eef3b1}{new\+Hash\+Map\+Wrapper}} (int block\+\_\+number, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}mem\+\_\+buffer)
+\item 
+int \mbox{\hyperlink{memory__buffer_8c_a975be7ba042f7c037d7adc81b5e49f4a}{compare\+Mem\+Buffer}} (const void \texorpdfstring{$\ast$}{*}a, const void \texorpdfstring{$\ast$}{*}b, void \texorpdfstring{$\ast$}{*}udata)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{memory__buffer_8c_ab5a37a413740d0ac7ff66486ce51f7b2}{fetch\+Mem\+Buffer\+Hash}} (const void \texorpdfstring{$\ast$}{*}item, uint64\+\_\+t seed0, uint64\+\_\+t seed1)
+\item 
+struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{memory__buffer_8c_ae7038fe6d7862928bae408defa365250}{create\+New\+Memory\+Buffer\+Manager}} (int n, int manageable\+\_\+n, long long block\+\_\+size, const unsigned char replacement\+\_\+type)
+\item 
+void \mbox{\hyperlink{memory__buffer_8c_a6c6de3278a5dee900e738a535cc89f33}{free\+Memory\+Buffer\+At}} (struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}memory\+\_\+buffer\+\_\+wrapper, int block\+\_\+number, unsigned char free\+\_\+content)
+\item 
+void \mbox{\hyperlink{memory__buffer_8c_a7ab14a26566d868f468524d326e1d2fc}{all\+Free\+Memory\+Buffer}} (struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}memory\+\_\+buffer\+\_\+wrapper)
+\item 
+int \mbox{\hyperlink{memory__buffer_8c_a1345dacdd3d0a6fc1095df16fe8513c8}{set\+Memory\+Buffer\+At}} (struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}memory\+\_\+buffer\+\_\+wrapper, int block\+\_\+number, char \texorpdfstring{$\ast$}{*}buffer, long long buffer\+\_\+length\+\_\+byte)
+\item 
+int \mbox{\hyperlink{memory__buffer_8c_adf4ac09c897fb25be7a364ad884dd6ce}{put\+Memory\+Buffer\+At}} (struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}memory\+\_\+buffer\+\_\+wrapper, int block\+\_\+number, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}mem\+\_\+buffer)
+\item 
+struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{memory__buffer_8c_ac4e48fac6a0dee043dba8be5008e9178}{get\+Memory\+Buffer\+Map}} (struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}memory\+\_\+buffer\+\_\+wrapper, int block\+\_\+number)
+\item 
+unsigned char \mbox{\hyperlink{memory__buffer_8c_aebc2dc0eaa35ef1cfa3253c4ad652271}{Mem\+Controller\+Check\+Content\+Validation}} (struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}memory\+\_\+buffer, char \texorpdfstring{$\ast$}{*}buffer)
+\item 
+void \mbox{\hyperlink{memory__buffer_8c_ac2accf232d444da5c4c8ff884146849b}{Mem\+Controller\+Check\+Content\+Validation\+And\+Set\+Valid\+Bit}} (struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}memory\+\_\+buffer, char \texorpdfstring{$\ast$}{*}buffer)
+\item 
+void \mbox{\hyperlink{memory__buffer_8c_aeec0356909a215970c14cbc5c904e91e}{Mem\+Controller\+Search\+Map\+Memory\+Buffer}} (struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}self, int block\+\_\+number)
+\item 
+int \mbox{\hyperlink{memory__buffer_8c_a7c0cd230c8ec2caf2963d1d36b055ce7}{should\+Find\+Evictable\+Buffer}} (struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}manager)
+\item 
+struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{memory__buffer_8c_a1f4d839b433e1b6b1c38a25fed21729e}{find\+Evictable\+Buffer}} (struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}manager)
+\item 
+int \mbox{\hyperlink{memory__buffer_8c_afc2d5e4eb2b772a110b14bc243354ed2}{delete\+Memory\+Buffer}} (struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}manager, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}mem\+\_\+buffer)
+\item 
+struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{memory__buffer_8c_ab18f931996d01ef0ba4f6b52fb52eb66}{new\+Memory\+Buffer\+Controller}} (const unsigned char replacement\+\_\+type)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{memory__buffer_8c_a7ab14a26566d868f468524d326e1d2fc}\label{memory__buffer_8c_a7ab14a26566d868f468524d326e1d2fc} 
+\index{memory\_buffer.c@{memory\_buffer.c}!allFreeMemoryBuffer@{allFreeMemoryBuffer}}
+\index{allFreeMemoryBuffer@{allFreeMemoryBuffer}!memory\_buffer.c@{memory\_buffer.c}}
+\doxysubsubsection{\texorpdfstring{allFreeMemoryBuffer()}{allFreeMemoryBuffer()}}
+{\footnotesize\ttfamily void all\+Free\+Memory\+Buffer (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}}]{memory\+\_\+buffer\+\_\+wrapper }\end{DoxyParamCaption})}
+
+모든 위치의 버퍼를 할당해제 하는 함수 사용하지 않음 Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_a7ab14a26566d868f468524d326e1d2fc_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{memory__buffer_8c_a975be7ba042f7c037d7adc81b5e49f4a}\label{memory__buffer_8c_a975be7ba042f7c037d7adc81b5e49f4a} 
+\index{memory\_buffer.c@{memory\_buffer.c}!compareMemBuffer@{compareMemBuffer}}
+\index{compareMemBuffer@{compareMemBuffer}!memory\_buffer.c@{memory\_buffer.c}}
+\doxysubsubsection{\texorpdfstring{compareMemBuffer()}{compareMemBuffer()}}
+{\footnotesize\ttfamily int compare\+Mem\+Buffer (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{a,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{b,  }\item[{void \texorpdfstring{$\ast$}{*}}]{udata }\end{DoxyParamCaption})}
+
+hashmap 내부에서 버퍼 value끼리 비교하여 데이터 구조를 잘 정의할 수 있도록 구현한 함수 Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_a975be7ba042f7c037d7adc81b5e49f4a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{memory__buffer_8c_af9cae4a0acf8ef2b21402dadac11f2c9}\label{memory__buffer_8c_af9cae4a0acf8ef2b21402dadac11f2c9} 
+\index{memory\_buffer.c@{memory\_buffer.c}!createNewMemoryBuffer@{createNewMemoryBuffer}}
+\index{createNewMemoryBuffer@{createNewMemoryBuffer}!memory\_buffer.c@{memory\_buffer.c}}
+\doxysubsubsection{\texorpdfstring{createNewMemoryBuffer()}{createNewMemoryBuffer()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*} create\+New\+Memory\+Buffer (\begin{DoxyParamCaption}\item[{int}]{block\+\_\+size\+\_\+byte,  }\item[{int}]{block\+\_\+number }\end{DoxyParamCaption})}
+
+새로운 버퍼를 초기화 및 생성하는 함수 Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_af9cae4a0acf8ef2b21402dadac11f2c9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{memory__buffer_8c_ae7038fe6d7862928bae408defa365250}\label{memory__buffer_8c_ae7038fe6d7862928bae408defa365250} 
+\index{memory\_buffer.c@{memory\_buffer.c}!createNewMemoryBufferManager@{createNewMemoryBufferManager}}
+\index{createNewMemoryBufferManager@{createNewMemoryBufferManager}!memory\_buffer.c@{memory\_buffer.c}}
+\doxysubsubsection{\texorpdfstring{createNewMemoryBufferManager()}{createNewMemoryBufferManager()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*} create\+New\+Memory\+Buffer\+Manager (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int}]{manageable\+\_\+n,  }\item[{long long}]{block\+\_\+size,  }\item[{const unsigned char}]{replacement\+\_\+type }\end{DoxyParamCaption})}
+
+새로운 메모리 버퍼 관리 객체를 생성하는 함수 n\+: 디스크의 버퍼의 총 갯수 manageable\+\_\+n\+: 4KB 버퍼가 만약 n=10000개이상이 되면, 실질적으로 RAM에 탑재가 불가능하므로, RAM에 올릴 수 있는 버퍼의 최대 갯수 block\+\_\+size\+: 각 메모리 버퍼가 가지는 실질적인 크기(단위는 바이트(\+B)) Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_ae7038fe6d7862928bae408defa365250_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_ae7038fe6d7862928bae408defa365250_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{memory__buffer_8c_afc2d5e4eb2b772a110b14bc243354ed2}\label{memory__buffer_8c_afc2d5e4eb2b772a110b14bc243354ed2} 
+\index{memory\_buffer.c@{memory\_buffer.c}!deleteMemoryBuffer@{deleteMemoryBuffer}}
+\index{deleteMemoryBuffer@{deleteMemoryBuffer}!memory\_buffer.c@{memory\_buffer.c}}
+\doxysubsubsection{\texorpdfstring{deleteMemoryBuffer()}{deleteMemoryBuffer()}}
+{\footnotesize\ttfamily int delete\+Memory\+Buffer (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}}]{manager,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}}]{mem\+\_\+buffer }\end{DoxyParamCaption})}
+
+메모리 버퍼를 해시맵에서 제거하는 함수 만약 제거할 버퍼를 찾았는데 dirty 필드가 참이면, 삭제전 flush요청을 한뒤 기다리고 삭제하는 함수 만약에 해당 버퍼가 flush중이라면 해당 flush가 모두 완료될 때까지 기다림
+
+flush 작업이 완료가 되면 해당 버퍼의 내용 리소스를 release하고 valid=0으로 바꾼뒤 캐시에서 해당 버퍼를 제거Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_afc2d5e4eb2b772a110b14bc243354ed2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_afc2d5e4eb2b772a110b14bc243354ed2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{memory__buffer_8c_ab5a37a413740d0ac7ff66486ce51f7b2}\label{memory__buffer_8c_ab5a37a413740d0ac7ff66486ce51f7b2} 
+\index{memory\_buffer.c@{memory\_buffer.c}!fetchMemBufferHash@{fetchMemBufferHash}}
+\index{fetchMemBufferHash@{fetchMemBufferHash}!memory\_buffer.c@{memory\_buffer.c}}
+\doxysubsubsection{\texorpdfstring{fetchMemBufferHash()}{fetchMemBufferHash()}}
+{\footnotesize\ttfamily uint64\+\_\+t fetch\+Mem\+Buffer\+Hash (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{item,  }\item[{uint64\+\_\+t}]{seed0,  }\item[{uint64\+\_\+t}]{seed1 }\end{DoxyParamCaption})}
+
+block number로 부터 해시값을 생성해주는 함수 Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{memory__buffer_8c_ab5a37a413740d0ac7ff66486ce51f7b2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_ab5a37a413740d0ac7ff66486ce51f7b2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{memory__buffer_8c_a1f4d839b433e1b6b1c38a25fed21729e}\label{memory__buffer_8c_a1f4d839b433e1b6b1c38a25fed21729e} 
+\index{memory\_buffer.c@{memory\_buffer.c}!findEvictableBuffer@{findEvictableBuffer}}
+\index{findEvictableBuffer@{findEvictableBuffer}!memory\_buffer.c@{memory\_buffer.c}}
+\doxysubsubsection{\texorpdfstring{findEvictableBuffer()}{findEvictableBuffer()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*} find\+Evictable\+Buffer (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}}]{manager }\end{DoxyParamCaption})}
+
+여러 캐시 정책을 통해 제거될 버퍼를 찾는 함수 Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_a1f4d839b433e1b6b1c38a25fed21729e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{memory__buffer_8c_a6c6de3278a5dee900e738a535cc89f33}\label{memory__buffer_8c_a6c6de3278a5dee900e738a535cc89f33} 
+\index{memory\_buffer.c@{memory\_buffer.c}!freeMemoryBufferAt@{freeMemoryBufferAt}}
+\index{freeMemoryBufferAt@{freeMemoryBufferAt}!memory\_buffer.c@{memory\_buffer.c}}
+\doxysubsubsection{\texorpdfstring{freeMemoryBufferAt()}{freeMemoryBufferAt()}}
+{\footnotesize\ttfamily void free\+Memory\+Buffer\+At (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}}]{memory\+\_\+buffer\+\_\+wrapper,  }\item[{int}]{block\+\_\+number,  }\item[{unsigned char}]{free\+\_\+content }\end{DoxyParamCaption})}
+
+해당 위치의 버퍼를 할당해제 하는 함수 사용하지 않음 Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_a6c6de3278a5dee900e738a535cc89f33_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_a6c6de3278a5dee900e738a535cc89f33_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{memory__buffer_8c_ac4e48fac6a0dee043dba8be5008e9178}\label{memory__buffer_8c_ac4e48fac6a0dee043dba8be5008e9178} 
+\index{memory\_buffer.c@{memory\_buffer.c}!getMemoryBufferMap@{getMemoryBufferMap}}
+\index{getMemoryBufferMap@{getMemoryBufferMap}!memory\_buffer.c@{memory\_buffer.c}}
+\doxysubsubsection{\texorpdfstring{getMemoryBufferMap()}{getMemoryBufferMap()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*} get\+Memory\+Buffer\+Map (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}}]{memory\+\_\+buffer\+\_\+wrapper,  }\item[{int}]{block\+\_\+number }\end{DoxyParamCaption})}
+
+해당 블록 번호 위치에 버퍼가 있으면 가져오는 함수, 없으면 NULL을 반환 Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_ac4e48fac6a0dee043dba8be5008e9178_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_ac4e48fac6a0dee043dba8be5008e9178_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{memory__buffer_8c_aebc2dc0eaa35ef1cfa3253c4ad652271}\label{memory__buffer_8c_aebc2dc0eaa35ef1cfa3253c4ad652271} 
+\index{memory\_buffer.c@{memory\_buffer.c}!MemControllerCheckContentValidation@{MemControllerCheckContentValidation}}
+\index{MemControllerCheckContentValidation@{MemControllerCheckContentValidation}!memory\_buffer.c@{memory\_buffer.c}}
+\doxysubsubsection{\texorpdfstring{MemControllerCheckContentValidation()}{MemControllerCheckContentValidation()}}
+{\footnotesize\ttfamily unsigned char Mem\+Controller\+Check\+Content\+Validation (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}}]{memory\+\_\+buffer,  }\item[{char \texorpdfstring{$\ast$}{*}}]{buffer }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_aebc2dc0eaa35ef1cfa3253c4ad652271_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{memory__buffer_8c_ac2accf232d444da5c4c8ff884146849b}\label{memory__buffer_8c_ac2accf232d444da5c4c8ff884146849b} 
+\index{memory\_buffer.c@{memory\_buffer.c}!MemControllerCheckContentValidationAndSetValidBit@{MemControllerCheckContentValidationAndSetValidBit}}
+\index{MemControllerCheckContentValidationAndSetValidBit@{MemControllerCheckContentValidationAndSetValidBit}!memory\_buffer.c@{memory\_buffer.c}}
+\doxysubsubsection{\texorpdfstring{MemControllerCheckContentValidationAndSetValidBit()}{MemControllerCheckContentValidationAndSetValidBit()}}
+{\footnotesize\ttfamily void Mem\+Controller\+Check\+Content\+Validation\+And\+Set\+Valid\+Bit (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}}]{memory\+\_\+buffer,  }\item[{char \texorpdfstring{$\ast$}{*}}]{buffer }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_ac2accf232d444da5c4c8ff884146849b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{memory__buffer_8c_aeec0356909a215970c14cbc5c904e91e}\label{memory__buffer_8c_aeec0356909a215970c14cbc5c904e91e} 
+\index{memory\_buffer.c@{memory\_buffer.c}!MemControllerSearchMapMemoryBuffer@{MemControllerSearchMapMemoryBuffer}}
+\index{MemControllerSearchMapMemoryBuffer@{MemControllerSearchMapMemoryBuffer}!memory\_buffer.c@{memory\_buffer.c}}
+\doxysubsubsection{\texorpdfstring{MemControllerSearchMapMemoryBuffer()}{MemControllerSearchMapMemoryBuffer()}}
+{\footnotesize\ttfamily void Mem\+Controller\+Search\+Map\+Memory\+Buffer (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{int}]{block\+\_\+number }\end{DoxyParamCaption})}
+
+\Hypertarget{memory__buffer_8c_a4c53ef71dd578d93f6687d3957eef3b1}\label{memory__buffer_8c_a4c53ef71dd578d93f6687d3957eef3b1} 
+\index{memory\_buffer.c@{memory\_buffer.c}!newHashMapWrapper@{newHashMapWrapper}}
+\index{newHashMapWrapper@{newHashMapWrapper}!memory\_buffer.c@{memory\_buffer.c}}
+\doxysubsubsection{\texorpdfstring{newHashMapWrapper()}{newHashMapWrapper()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_hash_map_wrapper}{Hash\+Map\+Wrapper}} \texorpdfstring{$\ast$}{*} new\+Hash\+Map\+Wrapper (\begin{DoxyParamCaption}\item[{int}]{block\+\_\+number,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}}]{mem\+\_\+buffer }\end{DoxyParamCaption})}
+
+hashmap 내부에서 \texorpdfstring{$<$}{<}key,value\texorpdfstring{$>$}{>} 중 value에 해당하는 구조체를 생성하는 함수 Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_a4c53ef71dd578d93f6687d3957eef3b1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{memory__buffer_8c_ab18f931996d01ef0ba4f6b52fb52eb66}\label{memory__buffer_8c_ab18f931996d01ef0ba4f6b52fb52eb66} 
+\index{memory\_buffer.c@{memory\_buffer.c}!newMemoryBufferController@{newMemoryBufferController}}
+\index{newMemoryBufferController@{newMemoryBufferController}!memory\_buffer.c@{memory\_buffer.c}}
+\doxysubsubsection{\texorpdfstring{newMemoryBufferController()}{newMemoryBufferController()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*} new\+Memory\+Buffer\+Controller (\begin{DoxyParamCaption}\item[{const unsigned char}]{replacement\+\_\+type }\end{DoxyParamCaption})}
+
+새로운 메모리버퍼 컨트롤러를 생성 Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_ab18f931996d01ef0ba4f6b52fb52eb66_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_ab18f931996d01ef0ba4f6b52fb52eb66_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{memory__buffer_8c_adf4ac09c897fb25be7a364ad884dd6ce}\label{memory__buffer_8c_adf4ac09c897fb25be7a364ad884dd6ce} 
+\index{memory\_buffer.c@{memory\_buffer.c}!putMemoryBufferAt@{putMemoryBufferAt}}
+\index{putMemoryBufferAt@{putMemoryBufferAt}!memory\_buffer.c@{memory\_buffer.c}}
+\doxysubsubsection{\texorpdfstring{putMemoryBufferAt()}{putMemoryBufferAt()}}
+{\footnotesize\ttfamily int put\+Memory\+Buffer\+At (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}}]{memory\+\_\+buffer\+\_\+wrapper,  }\item[{int}]{block\+\_\+number,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}}]{mem\+\_\+buffer }\end{DoxyParamCaption})}
+
+해당 위치의 버퍼를 할당해 hashmap에 집어 넣는 함수 Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_adf4ac09c897fb25be7a364ad884dd6ce_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_adf4ac09c897fb25be7a364ad884dd6ce_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{memory__buffer_8c_a1345dacdd3d0a6fc1095df16fe8513c8}\label{memory__buffer_8c_a1345dacdd3d0a6fc1095df16fe8513c8} 
+\index{memory\_buffer.c@{memory\_buffer.c}!setMemoryBufferAt@{setMemoryBufferAt}}
+\index{setMemoryBufferAt@{setMemoryBufferAt}!memory\_buffer.c@{memory\_buffer.c}}
+\doxysubsubsection{\texorpdfstring{setMemoryBufferAt()}{setMemoryBufferAt()}}
+{\footnotesize\ttfamily int set\+Memory\+Buffer\+At (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}}]{memory\+\_\+buffer\+\_\+wrapper,  }\item[{int}]{block\+\_\+number,  }\item[{char \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{long long}]{buffer\+\_\+length\+\_\+byte }\end{DoxyParamCaption})}
+
+해당 위치의 버퍼를 할당해 hashmap에 집어 넣는 함수 주로 사용하지 않음(put\+Memory\+Buffer\+At)함수를 주로 사용 Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_a1345dacdd3d0a6fc1095df16fe8513c8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_a1345dacdd3d0a6fc1095df16fe8513c8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{memory__buffer_8c_a7c0cd230c8ec2caf2963d1d36b055ce7}\label{memory__buffer_8c_a7c0cd230c8ec2caf2963d1d36b055ce7} 
+\index{memory\_buffer.c@{memory\_buffer.c}!shouldFindEvictableBuffer@{shouldFindEvictableBuffer}}
+\index{shouldFindEvictableBuffer@{shouldFindEvictableBuffer}!memory\_buffer.c@{memory\_buffer.c}}
+\doxysubsubsection{\texorpdfstring{shouldFindEvictableBuffer()}{shouldFindEvictableBuffer()}}
+{\footnotesize\ttfamily int should\+Find\+Evictable\+Buffer (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}}]{manager }\end{DoxyParamCaption})}
+
+제거될 버퍼를 찾아야 하는 지 확인하는 함수 Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{memory__buffer_8c_a7c0cd230c8ec2caf2963d1d36b055ce7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__buffer_8c_a7c0cd230c8ec2caf2963d1d36b055ce7_icgraph}
+\end{center}
+\end{figure}

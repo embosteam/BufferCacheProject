@@ -1,0 +1,290 @@
+\doxysection{Buffer\+Cache\+Project/shared/linked\+\_\+heap.c File Reference}
+\hypertarget{linked__heap_8c}{}\label{linked__heap_8c}\index{BufferCacheProject/shared/linked\_heap.c@{BufferCacheProject/shared/linked\_heap.c}}
+{\ttfamily \#include "{}linked\+\_\+heap.\+h"{}}\newline
+Include dependency graph for linked\+\_\+heap.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{linked__heap_8c_a0aa0b8b3cb4fd503ab4e228be4056a32}{default\+Comparator}} (struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self, void \texorpdfstring{$\ast$}{*}s1, void \texorpdfstring{$\ast$}{*}s2)
+\item 
+struct \mbox{\hyperlink{struct_l_heap_internal_node}{LHeap\+Internal\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linked__heap_8c_a9c7a6f5eb43a9ea5e0090f7450f3f45e}{new\+LHeap\+Internal\+Node}} (unsigned int index, void \texorpdfstring{$\ast$}{*}value)
+\item 
+unsigned int \mbox{\hyperlink{linked__heap_8c_a2d39b67e341e4f9fc49ca495a3a1e309}{LHeap\+Get\+Count}} (struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self)
+\item 
+struct \mbox{\hyperlink{struct_l_heap_internal_node}{LHeap\+Internal\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linked__heap_8c_a86369cd57e9b0ff25172c1ced1b08f36}{find\+Parent\+Node}} (struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_l_heap_internal_node}{LHeap\+Internal\+Node}} \texorpdfstring{$\ast$}{*}node, unsigned int value)
+\item 
+struct \mbox{\hyperlink{struct_l_heap_internal_node}{LHeap\+Internal\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linked__heap_8c_af583b438c08a52d90485bec0882940a1}{find\+Node\+By\+Index}} (struct \mbox{\hyperlink{struct_l_heap_internal_node}{LHeap\+Internal\+Node}} \texorpdfstring{$\ast$}{*}node, unsigned int value)
+\item 
+int \mbox{\hyperlink{linked__heap_8c_a9ec5d2314058a10356acd61648d2199e}{LHeap\+Push}} (struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self, void \texorpdfstring{$\ast$}{*}value)
+\item 
+void \mbox{\hyperlink{linked__heap_8c_a61989e26541065b0336076d07868a62f}{debug\+Trav}} (struct \mbox{\hyperlink{struct_l_heap_internal_node}{LHeap\+Internal\+Node}} \texorpdfstring{$\ast$}{*}node)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linked__heap_8c_ad796d88910452120b6ee6adaf97cfcee}{LHeap\+Get}} (struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self)
+\item 
+unsigned char \mbox{\hyperlink{linked__heap_8c_a45a8e7b86a2c3afd1f250a2f4558a059}{LHeap\+Is\+Empty}} (struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self)
+\item 
+unsigned char \mbox{\hyperlink{linked__heap_8c_a3a09e8555db2eecc5099030976eb2df9}{LHeap\+Pop}} (struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self)
+\item 
+void \mbox{\hyperlink{linked__heap_8c_acdcca1942dad2e6dcd93259004f098d4}{free\+All\+Internal\+Nodes\+Except\+Root\+Node}} (struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_l_heap_internal_node}{LHeap\+Internal\+Node}} \texorpdfstring{$\ast$}{*}node)
+\item 
+unsigned char \mbox{\hyperlink{linked__heap_8c_a895764a8703c9998176db8cdfc872349}{LHeap\+Clear}} (struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self)
+\item 
+void \mbox{\hyperlink{linked__heap_8c_aaa1d47c90662660600553d5eb0c2e22a}{LHeap\+Release}} (struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self)
+\item 
+struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linked__heap_8c_a7b48365fa0a0965610300bb621cba031}{new\+LHeap}} (unsigned int concurrent\+\_\+count, int(\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{thread__pool_8c_ae00f4b5af832677b4e133e3c343f1c39}{fetch\+Key\+From\+Value}})(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}), int(\texorpdfstring{$\ast$}{*}comparator)(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}))
+\item 
+struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linked__heap_8c_ab919e8b6817bb880b92052a97c6f91d6}{new\+LHeap2}} (unsigned int concurrent\+\_\+count, int(\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{thread__pool_8c_ae00f4b5af832677b4e133e3c343f1c39}{fetch\+Key\+From\+Value}})(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{linked__heap_8c_a61989e26541065b0336076d07868a62f}\label{linked__heap_8c_a61989e26541065b0336076d07868a62f} 
+\index{linked\_heap.c@{linked\_heap.c}!debugTrav@{debugTrav}}
+\index{debugTrav@{debugTrav}!linked\_heap.c@{linked\_heap.c}}
+\doxysubsubsection{\texorpdfstring{debugTrav()}{debugTrav()}}
+{\footnotesize\ttfamily void debug\+Trav (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_heap_internal_node}{LHeap\+Internal\+Node}} \texorpdfstring{$\ast$}{*}}]{node }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=140pt]{linked__heap_8c_a61989e26541065b0336076d07868a62f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=140pt]{linked__heap_8c_a61989e26541065b0336076d07868a62f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap_8c_a0aa0b8b3cb4fd503ab4e228be4056a32}\label{linked__heap_8c_a0aa0b8b3cb4fd503ab4e228be4056a32} 
+\index{linked\_heap.c@{linked\_heap.c}!defaultComparator@{defaultComparator}}
+\index{defaultComparator@{defaultComparator}!linked\_heap.c@{linked\_heap.c}}
+\doxysubsubsection{\texorpdfstring{defaultComparator()}{defaultComparator()}}
+{\footnotesize\ttfamily int default\+Comparator (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{void \texorpdfstring{$\ast$}{*}}]{s1,  }\item[{void \texorpdfstring{$\ast$}{*}}]{s2 }\end{DoxyParamCaption})}
+
+힙 내부에서 사용할 기본 comparator(min heap을 기준으로 작성됨) Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap_8c_a0aa0b8b3cb4fd503ab4e228be4056a32_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap_8c_af583b438c08a52d90485bec0882940a1}\label{linked__heap_8c_af583b438c08a52d90485bec0882940a1} 
+\index{linked\_heap.c@{linked\_heap.c}!findNodeByIndex@{findNodeByIndex}}
+\index{findNodeByIndex@{findNodeByIndex}!linked\_heap.c@{linked\_heap.c}}
+\doxysubsubsection{\texorpdfstring{findNodeByIndex()}{findNodeByIndex()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_l_heap_internal_node}{LHeap\+Internal\+Node}} \texorpdfstring{$\ast$}{*} find\+Node\+By\+Index (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_heap_internal_node}{LHeap\+Internal\+Node}} \texorpdfstring{$\ast$}{*}}]{node,  }\item[{unsigned int}]{value }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap_8c_af583b438c08a52d90485bec0882940a1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap_8c_a86369cd57e9b0ff25172c1ced1b08f36}\label{linked__heap_8c_a86369cd57e9b0ff25172c1ced1b08f36} 
+\index{linked\_heap.c@{linked\_heap.c}!findParentNode@{findParentNode}}
+\index{findParentNode@{findParentNode}!linked\_heap.c@{linked\_heap.c}}
+\doxysubsubsection{\texorpdfstring{findParentNode()}{findParentNode()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_l_heap_internal_node}{LHeap\+Internal\+Node}} \texorpdfstring{$\ast$}{*} find\+Parent\+Node (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{struct \mbox{\hyperlink{struct_l_heap_internal_node}{LHeap\+Internal\+Node}} \texorpdfstring{$\ast$}{*}}]{node,  }\item[{unsigned int}]{value }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap_8c_a86369cd57e9b0ff25172c1ced1b08f36_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap_8c_acdcca1942dad2e6dcd93259004f098d4}\label{linked__heap_8c_acdcca1942dad2e6dcd93259004f098d4} 
+\index{linked\_heap.c@{linked\_heap.c}!freeAllInternalNodesExceptRootNode@{freeAllInternalNodesExceptRootNode}}
+\index{freeAllInternalNodesExceptRootNode@{freeAllInternalNodesExceptRootNode}!linked\_heap.c@{linked\_heap.c}}
+\doxysubsubsection{\texorpdfstring{freeAllInternalNodesExceptRootNode()}{freeAllInternalNodesExceptRootNode()}}
+{\footnotesize\ttfamily void free\+All\+Internal\+Nodes\+Except\+Root\+Node (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{struct \mbox{\hyperlink{struct_l_heap_internal_node}{LHeap\+Internal\+Node}} \texorpdfstring{$\ast$}{*}}]{node }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{linked__heap_8c_acdcca1942dad2e6dcd93259004f098d4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap_8c_acdcca1942dad2e6dcd93259004f098d4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap_8c_a895764a8703c9998176db8cdfc872349}\label{linked__heap_8c_a895764a8703c9998176db8cdfc872349} 
+\index{linked\_heap.c@{linked\_heap.c}!LHeapClear@{LHeapClear}}
+\index{LHeapClear@{LHeapClear}!linked\_heap.c@{linked\_heap.c}}
+\doxysubsubsection{\texorpdfstring{LHeapClear()}{LHeapClear()}}
+{\footnotesize\ttfamily unsigned char LHeap\+Clear (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{linked__heap_8c_a895764a8703c9998176db8cdfc872349_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap_8c_a895764a8703c9998176db8cdfc872349_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap_8c_ad796d88910452120b6ee6adaf97cfcee}\label{linked__heap_8c_ad796d88910452120b6ee6adaf97cfcee} 
+\index{linked\_heap.c@{linked\_heap.c}!LHeapGet@{LHeapGet}}
+\index{LHeapGet@{LHeapGet}!linked\_heap.c@{linked\_heap.c}}
+\doxysubsubsection{\texorpdfstring{LHeapGet()}{LHeapGet()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} LHeap\+Get (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap_8c_ad796d88910452120b6ee6adaf97cfcee_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap_8c_a2d39b67e341e4f9fc49ca495a3a1e309}\label{linked__heap_8c_a2d39b67e341e4f9fc49ca495a3a1e309} 
+\index{linked\_heap.c@{linked\_heap.c}!LHeapGetCount@{LHeapGetCount}}
+\index{LHeapGetCount@{LHeapGetCount}!linked\_heap.c@{linked\_heap.c}}
+\doxysubsubsection{\texorpdfstring{LHeapGetCount()}{LHeapGetCount()}}
+{\footnotesize\ttfamily unsigned int LHeap\+Get\+Count (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap_8c_a2d39b67e341e4f9fc49ca495a3a1e309_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap_8c_a45a8e7b86a2c3afd1f250a2f4558a059}\label{linked__heap_8c_a45a8e7b86a2c3afd1f250a2f4558a059} 
+\index{linked\_heap.c@{linked\_heap.c}!LHeapIsEmpty@{LHeapIsEmpty}}
+\index{LHeapIsEmpty@{LHeapIsEmpty}!linked\_heap.c@{linked\_heap.c}}
+\doxysubsubsection{\texorpdfstring{LHeapIsEmpty()}{LHeapIsEmpty()}}
+{\footnotesize\ttfamily unsigned char LHeap\+Is\+Empty (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap_8c_a45a8e7b86a2c3afd1f250a2f4558a059_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap_8c_a3a09e8555db2eecc5099030976eb2df9}\label{linked__heap_8c_a3a09e8555db2eecc5099030976eb2df9} 
+\index{linked\_heap.c@{linked\_heap.c}!LHeapPop@{LHeapPop}}
+\index{LHeapPop@{LHeapPop}!linked\_heap.c@{linked\_heap.c}}
+\doxysubsubsection{\texorpdfstring{LHeapPop()}{LHeapPop()}}
+{\footnotesize\ttfamily unsigned char LHeap\+Pop (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{linked__heap_8c_a3a09e8555db2eecc5099030976eb2df9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap_8c_a3a09e8555db2eecc5099030976eb2df9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap_8c_a9ec5d2314058a10356acd61648d2199e}\label{linked__heap_8c_a9ec5d2314058a10356acd61648d2199e} 
+\index{linked\_heap.c@{linked\_heap.c}!LHeapPush@{LHeapPush}}
+\index{LHeapPush@{LHeapPush}!linked\_heap.c@{linked\_heap.c}}
+\doxysubsubsection{\texorpdfstring{LHeapPush()}{LHeapPush()}}
+{\footnotesize\ttfamily int LHeap\+Push (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{void \texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{linked__heap_8c_a9ec5d2314058a10356acd61648d2199e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap_8c_a9ec5d2314058a10356acd61648d2199e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap_8c_aaa1d47c90662660600553d5eb0c2e22a}\label{linked__heap_8c_aaa1d47c90662660600553d5eb0c2e22a} 
+\index{linked\_heap.c@{linked\_heap.c}!LHeapRelease@{LHeapRelease}}
+\index{LHeapRelease@{LHeapRelease}!linked\_heap.c@{linked\_heap.c}}
+\doxysubsubsection{\texorpdfstring{LHeapRelease()}{LHeapRelease()}}
+{\footnotesize\ttfamily void LHeap\+Release (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap_8c_aaa1d47c90662660600553d5eb0c2e22a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap_8c_a7b48365fa0a0965610300bb621cba031}\label{linked__heap_8c_a7b48365fa0a0965610300bb621cba031} 
+\index{linked\_heap.c@{linked\_heap.c}!newLHeap@{newLHeap}}
+\index{newLHeap@{newLHeap}!linked\_heap.c@{linked\_heap.c}}
+\doxysubsubsection{\texorpdfstring{newLHeap()}{newLHeap()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*} new\+LHeap (\begin{DoxyParamCaption}\item[{unsigned int}]{concurrent\+\_\+count,  }\item[{int(\texorpdfstring{$\ast$}{*})(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})}]{fetch\+Key\+From\+Value,  }\item[{int(\texorpdfstring{$\ast$}{*})(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})}]{comparator }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap_8c_a7b48365fa0a0965610300bb621cba031_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap_8c_a7b48365fa0a0965610300bb621cba031_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap_8c_ab919e8b6817bb880b92052a97c6f91d6}\label{linked__heap_8c_ab919e8b6817bb880b92052a97c6f91d6} 
+\index{linked\_heap.c@{linked\_heap.c}!newLHeap2@{newLHeap2}}
+\index{newLHeap2@{newLHeap2}!linked\_heap.c@{linked\_heap.c}}
+\doxysubsubsection{\texorpdfstring{newLHeap2()}{newLHeap2()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*} new\+LHeap2 (\begin{DoxyParamCaption}\item[{unsigned int}]{concurrent\+\_\+count,  }\item[{int(\texorpdfstring{$\ast$}{*})(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})}]{fetch\+Key\+From\+Value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap_8c_ab919e8b6817bb880b92052a97c6f91d6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=261pt]{linked__heap_8c_ab919e8b6817bb880b92052a97c6f91d6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap_8c_a9c7a6f5eb43a9ea5e0090f7450f3f45e}\label{linked__heap_8c_a9c7a6f5eb43a9ea5e0090f7450f3f45e} 
+\index{linked\_heap.c@{linked\_heap.c}!newLHeapInternalNode@{newLHeapInternalNode}}
+\index{newLHeapInternalNode@{newLHeapInternalNode}!linked\_heap.c@{linked\_heap.c}}
+\doxysubsubsection{\texorpdfstring{newLHeapInternalNode()}{newLHeapInternalNode()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_l_heap_internal_node}{LHeap\+Internal\+Node}} \texorpdfstring{$\ast$}{*} new\+LHeap\+Internal\+Node (\begin{DoxyParamCaption}\item[{unsigned int}]{index,  }\item[{void \texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap_8c_a9c7a6f5eb43a9ea5e0090f7450f3f45e_icgraph}
+\end{center}
+\end{figure}

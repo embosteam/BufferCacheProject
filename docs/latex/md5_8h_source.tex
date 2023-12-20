@@ -1,0 +1,31 @@
+\doxysection{md5.\+h}
+\hypertarget{md5_8h_source}{}\label{md5_8h_source}\index{BufferCacheProject/shared/md5.h@{BufferCacheProject/shared/md5.h}}
+\mbox{\hyperlink{md5_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//https://github.com/Zunawe/md5-\/c/blob/main/md5.h}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ MD5\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ MD5\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00011\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{struct_m_d5_context_af931a8871310b4dad23f0f0b0f623560}{size}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Size\ of\ input\ in\ bytes}}
+\DoxyCodeLine{00012\ \ \ \ \ uint32\_t\ buffer[4];\ \ \ \textcolor{comment}{//\ Current\ accumulation\ of\ hash}}
+\DoxyCodeLine{00013\ \ \ \ \ uint8\_t\ input[64];\ \ \ \ \textcolor{comment}{//\ Input\ to\ be\ used\ in\ the\ next\ step}}
+\DoxyCodeLine{00014\ \ \ \ \ uint8\_t\ digest[16];\ \ \ \textcolor{comment}{//\ Result\ of\ algorithm}}
+\DoxyCodeLine{00015\ \}\mbox{\hyperlink{struct_m_d5_context}{MD5Context}};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{md5_8h_a5df7d90b9ba181c28322d3bffcb30dbe}{md5Init}}(\mbox{\hyperlink{struct_m_d5_context}{MD5Context}}\ *ctx);}
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{md5_8h_a28e3da9d206e39a25fcd46d2365de955}{md5Update}}(\mbox{\hyperlink{struct_m_d5_context}{MD5Context}}\ *ctx,\ uint8\_t\ *input,\ \textcolor{keywordtype}{size\_t}\ input\_len);}
+\DoxyCodeLine{00019\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{md5_8h_af16783c3d6ab447f6c48b79a09949f0d}{md5Finalize}}(\mbox{\hyperlink{struct_m_d5_context}{MD5Context}}\ *ctx);}
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{md5_8h_ad62f52b7881806fe7ccd720e5bd1feee}{md5Step}}(uint32\_t\ *buffer,\ uint32\_t\ *input);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{md5_8h_aac6130138e35a1026d623e3446e14b53}{md5String}}(\textcolor{keywordtype}{char}\ *input,\ uint8\_t\ *result);}
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{md5_8h_a75b9ae448ce1d460f33786a3fdda1cf1}{md5File}}(FILE\ *file,\ uint8\_t\ *result);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

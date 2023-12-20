@@ -1,0 +1,60 @@
+\doxysection{Buffer\+Cache\+Project/replacement\+\_\+policy/replacement\+\_\+function\+\_\+example.c File Reference}
+\hypertarget{replacement__function__example_8c}{}\label{replacement__function__example_8c}\index{BufferCacheProject/replacement\_policy/replacement\_function\_example.c@{BufferCacheProject/replacement\_policy/replacement\_function\_example.c}}
+{\ttfamily \#include "{}../shared/doubly\+\_\+linked\+\_\+list.\+h"{}}\newline
+{\ttfamily \#include "{}../shared/memory\+\_\+buffer.\+h"{}}\newline
+Include dependency graph for replacement\+\_\+function\+\_\+example.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__function__example_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{replacement__function__example_8c_afa6fb8f2b9e7929dc898b90e29a71168}{initialize\+Replacement\+Policy\+Algorithms}} (void \texorpdfstring{$\ast$}{*}args)
+\item 
+int \mbox{\hyperlink{replacement__function__example_8c_a527e263c0ed8b52e3f623d3705b1946a}{put\+Or\+Calcuate\+New\+Item}} (struct \mbox{\hyperlink{struct_doubly_linked_list}{Doubly\+Linked\+List}} \texorpdfstring{$\ast$}{*}current\+Item\+Container, void \texorpdfstring{$\ast$}{*}args)
+\item 
+void \mbox{\hyperlink{replacement__function__example_8c_a435dc8a322c76171cd223f16bec0bfc9}{update\+Cache\+State\+Due\+To\+Fetching}} (struct \mbox{\hyperlink{struct_doubly_linked_list}{Doubly\+Linked\+List}} \texorpdfstring{$\ast$}{*}selected\+\_\+item, void \texorpdfstring{$\ast$}{*}args)
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_list}{Doubly\+Linked\+List}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{replacement__function__example_8c_a1bd02e9389d300aeba8fb6828e5b37a4}{pick\+Evictable\+Item}} (struct \mbox{\hyperlink{struct_doubly_linked_list_wrapper}{Doubly\+Linked\+List\+Wrapper}} \texorpdfstring{$\ast$}{*}container, int replacement\+\_\+algorithm\+\_\+type)
+\item 
+int \mbox{\hyperlink{replacement__function__example_8c_ab3d9ab5f6b736060299eb1315cb24a9f}{resource\+Clean\+Up\+Before\+Evicting}} (struct \mbox{\hyperlink{struct_doubly_linked_list_wrapper}{Doubly\+Linked\+List\+Wrapper}} \texorpdfstring{$\ast$}{*}container, struct \mbox{\hyperlink{struct_doubly_linked_list}{Doubly\+Linked\+List}} \texorpdfstring{$\ast$}{*}evictable\+\_\+item, int replacement\+\_\+algorithm\+\_\+type)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{replacement__function__example_8c_afa6fb8f2b9e7929dc898b90e29a71168}\label{replacement__function__example_8c_afa6fb8f2b9e7929dc898b90e29a71168} 
+\index{replacement\_function\_example.c@{replacement\_function\_example.c}!initializeReplacementPolicyAlgorithms@{initializeReplacementPolicyAlgorithms}}
+\index{initializeReplacementPolicyAlgorithms@{initializeReplacementPolicyAlgorithms}!replacement\_function\_example.c@{replacement\_function\_example.c}}
+\doxysubsubsection{\texorpdfstring{initializeReplacementPolicyAlgorithms()}{initializeReplacementPolicyAlgorithms()}}
+{\footnotesize\ttfamily int initialize\+Replacement\+Policy\+Algorithms (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{args }\end{DoxyParamCaption})}
+
+flush thread쪽 호출할때 해당 로직을 검토중 if(is\+Buffer\+Container\+Full==true)\{ int replacement\+\_\+algorithm\+\_\+type = -\/1; struct Doubly\+Linked\+List\texorpdfstring{$\ast$}{*} evictable\+\_\+item = pick\+Evictable\+Item(buffer\+\_\+container,replacement\+\_\+algorithm\+\_\+type); if(evictable\+\_\+item!=NULL)\{ write2\+Disk\+If\+Dirty(evictable\+\_\+item); resource\+Clean\+Up\+Before\+Evicting(buffer\+\_\+container,evictable\+\_\+item,replacement\+\_\+algorithm\+\_\+type); pop\+From\+Doubly\+Linked\+List(evictable\+\_\+item); \} else\{
+
+\} put\+Or\+Calcuate\+New\+Item(current\+\_\+item,\+NULL); \} 아래는 단지 예제이므로 이런 느낌이면 좋다라는 의미의 코드 캐시 알고리즘 관련 초기화(아마 인스턴스 생성시나 최초 1번만 사용될 가능성이 높음\Hypertarget{replacement__function__example_8c_a1bd02e9389d300aeba8fb6828e5b37a4}\label{replacement__function__example_8c_a1bd02e9389d300aeba8fb6828e5b37a4} 
+\index{replacement\_function\_example.c@{replacement\_function\_example.c}!pickEvictableItem@{pickEvictableItem}}
+\index{pickEvictableItem@{pickEvictableItem}!replacement\_function\_example.c@{replacement\_function\_example.c}}
+\doxysubsubsection{\texorpdfstring{pickEvictableItem()}{pickEvictableItem()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_list}{Doubly\+Linked\+List}} \texorpdfstring{$\ast$}{*} pick\+Evictable\+Item (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_doubly_linked_list_wrapper}{Doubly\+Linked\+List\+Wrapper}} \texorpdfstring{$\ast$}{*}}]{container,  }\item[{int}]{replacement\+\_\+algorithm\+\_\+type }\end{DoxyParamCaption})}
+
+\Hypertarget{replacement__function__example_8c_a527e263c0ed8b52e3f623d3705b1946a}\label{replacement__function__example_8c_a527e263c0ed8b52e3f623d3705b1946a} 
+\index{replacement\_function\_example.c@{replacement\_function\_example.c}!putOrCalcuateNewItem@{putOrCalcuateNewItem}}
+\index{putOrCalcuateNewItem@{putOrCalcuateNewItem}!replacement\_function\_example.c@{replacement\_function\_example.c}}
+\doxysubsubsection{\texorpdfstring{putOrCalcuateNewItem()}{putOrCalcuateNewItem()}}
+{\footnotesize\ttfamily int put\+Or\+Calcuate\+New\+Item (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_doubly_linked_list}{Doubly\+Linked\+List}} \texorpdfstring{$\ast$}{*}}]{current\+Item\+Container,  }\item[{void \texorpdfstring{$\ast$}{*}}]{args }\end{DoxyParamCaption})}
+
+해당 버퍼를 각 캐시 알고리즘에 넣음\Hypertarget{replacement__function__example_8c_ab3d9ab5f6b736060299eb1315cb24a9f}\label{replacement__function__example_8c_ab3d9ab5f6b736060299eb1315cb24a9f} 
+\index{replacement\_function\_example.c@{replacement\_function\_example.c}!resourceCleanUpBeforeEvicting@{resourceCleanUpBeforeEvicting}}
+\index{resourceCleanUpBeforeEvicting@{resourceCleanUpBeforeEvicting}!replacement\_function\_example.c@{replacement\_function\_example.c}}
+\doxysubsubsection{\texorpdfstring{resourceCleanUpBeforeEvicting()}{resourceCleanUpBeforeEvicting()}}
+{\footnotesize\ttfamily int resource\+Clean\+Up\+Before\+Evicting (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_doubly_linked_list_wrapper}{Doubly\+Linked\+List\+Wrapper}} \texorpdfstring{$\ast$}{*}}]{container,  }\item[{struct \mbox{\hyperlink{struct_doubly_linked_list}{Doubly\+Linked\+List}} \texorpdfstring{$\ast$}{*}}]{evictable\+\_\+item,  }\item[{int}]{replacement\+\_\+algorithm\+\_\+type }\end{DoxyParamCaption})}
+
+내부 캐시알고리즘에서 리소스자체적으로 release하거나 축출할 리스트가 명시적으로 있을떄 사용 라이프 사이클상 destroy 나 exit에 해당하는 함수\Hypertarget{replacement__function__example_8c_a435dc8a322c76171cd223f16bec0bfc9}\label{replacement__function__example_8c_a435dc8a322c76171cd223f16bec0bfc9} 
+\index{replacement\_function\_example.c@{replacement\_function\_example.c}!updateCacheStateDueToFetching@{updateCacheStateDueToFetching}}
+\index{updateCacheStateDueToFetching@{updateCacheStateDueToFetching}!replacement\_function\_example.c@{replacement\_function\_example.c}}
+\doxysubsubsection{\texorpdfstring{updateCacheStateDueToFetching()}{updateCacheStateDueToFetching()}}
+{\footnotesize\ttfamily void update\+Cache\+State\+Due\+To\+Fetching (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_doubly_linked_list}{Doubly\+Linked\+List}} \texorpdfstring{$\ast$}{*}}]{selected\+\_\+item,  }\item[{void \texorpdfstring{$\ast$}{*}}]{args }\end{DoxyParamCaption})}
+
+각 캐시 알고리즘별로 접근 횟수 카운터등을 업데이트해주는 함수

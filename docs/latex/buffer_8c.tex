@@ -1,0 +1,306 @@
+\doxysection{Buffer\+Cache\+Project/buffer.c File Reference}
+\hypertarget{buffer_8c}{}\label{buffer_8c}\index{BufferCacheProject/buffer.c@{BufferCacheProject/buffer.c}}
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$sys/mman.\+h$>$}\newline
+{\ttfamily \#include $<$semaphore.\+h$>$}\newline
+{\ttfamily \#include "{}config.\+h"{}}\newline
+{\ttfamily \#include "{}shared/common\+\_\+shared.\+h"{}}\newline
+{\ttfamily \#include "{}buffered\+\_\+read/export\+\_\+api.\+h"{}}\newline
+{\ttfamily \#include "{}delayed\+\_\+write/export\+\_\+api.\+h"{}}\newline
+{\ttfamily \#include "{}replacement\+\_\+policy/export\+\_\+api.\+h"{}}\newline
+Include dependency graph for buffer.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{buffer_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_random_access_sequence}{Random\+Access\+Sequence}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{buffer_8c_a369266c24eacffb87046522897a570d5}{\+\_\+\+GNU\+\_\+\+SOURCE}}
+\item 
+\#define \mbox{\hyperlink{buffer_8c_ad51ded0bbd705f02f73fc60c0b721ced}{BLOCK\+\_\+\+SIZE}}~4096
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{buffer_8c_a8e4ba95fe7a7921fd00797fee899e064}{os\+\_\+read}} (int block\+\_\+nr, char \texorpdfstring{$\ast$}{*}user\+\_\+buffer)
+\item 
+int \mbox{\hyperlink{buffer_8c_afb83b3418e9afbca237855b364055e26}{os\+\_\+write}} (int block\+\_\+nr, char \texorpdfstring{$\ast$}{*}user\+\_\+buffer)
+\item 
+int \mbox{\hyperlink{buffer_8c_a6788d2e65804a347e26449a3c097dbd7}{lib\+\_\+read}} (int block\+\_\+nr, char \texorpdfstring{$\ast$}{*}user\+\_\+buffer)
+\item 
+int \mbox{\hyperlink{buffer_8c_a4f28d46fbcf3c679fea366db3cb3e9d5}{lib\+\_\+write}} (int block\+\_\+nr, char \texorpdfstring{$\ast$}{*}user\+\_\+buffer)
+\item 
+int \mbox{\hyperlink{buffer_8c_a05848de25ac2dbec233935058a1d24b4}{init}} ()
+\item 
+struct \mbox{\hyperlink{struct_random_access_sequence}{Random\+Access\+Sequence}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{buffer_8c_a6d16808bac26519535560d30374a58fd}{create\+Random\+Sequess\+Access}} (int random\+\_\+distribution\+\_\+type, int element\+\_\+count, int max\+\_\+element\+\_\+value)
+\item 
+int \mbox{\hyperlink{buffer_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{buffer_8c_a3419d6e5ea39d2522ff48b26a1da52b9}{disk\+\_\+buffer}}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{buffer_8c_abb6658acc457de20a80292cdf81ab563}{tmp\+\_\+buffer}}
+\item 
+struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{buffer_8c_a1affede66fe244e1c8ed1d9938223c8d}{memory\+\_\+buffer\+\_\+manager}} =NULL
+\item 
+struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{buffer_8c_a5e09d7a30eb3306bd3912e76febcdfb8}{tp}} = NULL
+\item 
+double \mbox{\hyperlink{buffer_8c_a1443e534d598dd25409df84aea7eb036}{pure\+\_\+hashmap\+\_\+access\+\_\+time}} = 0.\+0
+\item 
+double \mbox{\hyperlink{buffer_8c_a3a9e8dc62402e54322bd4763ebdecc8a}{hashhit\+\_\+access\+\_\+time}} = 0
+\item 
+double \mbox{\hyperlink{buffer_8c_a9ea9cb213f1d4caa21ba055006c7f771}{hashmiss\+\_\+access\+\_\+time}} = 0
+\item 
+unsigned long long \mbox{\hyperlink{buffer_8c_af8677c83d140471f8c0f568420e089d8}{hit\+\_\+count}} =0
+\item 
+int \mbox{\hyperlink{buffer_8c_ace5f86cdc8deb8e6196ddf6b0c02a73c}{disk\+\_\+fd}}
+\item 
+int \mbox{\hyperlink{buffer_8c_a14ffff9a0e2d8ede09b260703c2e3904}{disk\+\_\+fd\+\_\+tmp}}
+\item 
+int \mbox{\hyperlink{buffer_8c_a9ce4e24afddcb74a038b48ba9c0d5fc4}{disk\+\_\+fd3}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{buffer_8c_a369266c24eacffb87046522897a570d5}\label{buffer_8c_a369266c24eacffb87046522897a570d5} 
+\index{buffer.c@{buffer.c}!\_GNU\_SOURCE@{\_GNU\_SOURCE}}
+\index{\_GNU\_SOURCE@{\_GNU\_SOURCE}!buffer.c@{buffer.c}}
+\doxysubsubsection{\texorpdfstring{\_GNU\_SOURCE}{\_GNU\_SOURCE}}
+{\footnotesize\ttfamily \#define \+\_\+\+GNU\+\_\+\+SOURCE}
+
+\Hypertarget{buffer_8c_ad51ded0bbd705f02f73fc60c0b721ced}\label{buffer_8c_ad51ded0bbd705f02f73fc60c0b721ced} 
+\index{buffer.c@{buffer.c}!BLOCK\_SIZE@{BLOCK\_SIZE}}
+\index{BLOCK\_SIZE@{BLOCK\_SIZE}!buffer.c@{buffer.c}}
+\doxysubsubsection{\texorpdfstring{BLOCK\_SIZE}{BLOCK\_SIZE}}
+{\footnotesize\ttfamily \#define BLOCK\+\_\+\+SIZE~4096}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{buffer_8c_a6d16808bac26519535560d30374a58fd}\label{buffer_8c_a6d16808bac26519535560d30374a58fd} 
+\index{buffer.c@{buffer.c}!createRandomSequessAccess@{createRandomSequessAccess}}
+\index{createRandomSequessAccess@{createRandomSequessAccess}!buffer.c@{buffer.c}}
+\doxysubsubsection{\texorpdfstring{createRandomSequessAccess()}{createRandomSequessAccess()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_random_access_sequence}{Random\+Access\+Sequence}} \texorpdfstring{$\ast$}{*} create\+Random\+Sequess\+Access (\begin{DoxyParamCaption}\item[{int}]{random\+\_\+distribution\+\_\+type,  }\item[{int}]{element\+\_\+count,  }\item[{int}]{max\+\_\+element\+\_\+value }\end{DoxyParamCaption})}
+
+해당 Distribution에 해당하는 순서로 random한 블록번호 Sequence를 생성 Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{buffer_8c_a6d16808bac26519535560d30374a58fd_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{buffer_8c_a6d16808bac26519535560d30374a58fd_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{buffer_8c_a05848de25ac2dbec233935058a1d24b4}\label{buffer_8c_a05848de25ac2dbec233935058a1d24b4} 
+\index{buffer.c@{buffer.c}!init@{init}}
+\index{init@{init}!buffer.c@{buffer.c}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily int init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{buffer_8c_a05848de25ac2dbec233935058a1d24b4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{buffer_8c_a05848de25ac2dbec233935058a1d24b4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{buffer_8c_a6788d2e65804a347e26449a3c097dbd7}\label{buffer_8c_a6788d2e65804a347e26449a3c097dbd7} 
+\index{buffer.c@{buffer.c}!lib\_read@{lib\_read}}
+\index{lib\_read@{lib\_read}!buffer.c@{buffer.c}}
+\doxysubsubsection{\texorpdfstring{lib\_read()}{lib\_read()}}
+{\footnotesize\ttfamily int lib\+\_\+read (\begin{DoxyParamCaption}\item[{int}]{block\+\_\+nr,  }\item[{char \texorpdfstring{$\ast$}{*}}]{user\+\_\+buffer }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{buffer_8c_a6788d2e65804a347e26449a3c097dbd7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{buffer_8c_a6788d2e65804a347e26449a3c097dbd7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{buffer_8c_a4f28d46fbcf3c679fea366db3cb3e9d5}\label{buffer_8c_a4f28d46fbcf3c679fea366db3cb3e9d5} 
+\index{buffer.c@{buffer.c}!lib\_write@{lib\_write}}
+\index{lib\_write@{lib\_write}!buffer.c@{buffer.c}}
+\doxysubsubsection{\texorpdfstring{lib\_write()}{lib\_write()}}
+{\footnotesize\ttfamily int lib\+\_\+write (\begin{DoxyParamCaption}\item[{int}]{block\+\_\+nr,  }\item[{char \texorpdfstring{$\ast$}{*}}]{user\+\_\+buffer }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{buffer_8c_a4f28d46fbcf3c679fea366db3cb3e9d5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{buffer_8c_a4f28d46fbcf3c679fea366db3cb3e9d5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{buffer_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{buffer_8c_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{buffer.c@{buffer.c}!main@{main}}
+\index{main@{main}!buffer.c@{buffer.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+버퍼에서 초기에 값을 잘 가져오는 지 확인
+
+디스크에 씀
+
+읽기후 잘가져왔는지 확인
+
+flush순서를 조금 기다려줌
+
+flush를 시키고 기다림Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{buffer_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{buffer_8c_a8e4ba95fe7a7921fd00797fee899e064}\label{buffer_8c_a8e4ba95fe7a7921fd00797fee899e064} 
+\index{buffer.c@{buffer.c}!os\_read@{os\_read}}
+\index{os\_read@{os\_read}!buffer.c@{buffer.c}}
+\doxysubsubsection{\texorpdfstring{os\_read()}{os\_read()}}
+{\footnotesize\ttfamily int os\+\_\+read (\begin{DoxyParamCaption}\item[{int}]{block\+\_\+nr,  }\item[{char \texorpdfstring{$\ast$}{*}}]{user\+\_\+buffer }\end{DoxyParamCaption})}
+
+캐시 접근 횟수를 업데이트 하고 해당 유저 버퍼에 복사하여 위로 올려준다Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{buffer_8c_a8e4ba95fe7a7921fd00797fee899e064_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{buffer_8c_a8e4ba95fe7a7921fd00797fee899e064_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{buffer_8c_afb83b3418e9afbca237855b364055e26}\label{buffer_8c_afb83b3418e9afbca237855b364055e26} 
+\index{buffer.c@{buffer.c}!os\_write@{os\_write}}
+\index{os\_write@{os\_write}!buffer.c@{buffer.c}}
+\doxysubsubsection{\texorpdfstring{os\_write()}{os\_write()}}
+{\footnotesize\ttfamily int os\+\_\+write (\begin{DoxyParamCaption}\item[{int}]{block\+\_\+nr,  }\item[{char \texorpdfstring{$\ast$}{*}}]{user\+\_\+buffer }\end{DoxyParamCaption})}
+
+새로운 버퍼를 생성하고 값을 복사해 hashmap에 집어 넣음
+
+해당 쓰기된 버퍼를 dirty=1로 바꾸고 flush thread pool 에 디스크 쓰기 요청 패킷을 전송Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{buffer_8c_afb83b3418e9afbca237855b364055e26_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{buffer_8c_afb83b3418e9afbca237855b364055e26_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{buffer_8c_a3419d6e5ea39d2522ff48b26a1da52b9}\label{buffer_8c_a3419d6e5ea39d2522ff48b26a1da52b9} 
+\index{buffer.c@{buffer.c}!disk\_buffer@{disk\_buffer}}
+\index{disk\_buffer@{disk\_buffer}!buffer.c@{buffer.c}}
+\doxysubsubsection{\texorpdfstring{disk\_buffer}{disk\_buffer}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} disk\+\_\+buffer}
+
+\Hypertarget{buffer_8c_ace5f86cdc8deb8e6196ddf6b0c02a73c}\label{buffer_8c_ace5f86cdc8deb8e6196ddf6b0c02a73c} 
+\index{buffer.c@{buffer.c}!disk\_fd@{disk\_fd}}
+\index{disk\_fd@{disk\_fd}!buffer.c@{buffer.c}}
+\doxysubsubsection{\texorpdfstring{disk\_fd}{disk\_fd}}
+{\footnotesize\ttfamily int disk\+\_\+fd}
+
+\Hypertarget{buffer_8c_a9ce4e24afddcb74a038b48ba9c0d5fc4}\label{buffer_8c_a9ce4e24afddcb74a038b48ba9c0d5fc4} 
+\index{buffer.c@{buffer.c}!disk\_fd3@{disk\_fd3}}
+\index{disk\_fd3@{disk\_fd3}!buffer.c@{buffer.c}}
+\doxysubsubsection{\texorpdfstring{disk\_fd3}{disk\_fd3}}
+{\footnotesize\ttfamily int disk\+\_\+fd3}
+
+\Hypertarget{buffer_8c_a14ffff9a0e2d8ede09b260703c2e3904}\label{buffer_8c_a14ffff9a0e2d8ede09b260703c2e3904} 
+\index{buffer.c@{buffer.c}!disk\_fd\_tmp@{disk\_fd\_tmp}}
+\index{disk\_fd\_tmp@{disk\_fd\_tmp}!buffer.c@{buffer.c}}
+\doxysubsubsection{\texorpdfstring{disk\_fd\_tmp}{disk\_fd\_tmp}}
+{\footnotesize\ttfamily int disk\+\_\+fd\+\_\+tmp}
+
+\Hypertarget{buffer_8c_a3a9e8dc62402e54322bd4763ebdecc8a}\label{buffer_8c_a3a9e8dc62402e54322bd4763ebdecc8a} 
+\index{buffer.c@{buffer.c}!hashhit\_access\_time@{hashhit\_access\_time}}
+\index{hashhit\_access\_time@{hashhit\_access\_time}!buffer.c@{buffer.c}}
+\doxysubsubsection{\texorpdfstring{hashhit\_access\_time}{hashhit\_access\_time}}
+{\footnotesize\ttfamily double hashhit\+\_\+access\+\_\+time = 0}
+
+\Hypertarget{buffer_8c_a9ea9cb213f1d4caa21ba055006c7f771}\label{buffer_8c_a9ea9cb213f1d4caa21ba055006c7f771} 
+\index{buffer.c@{buffer.c}!hashmiss\_access\_time@{hashmiss\_access\_time}}
+\index{hashmiss\_access\_time@{hashmiss\_access\_time}!buffer.c@{buffer.c}}
+\doxysubsubsection{\texorpdfstring{hashmiss\_access\_time}{hashmiss\_access\_time}}
+{\footnotesize\ttfamily double hashmiss\+\_\+access\+\_\+time = 0}
+
+\Hypertarget{buffer_8c_af8677c83d140471f8c0f568420e089d8}\label{buffer_8c_af8677c83d140471f8c0f568420e089d8} 
+\index{buffer.c@{buffer.c}!hit\_count@{hit\_count}}
+\index{hit\_count@{hit\_count}!buffer.c@{buffer.c}}
+\doxysubsubsection{\texorpdfstring{hit\_count}{hit\_count}}
+{\footnotesize\ttfamily unsigned long long hit\+\_\+count =0}
+
+\Hypertarget{buffer_8c_a1affede66fe244e1c8ed1d9938223c8d}\label{buffer_8c_a1affede66fe244e1c8ed1d9938223c8d} 
+\index{buffer.c@{buffer.c}!memory\_buffer\_manager@{memory\_buffer\_manager}}
+\index{memory\_buffer\_manager@{memory\_buffer\_manager}!buffer.c@{buffer.c}}
+\doxysubsubsection{\texorpdfstring{memory\_buffer\_manager}{memory\_buffer\_manager}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}}\texorpdfstring{$\ast$}{*} memory\+\_\+buffer\+\_\+manager =NULL}
+
+\Hypertarget{buffer_8c_a1443e534d598dd25409df84aea7eb036}\label{buffer_8c_a1443e534d598dd25409df84aea7eb036} 
+\index{buffer.c@{buffer.c}!pure\_hashmap\_access\_time@{pure\_hashmap\_access\_time}}
+\index{pure\_hashmap\_access\_time@{pure\_hashmap\_access\_time}!buffer.c@{buffer.c}}
+\doxysubsubsection{\texorpdfstring{pure\_hashmap\_access\_time}{pure\_hashmap\_access\_time}}
+{\footnotesize\ttfamily double pure\+\_\+hashmap\+\_\+access\+\_\+time = 0.\+0}
+
+\Hypertarget{buffer_8c_abb6658acc457de20a80292cdf81ab563}\label{buffer_8c_abb6658acc457de20a80292cdf81ab563} 
+\index{buffer.c@{buffer.c}!tmp\_buffer@{tmp\_buffer}}
+\index{tmp\_buffer@{tmp\_buffer}!buffer.c@{buffer.c}}
+\doxysubsubsection{\texorpdfstring{tmp\_buffer}{tmp\_buffer}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} tmp\+\_\+buffer}
+
+\Hypertarget{buffer_8c_a5e09d7a30eb3306bd3912e76febcdfb8}\label{buffer_8c_a5e09d7a30eb3306bd3912e76febcdfb8} 
+\index{buffer.c@{buffer.c}!tp@{tp}}
+\index{tp@{tp}!buffer.c@{buffer.c}}
+\doxysubsubsection{\texorpdfstring{tp}{tp}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}}\texorpdfstring{$\ast$}{*} tp = NULL}
+

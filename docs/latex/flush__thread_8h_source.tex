@@ -1,0 +1,34 @@
+\doxysection{flush\+\_\+thread.\+h}
+\hypertarget{flush__thread_8h_source}{}\label{flush__thread_8h_source}\index{BufferCacheProject/delayed\_write/flush\_thread.h@{BufferCacheProject/delayed\_write/flush\_thread.h}}
+\mbox{\hyperlink{flush__thread_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ \_\_FLUSH\_THREAD\_\_}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ \_\_FLUSH\_THREAD\_\_}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\ \ \ \ \#include\ <pthread.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\ \ \ \ \#include\ <semaphore.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\ \ \ \ \#include\ <unistd.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdlib.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdio.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\ \ \ \ \#include\ <time.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \ \ \ \#include\ <sys/time.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{disk__write_8h}{disk\_write.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}../shared/memory\_buffer\_structures.h"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_flush_thread_global_variable}{FlushThreadGlobalVariable}}\{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ pthread\_t\ \mbox{\hyperlink{struct_flush_thread_global_variable_a5670177eb41bb7adf7136dec4b3dc1fa}{main\_flush\_thread\_id}};\textcolor{comment}{//thread를\ 통해\ 주기적으로\ 체크해주는\ thread를\ 추가해줄\ 경우\ 사용}}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ pthread\_cond\_t\ \mbox{\hyperlink{struct_flush_thread_global_variable_acc5e4577b602c5c2afc98319567f5d34}{main\_flush\_thread\_condition}};}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ pthread\_mutex\_t\ \mbox{\hyperlink{struct_flush_thread_global_variable_a538fce467285a1bcc38431f7effbfa49}{main\_flush\_thread\_main\_mutex\_locker}};}
+\DoxyCodeLine{00018\ \ \ \ \ \};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_flush_thread_global_variable}{FlushThreadGlobalVariable}}\ \mbox{\hyperlink{flush__thread_8h_a290651276e08909b614043353eee0a19}{global\_variable\_flush\_thread}};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00029\ \ \ \ \ pthread\_t\ \mbox{\hyperlink{flush__thread_8h_a1329bd878e23ae466de100027d9e666d}{createAndRunFlushThread}}(\textcolor{keywordtype}{int}\ (*runfunction)(\textcolor{keywordtype}{void}*)\ ,\textcolor{keywordtype}{void}*\ arg);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ pthread\_t\ \mbox{\hyperlink{flush__thread_8h_ab360d2aa10d4fda25fff11874eba66f3}{flushBufferWithThread}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{buffer_8c_ace5f86cdc8deb8e6196ddf6b0c02a73c}{disk\_fd}},\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ mem\_buffer);}
+\DoxyCodeLine{00032\ \ \ \ \ pthread\_t\ \mbox{\hyperlink{flush__thread_8h_a751f549e107b8533162ec2fcd717c64e}{flushBuffersWithThread}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{buffer_8c_ace5f86cdc8deb8e6196ddf6b0c02a73c}{disk\_fd}},\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}**\ mem\_buffers,\textcolor{keywordtype}{int}\ mem\_buffer\_count);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ pthread\_t\ \mbox{\hyperlink{flush__thread_8h_a529ff1bb035d295c20b09ad1daf50d4b}{flushBufferWithThread2}}(\textcolor{keywordtype}{char}*\ \mbox{\hyperlink{buffer_8c_a3419d6e5ea39d2522ff48b26a1da52b9}{disk\_buffer}},\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ mem\_buffer);}
+\DoxyCodeLine{00035\ \ \ \ \ pthread\_t\ \mbox{\hyperlink{flush__thread_8h_aac6c712c0069c69bd39058c6f3ecb94f}{flushBuffersWithThread2}}(\textcolor{keywordtype}{char}*\ \mbox{\hyperlink{buffer_8c_a3419d6e5ea39d2522ff48b26a1da52b9}{disk\_buffer}},\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}**\ mem\_buffers,\textcolor{keywordtype}{int}\ mem\_buffer\_count);}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

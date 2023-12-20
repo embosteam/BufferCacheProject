@@ -1,0 +1,143 @@
+\doxysection{Buffer\+Cache\+Project/shared/linked\+\_\+stack.c File Reference}
+\hypertarget{linked__stack_8c}{}\label{linked__stack_8c}\index{BufferCacheProject/shared/linked\_stack.c@{BufferCacheProject/shared/linked\_stack.c}}
+{\ttfamily \#include "{}linked\+\_\+stack.\+h"{}}\newline
+Include dependency graph for linked\+\_\+stack.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__stack_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linked__stack_8c_a58e67201f1f79bcbf3ccc302d099653b}{LStack\+Top}} (struct \mbox{\hyperlink{struct_l_stack}{LStack}} \texorpdfstring{$\ast$}{*}self)
+\item 
+struct \mbox{\hyperlink{struct_l_stack_internal_node}{LStack\+Internal\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linked__stack_8c_af9abbcc98062c2ac722c35ed5464a48f}{new\+LStack\+Internal\+Node}} (void \texorpdfstring{$\ast$}{*}value)
+\item 
+int \mbox{\hyperlink{linked__stack_8c_ac0fe30f09e5d0f6096a097eb522eb010}{LStack\+Push}} (struct \mbox{\hyperlink{struct_l_stack}{LStack}} \texorpdfstring{$\ast$}{*}self, void \texorpdfstring{$\ast$}{*}value)
+\item 
+int \mbox{\hyperlink{linked__stack_8c_a0b5dad255d8b995fb8f17c8626082784}{LStack\+Pop}} (struct \mbox{\hyperlink{struct_l_stack}{LStack}} \texorpdfstring{$\ast$}{*}self)
+\item 
+unsigned char \mbox{\hyperlink{linked__stack_8c_a936ca50287707b9d9906c630d4d82d88}{LStack\+Is\+Empty}} (struct \mbox{\hyperlink{struct_l_stack}{LStack}} \texorpdfstring{$\ast$}{*}self)
+\item 
+unsigned char \mbox{\hyperlink{linked__stack_8c_a6e79ea6f46560a4cf2bc0436d09799ab}{LStack\+Is\+Full}} (struct \mbox{\hyperlink{struct_l_stack}{LStack}} \texorpdfstring{$\ast$}{*}self)
+\item 
+void \mbox{\hyperlink{linked__stack_8c_a7169c2603cf3af849cfa94ef94d80703}{LStack\+Release}} (struct \mbox{\hyperlink{struct_l_stack}{LStack}} \texorpdfstring{$\ast$}{*}self)
+\item 
+struct \mbox{\hyperlink{struct_l_stack}{LStack}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linked__stack_8c_a70b7b857fd06b9b6799973c16a389ef8}{new\+LStack}} (unsigned int concurrent\+\_\+count, unsigned int fixed\+\_\+capacity)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{linked__stack_8c_a936ca50287707b9d9906c630d4d82d88}\label{linked__stack_8c_a936ca50287707b9d9906c630d4d82d88} 
+\index{linked\_stack.c@{linked\_stack.c}!LStackIsEmpty@{LStackIsEmpty}}
+\index{LStackIsEmpty@{LStackIsEmpty}!linked\_stack.c@{linked\_stack.c}}
+\doxysubsubsection{\texorpdfstring{LStackIsEmpty()}{LStackIsEmpty()}}
+{\footnotesize\ttfamily unsigned char LStack\+Is\+Empty (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_stack}{LStack}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=263pt]{linked__stack_8c_a936ca50287707b9d9906c630d4d82d88_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__stack_8c_a6e79ea6f46560a4cf2bc0436d09799ab}\label{linked__stack_8c_a6e79ea6f46560a4cf2bc0436d09799ab} 
+\index{linked\_stack.c@{linked\_stack.c}!LStackIsFull@{LStackIsFull}}
+\index{LStackIsFull@{LStackIsFull}!linked\_stack.c@{linked\_stack.c}}
+\doxysubsubsection{\texorpdfstring{LStackIsFull()}{LStackIsFull()}}
+{\footnotesize\ttfamily unsigned char LStack\+Is\+Full (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_stack}{LStack}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{linked__stack_8c_a6e79ea6f46560a4cf2bc0436d09799ab_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__stack_8c_a0b5dad255d8b995fb8f17c8626082784}\label{linked__stack_8c_a0b5dad255d8b995fb8f17c8626082784} 
+\index{linked\_stack.c@{linked\_stack.c}!LStackPop@{LStackPop}}
+\index{LStackPop@{LStackPop}!linked\_stack.c@{linked\_stack.c}}
+\doxysubsubsection{\texorpdfstring{LStackPop()}{LStackPop()}}
+{\footnotesize\ttfamily int LStack\+Pop (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_stack}{LStack}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{linked__stack_8c_a0b5dad255d8b995fb8f17c8626082784_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__stack_8c_ac0fe30f09e5d0f6096a097eb522eb010}\label{linked__stack_8c_ac0fe30f09e5d0f6096a097eb522eb010} 
+\index{linked\_stack.c@{linked\_stack.c}!LStackPush@{LStackPush}}
+\index{LStackPush@{LStackPush}!linked\_stack.c@{linked\_stack.c}}
+\doxysubsubsection{\texorpdfstring{LStackPush()}{LStackPush()}}
+{\footnotesize\ttfamily int LStack\+Push (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_stack}{LStack}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{void \texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{linked__stack_8c_ac0fe30f09e5d0f6096a097eb522eb010_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{linked__stack_8c_ac0fe30f09e5d0f6096a097eb522eb010_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__stack_8c_a7169c2603cf3af849cfa94ef94d80703}\label{linked__stack_8c_a7169c2603cf3af849cfa94ef94d80703} 
+\index{linked\_stack.c@{linked\_stack.c}!LStackRelease@{LStackRelease}}
+\index{LStackRelease@{LStackRelease}!linked\_stack.c@{linked\_stack.c}}
+\doxysubsubsection{\texorpdfstring{LStackRelease()}{LStackRelease()}}
+{\footnotesize\ttfamily void LStack\+Release (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_stack}{LStack}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{linked__stack_8c_a7169c2603cf3af849cfa94ef94d80703_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__stack_8c_a58e67201f1f79bcbf3ccc302d099653b}\label{linked__stack_8c_a58e67201f1f79bcbf3ccc302d099653b} 
+\index{linked\_stack.c@{linked\_stack.c}!LStackTop@{LStackTop}}
+\index{LStackTop@{LStackTop}!linked\_stack.c@{linked\_stack.c}}
+\doxysubsubsection{\texorpdfstring{LStackTop()}{LStackTop()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} LStack\+Top (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_stack}{LStack}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{linked__stack_8c_a58e67201f1f79bcbf3ccc302d099653b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__stack_8c_a70b7b857fd06b9b6799973c16a389ef8}\label{linked__stack_8c_a70b7b857fd06b9b6799973c16a389ef8} 
+\index{linked\_stack.c@{linked\_stack.c}!newLStack@{newLStack}}
+\index{newLStack@{newLStack}!linked\_stack.c@{linked\_stack.c}}
+\doxysubsubsection{\texorpdfstring{newLStack()}{newLStack()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_l_stack}{LStack}} \texorpdfstring{$\ast$}{*} new\+LStack (\begin{DoxyParamCaption}\item[{unsigned int}]{concurrent\+\_\+count,  }\item[{unsigned int}]{fixed\+\_\+capacity }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__stack_8c_a70b7b857fd06b9b6799973c16a389ef8_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__stack_8c_af9abbcc98062c2ac722c35ed5464a48f}\label{linked__stack_8c_af9abbcc98062c2ac722c35ed5464a48f} 
+\index{linked\_stack.c@{linked\_stack.c}!newLStackInternalNode@{newLStackInternalNode}}
+\index{newLStackInternalNode@{newLStackInternalNode}!linked\_stack.c@{linked\_stack.c}}
+\doxysubsubsection{\texorpdfstring{newLStackInternalNode()}{newLStackInternalNode()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_l_stack_internal_node}{LStack\+Internal\+Node}} \texorpdfstring{$\ast$}{*} new\+LStack\+Internal\+Node (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__stack_8c_af9abbcc98062c2ac722c35ed5464a48f_icgraph}
+\end{center}
+\end{figure}

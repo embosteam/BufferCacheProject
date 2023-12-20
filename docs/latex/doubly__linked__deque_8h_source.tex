@@ -1,0 +1,42 @@
+\doxysection{doubly\+\_\+linked\+\_\+deque.\+h}
+\hypertarget{doubly__linked__deque_8h_source}{}\label{doubly__linked__deque_8h_source}\index{BufferCacheProject/shared/doubly\_linked\_deque.h@{BufferCacheProject/shared/doubly\_linked\_deque.h}}
+\mbox{\hyperlink{doubly__linked__deque_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ \_\_DOUBLY\_LINKED\_DEQUE\_\_}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ \_\_DOUBLY\_LINKED\_DEQUE\_\_}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdio.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdlib.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\ \ \ \ \#include\ <unistd.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\ \ \ \ \#include\ <memory.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \ \ \ \#include\ <semaphore.h>}}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{DoublyLinkedDequeInternalNode}}\{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_list}{DoublyLinkedList}}*\ \mbox{\hyperlink{struct_doubly_linked_deque_internal_node_aa032aad2bba9cc7788ada6c76c94349e}{previous}};}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_list}{DoublyLinkedList}}*\ \mbox{\hyperlink{struct_doubly_linked_deque_internal_node_ac1561ecf15b36ce6d18dee97d5494f56}{next}};}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{struct_doubly_linked_deque_internal_node_a0f61d63b009d0880a89c843bd50d8d76}{value}};}
+\DoxyCodeLine{00013\ \ \ \ \ \};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque}{DoublyLinkedDeque}}\{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_doubly_linked_deque_a71b3b1d1524aa6ee574dfa43a6ef8e6d}{isLockSupported}}:1;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ sem\_t\ \mbox{\hyperlink{struct_doubly_linked_deque_ac301e000199ad937f060277b0736d4e1}{lock}};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_doubly_linked_deque_a16ff2d8e15ade4948398b0aeb80124a8}{count}};\textcolor{comment}{//내부\ 노드\ 갯수를\ 저장하는\ 변수(concurrent보장하려면\ getCount함수를\ 사용해\ 가져오길\ 바람)}}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{DoublyLinkedDequeInternalNode}}*\ \mbox{\hyperlink{struct_doubly_linked_deque_ac1ae1070df6ff42fea073e7738ce95bb}{first}};\textcolor{comment}{//deque의\ 앞쪽\ 포인터}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{DoublyLinkedDequeInternalNode}}*\ \mbox{\hyperlink{struct_doubly_linked_deque_a4a201a6c1a79420dd5142d4c40741d7d}{last}};\textcolor{comment}{//deque의\ 뒤쪽\ 포인터}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ int\ (*\mbox{\hyperlink{struct_doubly_linked_deque_a974470e7a49508b65792c2fbf8983a40}{popFirst}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque}{DoublyLinkedDeque}}*\ self);\textcolor{comment}{//앞쪽\ 포인터\ 값을\ 제거함}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ int\ (*\mbox{\hyperlink{struct_doubly_linked_deque_a4422e80ec9bf450547101fb6b3926082}{popLast}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque}{DoublyLinkedDeque}}*\ self);\textcolor{comment}{//뒤쪽\ 포인터\ 값을\ 제거함}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ int\ (*\mbox{\hyperlink{struct_doubly_linked_deque_af84ec86a0705132a1086b227440a8b78}{popAt}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque}{DoublyLinkedDeque}}*\ self,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{DoublyLinkedDequeInternalNode}}*\ at);\textcolor{comment}{//특정\ 위치의\ 포인터\ 값을\ 제거함}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{DoublyLinkedDequeInternalNode}}*\ (*pushFirst)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque}{DoublyLinkedDeque}}*\ self,\textcolor{keywordtype}{void}*\ value);\textcolor{comment}{//deque앞쪽에\ 값을\ 집어넣음}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{DoublyLinkedDequeInternalNode}}*\ (*pushLast)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque}{DoublyLinkedDeque}}*\ self,\ \textcolor{keywordtype}{void}*\ value);\textcolor{comment}{//deque뒤쪽에\ 값을\ 집어넣음}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ int\ (*\mbox{\hyperlink{struct_doubly_linked_deque_a9cb15fe18ee087b85ab88517cd21b5d6}{insertLeftAt}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque}{DoublyLinkedDeque}}*\ self,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{DoublyLinkedDequeInternalNode}}*\ at,\textcolor{keywordtype}{void}*\ value);\textcolor{comment}{//at변수\ 왼쪽에\ 값을\ 집어넣음}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ int\ (*\mbox{\hyperlink{struct_doubly_linked_deque_a7150298bf12982a4622d2d4ada4b3755}{insertRightAt}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque}{DoublyLinkedDeque}}*\ self,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{DoublyLinkedDequeInternalNode}}*\ at,\textcolor{keywordtype}{void}*\ value);\textcolor{comment}{//at변수\ 오른쪽에\ 값을\ 집어넣음}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ int\ (*\mbox{\hyperlink{struct_doubly_linked_deque_a132e911b96716e5500ef34cd1156af42}{switchNode}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque}{DoublyLinkedDeque}}*\ self,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{DoublyLinkedDequeInternalNode}}*\ dest,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{DoublyLinkedDequeInternalNode}}*\ src);\textcolor{comment}{//dest와\ src의\ 위치를\ 바꿈}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ (*getFirstValue)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque}{DoublyLinkedDeque}}*\ self);\textcolor{comment}{//앞쪽\ 값을\ 가져옴}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ (*getLastValue)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque}{DoublyLinkedDeque}}*\ self);\textcolor{comment}{//뒤쪽\ 값을\ 가져옴}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ int\ (*\mbox{\hyperlink{struct_doubly_linked_deque_a841136bba4733730f11258115a43d661}{getCount}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque}{DoublyLinkedDeque}}*\ self);\textcolor{comment}{//노드\ 갯수를\ 출력}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{DoublyLinkedDequeInternalNode}}*\ (*getFirst)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque}{DoublyLinkedDeque}}*\ self);\textcolor{comment}{//raw한\ 앞쪽\ 포인터를\ 가져옴}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{DoublyLinkedDequeInternalNode}}*\ (*getLast)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque}{DoublyLinkedDeque}}*\ self);\textcolor{comment}{//raw한\ 앞쪽\ 포인터를\ 가져옴}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ \};}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque}{DoublyLinkedDeque}}*\ \mbox{\hyperlink{doubly__linked__deque_8h_a7dec34cd55d4ec3bb1801d17d5461e84}{newDoublyLinkedDeque}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ concurrent\_count);}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,35 @@
+\doxysection{array\+\_\+stack.\+h}
+\hypertarget{array__stack_8h_source}{}\label{array__stack_8h_source}\index{BufferCacheProject/shared/array\_stack.h@{BufferCacheProject/shared/array\_stack.h}}
+\mbox{\hyperlink{array__stack_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ \_\_HEADER\_ARRAY\_STACK\_\_}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_HEADER\_ARRAY\_STACK\_\_}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdio.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdlib.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\ \ \ \ \#include\ <unistd.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\ \ \ \ \#include\ <memory.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \ \ \ \#include\ <math.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\ \ \ \ \#include\ <semaphore.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \ \ \ \#define\ ARRAY\_STACK\_MAX\_CAPACITY\ 1024}}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_stack}{AStack}}\{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_a_stack_a71b3b1d1524aa6ee574dfa43a6ef8e6d}{isLockSupported}}:1;}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ sem\_t\ \mbox{\hyperlink{struct_a_stack_ac301e000199ad937f060277b0736d4e1}{lock}};}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_a_stack_a16ff2d8e15ade4948398b0aeb80124a8}{count}};}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_a_stack_a6ee0faa874bf13e1aa83a99f236d4d82}{fixed\_capacity}};}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{struct_a_stack_a75967f8ac87746b5523befbd8c8af6bb}{pointer}}[\mbox{\hyperlink{array__stack_8h_af722cc1499ac0e48664c9b62f9457b2c}{ARRAY\_STACK\_MAX\_CAPACITY}}];}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ (*top)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_stack}{AStack}}*\ self);}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ int\ (*\mbox{\hyperlink{struct_a_stack_aaffdd7833af572bf4dc7acd9f485d200}{push}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_stack}{AStack}}*\ self,\textcolor{keywordtype}{void}*\ value);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ int\ (*\mbox{\hyperlink{struct_a_stack_a66246df9ac91fea2a7e4ed5254fc7ce0}{pop}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_stack}{AStack}}*\ self);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ char\ (*\mbox{\hyperlink{struct_a_stack_a3d3196348ffa0c168d18eefba79cbe93}{isEmpty}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_stack}{AStack}}*\ self);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ char\ (*\mbox{\hyperlink{struct_a_stack_a2ea3841dc81a0fbe60b13b71c54db179}{isFull}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_stack}{AStack}}*\ self);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_a_stack_a171e362ec099fa85ca599989bf12c6f2}{release}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_stack}{AStack}}*\ self);}
+\DoxyCodeLine{00026\ \ \ \ \ \};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_stack}{AStack}}*\ \mbox{\hyperlink{array__stack_8h_a1a52ce8809bcb0eeb5dd8fd44ceedf37}{newAStackPointer}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ concurrent\_count,\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_a_stack_a6ee0faa874bf13e1aa83a99f236d4d82}{fixed\_capacity}});}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_stack}{AStack}}\ \mbox{\hyperlink{array__stack_8h_ac9bd9078e49e59e5f59055ff975459f4}{newAStack}}(unsigned\ int\ concurrent\_count,unsigned\ int\ \mbox{\hyperlink{struct_a_stack_a6ee0faa874bf13e1aa83a99f236d4d82}{fixed\_capacity}});}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

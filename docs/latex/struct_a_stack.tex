@@ -1,0 +1,114 @@
+\doxysection{AStack Struct Reference}
+\hypertarget{struct_a_stack}{}\label{struct_a_stack}\index{AStack@{AStack}}
+
+
+{\ttfamily \#include $<$array\+\_\+stack.\+h$>$}
+
+
+
+Collaboration diagram for AStack\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{struct_a_stack__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \mbox{\hyperlink{struct_a_stack_a71b3b1d1524aa6ee574dfa43a6ef8e6d}{is\+Lock\+Supported}}\+:1
+\item 
+sem\+\_\+t \mbox{\hyperlink{struct_a_stack_ac301e000199ad937f060277b0736d4e1}{lock}}
+\item 
+unsigned int \mbox{\hyperlink{struct_a_stack_a16ff2d8e15ade4948398b0aeb80124a8}{count}}
+\item 
+unsigned int \mbox{\hyperlink{struct_a_stack_a6ee0faa874bf13e1aa83a99f236d4d82}{fixed\+\_\+capacity}}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_a_stack_a75967f8ac87746b5523befbd8c8af6bb}{pointer}} \mbox{[}\mbox{\hyperlink{array__stack_8h_af722cc1499ac0e48664c9b62f9457b2c}{ARRAY\+\_\+\+STACK\+\_\+\+MAX\+\_\+\+CAPACITY}}\mbox{]}
+\item 
+void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_a_stack_a5506ca4fee55b550c5d4d1fec623b28d}{top}} )(struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}self)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_a_stack_aaffdd7833af572bf4dc7acd9f485d200}{push}} )(struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}self, void \texorpdfstring{$\ast$}{*}value)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_a_stack_a66246df9ac91fea2a7e4ed5254fc7ce0}{pop}} )(struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}self)
+\item 
+unsigned char(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_a_stack_a3d3196348ffa0c168d18eefba79cbe93}{is\+Empty}} )(struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}self)
+\item 
+unsigned char(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_a_stack_a2ea3841dc81a0fbe60b13b71c54db179}{is\+Full}} )(struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}self)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_a_stack_a171e362ec099fa85ca599989bf12c6f2}{release}} )(struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}self)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_a_stack_a16ff2d8e15ade4948398b0aeb80124a8}\label{struct_a_stack_a16ff2d8e15ade4948398b0aeb80124a8} 
+\index{AStack@{AStack}!count@{count}}
+\index{count@{count}!AStack@{AStack}}
+\doxysubsubsection{\texorpdfstring{count}{count}}
+{\footnotesize\ttfamily unsigned int count}
+
+\Hypertarget{struct_a_stack_a6ee0faa874bf13e1aa83a99f236d4d82}\label{struct_a_stack_a6ee0faa874bf13e1aa83a99f236d4d82} 
+\index{AStack@{AStack}!fixed\_capacity@{fixed\_capacity}}
+\index{fixed\_capacity@{fixed\_capacity}!AStack@{AStack}}
+\doxysubsubsection{\texorpdfstring{fixed\_capacity}{fixed\_capacity}}
+{\footnotesize\ttfamily unsigned int fixed\+\_\+capacity}
+
+\Hypertarget{struct_a_stack_a3d3196348ffa0c168d18eefba79cbe93}\label{struct_a_stack_a3d3196348ffa0c168d18eefba79cbe93} 
+\index{AStack@{AStack}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!AStack@{AStack}}
+\doxysubsubsection{\texorpdfstring{isEmpty}{isEmpty}}
+{\footnotesize\ttfamily unsigned char(\texorpdfstring{$\ast$}{*} is\+Empty) (struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}self)}
+
+\Hypertarget{struct_a_stack_a2ea3841dc81a0fbe60b13b71c54db179}\label{struct_a_stack_a2ea3841dc81a0fbe60b13b71c54db179} 
+\index{AStack@{AStack}!isFull@{isFull}}
+\index{isFull@{isFull}!AStack@{AStack}}
+\doxysubsubsection{\texorpdfstring{isFull}{isFull}}
+{\footnotesize\ttfamily unsigned char(\texorpdfstring{$\ast$}{*} is\+Full) (struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}self)}
+
+\Hypertarget{struct_a_stack_a71b3b1d1524aa6ee574dfa43a6ef8e6d}\label{struct_a_stack_a71b3b1d1524aa6ee574dfa43a6ef8e6d} 
+\index{AStack@{AStack}!isLockSupported@{isLockSupported}}
+\index{isLockSupported@{isLockSupported}!AStack@{AStack}}
+\doxysubsubsection{\texorpdfstring{isLockSupported}{isLockSupported}}
+{\footnotesize\ttfamily unsigned char is\+Lock\+Supported}
+
+\Hypertarget{struct_a_stack_ac301e000199ad937f060277b0736d4e1}\label{struct_a_stack_ac301e000199ad937f060277b0736d4e1} 
+\index{AStack@{AStack}!lock@{lock}}
+\index{lock@{lock}!AStack@{AStack}}
+\doxysubsubsection{\texorpdfstring{lock}{lock}}
+{\footnotesize\ttfamily sem\+\_\+t lock}
+
+\Hypertarget{struct_a_stack_a75967f8ac87746b5523befbd8c8af6bb}\label{struct_a_stack_a75967f8ac87746b5523befbd8c8af6bb} 
+\index{AStack@{AStack}!pointer@{pointer}}
+\index{pointer@{pointer}!AStack@{AStack}}
+\doxysubsubsection{\texorpdfstring{pointer}{pointer}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} pointer\mbox{[}\mbox{\hyperlink{array__stack_8h_af722cc1499ac0e48664c9b62f9457b2c}{ARRAY\+\_\+\+STACK\+\_\+\+MAX\+\_\+\+CAPACITY}}\mbox{]}}
+
+\Hypertarget{struct_a_stack_a66246df9ac91fea2a7e4ed5254fc7ce0}\label{struct_a_stack_a66246df9ac91fea2a7e4ed5254fc7ce0} 
+\index{AStack@{AStack}!pop@{pop}}
+\index{pop@{pop}!AStack@{AStack}}
+\doxysubsubsection{\texorpdfstring{pop}{pop}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} pop) (struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}self)}
+
+\Hypertarget{struct_a_stack_aaffdd7833af572bf4dc7acd9f485d200}\label{struct_a_stack_aaffdd7833af572bf4dc7acd9f485d200} 
+\index{AStack@{AStack}!push@{push}}
+\index{push@{push}!AStack@{AStack}}
+\doxysubsubsection{\texorpdfstring{push}{push}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} push) (struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}self, void \texorpdfstring{$\ast$}{*}value)}
+
+\Hypertarget{struct_a_stack_a171e362ec099fa85ca599989bf12c6f2}\label{struct_a_stack_a171e362ec099fa85ca599989bf12c6f2} 
+\index{AStack@{AStack}!release@{release}}
+\index{release@{release}!AStack@{AStack}}
+\doxysubsubsection{\texorpdfstring{release}{release}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} release) (struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}self)}
+
+\Hypertarget{struct_a_stack_a5506ca4fee55b550c5d4d1fec623b28d}\label{struct_a_stack_a5506ca4fee55b550c5d4d1fec623b28d} 
+\index{AStack@{AStack}!top@{top}}
+\index{top@{top}!AStack@{AStack}}
+\doxysubsubsection{\texorpdfstring{top}{top}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} top) (struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*}self)}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Buffer\+Cache\+Project/shared/\mbox{\hyperlink{array__stack_8h}{array\+\_\+stack.\+h}}\end{DoxyCompactItemize}

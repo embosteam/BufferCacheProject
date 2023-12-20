@@ -1,0 +1,142 @@
+\doxysection{Buffer\+Cache\+Project/shared/random\+\_\+utils.h File Reference}
+\hypertarget{random__utils_8h}{}\label{random__utils_8h}\index{BufferCacheProject/shared/random\_utils.h@{BufferCacheProject/shared/random\_utils.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$memory.\+h$>$}\newline
+Include dependency graph for random\+\_\+utils.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{random__utils_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{random__utils_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{random__utils_8h_af2a563df34ae9178d5570a07e4e00f03}{\+\_\+\+\_\+\+HEADER\+\_\+\+RANDOM\+\_\+\+UTILS\+\_\+\+\_\+}}
+\item 
+\#define \mbox{\hyperlink{random__utils_8h_a6b0ee11f3f7395fb2f0e8ced90a45213}{RANDOM\+\_\+\+DISTRIBUTION\+\_\+\+TYPE\+\_\+\+PURE}}~0
+\item 
+\#define \mbox{\hyperlink{random__utils_8h_a077086becb5ef0c8b25ea2b70682d44e}{RANDOM\+\_\+\+DISTRIBUTION\+\_\+\+TYPE\+\_\+\+NORMAL}}~1
+\item 
+\#define \mbox{\hyperlink{random__utils_8h_a40100b0fb28134e2e6da58b1789be28d}{RANDOM\+\_\+\+DISTRIBUTION\+\_\+\+TYPE\+\_\+\+ZIPFIAN}}~2
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{random__utils_8h_a2892e2e68fc6b736fb32373b48bb6b08}{rand\+\_\+normal}} ()
+\item 
+double \mbox{\hyperlink{random__utils_8h_a26183062687661c8b39b37ce5b4d5e8a}{rand\+\_\+pure}} ()
+\item 
+double \mbox{\hyperlink{random__utils_8h_ab45e2c43da12abc140edada3dd7e1d07}{rand\+\_\+zipfian}} ()
+\item 
+int \mbox{\hyperlink{random__utils_8h_ab3885fa8339e811ce2a6c0151d181452}{get\+Random\+Value}} (unsigned char random\+\_\+distribution\+\_\+type)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{random__utils_8h_af2a563df34ae9178d5570a07e4e00f03}\label{random__utils_8h_af2a563df34ae9178d5570a07e4e00f03} 
+\index{random\_utils.h@{random\_utils.h}!\_\_HEADER\_RANDOM\_UTILS\_\_@{\_\_HEADER\_RANDOM\_UTILS\_\_}}
+\index{\_\_HEADER\_RANDOM\_UTILS\_\_@{\_\_HEADER\_RANDOM\_UTILS\_\_}!random\_utils.h@{random\_utils.h}}
+\doxysubsubsection{\texorpdfstring{\_\_HEADER\_RANDOM\_UTILS\_\_}{\_\_HEADER\_RANDOM\_UTILS\_\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+HEADER\+\_\+\+RANDOM\+\_\+\+UTILS\+\_\+\+\_\+}
+
+\Hypertarget{random__utils_8h_a077086becb5ef0c8b25ea2b70682d44e}\label{random__utils_8h_a077086becb5ef0c8b25ea2b70682d44e} 
+\index{random\_utils.h@{random\_utils.h}!RANDOM\_DISTRIBUTION\_TYPE\_NORMAL@{RANDOM\_DISTRIBUTION\_TYPE\_NORMAL}}
+\index{RANDOM\_DISTRIBUTION\_TYPE\_NORMAL@{RANDOM\_DISTRIBUTION\_TYPE\_NORMAL}!random\_utils.h@{random\_utils.h}}
+\doxysubsubsection{\texorpdfstring{RANDOM\_DISTRIBUTION\_TYPE\_NORMAL}{RANDOM\_DISTRIBUTION\_TYPE\_NORMAL}}
+{\footnotesize\ttfamily \#define RANDOM\+\_\+\+DISTRIBUTION\+\_\+\+TYPE\+\_\+\+NORMAL~1}
+
+\Hypertarget{random__utils_8h_a6b0ee11f3f7395fb2f0e8ced90a45213}\label{random__utils_8h_a6b0ee11f3f7395fb2f0e8ced90a45213} 
+\index{random\_utils.h@{random\_utils.h}!RANDOM\_DISTRIBUTION\_TYPE\_PURE@{RANDOM\_DISTRIBUTION\_TYPE\_PURE}}
+\index{RANDOM\_DISTRIBUTION\_TYPE\_PURE@{RANDOM\_DISTRIBUTION\_TYPE\_PURE}!random\_utils.h@{random\_utils.h}}
+\doxysubsubsection{\texorpdfstring{RANDOM\_DISTRIBUTION\_TYPE\_PURE}{RANDOM\_DISTRIBUTION\_TYPE\_PURE}}
+{\footnotesize\ttfamily \#define RANDOM\+\_\+\+DISTRIBUTION\+\_\+\+TYPE\+\_\+\+PURE~0}
+
+\Hypertarget{random__utils_8h_a40100b0fb28134e2e6da58b1789be28d}\label{random__utils_8h_a40100b0fb28134e2e6da58b1789be28d} 
+\index{random\_utils.h@{random\_utils.h}!RANDOM\_DISTRIBUTION\_TYPE\_ZIPFIAN@{RANDOM\_DISTRIBUTION\_TYPE\_ZIPFIAN}}
+\index{RANDOM\_DISTRIBUTION\_TYPE\_ZIPFIAN@{RANDOM\_DISTRIBUTION\_TYPE\_ZIPFIAN}!random\_utils.h@{random\_utils.h}}
+\doxysubsubsection{\texorpdfstring{RANDOM\_DISTRIBUTION\_TYPE\_ZIPFIAN}{RANDOM\_DISTRIBUTION\_TYPE\_ZIPFIAN}}
+{\footnotesize\ttfamily \#define RANDOM\+\_\+\+DISTRIBUTION\+\_\+\+TYPE\+\_\+\+ZIPFIAN~2}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{random__utils_8h_ab3885fa8339e811ce2a6c0151d181452}\label{random__utils_8h_ab3885fa8339e811ce2a6c0151d181452} 
+\index{random\_utils.h@{random\_utils.h}!getRandomValue@{getRandomValue}}
+\index{getRandomValue@{getRandomValue}!random\_utils.h@{random\_utils.h}}
+\doxysubsubsection{\texorpdfstring{getRandomValue()}{getRandomValue()}}
+{\footnotesize\ttfamily int get\+Random\+Value (\begin{DoxyParamCaption}\item[{unsigned char}]{random\+\_\+distribution\+\_\+type }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{random__utils_8h_ab3885fa8339e811ce2a6c0151d181452_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{random__utils_8h_ab3885fa8339e811ce2a6c0151d181452_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{random__utils_8h_a2892e2e68fc6b736fb32373b48bb6b08}\label{random__utils_8h_a2892e2e68fc6b736fb32373b48bb6b08} 
+\index{random\_utils.h@{random\_utils.h}!rand\_normal@{rand\_normal}}
+\index{rand\_normal@{rand\_normal}!random\_utils.h@{random\_utils.h}}
+\doxysubsubsection{\texorpdfstring{rand\_normal()}{rand\_normal()}}
+{\footnotesize\ttfamily double rand\+\_\+normal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+codes from \+: \href{https://github.com/rflynn/c/blob/master/rand-normal-distribution.c}{\texttt{ https\+://github.\+com/rflynn/c/blob/master/rand-\/normal-\/distribution.\+c}} following gaussian distribution Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{random__utils_8h_a2892e2e68fc6b736fb32373b48bb6b08_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{random__utils_8h_a26183062687661c8b39b37ce5b4d5e8a}\label{random__utils_8h_a26183062687661c8b39b37ce5b4d5e8a} 
+\index{random\_utils.h@{random\_utils.h}!rand\_pure@{rand\_pure}}
+\index{rand\_pure@{rand\_pure}!random\_utils.h@{random\_utils.h}}
+\doxysubsubsection{\texorpdfstring{rand\_pure()}{rand\_pure()}}
+{\footnotesize\ttfamily double rand\+\_\+pure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{random__utils_8h_a26183062687661c8b39b37ce5b4d5e8a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{random__utils_8h_ab45e2c43da12abc140edada3dd7e1d07}\label{random__utils_8h_ab45e2c43da12abc140edada3dd7e1d07} 
+\index{random\_utils.h@{random\_utils.h}!rand\_zipfian@{rand\_zipfian}}
+\index{rand\_zipfian@{rand\_zipfian}!random\_utils.h@{random\_utils.h}}
+\doxysubsubsection{\texorpdfstring{rand\_zipfian()}{rand\_zipfian()}}
+{\footnotesize\ttfamily double rand\+\_\+zipfian (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+codes from \href{https://jasoncrease.medium.com/zipf-54912d5651cc}{\texttt{ https\+://jasoncrease.\+medium.\+com/zipf-\/54912d5651cc}} Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{random__utils_8h_ab45e2c43da12abc140edada3dd7e1d07_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{random__utils_8h_ab45e2c43da12abc140edada3dd7e1d07_icgraph}
+\end{center}
+\end{figure}

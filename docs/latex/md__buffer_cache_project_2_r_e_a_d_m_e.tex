@@ -1,0 +1,80 @@
+\chapter{\# Buffer\+Cache\+Project}
+\hypertarget{md__buffer_cache_project_2_r_e_a_d_m_e}{}\label{md__buffer_cache_project_2_r_e_a_d_m_e}\index{\# BufferCacheProject@{\# BufferCacheProject}}
+
+\begin{DoxyItemize}
+\item 코드 패턴은 가급적이면 MVC 나 MVP패턴을 유지시키면서 작성하는 것이 좋음
+\begin{DoxyItemize}
+\item 패턴 설명\+: \href{https://beomy.tistory.com/43}{\texttt{ https\+://beomy.\+tistory.\+com/43}}
+\end{DoxyItemize}
+\item Git 업로드 및 브랜치 규칙은 가급적이면
+\begin{DoxyItemize}
+\item 각 폴더를 개발할때는 \href{https://helloinyong.tistory.com/335}{\texttt{ Trunk Based Development}} 를 사용하도록 하고
+\item \doxylink{buffer_8c}{buffer.\+c} 를 직접적으로 수정 및 추가할 때는 \href{https://techblog.woowahan.com/2553/}{\texttt{ Git-\/flow}} 를 사용해서 작성하는 것을 권고
+\end{DoxyItemize}
+\item 각 폴더를 개발할때는 가급적이면 이해하기 쉽게 전역 변수 선언이나 함수선언시,어떤 기능을 하기 위한 함수인지 선언 위쪽에 간략하게 {\bfseries{주석을 달아주기를 권고}}
+\item 폴더 설명
+\end{DoxyItemize}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 폴더   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 설명   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 비고    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 폴더   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 설명   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 비고    }\\\cline{1-3}
+\endhead
+delayed\+\_\+write   &delayed\+\_\+write 맡은 팀원이 코드 작성 및 관리   &\\\cline{1-3}
+buffered\+\_\+read   &buffered\+\_\+read 맡은 팀원이 코드 작성 및 관리   &\\\cline{1-3}
+replacement\+\_\+policy   &replacement\+\_\+policy 맡은 팀원이 코드 작성 및 관리   &\\\cline{1-3}
+shared   &각 폴더나 각 맡은 분야에서 서로 참조하는 변수나 함수를 작성 관리   &예)메모리버퍼변수    \\\cline{1-3}
+external\+\_\+tools   &디스크 파일 생성등 프로젝트에 필요한 도구들이 모여있음   &개별 빌드 및 실행   \\\cline{1-3}
+\end{longtabu}
+
+
+
+\begin{DoxyItemize}
+\item 각 폴더에 있는 "{}export\+\_\+api.\+h"{}
+\begin{DoxyItemize}
+\item 코드 작성 완료 뒤, \doxylink{buffer_8c}{buffer.\+c}(메인 코드) 함수에서 작성한 함수나 변수가 노출(public)되어 질 수 있도록 헤더를 기술
+\end{DoxyItemize}
+\item "{}shared/common\+\_\+shared.\+h"{}
+\begin{DoxyItemize}
+\item 꽤나 높은 빈도수로 여러 분야에서 참조될 것 같은 공용 함수 및 변수를 기술
+\end{DoxyItemize}
+\item "{}external\+\_\+tools/create\+\_\+empty\+\_\+disk\+\_\+file.\+c"{}
+\begin{DoxyItemize}
+\item dd명령어를 사용해 변수 {\itshape n} 에 따른 다른 크기의 디스크 파일 생성
+\end{DoxyItemize}
+\item Makefile
+\begin{DoxyItemize}
+\item 폴더로 나누어 놔서, 빌드하기 쉽게 Makefile로 작성
+\item \sout{하위 폴더에서 서브 Makefile을 만들어 따로 관리해도 괜찮으나,구현시 최상단 Makefile코드에 에러 없고 업데이트가 가능하게 끔 서브 빌드를 구현같이 구현바람}
+\item 상위 Makefile에서 터미널상에서 정상인데 object파일 생성이 안되는 이슈때문에 각 폴더에서 Makefile을 관리하는 방식으로 변경(추가/변경이 필요한 경우 각자 관리 및 수정바람)
+\item 빌드 명령어 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{shell}
+\DoxyCodeLine{\ \ \ \ \ \ \ make}
+\DoxyCodeLine{\ \ \ \ \ \ \ \#혹은}
+\DoxyCodeLine{\ \ \ \ \ \ \ make\ buffer\_cache}
+
+\end{DoxyCode}
+
+\item clean 명령어 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{shell}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ make\ clean}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \#혹은}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ make\ clean-\/all}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__buffer_cache_project_2_r_e_a_d_m_e_autotoc_md0}{}\doxysection{\texorpdfstring{폴더및 업무별 간략 참조관계}{폴더및 업무별 간략 참조관계}}\label{md__buffer_cache_project_2_r_e_a_d_m_e_autotoc_md0}
+\hypertarget{md__buffer_cache_project_2_r_e_a_d_m_e_autotoc_md1}{}\doxysection{\texorpdfstring{기타 참조 링크}{기타 참조 링크}}\label{md__buffer_cache_project_2_r_e_a_d_m_e_autotoc_md1}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/melody1214/Trapfetch}{\texttt{ https\+://github.\+com/melody1214/\+Trapfetch}}
+\item \href{https://github.com/torvalds/linux/blob/master/mm/mmap.c}{\texttt{ https\+://github.\+com/torvalds/linux/blob/master/mm/mmap.\+c}} 
+\end{DoxyItemize}

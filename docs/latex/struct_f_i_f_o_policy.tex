@@ -1,0 +1,74 @@
+\doxysection{FIFOPolicy Struct Reference}
+\hypertarget{struct_f_i_f_o_policy}{}\label{struct_f_i_f_o_policy}\index{FIFOPolicy@{FIFOPolicy}}
+
+
+{\ttfamily \#include $<$replacement\+\_\+policy.\+h$>$}
+
+
+
+Collaboration diagram for FIFOPolicy\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{struct_f_i_f_o_policy__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \mbox{\hyperlink{struct_f_i_f_o_policy_a71b3b1d1524aa6ee574dfa43a6ef8e6d}{is\+Lock\+Supported}}\+:1
+\item 
+sem\+\_\+t \mbox{\hyperlink{struct_f_i_f_o_policy_ac301e000199ad937f060277b0736d4e1}{lock}}
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_f_i_f_o_policy_a5e57dc5eaa6ab652e2febf67473acd52}{deque}}
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_f_i_f_o_policy_a75291e281aa41e0056fee08069eee970}{update\+Access\+Info}} )(struct \mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hash\+\_\+wrapper)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_f_i_f_o_policy_a0428a66b1c8a597b71bc3b19f14b60a0}{delete\+At}} )(struct \mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hashmap\+\_\+wrapper)
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_f_i_f_o_policy_a37b432b10db9b56526cf28234b0d1b71}{get\+Evictable\+Node}} )(struct \mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}} \texorpdfstring{$\ast$}{*}self)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_f_i_f_o_policy_a0428a66b1c8a597b71bc3b19f14b60a0}\label{struct_f_i_f_o_policy_a0428a66b1c8a597b71bc3b19f14b60a0} 
+\index{FIFOPolicy@{FIFOPolicy}!deleteAt@{deleteAt}}
+\index{deleteAt@{deleteAt}!FIFOPolicy@{FIFOPolicy}}
+\doxysubsubsection{\texorpdfstring{deleteAt}{deleteAt}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} delete\+At) (struct \mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hashmap\+\_\+wrapper)}
+
+\Hypertarget{struct_f_i_f_o_policy_a5e57dc5eaa6ab652e2febf67473acd52}\label{struct_f_i_f_o_policy_a5e57dc5eaa6ab652e2febf67473acd52} 
+\index{FIFOPolicy@{FIFOPolicy}!deque@{deque}}
+\index{deque@{deque}!FIFOPolicy@{FIFOPolicy}}
+\doxysubsubsection{\texorpdfstring{deque}{deque}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}}\texorpdfstring{$\ast$}{*} deque}
+
+\Hypertarget{struct_f_i_f_o_policy_a37b432b10db9b56526cf28234b0d1b71}\label{struct_f_i_f_o_policy_a37b432b10db9b56526cf28234b0d1b71} 
+\index{FIFOPolicy@{FIFOPolicy}!getEvictableNode@{getEvictableNode}}
+\index{getEvictableNode@{getEvictableNode}!FIFOPolicy@{FIFOPolicy}}
+\doxysubsubsection{\texorpdfstring{getEvictableNode}{getEvictableNode}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} get\+Evictable\+Node) (struct \mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}} \texorpdfstring{$\ast$}{*}self)}
+
+\Hypertarget{struct_f_i_f_o_policy_a71b3b1d1524aa6ee574dfa43a6ef8e6d}\label{struct_f_i_f_o_policy_a71b3b1d1524aa6ee574dfa43a6ef8e6d} 
+\index{FIFOPolicy@{FIFOPolicy}!isLockSupported@{isLockSupported}}
+\index{isLockSupported@{isLockSupported}!FIFOPolicy@{FIFOPolicy}}
+\doxysubsubsection{\texorpdfstring{isLockSupported}{isLockSupported}}
+{\footnotesize\ttfamily unsigned char is\+Lock\+Supported}
+
+\Hypertarget{struct_f_i_f_o_policy_ac301e000199ad937f060277b0736d4e1}\label{struct_f_i_f_o_policy_ac301e000199ad937f060277b0736d4e1} 
+\index{FIFOPolicy@{FIFOPolicy}!lock@{lock}}
+\index{lock@{lock}!FIFOPolicy@{FIFOPolicy}}
+\doxysubsubsection{\texorpdfstring{lock}{lock}}
+{\footnotesize\ttfamily sem\+\_\+t lock}
+
+\Hypertarget{struct_f_i_f_o_policy_a75291e281aa41e0056fee08069eee970}\label{struct_f_i_f_o_policy_a75291e281aa41e0056fee08069eee970} 
+\index{FIFOPolicy@{FIFOPolicy}!updateAccessInfo@{updateAccessInfo}}
+\index{updateAccessInfo@{updateAccessInfo}!FIFOPolicy@{FIFOPolicy}}
+\doxysubsubsection{\texorpdfstring{updateAccessInfo}{updateAccessInfo}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} update\+Access\+Info) (struct \mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hash\+\_\+wrapper)}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Buffer\+Cache\+Project/shared/\mbox{\hyperlink{replacement__policy_8h}{replacement\+\_\+policy.\+h}}\end{DoxyCompactItemize}

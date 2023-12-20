@@ -1,0 +1,122 @@
+\doxysection{LQueue Struct Reference}
+\hypertarget{struct_l_queue}{}\label{struct_l_queue}\index{LQueue@{LQueue}}
+
+
+{\ttfamily \#include $<$linked\+\_\+queue.\+h$>$}
+
+
+
+Collaboration diagram for LQueue\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{struct_l_queue__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \mbox{\hyperlink{struct_l_queue_a909a7655d69fcab8b42e5467cb46959d}{is\+Enable\+Concurrent\+Mode}}\+:1
+\item 
+unsigned int \mbox{\hyperlink{struct_l_queue_aac913b3a1f6ef005d66bf7a84428773e}{size}}
+\item 
+sem\+\_\+t \mbox{\hyperlink{struct_l_queue_a353a9d20865795f01a3860d15bed0d43}{concurrent\+\_\+lock}}
+\item 
+struct \mbox{\hyperlink{struct_l_queue_internal_node}{LQueue\+Internal\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_queue_a49b256c247bd675f59a982b381ee93b9}{pointer}}
+\item 
+struct \mbox{\hyperlink{struct_l_queue_internal_node}{LQueue\+Internal\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_queue_a09ad0755a1d1a0d095202901a65b30a3}{last\+\_\+pointer}}
+\item 
+void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_queue_a08ba5be32556d74f4cc3b5323d3528e8}{front}} )(struct \mbox{\hyperlink{struct_l_queue}{LQueue}} \texorpdfstring{$\ast$}{*})
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_queue_a28459b0a6debdf96f61bf9a6524d77f8}{pop}} )(struct \mbox{\hyperlink{struct_l_queue}{LQueue}} \texorpdfstring{$\ast$}{*})
+\item 
+unsigned int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_queue_a095896601282632436f9b13458ae73f8}{get\+Size}} )(struct \mbox{\hyperlink{struct_l_queue}{LQueue}} \texorpdfstring{$\ast$}{*})
+\item 
+unsigned int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_queue_a2c62efe589a9404c79d6736575823f4c}{is\+Empty}} )(struct \mbox{\hyperlink{struct_l_queue}{LQueue}} \texorpdfstring{$\ast$}{*})
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_queue_a28f0b0dd406fb2e50b0cf23c10e915c3}{push}} )(struct \mbox{\hyperlink{struct_l_queue}{LQueue}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_queue_aef4869f078e389758fe8fa0a4ff5bfaa}{clear}} )(struct \mbox{\hyperlink{struct_l_queue}{LQueue}} \texorpdfstring{$\ast$}{*})
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_queue_a9d7a422be7477a6d846b1adfdd1caceb}{free}} )(struct \mbox{\hyperlink{struct_l_queue}{LQueue}} \texorpdfstring{$\ast$}{*})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_l_queue_aef4869f078e389758fe8fa0a4ff5bfaa}\label{struct_l_queue_aef4869f078e389758fe8fa0a4ff5bfaa} 
+\index{LQueue@{LQueue}!clear@{clear}}
+\index{clear@{clear}!LQueue@{LQueue}}
+\doxysubsubsection{\texorpdfstring{clear}{clear}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} clear) (struct \mbox{\hyperlink{struct_l_queue}{LQueue}} \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_l_queue_a353a9d20865795f01a3860d15bed0d43}\label{struct_l_queue_a353a9d20865795f01a3860d15bed0d43} 
+\index{LQueue@{LQueue}!concurrent\_lock@{concurrent\_lock}}
+\index{concurrent\_lock@{concurrent\_lock}!LQueue@{LQueue}}
+\doxysubsubsection{\texorpdfstring{concurrent\_lock}{concurrent\_lock}}
+{\footnotesize\ttfamily sem\+\_\+t concurrent\+\_\+lock}
+
+\Hypertarget{struct_l_queue_a9d7a422be7477a6d846b1adfdd1caceb}\label{struct_l_queue_a9d7a422be7477a6d846b1adfdd1caceb} 
+\index{LQueue@{LQueue}!free@{free}}
+\index{free@{free}!LQueue@{LQueue}}
+\doxysubsubsection{\texorpdfstring{free}{free}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} free) (struct \mbox{\hyperlink{struct_l_queue}{LQueue}} \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_l_queue_a08ba5be32556d74f4cc3b5323d3528e8}\label{struct_l_queue_a08ba5be32556d74f4cc3b5323d3528e8} 
+\index{LQueue@{LQueue}!front@{front}}
+\index{front@{front}!LQueue@{LQueue}}
+\doxysubsubsection{\texorpdfstring{front}{front}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} front) (struct \mbox{\hyperlink{struct_l_queue}{LQueue}} \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_l_queue_a095896601282632436f9b13458ae73f8}\label{struct_l_queue_a095896601282632436f9b13458ae73f8} 
+\index{LQueue@{LQueue}!getSize@{getSize}}
+\index{getSize@{getSize}!LQueue@{LQueue}}
+\doxysubsubsection{\texorpdfstring{getSize}{getSize}}
+{\footnotesize\ttfamily unsigned int(\texorpdfstring{$\ast$}{*} get\+Size) (struct \mbox{\hyperlink{struct_l_queue}{LQueue}} \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_l_queue_a2c62efe589a9404c79d6736575823f4c}\label{struct_l_queue_a2c62efe589a9404c79d6736575823f4c} 
+\index{LQueue@{LQueue}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!LQueue@{LQueue}}
+\doxysubsubsection{\texorpdfstring{isEmpty}{isEmpty}}
+{\footnotesize\ttfamily unsigned int(\texorpdfstring{$\ast$}{*} is\+Empty) (struct \mbox{\hyperlink{struct_l_queue}{LQueue}} \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_l_queue_a909a7655d69fcab8b42e5467cb46959d}\label{struct_l_queue_a909a7655d69fcab8b42e5467cb46959d} 
+\index{LQueue@{LQueue}!isEnableConcurrentMode@{isEnableConcurrentMode}}
+\index{isEnableConcurrentMode@{isEnableConcurrentMode}!LQueue@{LQueue}}
+\doxysubsubsection{\texorpdfstring{isEnableConcurrentMode}{isEnableConcurrentMode}}
+{\footnotesize\ttfamily unsigned char is\+Enable\+Concurrent\+Mode}
+
+\Hypertarget{struct_l_queue_a09ad0755a1d1a0d095202901a65b30a3}\label{struct_l_queue_a09ad0755a1d1a0d095202901a65b30a3} 
+\index{LQueue@{LQueue}!last\_pointer@{last\_pointer}}
+\index{last\_pointer@{last\_pointer}!LQueue@{LQueue}}
+\doxysubsubsection{\texorpdfstring{last\_pointer}{last\_pointer}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_l_queue_internal_node}{LQueue\+Internal\+Node}}\texorpdfstring{$\ast$}{*} last\+\_\+pointer}
+
+\Hypertarget{struct_l_queue_a49b256c247bd675f59a982b381ee93b9}\label{struct_l_queue_a49b256c247bd675f59a982b381ee93b9} 
+\index{LQueue@{LQueue}!pointer@{pointer}}
+\index{pointer@{pointer}!LQueue@{LQueue}}
+\doxysubsubsection{\texorpdfstring{pointer}{pointer}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_l_queue_internal_node}{LQueue\+Internal\+Node}}\texorpdfstring{$\ast$}{*} pointer}
+
+\Hypertarget{struct_l_queue_a28459b0a6debdf96f61bf9a6524d77f8}\label{struct_l_queue_a28459b0a6debdf96f61bf9a6524d77f8} 
+\index{LQueue@{LQueue}!pop@{pop}}
+\index{pop@{pop}!LQueue@{LQueue}}
+\doxysubsubsection{\texorpdfstring{pop}{pop}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} pop) (struct \mbox{\hyperlink{struct_l_queue}{LQueue}} \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_l_queue_a28f0b0dd406fb2e50b0cf23c10e915c3}\label{struct_l_queue_a28f0b0dd406fb2e50b0cf23c10e915c3} 
+\index{LQueue@{LQueue}!push@{push}}
+\index{push@{push}!LQueue@{LQueue}}
+\doxysubsubsection{\texorpdfstring{push}{push}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} push) (struct \mbox{\hyperlink{struct_l_queue}{LQueue}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_l_queue_aac913b3a1f6ef005d66bf7a84428773e}\label{struct_l_queue_aac913b3a1f6ef005d66bf7a84428773e} 
+\index{LQueue@{LQueue}!size@{size}}
+\index{size@{size}!LQueue@{LQueue}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily unsigned int size}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Buffer\+Cache\+Project/shared/\mbox{\hyperlink{linked__queue_8h}{linked\+\_\+queue.\+h}}\end{DoxyCompactItemize}

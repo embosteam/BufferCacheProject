@@ -1,0 +1,47 @@
+\doxysection{Buffer\+Cache\+Project/shared/array\+\_\+queue.h File Reference}
+\hypertarget{array__queue_8h}{}\label{array__queue_8h}\index{BufferCacheProject/shared/array\_queue.h@{BufferCacheProject/shared/array\_queue.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$semaphore.\+h$>$}\newline
+{\ttfamily \#include $<$memory.\+h$>$}\newline
+Include dependency graph for array\+\_\+queue.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{array__queue_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{array__queue_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_a_queue}{AQueue}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{array__queue_8h_a8735eb9a6aa58468b2c58d936af4e7cf}{new\+AQueue}} (unsigned int fixed\+\_\+capacity, int concurrent\+\_\+mode, int(\texorpdfstring{$\ast$}{*}comparator)(void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{array__queue_8h_a8735eb9a6aa58468b2c58d936af4e7cf}\label{array__queue_8h_a8735eb9a6aa58468b2c58d936af4e7cf} 
+\index{array\_queue.h@{array\_queue.h}!newAQueue@{newAQueue}}
+\index{newAQueue@{newAQueue}!array\_queue.h@{array\_queue.h}}
+\doxysubsubsection{\texorpdfstring{newAQueue()}{newAQueue()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*} new\+AQueue (\begin{DoxyParamCaption}\item[{unsigned int}]{fixed\+\_\+capacity,  }\item[{int}]{concurrent\+\_\+mode,  }\item[{int(\texorpdfstring{$\ast$}{*})(void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})}]{comparator }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{array__queue_8h_a8735eb9a6aa58468b2c58d936af4e7cf_cgraph}
+\end{center}
+\end{figure}

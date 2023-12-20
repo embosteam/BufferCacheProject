@@ -1,0 +1,72 @@
+\doxysection{thread\+\_\+pool.\+h}
+\hypertarget{thread__pool_8h_source}{}\label{thread__pool_8h_source}\index{BufferCacheProject/delayed\_write/thread\_pool.h@{BufferCacheProject/delayed\_write/thread\_pool.h}}
+\mbox{\hyperlink{thread__pool_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ \_\_HEADER\_THREAD\_POOL\_\_}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_HEADER\_THREAD\_POOL\_\_}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\ \ \ \ \#include\ <pthread.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\ \ \ \ \#include\ <semaphore.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\ \ \ \ \#include\ <unistd.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdlib.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdio.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\ \ \ \ \#include\ <memory.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \ \ \ \#include\ <time.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\ \ \ \ \#include\ <sys/time.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}../shared/memory\_buffer.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}../shared/linked\_queue.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}../shared/linked\_heap\_queue.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{disk__write_8h}{disk\_write.h}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{flush__thread_8h}{flush\_thread.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}../config.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\ \ \ \ \#include\ <errno.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\ \ \ \ \#include\ <locale.h>}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_queue_unit1}{QueueUnit1}}\{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_queue_unit1_ace5f86cdc8deb8e6196ddf6b0c02a73c}{disk\_fd}};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_queue_unit1_abb8ce20b457315f3b6f15d294d097f36}{block\_number}};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_queue_unit1_acec9ce2df15222151ad66fcb1d74eb9f}{priority}};\textcolor{comment}{//thread\_unit\_queue에서의\ 우선순위}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ \mbox{\hyperlink{struct_queue_unit1_acedcaef29308133077d42d89c2e5713e}{buffer}};}
+\DoxyCodeLine{00025\ \ \ \ \ \};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_queue_unit2}{QueueUnit2}}\{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{struct_queue_unit2_a3419d6e5ea39d2522ff48b26a1da52b9}{disk\_buffer}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_queue_unit2_abb8ce20b457315f3b6f15d294d097f36}{block\_number}};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_queue_unit2_acec9ce2df15222151ad66fcb1d74eb9f}{priority}};\textcolor{comment}{//thread\_unit\_queue에서의\ 우선순위}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ \mbox{\hyperlink{struct_queue_unit2_acedcaef29308133077d42d89c2e5713e}{buffer}};}
+\DoxyCodeLine{00032\ \ \ \ \ \};}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_thread_pool}{ThreadPool}}\{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ sem\_t\ \mbox{\hyperlink{struct_thread_pool_a9442765f17991c2e7e86eca84f2d6b33}{thread\_running\_queue\_lock}};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ sem\_t\ \mbox{\hyperlink{struct_thread_pool_ad3eece655b099481d54e051e3b9bac18}{thread\_unit\_queue\_lock}};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ sem\_t\ \mbox{\hyperlink{struct_thread_pool_aa511ada3f4dd9e779789b7abaeafa238}{thread\_should\_terminate\_state\_lock}};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_thread_pool_a12b25401a3e06677eabc16fb5970dd9e}{thread\_should\_terminate\_state}};\textcolor{comment}{//flush\ thread\ queue가\ 도중에\ 강제적으로\ 중단되어야하는\ 지\ 여부}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_queue}{LQueue}}*\ \mbox{\hyperlink{struct_thread_pool_a70a58bca721ac7f529d752369dbce593}{running\_queue}};\textcolor{comment}{//flush\ thread들을\ 관리해주는\ 변수}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_h_queue}{LHQueue}}*\ \mbox{\hyperlink{struct_thread_pool_aabdd3dc35633b47a00272323e6ebaefe}{thread\_unit\_queue}};\ \textcolor{comment}{//flush\ 요청을\ 블록\ 번호\ 순으로\ 정렬해\ 값을\ 관리해주는\ 변수,사실상\ priority\_queue}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_thread_pool_aebbd16b7a467b1ed6ded4f3b74695d56}{number\_of\_thread}};\textcolor{comment}{//동시에\ 실행될\ flush\ thread의\ 갯수}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_thread_pool_a655706fe8af60debf5e90cb7cb7e9363}{max\_buffer\_continous\_sequential\_length}};\textcolor{comment}{//블록번호를\ 묶일\ 버퍼의\ 최대\ 갯수}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ pthread\_t\ \mbox{\hyperlink{struct_thread_pool_a3a3300f782069c64bf088dedeb5a5f6d}{pooling\_tid}};\textcolor{comment}{//\ 주기적으로\ pooling\ 해주는\ 함수를\ 돌려주는\ \ pthread의\ id}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_thread_pool_af01b26fe55dfebc96a50cf94a951bba4}{pooling}})(\textcolor{keywordtype}{void}*);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_thread_pool_ae55de7e02f4a7bc8d77fa3515d0eb5fe}{releaseInternalResource}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_thread_pool}{ThreadPool}}*);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_thread_pool_a7c77615931385f5d4cdb984d1970d237}{close}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_thread_pool}{ThreadPool}}*);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_thread_pool_abe0be7d8f8e7dcb892c5b6a2cc9c12f5}{waitInternalThread}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_thread_pool}{ThreadPool}}*,\textcolor{keywordtype}{unsigned}\ char);}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_thread_pool_a93e0977715e06f3ea3c8c3e00f1d39f2}{addQueue}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_thread_pool}{ThreadPool}}*,int,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*,\textcolor{keywordtype}{int}\ priority);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_thread_pool_ac301278d4d1c4171822b215828f6653e}{addQueue2}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_thread_pool}{ThreadPool}}*,\textcolor{keywordtype}{char}*,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*,\textcolor{keywordtype}{int}\ priority);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ int\ (*\mbox{\hyperlink{struct_thread_pool_a8a07b4efa5f9a962c7b230cb3a6bcd9c}{shouldTerminateThreadPool}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_thread_pool}{ThreadPool}}*);}
+\DoxyCodeLine{00051\ \ \ \ \ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_thread_pool}{ThreadPool}}*\ \mbox{\hyperlink{thread__pool_8h_ac9dfbc232963a72c88fae241cff7abf9}{newThreadPool}}(\textcolor{keywordtype}{int}\ n,\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_thread_pool_a655706fe8af60debf5e90cb7cb7e9363}{max\_buffer\_continous\_sequential\_length}});}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{thread__pool_8h_ad0913d7ca7d40a56f666b8c01f11334e}{ThreadPoolReleaseInternalResource}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_thread_pool}{ThreadPool}}*\ \mbox{\hyperlink{buffer_8c_a5e09d7a30eb3306bd3912e76febcdfb8}{tp}});}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{thread__pool_8h_a70dde64deb2d8dad83d7dfc897176766}{ThreadPoolMainPooling1}}(\textcolor{keywordtype}{void}*\ parm);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{thread__pool_8h_afbec7f7f983da4578ec8382b2c85d78b}{ThreadPoolAddQueue}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_thread_pool}{ThreadPool}}*\ \mbox{\hyperlink{buffer_8c_a5e09d7a30eb3306bd3912e76febcdfb8}{tp}},\textcolor{keywordtype}{int}\ \mbox{\hyperlink{buffer_8c_ace5f86cdc8deb8e6196ddf6b0c02a73c}{disk\_fd}},\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ buffer,\textcolor{keywordtype}{int}\ priority);}
+\DoxyCodeLine{00070\ \ \ \ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{thread__pool_8h_a78c77b2808207d670b99e1247df9a969}{ThreadPoolAddQueue2}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_thread_pool}{ThreadPool}}*\ \mbox{\hyperlink{buffer_8c_a5e09d7a30eb3306bd3912e76febcdfb8}{tp}},\textcolor{keywordtype}{char}*\ \mbox{\hyperlink{buffer_8c_a3419d6e5ea39d2522ff48b26a1da52b9}{disk\_buffer}},\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ buffer,\textcolor{keywordtype}{int}\ priority);}
+\DoxyCodeLine{00075\ \ \ \ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{thread__pool_8h_a636c30c80da5f5d0e2a3eee35aa06165}{ThreadPoolWaitInternalThread}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_thread_pool}{ThreadPool}}*\ \mbox{\hyperlink{buffer_8c_a5e09d7a30eb3306bd3912e76febcdfb8}{tp}},\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char});}
+\DoxyCodeLine{00080\ \ \ \ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{thread__pool_8h_a47870ae85e5146385c33999f451c2382}{ThreadPoolClose}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_thread_pool}{ThreadPool}}*\ \mbox{\hyperlink{buffer_8c_a5e09d7a30eb3306bd3912e76febcdfb8}{tp}});}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{thread__pool_8h_ae81ebba71311de91b55f877d75fb5114}{ThreadPoolShouldTerminateThreadPool}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_thread_pool}{ThreadPool}}*\ \mbox{\hyperlink{buffer_8c_a5e09d7a30eb3306bd3912e76febcdfb8}{tp}});}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

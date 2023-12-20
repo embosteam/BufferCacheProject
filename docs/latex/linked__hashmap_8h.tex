@@ -1,0 +1,67 @@
+\doxysection{Buffer\+Cache\+Project/shared/linked\+\_\+hashmap.h File Reference}
+\hypertarget{linked__hashmap_8h}{}\label{linked__hashmap_8h}\index{BufferCacheProject/shared/linked\_hashmap.h@{BufferCacheProject/shared/linked\_hashmap.h}}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_binary_node}{Binary\+Node}}
+\item 
+struct \mbox{\hyperlink{struct_l_hash_map}{LHash\+Map}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{linked__hashmap_8h_a836f5e7dd7322c9706ca63bd1bd15fc8}{\+\_\+\+\_\+\+HEADER\+\_\+\+LINKED\+\_\+\+HASHMAP\+\_\+\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linked__hashmap_8h_ac3eebe8de1967d70b36b316db519e42a}{get\+Hash}} (int value)
+\item 
+void \mbox{\hyperlink{linked__hashmap_8h_a2294877d12c83441ae358023c41b4a77}{inner\+Search}} (struct \mbox{\hyperlink{struct_binary_node}{Binary\+Node}} \texorpdfstring{$\ast$}{*}node, unsigned char \texorpdfstring{$\ast$}{*}key\+\_\+seq, int hop)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linked__hashmap_8h_abbda75673f4a209c761ea70ed32b507c}{get}} (int block\+\_\+number)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{linked__hashmap_8h_a836f5e7dd7322c9706ca63bd1bd15fc8}\label{linked__hashmap_8h_a836f5e7dd7322c9706ca63bd1bd15fc8} 
+\index{linked\_hashmap.h@{linked\_hashmap.h}!\_\_HEADER\_LINKED\_HASHMAP\_\_@{\_\_HEADER\_LINKED\_HASHMAP\_\_}}
+\index{\_\_HEADER\_LINKED\_HASHMAP\_\_@{\_\_HEADER\_LINKED\_HASHMAP\_\_}!linked\_hashmap.h@{linked\_hashmap.h}}
+\doxysubsubsection{\texorpdfstring{\_\_HEADER\_LINKED\_HASHMAP\_\_}{\_\_HEADER\_LINKED\_HASHMAP\_\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+HEADER\+\_\+\+LINKED\+\_\+\+HASHMAP\+\_\+\+\_\+}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{linked__hashmap_8h_abbda75673f4a209c761ea70ed32b507c}\label{linked__hashmap_8h_abbda75673f4a209c761ea70ed32b507c} 
+\index{linked\_hashmap.h@{linked\_hashmap.h}!get@{get}}
+\index{get@{get}!linked\_hashmap.h@{linked\_hashmap.h}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} get (\begin{DoxyParamCaption}\item[{int}]{block\+\_\+number }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{linked__hashmap_8h_abbda75673f4a209c761ea70ed32b507c_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__hashmap_8h_ac3eebe8de1967d70b36b316db519e42a}\label{linked__hashmap_8h_ac3eebe8de1967d70b36b316db519e42a} 
+\index{linked\_hashmap.h@{linked\_hashmap.h}!getHash@{getHash}}
+\index{getHash@{getHash}!linked\_hashmap.h@{linked\_hashmap.h}}
+\doxysubsubsection{\texorpdfstring{getHash()}{getHash()}}
+{\footnotesize\ttfamily unsigned char \texorpdfstring{$\ast$}{*} get\+Hash (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{linked__hashmap_8h_ac3eebe8de1967d70b36b316db519e42a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__hashmap_8h_a2294877d12c83441ae358023c41b4a77}\label{linked__hashmap_8h_a2294877d12c83441ae358023c41b4a77} 
+\index{linked\_hashmap.h@{linked\_hashmap.h}!innerSearch@{innerSearch}}
+\index{innerSearch@{innerSearch}!linked\_hashmap.h@{linked\_hashmap.h}}
+\doxysubsubsection{\texorpdfstring{innerSearch()}{innerSearch()}}
+{\footnotesize\ttfamily void inner\+Search (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_binary_node}{Binary\+Node}} \texorpdfstring{$\ast$}{*}}]{node,  }\item[{unsigned char \texorpdfstring{$\ast$}{*}}]{key\+\_\+seq,  }\item[{int}]{hop }\end{DoxyParamCaption})}
+

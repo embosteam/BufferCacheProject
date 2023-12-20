@@ -1,0 +1,76 @@
+\doxysection{memory\+\_\+buffer.\+h}
+\hypertarget{memory__buffer_8h_source}{}\label{memory__buffer_8h_source}\index{BufferCacheProject/shared/memory\_buffer.h@{BufferCacheProject/shared/memory\_buffer.h}}
+\mbox{\hyperlink{memory__buffer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_MEMORY\_BUFFER\_\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_\_MEMORY\_BUFFER\_\_}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdlib.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdio.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\ \ \ \ \#include\ <unistd.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\ \ \ \ \#include\ <memory.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\ \ \ \ \#include\ <semaphore.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdint.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{hash__controller_8h}{hash\_controller.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{hashmap_8h}{hashmap.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{doubly__linked__deque_8h}{doubly\_linked\_deque.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{memory__buffer__structures_8h}{memory\_buffer\_structures.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{replacement__policy_8h}{replacement\_policy.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}../delayed\_write/thread\_pool.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{time__utils_8h}{time\_utils.h}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}../config.h"{}}}
+\DoxyCodeLine{00017\ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_controller}{MemoryBufferController}}\{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_m_d5_controller}{MD5Controller}}*\ \mbox{\hyperlink{struct_memory_buffer_controller_a377aaadc7d880e391471e3d233f6b607}{hash\_controller}};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_replacement_policy_manager}{ReplacementPolicyManager}}*\ \mbox{\hyperlink{struct_memory_buffer_controller_acf1774423f01253676482fb9f48e2d03}{replacement\_policy\_manager}};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ int\ (*\ \mbox{\hyperlink{struct_memory_buffer_controller_aaffed2038894a8258855cf378b9792e8}{readMemoryBuffer}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_controller}{MemoryBufferController}}*,int);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ void\ (*\ \mbox{\hyperlink{struct_memory_buffer_controller_a0db72ec96f84555b957b0f5bf6af319b}{writeMemoryBuffer}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_controller}{MemoryBufferController}}*,int,\textcolor{keywordtype}{char}*);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ char\ (*\ \mbox{\hyperlink{struct_memory_buffer_controller_aa47fb3df947cc51c6081bfd7e5fa1558}{checkContentValidation}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_controller}{MemoryBufferController}}*,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*,\textcolor{keywordtype}{char}*);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ void\ (*\ \mbox{\hyperlink{struct_memory_buffer_controller_aef41633fe32907d8a7e884c493649f6e}{checkContentValidationAndSetValidBit}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_controller}{MemoryBufferController}}*,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*,\textcolor{keywordtype}{char}*);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ (*\ getMemoryBufferMap)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_manager}{MemoryBufferManager}}*,int);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_memory_buffer_controller_af8b763913992316e353cce08ba69cd05}{freeMemoryBufferAt}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_manager}{MemoryBufferManager}}*\ memory\_buffer\_wrapper,\textcolor{keywordtype}{int}\ block\_number,\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ free\_content);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_memory_buffer_controller_a5767feac68a35c91db484db1e6763f56}{allFreeMemoryBuffer}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_manager}{MemoryBufferManager}}*\ memory\_buffer\_wrapper);}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ int\ (*\mbox{\hyperlink{struct_memory_buffer_controller_a4f4ab677b6ec22f29cee5b93594b9c8b}{putMemoryBufferAt}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_manager}{MemoryBufferManager}}*\ memory\_buffer\_wrapper,\textcolor{keywordtype}{int}\ block\_number,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ mem\_buffer);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ int\ (*\mbox{\hyperlink{struct_memory_buffer_controller_a3d941687191b8afb4b0ef7a1bc92e86c}{setMemoryBufferAt}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_manager}{MemoryBufferManager}}*\ memory\_buffer\_wrapper,\textcolor{keywordtype}{int}\ block\_number,\textcolor{keywordtype}{char}*\ buffer,\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ buffer\_length\_byte);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{comment}{//policy\ 관련\ 함수}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ int\ (*\mbox{\hyperlink{struct_memory_buffer_controller_a2a3b0996d2896bc48a2b86338058b432}{shouldFindEvictableBuffer}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_controller}{MemoryBufferController}}*\ self,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_manager}{MemoryBufferManager}}*\ manager);}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ (*findEvictableBuffer)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_controller}{MemoryBufferController}}*\ self,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_manager}{MemoryBufferManager}}*\ manager);}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ int\ (*\mbox{\hyperlink{struct_memory_buffer_controller_a3a5ec3a71fc48ecd2c56c1698177194b}{deleteMemoryBuffer}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_controller}{MemoryBufferController}}*\ self,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_manager}{MemoryBufferManager}}*\ manager,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ mem\_buffer);}
+\DoxyCodeLine{00039\ \ \ \ \ \};}
+\DoxyCodeLine{00040\ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_controller}{MemoryBufferController}}*\ \mbox{\hyperlink{memory__buffer_8h_a271dee336a6d3be8e3045bfa0249a679}{newMemoryBufferController}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ replacement\_type);\textcolor{comment}{//새로운\ 버퍼\ 컨트롤러를\ \ 생성하는\ 함수}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_manager}{MemoryBufferManager}}\{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_memory_buffer_manager_afb7bf76ece3750625fc4df0087b59c97}{total\_number\_of\_memory\_buffers}};\ \textcolor{comment}{//DISK의\ 최대\ n}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_memory_buffer_manager_a6dccc1604d2bee83d52f7b791161733d}{manageable\_number\_of\_memory\_buffers}};\ \textcolor{comment}{//hashmap\ 및\ 캐시에서\ 관리가능한\ 갯수\ (cache\ N<=disk\ N)}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_memory_buffer_manager_a1c16ffccf19004ecabf2b4eded46ec98}{explicit\_block\_size}};\textcolor{comment}{//명시적인\ 고정\ 버퍼크기(4096)}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_memory_buffer_manager_acc351faa3524d4e3494fed6010ac4ece}{current\_memory\_buffer\_count}};\textcolor{comment}{//사용하지\ 않음}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structhashmap}{hashmap}}*\ \mbox{\hyperlink{struct_memory_buffer_manager_a2eb509a2d41dbb89ba93327c45548b2f}{memory\_buffers}};\textcolor{comment}{//버퍼를\ O(1)에\ 가깝게\ 찾을\ \ 수\ 있도록\ hashmap으로\ 버퍼를\ 관리}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_controller}{MemoryBufferController}}*\ \mbox{\hyperlink{struct_memory_buffer_manager_a583e5d2342b218bbe94fca5362f777a2}{controller}};\textcolor{comment}{//버퍼\ 매니저\ 관련\ 동작함수를\ 정의}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_memory_buffer_manager_a23a2c122c70b2d933409f5454d2b16c3}{pure\_hashmap\_get\_time}};\textcolor{comment}{//순수\ 읽는\ 시간을\ 측정하기\ 위한\ 변수}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_memory_buffer_manager_a3e8a15c823102addb29e70cbbce101a8}{pure\_hashmap\_set\_time}};\textcolor{comment}{//순수\ 읽는\ 시간을\ 측정하기\ 위한\ 변수}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_memory_buffer_manager_ace5f86cdc8deb8e6196ddf6b0c02a73c}{disk\_fd}};\textcolor{comment}{//disk\_fd를\ 관리하는\ 변수}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{struct_memory_buffer_manager_a3419d6e5ea39d2522ff48b26a1da52b9}{disk\_buffer}};\textcolor{comment}{//mmap을\ \ 관리하는\ 변수}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_thread_pool}{ThreadPool}}*\ \mbox{\hyperlink{struct_memory_buffer_manager_a5e09d7a30eb3306bd3912e76febcdfb8}{tp}};\textcolor{comment}{//flush\ thread\ pool을\ 담당하는\ 변수}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{comment}{//char**\ memory\_buffers;}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//새로운\ 메모리\ 버퍼\ 객체를\ 생성하는\ 함수}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ \mbox{\hyperlink{memory__buffer_8h_a51195902fe7593558903b4e452fa8199}{createNewMemoryBuffer}}(\textcolor{keywordtype}{int}\ block\_size,\textcolor{keywordtype}{int}\ block\_number);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_manager}{MemoryBufferManager}}*\ \mbox{\hyperlink{memory__buffer_8h_a028c0cdba27ea14d9e3e6a5b518b66ba}{createNewMemoryBufferManager}}(\textcolor{keywordtype}{int}\ n,\textcolor{keywordtype}{int}\ manageable\_n,\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ block\_size,\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ replacement\_type);}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//index에\ 위치한\ 메모리\ 버퍼\ 객체를\ 메모리\ 버퍼\ 메니저에서\ 리소스를\ 시스템에\ 반환하는\ 함수}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{memory__buffer_8h_a6c6de3278a5dee900e738a535cc89f33}{freeMemoryBufferAt}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_memory_buffer_manager}{MemoryBufferManager}}*\ memory\_buffer\_wrapper,\textcolor{keywordtype}{int}\ block\_number,\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ free\_content);}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//모든\ 메모리\ 버퍼\ 객체를\ 메모리\ 버퍼\ 메니저에서\ 리소스를\ 시스템에\ 반환하는\ 함수}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{memory__buffer_8h_a7ab14a26566d868f468524d326e1d2fc}{allFreeMemoryBuffer}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_memory_buffer_manager}{MemoryBufferManager}}*\ memory\_buffer\_wrapper);}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//index에\ 위치한\ 메모리\ 버퍼\ 객체의\ 내용을\ 적용하는\ 함수}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{memory__buffer_8h_a1345dacdd3d0a6fc1095df16fe8513c8}{setMemoryBufferAt}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_memory_buffer_manager}{MemoryBufferManager}}*\ memory\_buffer\_wrapper,\textcolor{keywordtype}{int}\ block\_number,\textcolor{keywordtype}{char}*\ buffer,\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ buffer\_length\_byte);}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{memory__buffer_8h_adf4ac09c897fb25be7a364ad884dd6ce}{putMemoryBufferAt}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_memory_buffer_manager}{MemoryBufferManager}}*\ memory\_buffer\_wrapper,\textcolor{keywordtype}{int}\ block\_number,\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ mem\_buffer);}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ \ \mbox{\hyperlink{memory__buffer_8h_a57474a94bbe14a2339148c43f6acb6e2}{getMemoryBufferMap}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_memory_buffer_manager}{MemoryBufferManager}}*\ memory\_buffer\_wrapper,\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#endif\ \ }}
+
+\end{DoxyCode}

@@ -1,0 +1,454 @@
+\doxysection{Buffer\+Cache\+Project/shared/hashmap.c File Reference}
+\hypertarget{hashmap_8c}{}\label{hashmap_8c}\index{BufferCacheProject/shared/hashmap.c@{BufferCacheProject/shared/hashmap.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include "{}hashmap.\+h"{}}\newline
+Include dependency graph for hashmap.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashmap_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structbucket}{bucket}}
+\item 
+struct \mbox{\hyperlink{structhashmap}{hashmap}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{hashmap_8c_acde385f72deed1038fddf6f81633589a}{GROW\+\_\+\+AT}}~0.\+60 /\texorpdfstring{$\ast$}{*} 60\% \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{hashmap_8c_ab8e8fd437f2e2dcb9efdba2e8d094bfb}{SHRINK\+\_\+\+AT}}~0.\+10 /\texorpdfstring{$\ast$}{*} 10\% \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{hashmap_8c_af2b09198e88874e3cfd0dd5f31f7815e}{HASHMAP\+\_\+\+LOAD\+\_\+\+FACTOR}}~\mbox{\hyperlink{hashmap_8c_acde385f72deed1038fddf6f81633589a}{GROW\+\_\+\+AT}}
+\item 
+\#define \mbox{\hyperlink{hashmap_8c_a1de2481f51a86cbfa0b7d0cdd4d68a69}{U8\+TO64\+\_\+\+LE}}(p)
+\item 
+\#define \mbox{\hyperlink{hashmap_8c_a46b0f26e70f8e8ad39288d04bc710077}{U64\+TO8\+\_\+\+LE}}(p,  v)
+\item 
+\#define \mbox{\hyperlink{hashmap_8c_a08af2fb25b17973248d8cc16f9aa7c46}{U32\+TO8\+\_\+\+LE}}(p,  v)
+\item 
+\#define \mbox{\hyperlink{hashmap_8c_addd42b95ef425979d1d0dca095dec800}{ROTL}}(x,  b)~(uint64\+\_\+t)(((x) $<$$<$ (b)) \texorpdfstring{$\vert$}{|} ((x) $>$$>$ (64 -\/ (b))))
+\item 
+\#define \mbox{\hyperlink{hashmap_8c_abd545ba6d36990ee5903ff4d0e6edecf}{SIPROUND}}
+\item 
+\#define \mbox{\hyperlink{hashmap_8c_aff6ce4cae0564b039bbb4ef0cbdc0032}{ROTL32}}(x,  r)~((x $<$$<$ r) \texorpdfstring{$\vert$}{|} (x $>$$>$ (32 -\/ r)))
+\item 
+\#define \mbox{\hyperlink{hashmap_8c_a35851ba6b08c118345278effc46695e6}{FMIX32}}(h)~h\texorpdfstring{$^\wedge$}{\string^}=h$>$$>$16; h\texorpdfstring{$\ast$}{*}=0x85ebca6b; h\texorpdfstring{$^\wedge$}{\string^}=h$>$$>$13; h\texorpdfstring{$\ast$}{*}=0xc2b2ae35; h\texorpdfstring{$^\wedge$}{\string^}=h$>$$>$16;
+\item 
+\#define \mbox{\hyperlink{hashmap_8c_a9610c52c394a6115f357121648e7839b}{XXH\+\_\+\+PRIME\+\_\+1}}~11400714785074694791ULL
+\item 
+\#define \mbox{\hyperlink{hashmap_8c_a809f5bd51dc2a27d193942f29e46790c}{XXH\+\_\+\+PRIME\+\_\+2}}~14029467366897019727ULL
+\item 
+\#define \mbox{\hyperlink{hashmap_8c_afa88ab82100eb4d8e83ab68bab973b67}{XXH\+\_\+\+PRIME\+\_\+3}}~1609587929392839161ULL
+\item 
+\#define \mbox{\hyperlink{hashmap_8c_a25b233cbe1ada73b06d638d645c205ac}{XXH\+\_\+\+PRIME\+\_\+4}}~9650029242287828579ULL
+\item 
+\#define \mbox{\hyperlink{hashmap_8c_a3dfbf0c2d9d950745a412fe8c1644458}{XXH\+\_\+\+PRIME\+\_\+5}}~2870177450012600261ULL
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{hashmap_8c_a50515f0051f7822eafb0f977a1e12b1d}{hashmap\+\_\+set\+\_\+allocator}} (void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*}malloc)(size\+\_\+t), void(\texorpdfstring{$\ast$}{*}free)(void \texorpdfstring{$\ast$}{*}))
+\item 
+void \mbox{\hyperlink{hashmap_8c_af504c2e7d522a549710107277da04a03}{hashmap\+\_\+set\+\_\+grow\+\_\+by\+\_\+power}} (struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}map, size\+\_\+t power)
+\item 
+void \mbox{\hyperlink{hashmap_8c_afbd30478ec3bb6c86cb7c248e77f5ef1}{hashmap\+\_\+set\+\_\+load\+\_\+factor}} (struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}map, double factor)
+\item 
+struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hashmap_8c_a5a8767b1b2f6e4f6c68ed046a542c6f6}{hashmap\+\_\+new\+\_\+with\+\_\+allocator}} (void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*}\+\_\+malloc)(size\+\_\+t), void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*}\+\_\+realloc)(void \texorpdfstring{$\ast$}{*}, size\+\_\+t), void(\texorpdfstring{$\ast$}{*}\+\_\+free)(void \texorpdfstring{$\ast$}{*}), size\+\_\+t elsize, size\+\_\+t cap, uint64\+\_\+t seed0, uint64\+\_\+t seed1, uint64\+\_\+t(\texorpdfstring{$\ast$}{*}hash)(const void \texorpdfstring{$\ast$}{*}item, uint64\+\_\+t seed0, uint64\+\_\+t seed1), int(\texorpdfstring{$\ast$}{*}compare)(const void \texorpdfstring{$\ast$}{*}a, const void \texorpdfstring{$\ast$}{*}b, void \texorpdfstring{$\ast$}{*}udata), void(\texorpdfstring{$\ast$}{*}elfree)(void \texorpdfstring{$\ast$}{*}item), void \texorpdfstring{$\ast$}{*}udata)
+\item 
+struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hashmap_8c_acb2675759f32a49e1308c075212503ed}{hashmap\+\_\+new}} (size\+\_\+t elsize, size\+\_\+t cap, uint64\+\_\+t seed0, uint64\+\_\+t seed1, uint64\+\_\+t(\texorpdfstring{$\ast$}{*}hash)(const void \texorpdfstring{$\ast$}{*}item, uint64\+\_\+t seed0, uint64\+\_\+t seed1), int(\texorpdfstring{$\ast$}{*}compare)(const void \texorpdfstring{$\ast$}{*}a, const void \texorpdfstring{$\ast$}{*}b, void \texorpdfstring{$\ast$}{*}udata), void(\texorpdfstring{$\ast$}{*}elfree)(void \texorpdfstring{$\ast$}{*}item), void \texorpdfstring{$\ast$}{*}udata)
+\item 
+void \mbox{\hyperlink{hashmap_8c_ab09b4f126a08c1e716bac424b1927f19}{hashmap\+\_\+clear}} (struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}map, bool update\+\_\+cap)
+\item 
+const void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hashmap_8c_a716312344ece2a44a9ba8c5156a1f9a7}{hashmap\+\_\+set\+\_\+with\+\_\+hash}} (struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}map, const void \texorpdfstring{$\ast$}{*}item, uint64\+\_\+t hash)
+\item 
+const void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hashmap_8c_a5b36d10a5fbcaa611800de2908d8c77d}{hashmap\+\_\+set}} (struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}map, const void \texorpdfstring{$\ast$}{*}item)
+\item 
+const void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hashmap_8c_a0d40b46bfbac02818b4fea6cabea72f3}{hashmap\+\_\+get\+\_\+with\+\_\+hash}} (struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}map, const void \texorpdfstring{$\ast$}{*}key, uint64\+\_\+t hash)
+\item 
+const void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hashmap_8c_aab053f5c9e021edb10cbb916e7d2fdd9}{hashmap\+\_\+get}} (struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}map, const void \texorpdfstring{$\ast$}{*}key)
+\item 
+const void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hashmap_8c_a9f6aee089e6da29d4fcc39ec5e3af0a1}{hashmap\+\_\+probe}} (struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}map, uint64\+\_\+t position)
+\item 
+const void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hashmap_8c_aaa750a8c2c818bb0a632e00592576f4b}{hashmap\+\_\+delete\+\_\+with\+\_\+hash}} (struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}map, const void \texorpdfstring{$\ast$}{*}key, uint64\+\_\+t hash)
+\item 
+const void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hashmap_8c_a4053613b08b8f9032a281c320038e282}{hashmap\+\_\+delete}} (struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}map, const void \texorpdfstring{$\ast$}{*}key)
+\item 
+size\+\_\+t \mbox{\hyperlink{hashmap_8c_acf2d7645190129fb4880ba452c6436ce}{hashmap\+\_\+count}} (struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}map)
+\item 
+void \mbox{\hyperlink{hashmap_8c_a97ab64db6070065a0e8b5afc23793342}{hashmap\+\_\+free}} (struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}map)
+\item 
+bool \mbox{\hyperlink{hashmap_8c_ad07477cf9562c5c78b5dcde3ccf8aced}{hashmap\+\_\+oom}} (struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}map)
+\item 
+bool \mbox{\hyperlink{hashmap_8c_a43b4811046853d778bde1c2077b36f41}{hashmap\+\_\+scan}} (struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}map, bool(\texorpdfstring{$\ast$}{*}iter)(const void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}udata), void \texorpdfstring{$\ast$}{*}udata)
+\item 
+bool \mbox{\hyperlink{hashmap_8c_abc4cede290fdcdc96168de2c86373882}{hashmap\+\_\+iter}} (struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}map, size\+\_\+t \texorpdfstring{$\ast$}{*}i, void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}item)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{hashmap_8c_a9a8e35929f3fa17f10b93594e89e98ad}{hashmap\+\_\+sip}} (const void \texorpdfstring{$\ast$}{*}data, size\+\_\+t len, uint64\+\_\+t seed0, uint64\+\_\+t seed1)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{hashmap_8c_a0ad2116023e2861efbaeeb332e2bef24}{hashmap\+\_\+murmur}} (const void \texorpdfstring{$\ast$}{*}data, size\+\_\+t len, uint64\+\_\+t seed0, uint64\+\_\+t seed1)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{hashmap_8c_a6522a8fa48d5533201816f9d6d0e956a}{hashmap\+\_\+xxhash3}} (const void \texorpdfstring{$\ast$}{*}data, size\+\_\+t len, uint64\+\_\+t seed0, uint64\+\_\+t seed1)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{hashmap_8c_a35851ba6b08c118345278effc46695e6}\label{hashmap_8c_a35851ba6b08c118345278effc46695e6} 
+\index{hashmap.c@{hashmap.c}!FMIX32@{FMIX32}}
+\index{FMIX32@{FMIX32}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{FMIX32}{FMIX32}}
+{\footnotesize\ttfamily \#define FMIX32(\begin{DoxyParamCaption}\item[{}]{h }\end{DoxyParamCaption})~h\texorpdfstring{$^\wedge$}{\string^}=h$>$$>$16; h\texorpdfstring{$\ast$}{*}=0x85ebca6b; h\texorpdfstring{$^\wedge$}{\string^}=h$>$$>$13; h\texorpdfstring{$\ast$}{*}=0xc2b2ae35; h\texorpdfstring{$^\wedge$}{\string^}=h$>$$>$16;}
+
+\Hypertarget{hashmap_8c_acde385f72deed1038fddf6f81633589a}\label{hashmap_8c_acde385f72deed1038fddf6f81633589a} 
+\index{hashmap.c@{hashmap.c}!GROW\_AT@{GROW\_AT}}
+\index{GROW\_AT@{GROW\_AT}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{GROW\_AT}{GROW\_AT}}
+{\footnotesize\ttfamily \#define GROW\+\_\+\+AT~0.\+60 /\texorpdfstring{$\ast$}{*} 60\% \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{hashmap_8c_af2b09198e88874e3cfd0dd5f31f7815e}\label{hashmap_8c_af2b09198e88874e3cfd0dd5f31f7815e} 
+\index{hashmap.c@{hashmap.c}!HASHMAP\_LOAD\_FACTOR@{HASHMAP\_LOAD\_FACTOR}}
+\index{HASHMAP\_LOAD\_FACTOR@{HASHMAP\_LOAD\_FACTOR}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{HASHMAP\_LOAD\_FACTOR}{HASHMAP\_LOAD\_FACTOR}}
+{\footnotesize\ttfamily \#define HASHMAP\+\_\+\+LOAD\+\_\+\+FACTOR~\mbox{\hyperlink{hashmap_8c_acde385f72deed1038fddf6f81633589a}{GROW\+\_\+\+AT}}}
+
+\Hypertarget{hashmap_8c_addd42b95ef425979d1d0dca095dec800}\label{hashmap_8c_addd42b95ef425979d1d0dca095dec800} 
+\index{hashmap.c@{hashmap.c}!ROTL@{ROTL}}
+\index{ROTL@{ROTL}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{ROTL}{ROTL}}
+{\footnotesize\ttfamily \#define ROTL(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{b }\end{DoxyParamCaption})~(uint64\+\_\+t)(((x) $<$$<$ (b)) \texorpdfstring{$\vert$}{|} ((x) $>$$>$ (64 -\/ (b))))}
+
+\Hypertarget{hashmap_8c_aff6ce4cae0564b039bbb4ef0cbdc0032}\label{hashmap_8c_aff6ce4cae0564b039bbb4ef0cbdc0032} 
+\index{hashmap.c@{hashmap.c}!ROTL32@{ROTL32}}
+\index{ROTL32@{ROTL32}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{ROTL32}{ROTL32}}
+{\footnotesize\ttfamily \#define ROTL32(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{r }\end{DoxyParamCaption})~((x $<$$<$ r) \texorpdfstring{$\vert$}{|} (x $>$$>$ (32 -\/ r)))}
+
+\Hypertarget{hashmap_8c_ab8e8fd437f2e2dcb9efdba2e8d094bfb}\label{hashmap_8c_ab8e8fd437f2e2dcb9efdba2e8d094bfb} 
+\index{hashmap.c@{hashmap.c}!SHRINK\_AT@{SHRINK\_AT}}
+\index{SHRINK\_AT@{SHRINK\_AT}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{SHRINK\_AT}{SHRINK\_AT}}
+{\footnotesize\ttfamily \#define SHRINK\+\_\+\+AT~0.\+10 /\texorpdfstring{$\ast$}{*} 10\% \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{hashmap_8c_abd545ba6d36990ee5903ff4d0e6edecf}\label{hashmap_8c_abd545ba6d36990ee5903ff4d0e6edecf} 
+\index{hashmap.c@{hashmap.c}!SIPROUND@{SIPROUND}}
+\index{SIPROUND@{SIPROUND}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{SIPROUND}{SIPROUND}}
+{\footnotesize\ttfamily \#define SIPROUND}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \{\ v0\ +=\ v1;\ v1\ =\ \mbox{\hyperlink{hashmap_8c_addd42b95ef425979d1d0dca095dec800}{ROTL}}(v1,\ 13);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ v1\ \string^=\ v0;\ v0\ =\ \mbox{\hyperlink{hashmap_8c_addd42b95ef425979d1d0dca095dec800}{ROTL}}(v0,\ 32);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ v2\ +=\ v3;\ v3\ =\ \mbox{\hyperlink{hashmap_8c_addd42b95ef425979d1d0dca095dec800}{ROTL}}(v3,\ 16);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ v3\ \string^=\ v2;\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ v0\ +=\ v3;\ v3\ =\ \mbox{\hyperlink{hashmap_8c_addd42b95ef425979d1d0dca095dec800}{ROTL}}(v3,\ 21);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ v3\ \string^=\ v0;\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ v2\ +=\ v1;\ v1\ =\ \mbox{\hyperlink{hashmap_8c_addd42b95ef425979d1d0dca095dec800}{ROTL}}(v1,\ 17);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ v1\ \string^=\ v2;\ v2\ =\ \mbox{\hyperlink{hashmap_8c_addd42b95ef425979d1d0dca095dec800}{ROTL}}(v2,\ 32);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{hashmap_8c_a08af2fb25b17973248d8cc16f9aa7c46}\label{hashmap_8c_a08af2fb25b17973248d8cc16f9aa7c46} 
+\index{hashmap.c@{hashmap.c}!U32TO8\_LE@{U32TO8\_LE}}
+\index{U32TO8\_LE@{U32TO8\_LE}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{U32TO8\_LE}{U32TO8\_LE}}
+{\footnotesize\ttfamily \#define U32\+TO8\+\_\+\+LE(\begin{DoxyParamCaption}\item[{}]{p,  }\item[{}]{v }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \{\ (p)[0]\ =\ (uint8\_t)((v));\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ (p)[1]\ =\ (uint8\_t)((v)\ >>\ 8);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ (p)[2]\ =\ (uint8\_t)((v)\ >>\ 16);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ (p)[3]\ =\ (uint8\_t)((v)\ >>\ 24);\ \}}
+
+\end{DoxyCode}
+\Hypertarget{hashmap_8c_a46b0f26e70f8e8ad39288d04bc710077}\label{hashmap_8c_a46b0f26e70f8e8ad39288d04bc710077} 
+\index{hashmap.c@{hashmap.c}!U64TO8\_LE@{U64TO8\_LE}}
+\index{U64TO8\_LE@{U64TO8\_LE}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{U64TO8\_LE}{U64TO8\_LE}}
+{\footnotesize\ttfamily \#define U64\+TO8\+\_\+\+LE(\begin{DoxyParamCaption}\item[{}]{p,  }\item[{}]{v }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \{\ \mbox{\hyperlink{hashmap_8c_a08af2fb25b17973248d8cc16f9aa7c46}{U32TO8\_LE}}((p),\ (uint32\_t)((v)));\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ U32TO8\_LE((p)\ +\ 4,\ (uint32\_t)((v)\ >>\ 32));\ \}}
+
+\end{DoxyCode}
+\Hypertarget{hashmap_8c_a1de2481f51a86cbfa0b7d0cdd4d68a69}\label{hashmap_8c_a1de2481f51a86cbfa0b7d0cdd4d68a69} 
+\index{hashmap.c@{hashmap.c}!U8TO64\_LE@{U8TO64\_LE}}
+\index{U8TO64\_LE@{U8TO64\_LE}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{U8TO64\_LE}{U8TO64\_LE}}
+{\footnotesize\ttfamily \#define U8\+TO64\+\_\+\+LE(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \{\ \ (((uint64\_t)((p)[0]))\ |\ ((uint64\_t)((p)[1])\ <<\ 8)\ |\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ((uint64\_t)((p)[2])\ <<\ 16)\ |\ ((uint64\_t)((p)[3])\ <<\ 24)\ |\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ((uint64\_t)((p)[4])\ <<\ 32)\ |\ ((uint64\_t)((p)[5])\ <<\ 40)\ |\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ((uint64\_t)((p)[6])\ <<\ 48)\ |\ ((uint64\_t)((p)[7])\ <<\ 56))\ \}}
+
+\end{DoxyCode}
+\Hypertarget{hashmap_8c_a9610c52c394a6115f357121648e7839b}\label{hashmap_8c_a9610c52c394a6115f357121648e7839b} 
+\index{hashmap.c@{hashmap.c}!XXH\_PRIME\_1@{XXH\_PRIME\_1}}
+\index{XXH\_PRIME\_1@{XXH\_PRIME\_1}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{XXH\_PRIME\_1}{XXH\_PRIME\_1}}
+{\footnotesize\ttfamily \#define XXH\+\_\+\+PRIME\+\_\+1~11400714785074694791ULL}
+
+\Hypertarget{hashmap_8c_a809f5bd51dc2a27d193942f29e46790c}\label{hashmap_8c_a809f5bd51dc2a27d193942f29e46790c} 
+\index{hashmap.c@{hashmap.c}!XXH\_PRIME\_2@{XXH\_PRIME\_2}}
+\index{XXH\_PRIME\_2@{XXH\_PRIME\_2}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{XXH\_PRIME\_2}{XXH\_PRIME\_2}}
+{\footnotesize\ttfamily \#define XXH\+\_\+\+PRIME\+\_\+2~14029467366897019727ULL}
+
+\Hypertarget{hashmap_8c_afa88ab82100eb4d8e83ab68bab973b67}\label{hashmap_8c_afa88ab82100eb4d8e83ab68bab973b67} 
+\index{hashmap.c@{hashmap.c}!XXH\_PRIME\_3@{XXH\_PRIME\_3}}
+\index{XXH\_PRIME\_3@{XXH\_PRIME\_3}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{XXH\_PRIME\_3}{XXH\_PRIME\_3}}
+{\footnotesize\ttfamily \#define XXH\+\_\+\+PRIME\+\_\+3~1609587929392839161ULL}
+
+\Hypertarget{hashmap_8c_a25b233cbe1ada73b06d638d645c205ac}\label{hashmap_8c_a25b233cbe1ada73b06d638d645c205ac} 
+\index{hashmap.c@{hashmap.c}!XXH\_PRIME\_4@{XXH\_PRIME\_4}}
+\index{XXH\_PRIME\_4@{XXH\_PRIME\_4}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{XXH\_PRIME\_4}{XXH\_PRIME\_4}}
+{\footnotesize\ttfamily \#define XXH\+\_\+\+PRIME\+\_\+4~9650029242287828579ULL}
+
+\Hypertarget{hashmap_8c_a3dfbf0c2d9d950745a412fe8c1644458}\label{hashmap_8c_a3dfbf0c2d9d950745a412fe8c1644458} 
+\index{hashmap.c@{hashmap.c}!XXH\_PRIME\_5@{XXH\_PRIME\_5}}
+\index{XXH\_PRIME\_5@{XXH\_PRIME\_5}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{XXH\_PRIME\_5}{XXH\_PRIME\_5}}
+{\footnotesize\ttfamily \#define XXH\+\_\+\+PRIME\+\_\+5~2870177450012600261ULL}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{hashmap_8c_ab09b4f126a08c1e716bac424b1927f19}\label{hashmap_8c_ab09b4f126a08c1e716bac424b1927f19} 
+\index{hashmap.c@{hashmap.c}!hashmap\_clear@{hashmap\_clear}}
+\index{hashmap\_clear@{hashmap\_clear}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{hashmap\_clear()}{hashmap\_clear()}}
+{\footnotesize\ttfamily void hashmap\+\_\+clear (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{bool}]{update\+\_\+cap }\end{DoxyParamCaption})}
+
+\Hypertarget{hashmap_8c_acf2d7645190129fb4880ba452c6436ce}\label{hashmap_8c_acf2d7645190129fb4880ba452c6436ce} 
+\index{hashmap.c@{hashmap.c}!hashmap\_count@{hashmap\_count}}
+\index{hashmap\_count@{hashmap\_count}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{hashmap\_count()}{hashmap\_count()}}
+{\footnotesize\ttfamily size\+\_\+t hashmap\+\_\+count (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}}]{map }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashmap_8c_acf2d7645190129fb4880ba452c6436ce_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{hashmap_8c_a4053613b08b8f9032a281c320038e282}\label{hashmap_8c_a4053613b08b8f9032a281c320038e282} 
+\index{hashmap.c@{hashmap.c}!hashmap\_delete@{hashmap\_delete}}
+\index{hashmap\_delete@{hashmap\_delete}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{hashmap\_delete()}{hashmap\_delete()}}
+{\footnotesize\ttfamily const void \texorpdfstring{$\ast$}{*} hashmap\+\_\+delete (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{key }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{hashmap_8c_a4053613b08b8f9032a281c320038e282_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashmap_8c_a4053613b08b8f9032a281c320038e282_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{hashmap_8c_aaa750a8c2c818bb0a632e00592576f4b}\label{hashmap_8c_aaa750a8c2c818bb0a632e00592576f4b} 
+\index{hashmap.c@{hashmap.c}!hashmap\_delete\_with\_hash@{hashmap\_delete\_with\_hash}}
+\index{hashmap\_delete\_with\_hash@{hashmap\_delete\_with\_hash}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{hashmap\_delete\_with\_hash()}{hashmap\_delete\_with\_hash()}}
+{\footnotesize\ttfamily const void \texorpdfstring{$\ast$}{*} hashmap\+\_\+delete\+\_\+with\+\_\+hash (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{key,  }\item[{uint64\+\_\+t}]{hash }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashmap_8c_aaa750a8c2c818bb0a632e00592576f4b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{hashmap_8c_a97ab64db6070065a0e8b5afc23793342}\label{hashmap_8c_a97ab64db6070065a0e8b5afc23793342} 
+\index{hashmap.c@{hashmap.c}!hashmap\_free@{hashmap\_free}}
+\index{hashmap\_free@{hashmap\_free}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{hashmap\_free()}{hashmap\_free()}}
+{\footnotesize\ttfamily void hashmap\+\_\+free (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}}]{map }\end{DoxyParamCaption})}
+
+\Hypertarget{hashmap_8c_aab053f5c9e021edb10cbb916e7d2fdd9}\label{hashmap_8c_aab053f5c9e021edb10cbb916e7d2fdd9} 
+\index{hashmap.c@{hashmap.c}!hashmap\_get@{hashmap\_get}}
+\index{hashmap\_get@{hashmap\_get}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{hashmap\_get()}{hashmap\_get()}}
+{\footnotesize\ttfamily const void \texorpdfstring{$\ast$}{*} hashmap\+\_\+get (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{key }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{hashmap_8c_aab053f5c9e021edb10cbb916e7d2fdd9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashmap_8c_aab053f5c9e021edb10cbb916e7d2fdd9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{hashmap_8c_a0d40b46bfbac02818b4fea6cabea72f3}\label{hashmap_8c_a0d40b46bfbac02818b4fea6cabea72f3} 
+\index{hashmap.c@{hashmap.c}!hashmap\_get\_with\_hash@{hashmap\_get\_with\_hash}}
+\index{hashmap\_get\_with\_hash@{hashmap\_get\_with\_hash}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{hashmap\_get\_with\_hash()}{hashmap\_get\_with\_hash()}}
+{\footnotesize\ttfamily const void \texorpdfstring{$\ast$}{*} hashmap\+\_\+get\+\_\+with\+\_\+hash (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{key,  }\item[{uint64\+\_\+t}]{hash }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashmap_8c_a0d40b46bfbac02818b4fea6cabea72f3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{hashmap_8c_abc4cede290fdcdc96168de2c86373882}\label{hashmap_8c_abc4cede290fdcdc96168de2c86373882} 
+\index{hashmap.c@{hashmap.c}!hashmap\_iter@{hashmap\_iter}}
+\index{hashmap\_iter@{hashmap\_iter}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{hashmap\_iter()}{hashmap\_iter()}}
+{\footnotesize\ttfamily bool hashmap\+\_\+iter (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{size\+\_\+t \texorpdfstring{$\ast$}{*}}]{i,  }\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{item }\end{DoxyParamCaption})}
+
+\Hypertarget{hashmap_8c_a0ad2116023e2861efbaeeb332e2bef24}\label{hashmap_8c_a0ad2116023e2861efbaeeb332e2bef24} 
+\index{hashmap.c@{hashmap.c}!hashmap\_murmur@{hashmap\_murmur}}
+\index{hashmap\_murmur@{hashmap\_murmur}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{hashmap\_murmur()}{hashmap\_murmur()}}
+{\footnotesize\ttfamily uint64\+\_\+t hashmap\+\_\+murmur (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{data,  }\item[{size\+\_\+t}]{len,  }\item[{uint64\+\_\+t}]{seed0,  }\item[{uint64\+\_\+t}]{seed1 }\end{DoxyParamCaption})}
+
+\Hypertarget{hashmap_8c_acb2675759f32a49e1308c075212503ed}\label{hashmap_8c_acb2675759f32a49e1308c075212503ed} 
+\index{hashmap.c@{hashmap.c}!hashmap\_new@{hashmap\_new}}
+\index{hashmap\_new@{hashmap\_new}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{hashmap\_new()}{hashmap\_new()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*} hashmap\+\_\+new (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{elsize,  }\item[{size\+\_\+t}]{cap,  }\item[{uint64\+\_\+t}]{seed0,  }\item[{uint64\+\_\+t}]{seed1,  }\item[{uint64\+\_\+t(\texorpdfstring{$\ast$}{*})(const void \texorpdfstring{$\ast$}{*}item, uint64\+\_\+t seed0, uint64\+\_\+t seed1)}]{hash,  }\item[{int(\texorpdfstring{$\ast$}{*})(const void \texorpdfstring{$\ast$}{*}a, const void \texorpdfstring{$\ast$}{*}b, void \texorpdfstring{$\ast$}{*}udata)}]{compare,  }\item[{void(\texorpdfstring{$\ast$}{*})(void \texorpdfstring{$\ast$}{*}item)}]{elfree,  }\item[{void \texorpdfstring{$\ast$}{*}}]{udata }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{hashmap_8c_acb2675759f32a49e1308c075212503ed_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashmap_8c_acb2675759f32a49e1308c075212503ed_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{hashmap_8c_a5a8767b1b2f6e4f6c68ed046a542c6f6}\label{hashmap_8c_a5a8767b1b2f6e4f6c68ed046a542c6f6} 
+\index{hashmap.c@{hashmap.c}!hashmap\_new\_with\_allocator@{hashmap\_new\_with\_allocator}}
+\index{hashmap\_new\_with\_allocator@{hashmap\_new\_with\_allocator}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{hashmap\_new\_with\_allocator()}{hashmap\_new\_with\_allocator()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*} hashmap\+\_\+new\+\_\+with\+\_\+allocator (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*})(size\+\_\+t)}]{\+\_\+malloc,  }\item[{void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*})(void \texorpdfstring{$\ast$}{*}, size\+\_\+t)}]{\+\_\+realloc,  }\item[{void(\texorpdfstring{$\ast$}{*})(void \texorpdfstring{$\ast$}{*})}]{\+\_\+free,  }\item[{size\+\_\+t}]{elsize,  }\item[{size\+\_\+t}]{cap,  }\item[{uint64\+\_\+t}]{seed0,  }\item[{uint64\+\_\+t}]{seed1,  }\item[{uint64\+\_\+t(\texorpdfstring{$\ast$}{*})(const void \texorpdfstring{$\ast$}{*}item, uint64\+\_\+t seed0, uint64\+\_\+t seed1)}]{hash,  }\item[{int(\texorpdfstring{$\ast$}{*})(const void \texorpdfstring{$\ast$}{*}a, const void \texorpdfstring{$\ast$}{*}b, void \texorpdfstring{$\ast$}{*}udata)}]{compare,  }\item[{void(\texorpdfstring{$\ast$}{*})(void \texorpdfstring{$\ast$}{*}item)}]{elfree,  }\item[{void \texorpdfstring{$\ast$}{*}}]{udata }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashmap_8c_a5a8767b1b2f6e4f6c68ed046a542c6f6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{hashmap_8c_ad07477cf9562c5c78b5dcde3ccf8aced}\label{hashmap_8c_ad07477cf9562c5c78b5dcde3ccf8aced} 
+\index{hashmap.c@{hashmap.c}!hashmap\_oom@{hashmap\_oom}}
+\index{hashmap\_oom@{hashmap\_oom}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{hashmap\_oom()}{hashmap\_oom()}}
+{\footnotesize\ttfamily bool hashmap\+\_\+oom (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}}]{map }\end{DoxyParamCaption})}
+
+\Hypertarget{hashmap_8c_a9f6aee089e6da29d4fcc39ec5e3af0a1}\label{hashmap_8c_a9f6aee089e6da29d4fcc39ec5e3af0a1} 
+\index{hashmap.c@{hashmap.c}!hashmap\_probe@{hashmap\_probe}}
+\index{hashmap\_probe@{hashmap\_probe}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{hashmap\_probe()}{hashmap\_probe()}}
+{\footnotesize\ttfamily const void \texorpdfstring{$\ast$}{*} hashmap\+\_\+probe (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{uint64\+\_\+t}]{position }\end{DoxyParamCaption})}
+
+\Hypertarget{hashmap_8c_a43b4811046853d778bde1c2077b36f41}\label{hashmap_8c_a43b4811046853d778bde1c2077b36f41} 
+\index{hashmap.c@{hashmap.c}!hashmap\_scan@{hashmap\_scan}}
+\index{hashmap\_scan@{hashmap\_scan}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{hashmap\_scan()}{hashmap\_scan()}}
+{\footnotesize\ttfamily bool hashmap\+\_\+scan (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{bool(\texorpdfstring{$\ast$}{*})(const void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}udata)}]{iter,  }\item[{void \texorpdfstring{$\ast$}{*}}]{udata }\end{DoxyParamCaption})}
+
+\Hypertarget{hashmap_8c_a5b36d10a5fbcaa611800de2908d8c77d}\label{hashmap_8c_a5b36d10a5fbcaa611800de2908d8c77d} 
+\index{hashmap.c@{hashmap.c}!hashmap\_set@{hashmap\_set}}
+\index{hashmap\_set@{hashmap\_set}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{hashmap\_set()}{hashmap\_set()}}
+{\footnotesize\ttfamily const void \texorpdfstring{$\ast$}{*} hashmap\+\_\+set (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{item }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{hashmap_8c_a5b36d10a5fbcaa611800de2908d8c77d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashmap_8c_a5b36d10a5fbcaa611800de2908d8c77d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{hashmap_8c_a50515f0051f7822eafb0f977a1e12b1d}\label{hashmap_8c_a50515f0051f7822eafb0f977a1e12b1d} 
+\index{hashmap.c@{hashmap.c}!hashmap\_set\_allocator@{hashmap\_set\_allocator}}
+\index{hashmap\_set\_allocator@{hashmap\_set\_allocator}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{hashmap\_set\_allocator()}{hashmap\_set\_allocator()}}
+{\footnotesize\ttfamily void hashmap\+\_\+set\+\_\+allocator (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*})(size\+\_\+t)}]{malloc,  }\item[{void(\texorpdfstring{$\ast$}{*})(void \texorpdfstring{$\ast$}{*})}]{free }\end{DoxyParamCaption})}
+
+\Hypertarget{hashmap_8c_af504c2e7d522a549710107277da04a03}\label{hashmap_8c_af504c2e7d522a549710107277da04a03} 
+\index{hashmap.c@{hashmap.c}!hashmap\_set\_grow\_by\_power@{hashmap\_set\_grow\_by\_power}}
+\index{hashmap\_set\_grow\_by\_power@{hashmap\_set\_grow\_by\_power}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{hashmap\_set\_grow\_by\_power()}{hashmap\_set\_grow\_by\_power()}}
+{\footnotesize\ttfamily void hashmap\+\_\+set\+\_\+grow\+\_\+by\+\_\+power (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{size\+\_\+t}]{power }\end{DoxyParamCaption})}
+
+\Hypertarget{hashmap_8c_afbd30478ec3bb6c86cb7c248e77f5ef1}\label{hashmap_8c_afbd30478ec3bb6c86cb7c248e77f5ef1} 
+\index{hashmap.c@{hashmap.c}!hashmap\_set\_load\_factor@{hashmap\_set\_load\_factor}}
+\index{hashmap\_set\_load\_factor@{hashmap\_set\_load\_factor}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{hashmap\_set\_load\_factor()}{hashmap\_set\_load\_factor()}}
+{\footnotesize\ttfamily void hashmap\+\_\+set\+\_\+load\+\_\+factor (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{double}]{factor }\end{DoxyParamCaption})}
+
+\Hypertarget{hashmap_8c_a716312344ece2a44a9ba8c5156a1f9a7}\label{hashmap_8c_a716312344ece2a44a9ba8c5156a1f9a7} 
+\index{hashmap.c@{hashmap.c}!hashmap\_set\_with\_hash@{hashmap\_set\_with\_hash}}
+\index{hashmap\_set\_with\_hash@{hashmap\_set\_with\_hash}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{hashmap\_set\_with\_hash()}{hashmap\_set\_with\_hash()}}
+{\footnotesize\ttfamily const void \texorpdfstring{$\ast$}{*} hashmap\+\_\+set\+\_\+with\+\_\+hash (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*}}]{map,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{item,  }\item[{uint64\+\_\+t}]{hash }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashmap_8c_a716312344ece2a44a9ba8c5156a1f9a7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{hashmap_8c_a9a8e35929f3fa17f10b93594e89e98ad}\label{hashmap_8c_a9a8e35929f3fa17f10b93594e89e98ad} 
+\index{hashmap.c@{hashmap.c}!hashmap\_sip@{hashmap\_sip}}
+\index{hashmap\_sip@{hashmap\_sip}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{hashmap\_sip()}{hashmap\_sip()}}
+{\footnotesize\ttfamily uint64\+\_\+t hashmap\+\_\+sip (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{data,  }\item[{size\+\_\+t}]{len,  }\item[{uint64\+\_\+t}]{seed0,  }\item[{uint64\+\_\+t}]{seed1 }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hashmap_8c_a9a8e35929f3fa17f10b93594e89e98ad_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{hashmap_8c_a6522a8fa48d5533201816f9d6d0e956a}\label{hashmap_8c_a6522a8fa48d5533201816f9d6d0e956a} 
+\index{hashmap.c@{hashmap.c}!hashmap\_xxhash3@{hashmap\_xxhash3}}
+\index{hashmap\_xxhash3@{hashmap\_xxhash3}!hashmap.c@{hashmap.c}}
+\doxysubsubsection{\texorpdfstring{hashmap\_xxhash3()}{hashmap\_xxhash3()}}
+{\footnotesize\ttfamily uint64\+\_\+t hashmap\+\_\+xxhash3 (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{data,  }\item[{size\+\_\+t}]{len,  }\item[{uint64\+\_\+t}]{seed0,  }\item[{uint64\+\_\+t}]{seed1 }\end{DoxyParamCaption})}
+

@@ -1,0 +1,44 @@
+\doxysection{array\+\_\+queue.\+h}
+\hypertarget{array__queue_8h_source}{}\label{array__queue_8h_source}\index{BufferCacheProject/shared/array\_queue.h@{BufferCacheProject/shared/array\_queue.h}}
+\mbox{\hyperlink{array__queue_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ \_\_HEADER\_ARRAY\_QUEUE\_\_}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_HEADER\_ARRAY\_QUEUE\_\_}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdio.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdlib.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\ \ \ \ \#include\ <unistd.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\ \ \ \ \#include\ <semaphore.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \ \ \ \#include\ <memory.h>}}
+\DoxyCodeLine{00009\ \ \ \ \ }
+\DoxyCodeLine{00010\ \ \ \ \ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_queue}{AQueue}}\{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_a_queue_a71b3b1d1524aa6ee574dfa43a6ef8e6d}{isLockSupported}}:1;}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ sem\_t\ \mbox{\hyperlink{struct_a_queue_ac301e000199ad937f060277b0736d4e1}{lock}};}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_a_queue_aac913b3a1f6ef005d66bf7a84428773e}{size}};}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_a_queue_a6ee0faa874bf13e1aa83a99f236d4d82}{fixed\_capacity}};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ *\mbox{\hyperlink{struct_a_queue_a690aca5f61a25cc09975dc875d3c1f18}{array\_space}};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_a_queue_aa984c0e05514e37de118e996d2de7261}{current\_pointer\_index}};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ (*front)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_queue}{AQueue}}*);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_a_queue_a35ff0f17fed1a01fcc9dca9e6bdde994}{pop}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_queue}{AQueue}}*);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ int\ (*\mbox{\hyperlink{struct_a_queue_a7d0989029760b06f39eda522154f1fae}{getSize}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_queue}{AQueue}}*);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ int\ (*\mbox{\hyperlink{struct_a_queue_ae276e0fda94befeef311e1af08f8b293}{isEmpty}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_queue}{AQueue}}*);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ int\ (*\mbox{\hyperlink{struct_a_queue_a97cc0820a0245463ee517ac895a43fb3}{isFull}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_queue}{AQueue}}*);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_a_queue_ad76b365c79050f73a009bc4d307df285}{push}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_queue}{AQueue}}*,\textcolor{keywordtype}{void}*);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_a_queue_a71b61757df0b1f2f7488dcafdc511f20}{clear}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_queue}{AQueue}}*);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_a_queue_af6b70aa70d2693f7c314680860edb279}{free}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_queue}{AQueue}}*);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_a_queue_a51d99d444a1ebaea4e88a996a98b6c07}{release}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_queue}{AQueue}}*);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_a_queue_aece58d4a765043d18c4133794dc2520a}{sort}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_queue}{AQueue}}*);}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ int\ (*\mbox{\hyperlink{struct_a_queue_a6bf866794f59ab2daad7f57b37dd4979}{comparator}})(\textcolor{keywordtype}{void}*\ s1,\textcolor{keywordtype}{void}*\ s2);\textcolor{comment}{//s1이크면\ 1,\ s2가\ 크면\ -\/1,\ 그외\ 0을\ 반환하도록\ 구현}}
+\DoxyCodeLine{00034\ \ \ \ \ \};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a_queue}{AQueue}}*\ \mbox{\hyperlink{array__queue_8h_a8735eb9a6aa58468b2c58d936af4e7cf}{newAQueue}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_a_queue_a6ee0faa874bf13e1aa83a99f236d4d82}{fixed\_capacity}},\ \textcolor{keywordtype}{int}\ concurrent\_mode,\textcolor{keywordtype}{int}\ (*\mbox{\hyperlink{struct_a_queue_a6bf866794f59ab2daad7f57b37dd4979}{comparator}})(\textcolor{keywordtype}{void}*,\textcolor{keywordtype}{void}*));}
+\DoxyCodeLine{00036\ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

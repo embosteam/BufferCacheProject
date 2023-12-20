@@ -1,0 +1,130 @@
+\doxysection{LHeap Struct Reference}
+\hypertarget{struct_l_heap}{}\label{struct_l_heap}\index{LHeap@{LHeap}}
+
+
+{\ttfamily \#include $<$linked\+\_\+heap.\+h$>$}
+
+
+
+Collaboration diagram for LHeap\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{struct_l_heap__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \mbox{\hyperlink{struct_l_heap_a71b3b1d1524aa6ee574dfa43a6ef8e6d}{is\+Lock\+Supported}}\+:1
+\item 
+sem\+\_\+t \mbox{\hyperlink{struct_l_heap_ac301e000199ad937f060277b0736d4e1}{lock}}
+\item 
+unsigned int \mbox{\hyperlink{struct_l_heap_a16ff2d8e15ade4948398b0aeb80124a8}{count}}
+\item 
+struct \mbox{\hyperlink{struct_l_heap_internal_node}{LHeap\+Internal\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_heap_a8d367ce52c07460cfdc63ba51a752bff}{root}}
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_heap_ad5a70f266da53d52991e6b2c655f9e3b}{fetch\+Key\+From\+Value}} )(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self, void \texorpdfstring{$\ast$}{*}value)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_heap_a8a76a027d1a57dfed098429f1a37c904}{comparator}} )(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self, void \texorpdfstring{$\ast$}{*}current\+\_\+value, void \texorpdfstring{$\ast$}{*}parent\+\_\+value)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_heap_ad99ed62661a880ba8044797f5905532f}{push}} )(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self, void \texorpdfstring{$\ast$}{*}value)
+\item 
+unsigned int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_heap_a54cc9a8c23a92c181076964edfb40b1a}{get\+Count}} )(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self)
+\item 
+void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_heap_aa48115e1cedc84fe6814587fe78bbbdb}{get}} )(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self)
+\item 
+unsigned char(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_heap_a63273eefaf1bb123b163d6d6889e3d7b}{clear}} )(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*})
+\item 
+unsigned char(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_heap_ac017674351edcd8a717542af60b8d78f}{is\+Empty}} )(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*})
+\item 
+unsigned char(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_heap_acd582a574e7fa9835a92474da5631466}{pop}} )(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_heap_a849610aef8c3a5ee65af347089d116fa}{release}} )(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_l_heap_a63273eefaf1bb123b163d6d6889e3d7b}\label{struct_l_heap_a63273eefaf1bb123b163d6d6889e3d7b} 
+\index{LHeap@{LHeap}!clear@{clear}}
+\index{clear@{clear}!LHeap@{LHeap}}
+\doxysubsubsection{\texorpdfstring{clear}{clear}}
+{\footnotesize\ttfamily unsigned char(\texorpdfstring{$\ast$}{*} clear) (struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_l_heap_a8a76a027d1a57dfed098429f1a37c904}\label{struct_l_heap_a8a76a027d1a57dfed098429f1a37c904} 
+\index{LHeap@{LHeap}!comparator@{comparator}}
+\index{comparator@{comparator}!LHeap@{LHeap}}
+\doxysubsubsection{\texorpdfstring{comparator}{comparator}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} comparator) (struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self, void \texorpdfstring{$\ast$}{*}current\+\_\+value, void \texorpdfstring{$\ast$}{*}parent\+\_\+value)}
+
+\Hypertarget{struct_l_heap_a16ff2d8e15ade4948398b0aeb80124a8}\label{struct_l_heap_a16ff2d8e15ade4948398b0aeb80124a8} 
+\index{LHeap@{LHeap}!count@{count}}
+\index{count@{count}!LHeap@{LHeap}}
+\doxysubsubsection{\texorpdfstring{count}{count}}
+{\footnotesize\ttfamily unsigned int count}
+
+\Hypertarget{struct_l_heap_ad5a70f266da53d52991e6b2c655f9e3b}\label{struct_l_heap_ad5a70f266da53d52991e6b2c655f9e3b} 
+\index{LHeap@{LHeap}!fetchKeyFromValue@{fetchKeyFromValue}}
+\index{fetchKeyFromValue@{fetchKeyFromValue}!LHeap@{LHeap}}
+\doxysubsubsection{\texorpdfstring{fetchKeyFromValue}{fetchKeyFromValue}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} fetch\+Key\+From\+Value) (struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self, void \texorpdfstring{$\ast$}{*}value)}
+
+\Hypertarget{struct_l_heap_aa48115e1cedc84fe6814587fe78bbbdb}\label{struct_l_heap_aa48115e1cedc84fe6814587fe78bbbdb} 
+\index{LHeap@{LHeap}!get@{get}}
+\index{get@{get}!LHeap@{LHeap}}
+\doxysubsubsection{\texorpdfstring{get}{get}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} get) (struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self)}
+
+\Hypertarget{struct_l_heap_a54cc9a8c23a92c181076964edfb40b1a}\label{struct_l_heap_a54cc9a8c23a92c181076964edfb40b1a} 
+\index{LHeap@{LHeap}!getCount@{getCount}}
+\index{getCount@{getCount}!LHeap@{LHeap}}
+\doxysubsubsection{\texorpdfstring{getCount}{getCount}}
+{\footnotesize\ttfamily unsigned int(\texorpdfstring{$\ast$}{*} get\+Count) (struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self)}
+
+\Hypertarget{struct_l_heap_ac017674351edcd8a717542af60b8d78f}\label{struct_l_heap_ac017674351edcd8a717542af60b8d78f} 
+\index{LHeap@{LHeap}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!LHeap@{LHeap}}
+\doxysubsubsection{\texorpdfstring{isEmpty}{isEmpty}}
+{\footnotesize\ttfamily unsigned char(\texorpdfstring{$\ast$}{*} is\+Empty) (struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_l_heap_a71b3b1d1524aa6ee574dfa43a6ef8e6d}\label{struct_l_heap_a71b3b1d1524aa6ee574dfa43a6ef8e6d} 
+\index{LHeap@{LHeap}!isLockSupported@{isLockSupported}}
+\index{isLockSupported@{isLockSupported}!LHeap@{LHeap}}
+\doxysubsubsection{\texorpdfstring{isLockSupported}{isLockSupported}}
+{\footnotesize\ttfamily unsigned char is\+Lock\+Supported}
+
+\Hypertarget{struct_l_heap_ac301e000199ad937f060277b0736d4e1}\label{struct_l_heap_ac301e000199ad937f060277b0736d4e1} 
+\index{LHeap@{LHeap}!lock@{lock}}
+\index{lock@{lock}!LHeap@{LHeap}}
+\doxysubsubsection{\texorpdfstring{lock}{lock}}
+{\footnotesize\ttfamily sem\+\_\+t lock}
+
+\Hypertarget{struct_l_heap_acd582a574e7fa9835a92474da5631466}\label{struct_l_heap_acd582a574e7fa9835a92474da5631466} 
+\index{LHeap@{LHeap}!pop@{pop}}
+\index{pop@{pop}!LHeap@{LHeap}}
+\doxysubsubsection{\texorpdfstring{pop}{pop}}
+{\footnotesize\ttfamily unsigned char(\texorpdfstring{$\ast$}{*} pop) (struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self)}
+
+\Hypertarget{struct_l_heap_ad99ed62661a880ba8044797f5905532f}\label{struct_l_heap_ad99ed62661a880ba8044797f5905532f} 
+\index{LHeap@{LHeap}!push@{push}}
+\index{push@{push}!LHeap@{LHeap}}
+\doxysubsubsection{\texorpdfstring{push}{push}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} push) (struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self, void \texorpdfstring{$\ast$}{*}value)}
+
+\Hypertarget{struct_l_heap_a849610aef8c3a5ee65af347089d116fa}\label{struct_l_heap_a849610aef8c3a5ee65af347089d116fa} 
+\index{LHeap@{LHeap}!release@{release}}
+\index{release@{release}!LHeap@{LHeap}}
+\doxysubsubsection{\texorpdfstring{release}{release}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} release) (struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}self)}
+
+\Hypertarget{struct_l_heap_a8d367ce52c07460cfdc63ba51a752bff}\label{struct_l_heap_a8d367ce52c07460cfdc63ba51a752bff} 
+\index{LHeap@{LHeap}!root@{root}}
+\index{root@{root}!LHeap@{LHeap}}
+\doxysubsubsection{\texorpdfstring{root}{root}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_l_heap_internal_node}{LHeap\+Internal\+Node}}\texorpdfstring{$\ast$}{*} root}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Buffer\+Cache\+Project/shared/\mbox{\hyperlink{linked__heap_8h}{linked\+\_\+heap.\+h}}\end{DoxyCompactItemize}

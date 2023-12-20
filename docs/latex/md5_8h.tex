@@ -1,0 +1,142 @@
+\doxysection{Buffer\+Cache\+Project/shared/md5.h File Reference}
+\hypertarget{md5_8h}{}\label{md5_8h}\index{BufferCacheProject/shared/md5.h@{BufferCacheProject/shared/md5.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for md5.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=323pt]{md5_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{md5_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_m_d5_context}{MD5\+Context}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{md5_8h_a5df7d90b9ba181c28322d3bffcb30dbe}{md5\+Init}} (\mbox{\hyperlink{struct_m_d5_context}{MD5\+Context}} \texorpdfstring{$\ast$}{*}ctx)
+\item 
+void \mbox{\hyperlink{md5_8h_a28e3da9d206e39a25fcd46d2365de955}{md5\+Update}} (\mbox{\hyperlink{struct_m_d5_context}{MD5\+Context}} \texorpdfstring{$\ast$}{*}ctx, uint8\+\_\+t \texorpdfstring{$\ast$}{*}input, size\+\_\+t input\+\_\+len)
+\item 
+void \mbox{\hyperlink{md5_8h_af16783c3d6ab447f6c48b79a09949f0d}{md5\+Finalize}} (\mbox{\hyperlink{struct_m_d5_context}{MD5\+Context}} \texorpdfstring{$\ast$}{*}ctx)
+\item 
+void \mbox{\hyperlink{md5_8h_ad62f52b7881806fe7ccd720e5bd1feee}{md5\+Step}} (uint32\+\_\+t \texorpdfstring{$\ast$}{*}buffer, uint32\+\_\+t \texorpdfstring{$\ast$}{*}input)
+\item 
+void \mbox{\hyperlink{md5_8h_aac6130138e35a1026d623e3446e14b53}{md5\+String}} (char \texorpdfstring{$\ast$}{*}input, uint8\+\_\+t \texorpdfstring{$\ast$}{*}result)
+\item 
+void \mbox{\hyperlink{md5_8h_a75b9ae448ce1d460f33786a3fdda1cf1}{md5\+File}} (FILE \texorpdfstring{$\ast$}{*}file, uint8\+\_\+t \texorpdfstring{$\ast$}{*}result)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{md5_8h_a75b9ae448ce1d460f33786a3fdda1cf1}\label{md5_8h_a75b9ae448ce1d460f33786a3fdda1cf1} 
+\index{md5.h@{md5.h}!md5File@{md5File}}
+\index{md5File@{md5File}!md5.h@{md5.h}}
+\doxysubsubsection{\texorpdfstring{md5File()}{md5File()}}
+{\footnotesize\ttfamily void md5\+File (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{file,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{result }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{md5_8h_a75b9ae448ce1d460f33786a3fdda1cf1_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{md5_8h_af16783c3d6ab447f6c48b79a09949f0d}\label{md5_8h_af16783c3d6ab447f6c48b79a09949f0d} 
+\index{md5.h@{md5.h}!md5Finalize@{md5Finalize}}
+\index{md5Finalize@{md5Finalize}!md5.h@{md5.h}}
+\doxysubsubsection{\texorpdfstring{md5Finalize()}{md5Finalize()}}
+{\footnotesize\ttfamily void md5\+Finalize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_d5_context}{MD5\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{md5_8h_af16783c3d6ab447f6c48b79a09949f0d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{md5_8h_af16783c3d6ab447f6c48b79a09949f0d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{md5_8h_a5df7d90b9ba181c28322d3bffcb30dbe}\label{md5_8h_a5df7d90b9ba181c28322d3bffcb30dbe} 
+\index{md5.h@{md5.h}!md5Init@{md5Init}}
+\index{md5Init@{md5Init}!md5.h@{md5.h}}
+\doxysubsubsection{\texorpdfstring{md5Init()}{md5Init()}}
+{\footnotesize\ttfamily void md5\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_d5_context}{MD5\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{md5_8h_a5df7d90b9ba181c28322d3bffcb30dbe_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{md5_8h_ad62f52b7881806fe7ccd720e5bd1feee}\label{md5_8h_ad62f52b7881806fe7ccd720e5bd1feee} 
+\index{md5.h@{md5.h}!md5Step@{md5Step}}
+\index{md5Step@{md5Step}!md5.h@{md5.h}}
+\doxysubsubsection{\texorpdfstring{md5Step()}{md5Step()}}
+{\footnotesize\ttfamily void md5\+Step (\begin{DoxyParamCaption}\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{input }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{md5_8h_ad62f52b7881806fe7ccd720e5bd1feee_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{md5_8h_ad62f52b7881806fe7ccd720e5bd1feee_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{md5_8h_aac6130138e35a1026d623e3446e14b53}\label{md5_8h_aac6130138e35a1026d623e3446e14b53} 
+\index{md5.h@{md5.h}!md5String@{md5String}}
+\index{md5String@{md5String}!md5.h@{md5.h}}
+\doxysubsubsection{\texorpdfstring{md5String()}{md5String()}}
+{\footnotesize\ttfamily void md5\+String (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{input,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{result }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{md5_8h_aac6130138e35a1026d623e3446e14b53_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{md5_8h_a28e3da9d206e39a25fcd46d2365de955}\label{md5_8h_a28e3da9d206e39a25fcd46d2365de955} 
+\index{md5.h@{md5.h}!md5Update@{md5Update}}
+\index{md5Update@{md5Update}!md5.h@{md5.h}}
+\doxysubsubsection{\texorpdfstring{md5Update()}{md5Update()}}
+{\footnotesize\ttfamily void md5\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m_d5_context}{MD5\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{input,  }\item[{size\+\_\+t}]{input\+\_\+len }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{md5_8h_a28e3da9d206e39a25fcd46d2365de955_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{md5_8h_a28e3da9d206e39a25fcd46d2365de955_icgraph}
+\end{center}
+\end{figure}

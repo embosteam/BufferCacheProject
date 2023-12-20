@@ -1,0 +1,30 @@
+\doxysection{doubly\+\_\+linked\+\_\+list.\+h}
+\hypertarget{doubly__linked__list_8h_source}{}\label{doubly__linked__list_8h_source}\index{BufferCacheProject/shared/doubly\_linked\_list.h@{BufferCacheProject/shared/doubly\_linked\_list.h}}
+\mbox{\hyperlink{doubly__linked__list_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_DOUBLY\_LINKED\_LIST\_\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_DOUBLY\_LINKED\_LIST\_\_}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdio.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdlib.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\ \ \ \ \#include\ <unistd.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\ \ \ \ \#include\ <memory.h>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_list}{DoublyLinkedList}}\{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_list}{DoublyLinkedList}}*\ \mbox{\hyperlink{struct_doubly_linked_list_aa032aad2bba9cc7788ada6c76c94349e}{previous}};}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_list}{DoublyLinkedList}}*\ \mbox{\hyperlink{struct_doubly_linked_list_ac1561ecf15b36ce6d18dee97d5494f56}{next}};}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{struct_doubly_linked_list_a0f61d63b009d0880a89c843bd50d8d76}{value}};}
+\DoxyCodeLine{00016\ \ \ \ \ \};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_list_wrapper}{DoublyLinkedListWrapper}}\{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_doubly_linked_list_wrapper_af58864e6140ffe388aa51e5a2661c7d2}{list\_size}};}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_list}{DoublyLinkedList}}*\ \mbox{\hyperlink{struct_doubly_linked_list_wrapper_a37d445bf2ceda923d8115eb1a3d33bf5}{root}};}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_list}{DoublyLinkedList}}*\ \mbox{\hyperlink{struct_doubly_linked_list_wrapper_a9a26410dfc7e7be0365a2a400f31aba3}{current}};}
+\DoxyCodeLine{00028\ \ \ \ \ \};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_list}{DoublyLinkedList}}*\ \mbox{\hyperlink{doubly__linked__list_8h_a3b87bd609f58261267793d44a464a631}{createNewDoublyLinkedList}}();}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_list}{DoublyLinkedList}}*\ \mbox{\hyperlink{doubly__linked__list_8h_a463963eb9a26b30041fc17a75f4c7823}{appendDoublyLinkedListAtNext}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_doubly_linked_list}{DoublyLinkedList}}*\ pointer,\textcolor{keywordtype}{void}*\ \mbox{\hyperlink{struct_doubly_linked_list_a0f61d63b009d0880a89c843bd50d8d76}{value}});}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_list}{DoublyLinkedList}}*\ \mbox{\hyperlink{doubly__linked__list_8h_a38206f8e9edd5cde394ff89c7493b44f}{appendDoublyLinkedListAtPrevious}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_doubly_linked_list}{DoublyLinkedList}}*\ pointer,\textcolor{keywordtype}{void}*\ \mbox{\hyperlink{struct_doubly_linked_list_a0f61d63b009d0880a89c843bd50d8d76}{value}});}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{doubly__linked__list_8h_a13a25615dc5df05d899664f3417a6899}{popFromDoublyLinkedList}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_doubly_linked_list}{DoublyLinkedList}}*\ pointer);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

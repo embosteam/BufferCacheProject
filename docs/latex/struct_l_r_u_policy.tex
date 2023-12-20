@@ -1,0 +1,74 @@
+\doxysection{LRUPolicy Struct Reference}
+\hypertarget{struct_l_r_u_policy}{}\label{struct_l_r_u_policy}\index{LRUPolicy@{LRUPolicy}}
+
+
+{\ttfamily \#include $<$replacement\+\_\+policy.\+h$>$}
+
+
+
+Collaboration diagram for LRUPolicy\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{struct_l_r_u_policy__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \mbox{\hyperlink{struct_l_r_u_policy_a71b3b1d1524aa6ee574dfa43a6ef8e6d}{is\+Lock\+Supported}}\+:1
+\item 
+sem\+\_\+t \mbox{\hyperlink{struct_l_r_u_policy_ac301e000199ad937f060277b0736d4e1}{lock}}
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_r_u_policy_a5e57dc5eaa6ab652e2febf67473acd52}{deque}}
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_r_u_policy_a5e4b700b6e622c4f7bc8f5e33c200e7f}{update\+Access\+Info}} )(struct \mbox{\hyperlink{struct_l_r_u_policy}{LRUPolicy}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hash\+\_\+wrapper)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_r_u_policy_a3f9864402246dac8c846178779abd4a6}{delete\+At}} )(struct \mbox{\hyperlink{struct_l_r_u_policy}{LRUPolicy}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hashmap\+\_\+wrapper)
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_l_r_u_policy_a228728e8911bf476cdca6fbf1619dd37}{get\+Evictable\+Node}} )(struct \mbox{\hyperlink{struct_l_r_u_policy}{LRUPolicy}} \texorpdfstring{$\ast$}{*}self)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_l_r_u_policy_a3f9864402246dac8c846178779abd4a6}\label{struct_l_r_u_policy_a3f9864402246dac8c846178779abd4a6} 
+\index{LRUPolicy@{LRUPolicy}!deleteAt@{deleteAt}}
+\index{deleteAt@{deleteAt}!LRUPolicy@{LRUPolicy}}
+\doxysubsubsection{\texorpdfstring{deleteAt}{deleteAt}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} delete\+At) (struct \mbox{\hyperlink{struct_l_r_u_policy}{LRUPolicy}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hashmap\+\_\+wrapper)}
+
+\Hypertarget{struct_l_r_u_policy_a5e57dc5eaa6ab652e2febf67473acd52}\label{struct_l_r_u_policy_a5e57dc5eaa6ab652e2febf67473acd52} 
+\index{LRUPolicy@{LRUPolicy}!deque@{deque}}
+\index{deque@{deque}!LRUPolicy@{LRUPolicy}}
+\doxysubsubsection{\texorpdfstring{deque}{deque}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}}\texorpdfstring{$\ast$}{*} deque}
+
+\Hypertarget{struct_l_r_u_policy_a228728e8911bf476cdca6fbf1619dd37}\label{struct_l_r_u_policy_a228728e8911bf476cdca6fbf1619dd37} 
+\index{LRUPolicy@{LRUPolicy}!getEvictableNode@{getEvictableNode}}
+\index{getEvictableNode@{getEvictableNode}!LRUPolicy@{LRUPolicy}}
+\doxysubsubsection{\texorpdfstring{getEvictableNode}{getEvictableNode}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} get\+Evictable\+Node) (struct \mbox{\hyperlink{struct_l_r_u_policy}{LRUPolicy}} \texorpdfstring{$\ast$}{*}self)}
+
+\Hypertarget{struct_l_r_u_policy_a71b3b1d1524aa6ee574dfa43a6ef8e6d}\label{struct_l_r_u_policy_a71b3b1d1524aa6ee574dfa43a6ef8e6d} 
+\index{LRUPolicy@{LRUPolicy}!isLockSupported@{isLockSupported}}
+\index{isLockSupported@{isLockSupported}!LRUPolicy@{LRUPolicy}}
+\doxysubsubsection{\texorpdfstring{isLockSupported}{isLockSupported}}
+{\footnotesize\ttfamily unsigned char is\+Lock\+Supported}
+
+\Hypertarget{struct_l_r_u_policy_ac301e000199ad937f060277b0736d4e1}\label{struct_l_r_u_policy_ac301e000199ad937f060277b0736d4e1} 
+\index{LRUPolicy@{LRUPolicy}!lock@{lock}}
+\index{lock@{lock}!LRUPolicy@{LRUPolicy}}
+\doxysubsubsection{\texorpdfstring{lock}{lock}}
+{\footnotesize\ttfamily sem\+\_\+t lock}
+
+\Hypertarget{struct_l_r_u_policy_a5e4b700b6e622c4f7bc8f5e33c200e7f}\label{struct_l_r_u_policy_a5e4b700b6e622c4f7bc8f5e33c200e7f} 
+\index{LRUPolicy@{LRUPolicy}!updateAccessInfo@{updateAccessInfo}}
+\index{updateAccessInfo@{updateAccessInfo}!LRUPolicy@{LRUPolicy}}
+\doxysubsubsection{\texorpdfstring{updateAccessInfo}{updateAccessInfo}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} update\+Access\+Info) (struct \mbox{\hyperlink{struct_l_r_u_policy}{LRUPolicy}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hash\+\_\+wrapper)}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Buffer\+Cache\+Project/shared/\mbox{\hyperlink{replacement__policy_8h}{replacement\+\_\+policy.\+h}}\end{DoxyCompactItemize}

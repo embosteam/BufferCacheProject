@@ -1,0 +1,44 @@
+\doxysection{linked\+\_\+heap\+\_\+queue.\+h}
+\hypertarget{linked__heap__queue_8h_source}{}\label{linked__heap__queue_8h_source}\index{BufferCacheProject/shared/linked\_heap\_queue.h@{BufferCacheProject/shared/linked\_heap\_queue.h}}
+\mbox{\hyperlink{linked__heap__queue_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_HEADER\_LINKED\_HEAP\_QUEUE\_\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_HEADER\_LINKED\_HEAP\_QUEUE\_\_}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdio.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdlib.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\ \ \ \ \#include\ <unistd.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\ \ \ \ \#include\ <semaphore.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\ \ \ \ \#include\ <memory.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{linked__heap_8h}{linked\_heap.h}}"{}}}
+\DoxyCodeLine{00009\ \ \ \ \ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_h_queue}{LHQueue}}\{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_l_h_queue_a909a7655d69fcab8b42e5467cb46959d}{isEnableConcurrentMode}}:1;}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_l_h_queue_aac913b3a1f6ef005d66bf7a84428773e}{size}};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_heap}{LHeap}}*\ \mbox{\hyperlink{struct_l_h_queue_ae0a6799ad0d28d046dcfe231ab720986}{heap}};}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ (*front)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_h_queue}{LHQueue}}*);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_l_h_queue_a02a7f1200bd9039a184b56005cb431ad}{pop}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_h_queue}{LHQueue}}*);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ int\ (*\mbox{\hyperlink{struct_l_h_queue_a834560e59d6d76032d7aacd18123dec8}{getSize}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_h_queue}{LHQueue}}*);}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ int\ (*\mbox{\hyperlink{struct_l_h_queue_a592cbdd5deb341f93a0819050d35c80c}{isEmpty}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_h_queue}{LHQueue}}*);}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_l_h_queue_a457e35c85efd6d0b3b4e2cc7a4960bed}{push}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_h_queue}{LHQueue}}*,\textcolor{keywordtype}{void}*);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_l_h_queue_a22f19c657ac3f11573cc3397eff05769}{clear}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_h_queue}{LHQueue}}*);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_l_h_queue_a40ec2235387718faf364f756a39b7a00}{free}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_h_queue}{LHQueue}}*);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ \};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_h_queue}{LHQueue}}*\ \mbox{\hyperlink{linked__heap__queue_8h_af99adab943aee1936e733d5eace4b8dc}{newLHQueue}}(\ \textcolor{keywordtype}{int}\ concurrent\_mode,\textcolor{keywordtype}{int}\ (*\mbox{\hyperlink{thread__pool_8c_ae00f4b5af832677b4e133e3c343f1c39}{fetchKeyFromValue}})(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_l_heap}{LHeap}}*,\textcolor{keywordtype}{void}*),}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ (*comparator)(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_l_heap}{LHeap}}*,\textcolor{keywordtype}{void}*,\textcolor{keywordtype}{void}*));}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_h_queue}{LHQueue}}*\ \mbox{\hyperlink{linked__heap__queue_8h_a0d5d343a1f486124887284c9c9f0a13a}{newLHQueue2}}(\ \textcolor{keywordtype}{int}\ concurrent\_mode,\textcolor{keywordtype}{int}\ (*\mbox{\hyperlink{thread__pool_8c_ae00f4b5af832677b4e133e3c343f1c39}{fetchKeyFromValue}})(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_l_heap}{LHeap}}*,\textcolor{keywordtype}{void}*));}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{linked__heap__queue_8h_a9ef2904f342af8b67c7a4e4d7ee01d3a}{LHQueue\_getSize}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_l_h_queue}{LHQueue}}*\ q);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{linked__heap__queue_8h_ac56ab4e2d4483d214496db3f19bfd25f}{LHQueue\_isEmpty}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_l_h_queue}{LHQueue}}*\ q);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{linked__heap__queue_8h_a8a4de86ae7df46926d78213e4e3d455c}{LHQueue\_clear}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_l_h_queue}{LHQueue}}*\ q);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{linked__heap__queue_8h_ac0818024698ded019625f999076f6d0c}{LHQueue\_freeInternal}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_l_h_queue}{LHQueue}}*\ q);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{linked__heap__queue_8h_a59fbcde7d4efecd1a9fbd7c2ce44fc77}{LHQueue\_front}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_l_h_queue}{LHQueue}}*\ q);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{linked__heap__queue_8h_a41d20f62fb6226f86cffecef1847bbb3}{LHQueue\_pop}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_l_h_queue}{LHQueue}}*\ q);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//struct\ LHQueueInternalNode*\ LQueue\_newEmptyInternalNode();}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{linked__heap__queue_8h_a8de7ec2a79b7bf5ffa315278f1ad78d1}{LHQueue\_push}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_l_h_queue}{LHQueue}}*\ q,\textcolor{keywordtype}{void}*\ value);}
+\DoxyCodeLine{00037\ \ \ \ \ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

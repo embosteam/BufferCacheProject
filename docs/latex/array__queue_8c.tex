@@ -1,0 +1,226 @@
+\doxysection{Buffer\+Cache\+Project/shared/array\+\_\+queue.c File Reference}
+\hypertarget{array__queue_8c}{}\label{array__queue_8c}\index{BufferCacheProject/shared/array\_queue.c@{BufferCacheProject/shared/array\_queue.c}}
+{\ttfamily \#include "{}array\+\_\+queue.\+h"{}}\newline
+Include dependency graph for array\+\_\+queue.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{array__queue_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{array__queue_8c_ab7558237a8a0d576a24b0e6f447d2b81}{AQueue\+\_\+get\+Size}} (struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}self)
+\item 
+unsigned int \mbox{\hyperlink{array__queue_8c_afedcdb3b9532474bcb4170d4bea6217c}{AQueue\+\_\+is\+Empty}} (struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}self)
+\item 
+unsigned int \mbox{\hyperlink{array__queue_8c_a645a560175060dc14cc70661788bb03c}{AQueue\+\_\+is\+Full}} (struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}self)
+\item 
+unsigned int \mbox{\hyperlink{array__queue_8c_a1f8d6ac0356487a9034c851944b952ff}{get\+Unsigned\+Int\+Min}} (unsigned int a, unsigned int b)
+\item 
+unsigned int \mbox{\hyperlink{array__queue_8c_a5e6493765fde446307006e1a2964c96c}{get\+Unsigned\+Int\+Max}} (unsigned int a, unsigned int b)
+\item 
+void \mbox{\hyperlink{array__queue_8c_afab8018c4abbec64d8355734ee1c8ad1}{AQueue\+\_\+clear}} (struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}self)
+\item 
+void \mbox{\hyperlink{array__queue_8c_acd87822e6120c3e18cd557cf6404425b}{AQueue\+\_\+free\+Internal}} (struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}self)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{array__queue_8c_a7387627058a875bf8fc4ae89e731d8b9}{AQueue\+\_\+front}} (struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}self)
+\item 
+void \mbox{\hyperlink{array__queue_8c_a5cf4cf91dcb50f51ff2a089cd82bedfc}{AQueue\+\_\+pop}} (struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}self)
+\item 
+void \mbox{\hyperlink{array__queue_8c_a0ca3e01242e957f094913d5d67313e28}{AQueue\+\_\+push}} (struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}self, void \texorpdfstring{$\ast$}{*}value)
+\item 
+void \mbox{\hyperlink{array__queue_8c_adee84eb2cac517de0a6d92f98f3e775a}{AQueue\+\_\+release}} (struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}self)
+\item 
+unsigned int \mbox{\hyperlink{array__queue_8c_a33a7e28f88f8631a4ac2d7fb2c151f42}{find\+Index\+Pointer}} (struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}self)
+\item 
+void \mbox{\hyperlink{array__queue_8c_a9c314fbc87e118858631241ae70d979c}{AQueue\+\_\+sort}} (struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}self)
+\item 
+struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{array__queue_8c_a8735eb9a6aa58468b2c58d936af4e7cf}{new\+AQueue}} (unsigned int fixed\+\_\+capacity, int concurrent\+\_\+mode, int(\texorpdfstring{$\ast$}{*}comparator)(void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{array__queue_8c_afab8018c4abbec64d8355734ee1c8ad1}\label{array__queue_8c_afab8018c4abbec64d8355734ee1c8ad1} 
+\index{array\_queue.c@{array\_queue.c}!AQueue\_clear@{AQueue\_clear}}
+\index{AQueue\_clear@{AQueue\_clear}!array\_queue.c@{array\_queue.c}}
+\doxysubsubsection{\texorpdfstring{AQueue\_clear()}{AQueue\_clear()}}
+{\footnotesize\ttfamily void AQueue\+\_\+clear (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{array__queue_8c_afab8018c4abbec64d8355734ee1c8ad1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{array__queue_8c_afab8018c4abbec64d8355734ee1c8ad1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{array__queue_8c_acd87822e6120c3e18cd557cf6404425b}\label{array__queue_8c_acd87822e6120c3e18cd557cf6404425b} 
+\index{array\_queue.c@{array\_queue.c}!AQueue\_freeInternal@{AQueue\_freeInternal}}
+\index{AQueue\_freeInternal@{AQueue\_freeInternal}!array\_queue.c@{array\_queue.c}}
+\doxysubsubsection{\texorpdfstring{AQueue\_freeInternal()}{AQueue\_freeInternal()}}
+{\footnotesize\ttfamily void AQueue\+\_\+free\+Internal (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+\Hypertarget{array__queue_8c_a7387627058a875bf8fc4ae89e731d8b9}\label{array__queue_8c_a7387627058a875bf8fc4ae89e731d8b9} 
+\index{array\_queue.c@{array\_queue.c}!AQueue\_front@{AQueue\_front}}
+\index{AQueue\_front@{AQueue\_front}!array\_queue.c@{array\_queue.c}}
+\doxysubsubsection{\texorpdfstring{AQueue\_front()}{AQueue\_front()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} AQueue\+\_\+front (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{array__queue_8c_a7387627058a875bf8fc4ae89e731d8b9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{array__queue_8c_ab7558237a8a0d576a24b0e6f447d2b81}\label{array__queue_8c_ab7558237a8a0d576a24b0e6f447d2b81} 
+\index{array\_queue.c@{array\_queue.c}!AQueue\_getSize@{AQueue\_getSize}}
+\index{AQueue\_getSize@{AQueue\_getSize}!array\_queue.c@{array\_queue.c}}
+\doxysubsubsection{\texorpdfstring{AQueue\_getSize()}{AQueue\_getSize()}}
+{\footnotesize\ttfamily unsigned int AQueue\+\_\+get\+Size (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{array__queue_8c_ab7558237a8a0d576a24b0e6f447d2b81_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{array__queue_8c_afedcdb3b9532474bcb4170d4bea6217c}\label{array__queue_8c_afedcdb3b9532474bcb4170d4bea6217c} 
+\index{array\_queue.c@{array\_queue.c}!AQueue\_isEmpty@{AQueue\_isEmpty}}
+\index{AQueue\_isEmpty@{AQueue\_isEmpty}!array\_queue.c@{array\_queue.c}}
+\doxysubsubsection{\texorpdfstring{AQueue\_isEmpty()}{AQueue\_isEmpty()}}
+{\footnotesize\ttfamily unsigned int AQueue\+\_\+is\+Empty (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=277pt]{array__queue_8c_afedcdb3b9532474bcb4170d4bea6217c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{array__queue_8c_a645a560175060dc14cc70661788bb03c}\label{array__queue_8c_a645a560175060dc14cc70661788bb03c} 
+\index{array\_queue.c@{array\_queue.c}!AQueue\_isFull@{AQueue\_isFull}}
+\index{AQueue\_isFull@{AQueue\_isFull}!array\_queue.c@{array\_queue.c}}
+\doxysubsubsection{\texorpdfstring{AQueue\_isFull()}{AQueue\_isFull()}}
+{\footnotesize\ttfamily unsigned int AQueue\+\_\+is\+Full (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{array__queue_8c_a645a560175060dc14cc70661788bb03c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{array__queue_8c_a5cf4cf91dcb50f51ff2a089cd82bedfc}\label{array__queue_8c_a5cf4cf91dcb50f51ff2a089cd82bedfc} 
+\index{array\_queue.c@{array\_queue.c}!AQueue\_pop@{AQueue\_pop}}
+\index{AQueue\_pop@{AQueue\_pop}!array\_queue.c@{array\_queue.c}}
+\doxysubsubsection{\texorpdfstring{AQueue\_pop()}{AQueue\_pop()}}
+{\footnotesize\ttfamily void AQueue\+\_\+pop (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=257pt]{array__queue_8c_a5cf4cf91dcb50f51ff2a089cd82bedfc_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{array__queue_8c_a0ca3e01242e957f094913d5d67313e28}\label{array__queue_8c_a0ca3e01242e957f094913d5d67313e28} 
+\index{array\_queue.c@{array\_queue.c}!AQueue\_push@{AQueue\_push}}
+\index{AQueue\_push@{AQueue\_push}!array\_queue.c@{array\_queue.c}}
+\doxysubsubsection{\texorpdfstring{AQueue\_push()}{AQueue\_push()}}
+{\footnotesize\ttfamily void AQueue\+\_\+push (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{void \texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{array__queue_8c_a0ca3e01242e957f094913d5d67313e28_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{array__queue_8c_adee84eb2cac517de0a6d92f98f3e775a}\label{array__queue_8c_adee84eb2cac517de0a6d92f98f3e775a} 
+\index{array\_queue.c@{array\_queue.c}!AQueue\_release@{AQueue\_release}}
+\index{AQueue\_release@{AQueue\_release}!array\_queue.c@{array\_queue.c}}
+\doxysubsubsection{\texorpdfstring{AQueue\_release()}{AQueue\_release()}}
+{\footnotesize\ttfamily void AQueue\+\_\+release (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{array__queue_8c_adee84eb2cac517de0a6d92f98f3e775a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{array__queue_8c_a9c314fbc87e118858631241ae70d979c}\label{array__queue_8c_a9c314fbc87e118858631241ae70d979c} 
+\index{array\_queue.c@{array\_queue.c}!AQueue\_sort@{AQueue\_sort}}
+\index{AQueue\_sort@{AQueue\_sort}!array\_queue.c@{array\_queue.c}}
+\doxysubsubsection{\texorpdfstring{AQueue\_sort()}{AQueue\_sort()}}
+{\footnotesize\ttfamily void AQueue\+\_\+sort (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{array__queue_8c_a9c314fbc87e118858631241ae70d979c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{array__queue_8c_a9c314fbc87e118858631241ae70d979c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{array__queue_8c_a33a7e28f88f8631a4ac2d7fb2c151f42}\label{array__queue_8c_a33a7e28f88f8631a4ac2d7fb2c151f42} 
+\index{array\_queue.c@{array\_queue.c}!findIndexPointer@{findIndexPointer}}
+\index{findIndexPointer@{findIndexPointer}!array\_queue.c@{array\_queue.c}}
+\doxysubsubsection{\texorpdfstring{findIndexPointer()}{findIndexPointer()}}
+{\footnotesize\ttfamily unsigned int find\+Index\+Pointer (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{array__queue_8c_a33a7e28f88f8631a4ac2d7fb2c151f42_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{array__queue_8c_a5e6493765fde446307006e1a2964c96c}\label{array__queue_8c_a5e6493765fde446307006e1a2964c96c} 
+\index{array\_queue.c@{array\_queue.c}!getUnsignedIntMax@{getUnsignedIntMax}}
+\index{getUnsignedIntMax@{getUnsignedIntMax}!array\_queue.c@{array\_queue.c}}
+\doxysubsubsection{\texorpdfstring{getUnsignedIntMax()}{getUnsignedIntMax()}}
+{\footnotesize\ttfamily unsigned int get\+Unsigned\+Int\+Max (\begin{DoxyParamCaption}\item[{unsigned int}]{a,  }\item[{unsigned int}]{b }\end{DoxyParamCaption})}
+
+\Hypertarget{array__queue_8c_a1f8d6ac0356487a9034c851944b952ff}\label{array__queue_8c_a1f8d6ac0356487a9034c851944b952ff} 
+\index{array\_queue.c@{array\_queue.c}!getUnsignedIntMin@{getUnsignedIntMin}}
+\index{getUnsignedIntMin@{getUnsignedIntMin}!array\_queue.c@{array\_queue.c}}
+\doxysubsubsection{\texorpdfstring{getUnsignedIntMin()}{getUnsignedIntMin()}}
+{\footnotesize\ttfamily unsigned int get\+Unsigned\+Int\+Min (\begin{DoxyParamCaption}\item[{unsigned int}]{a,  }\item[{unsigned int}]{b }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{array__queue_8c_a1f8d6ac0356487a9034c851944b952ff_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{array__queue_8c_a8735eb9a6aa58468b2c58d936af4e7cf}\label{array__queue_8c_a8735eb9a6aa58468b2c58d936af4e7cf} 
+\index{array\_queue.c@{array\_queue.c}!newAQueue@{newAQueue}}
+\index{newAQueue@{newAQueue}!array\_queue.c@{array\_queue.c}}
+\doxysubsubsection{\texorpdfstring{newAQueue()}{newAQueue()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*} new\+AQueue (\begin{DoxyParamCaption}\item[{unsigned int}]{fixed\+\_\+capacity,  }\item[{int}]{concurrent\+\_\+mode,  }\item[{int(\texorpdfstring{$\ast$}{*})(void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})}]{comparator }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{array__queue_8c_a8735eb9a6aa58468b2c58d936af4e7cf_cgraph}
+\end{center}
+\end{figure}

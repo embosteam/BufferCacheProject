@@ -1,0 +1,62 @@
+\doxysection{Buffer\+Cache\+Project/shared/crc32.c File Reference}
+\hypertarget{crc32_8c}{}\label{crc32_8c}\index{BufferCacheProject/shared/crc32.c@{BufferCacheProject/shared/crc32.c}}
+{\ttfamily \#include "{}crc32.\+h"{}}\newline
+Include dependency graph for crc32.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=179pt]{crc32_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{crc32_8c_a6d5587d9c0724d87e000dec844eb48aa}{DO1}}(buf)~crc = crc\+\_\+table\mbox{[}((int)crc \texorpdfstring{$^\wedge$}{\string^} (\texorpdfstring{$\ast$}{*}buf++)) \& 0xff\mbox{]} \texorpdfstring{$^\wedge$}{\string^} (crc $>$$>$ 8);
+\item 
+\#define \mbox{\hyperlink{crc32_8c_a075b45261620b7f357f8dc54fd365f85}{DO2}}(buf)~\mbox{\hyperlink{crc32_8c_a6d5587d9c0724d87e000dec844eb48aa}{DO1}}(buf); \mbox{\hyperlink{crc32_8c_a6d5587d9c0724d87e000dec844eb48aa}{DO1}}(buf);
+\item 
+\#define \mbox{\hyperlink{crc32_8c_aa6d6c63201e33bb8a064ae16954d1862}{DO4}}(buf)~\mbox{\hyperlink{crc32_8c_a075b45261620b7f357f8dc54fd365f85}{DO2}}(buf); \mbox{\hyperlink{crc32_8c_a075b45261620b7f357f8dc54fd365f85}{DO2}}(buf);
+\item 
+\#define \mbox{\hyperlink{crc32_8c_a0a4c30f665eefffb860606b683278bfe}{DO8}}(buf)~\mbox{\hyperlink{crc32_8c_aa6d6c63201e33bb8a064ae16954d1862}{DO4}}(buf); \mbox{\hyperlink{crc32_8c_aa6d6c63201e33bb8a064ae16954d1862}{DO4}}(buf);
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{crc32_8c_a4391c664bf060a9209157151401d9b41}{crc32}} (const unsigned char \texorpdfstring{$\ast$}{*}buffer, unsigned int len)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{crc32_8c_a6d5587d9c0724d87e000dec844eb48aa}\label{crc32_8c_a6d5587d9c0724d87e000dec844eb48aa} 
+\index{crc32.c@{crc32.c}!DO1@{DO1}}
+\index{DO1@{DO1}!crc32.c@{crc32.c}}
+\doxysubsubsection{\texorpdfstring{DO1}{DO1}}
+{\footnotesize\ttfamily \#define DO1(\begin{DoxyParamCaption}\item[{}]{buf }\end{DoxyParamCaption})~crc = crc\+\_\+table\mbox{[}((int)crc \texorpdfstring{$^\wedge$}{\string^} (\texorpdfstring{$\ast$}{*}buf++)) \& 0xff\mbox{]} \texorpdfstring{$^\wedge$}{\string^} (crc $>$$>$ 8);}
+
+\Hypertarget{crc32_8c_a075b45261620b7f357f8dc54fd365f85}\label{crc32_8c_a075b45261620b7f357f8dc54fd365f85} 
+\index{crc32.c@{crc32.c}!DO2@{DO2}}
+\index{DO2@{DO2}!crc32.c@{crc32.c}}
+\doxysubsubsection{\texorpdfstring{DO2}{DO2}}
+{\footnotesize\ttfamily \#define DO2(\begin{DoxyParamCaption}\item[{}]{buf }\end{DoxyParamCaption})~\mbox{\hyperlink{crc32_8c_a6d5587d9c0724d87e000dec844eb48aa}{DO1}}(buf); \mbox{\hyperlink{crc32_8c_a6d5587d9c0724d87e000dec844eb48aa}{DO1}}(buf);}
+
+\Hypertarget{crc32_8c_aa6d6c63201e33bb8a064ae16954d1862}\label{crc32_8c_aa6d6c63201e33bb8a064ae16954d1862} 
+\index{crc32.c@{crc32.c}!DO4@{DO4}}
+\index{DO4@{DO4}!crc32.c@{crc32.c}}
+\doxysubsubsection{\texorpdfstring{DO4}{DO4}}
+{\footnotesize\ttfamily \#define DO4(\begin{DoxyParamCaption}\item[{}]{buf }\end{DoxyParamCaption})~\mbox{\hyperlink{crc32_8c_a075b45261620b7f357f8dc54fd365f85}{DO2}}(buf); \mbox{\hyperlink{crc32_8c_a075b45261620b7f357f8dc54fd365f85}{DO2}}(buf);}
+
+\Hypertarget{crc32_8c_a0a4c30f665eefffb860606b683278bfe}\label{crc32_8c_a0a4c30f665eefffb860606b683278bfe} 
+\index{crc32.c@{crc32.c}!DO8@{DO8}}
+\index{DO8@{DO8}!crc32.c@{crc32.c}}
+\doxysubsubsection{\texorpdfstring{DO8}{DO8}}
+{\footnotesize\ttfamily \#define DO8(\begin{DoxyParamCaption}\item[{}]{buf }\end{DoxyParamCaption})~\mbox{\hyperlink{crc32_8c_aa6d6c63201e33bb8a064ae16954d1862}{DO4}}(buf); \mbox{\hyperlink{crc32_8c_aa6d6c63201e33bb8a064ae16954d1862}{DO4}}(buf);}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{crc32_8c_a4391c664bf060a9209157151401d9b41}\label{crc32_8c_a4391c664bf060a9209157151401d9b41} 
+\index{crc32.c@{crc32.c}!crc32@{crc32}}
+\index{crc32@{crc32}!crc32.c@{crc32.c}}
+\doxysubsubsection{\texorpdfstring{crc32()}{crc32()}}
+{\footnotesize\ttfamily unsigned int crc32 (\begin{DoxyParamCaption}\item[{const unsigned char \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{unsigned int}]{len }\end{DoxyParamCaption})}
+

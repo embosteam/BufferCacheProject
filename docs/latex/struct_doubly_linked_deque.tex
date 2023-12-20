@@ -1,0 +1,170 @@
+\doxysection{Doubly\+Linked\+Deque Struct Reference}
+\hypertarget{struct_doubly_linked_deque}{}\label{struct_doubly_linked_deque}\index{DoublyLinkedDeque@{DoublyLinkedDeque}}
+
+
+{\ttfamily \#include $<$doubly\+\_\+linked\+\_\+deque.\+h$>$}
+
+
+
+Collaboration diagram for Doubly\+Linked\+Deque\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{struct_doubly_linked_deque__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \mbox{\hyperlink{struct_doubly_linked_deque_a71b3b1d1524aa6ee574dfa43a6ef8e6d}{is\+Lock\+Supported}}\+:1
+\item 
+sem\+\_\+t \mbox{\hyperlink{struct_doubly_linked_deque_ac301e000199ad937f060277b0736d4e1}{lock}}
+\item 
+unsigned int \mbox{\hyperlink{struct_doubly_linked_deque_a16ff2d8e15ade4948398b0aeb80124a8}{count}}
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_doubly_linked_deque_ac1ae1070df6ff42fea073e7738ce95bb}{first}}
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_doubly_linked_deque_a4a201a6c1a79420dd5142d4c40741d7d}{last}}
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_doubly_linked_deque_a974470e7a49508b65792c2fbf8983a40}{pop\+First}} )(struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_doubly_linked_deque_a4422e80ec9bf450547101fb6b3926082}{pop\+Last}} )(struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_doubly_linked_deque_af84ec86a0705132a1086b227440a8b78}{pop\+At}} )(struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}at)
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_doubly_linked_deque_a0ee265e421492a38d2b652d2463c97c9}{push\+First}} )(struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self, void \texorpdfstring{$\ast$}{*}value)
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_doubly_linked_deque_adda14da3a0a8373db48ee73ac8ffb6e8}{push\+Last}} )(struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self, void \texorpdfstring{$\ast$}{*}value)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_doubly_linked_deque_a9cb15fe18ee087b85ab88517cd21b5d6}{insert\+Left\+At}} )(struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}at, void \texorpdfstring{$\ast$}{*}value)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_doubly_linked_deque_a7150298bf12982a4622d2d4ada4b3755}{insert\+Right\+At}} )(struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}at, void \texorpdfstring{$\ast$}{*}value)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_doubly_linked_deque_a132e911b96716e5500ef34cd1156af42}{switch\+Node}} )(struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}dest, struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}src)
+\item 
+void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_doubly_linked_deque_afa183f0b23c753fb833100ec909fa3b5}{get\+First\+Value}} )(struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self)
+\item 
+void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_doubly_linked_deque_acff22f7405e034794ec01e59d1c58a4e}{get\+Last\+Value}} )(struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self)
+\item 
+unsigned int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_doubly_linked_deque_a841136bba4733730f11258115a43d661}{get\+Count}} )(struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self)
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_doubly_linked_deque_a184edec7abbe1fe2a1f0ac4450dd4fc2}{get\+First}} )(struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self)
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_doubly_linked_deque_a3c3d04ce331458dfc08b168cd14afc57}{get\+Last}} )(struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_doubly_linked_deque_a16ff2d8e15ade4948398b0aeb80124a8}\label{struct_doubly_linked_deque_a16ff2d8e15ade4948398b0aeb80124a8} 
+\index{DoublyLinkedDeque@{DoublyLinkedDeque}!count@{count}}
+\index{count@{count}!DoublyLinkedDeque@{DoublyLinkedDeque}}
+\doxysubsubsection{\texorpdfstring{count}{count}}
+{\footnotesize\ttfamily unsigned int count}
+
+\Hypertarget{struct_doubly_linked_deque_ac1ae1070df6ff42fea073e7738ce95bb}\label{struct_doubly_linked_deque_ac1ae1070df6ff42fea073e7738ce95bb} 
+\index{DoublyLinkedDeque@{DoublyLinkedDeque}!first@{first}}
+\index{first@{first}!DoublyLinkedDeque@{DoublyLinkedDeque}}
+\doxysubsubsection{\texorpdfstring{first}{first}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}}\texorpdfstring{$\ast$}{*} first}
+
+\Hypertarget{struct_doubly_linked_deque_a841136bba4733730f11258115a43d661}\label{struct_doubly_linked_deque_a841136bba4733730f11258115a43d661} 
+\index{DoublyLinkedDeque@{DoublyLinkedDeque}!getCount@{getCount}}
+\index{getCount@{getCount}!DoublyLinkedDeque@{DoublyLinkedDeque}}
+\doxysubsubsection{\texorpdfstring{getCount}{getCount}}
+{\footnotesize\ttfamily unsigned int(\texorpdfstring{$\ast$}{*} get\+Count) (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self)}
+
+\Hypertarget{struct_doubly_linked_deque_a184edec7abbe1fe2a1f0ac4450dd4fc2}\label{struct_doubly_linked_deque_a184edec7abbe1fe2a1f0ac4450dd4fc2} 
+\index{DoublyLinkedDeque@{DoublyLinkedDeque}!getFirst@{getFirst}}
+\index{getFirst@{getFirst}!DoublyLinkedDeque@{DoublyLinkedDeque}}
+\doxysubsubsection{\texorpdfstring{getFirst}{getFirst}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} get\+First) (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self)}
+
+\Hypertarget{struct_doubly_linked_deque_afa183f0b23c753fb833100ec909fa3b5}\label{struct_doubly_linked_deque_afa183f0b23c753fb833100ec909fa3b5} 
+\index{DoublyLinkedDeque@{DoublyLinkedDeque}!getFirstValue@{getFirstValue}}
+\index{getFirstValue@{getFirstValue}!DoublyLinkedDeque@{DoublyLinkedDeque}}
+\doxysubsubsection{\texorpdfstring{getFirstValue}{getFirstValue}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} get\+First\+Value) (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self)}
+
+\Hypertarget{struct_doubly_linked_deque_a3c3d04ce331458dfc08b168cd14afc57}\label{struct_doubly_linked_deque_a3c3d04ce331458dfc08b168cd14afc57} 
+\index{DoublyLinkedDeque@{DoublyLinkedDeque}!getLast@{getLast}}
+\index{getLast@{getLast}!DoublyLinkedDeque@{DoublyLinkedDeque}}
+\doxysubsubsection{\texorpdfstring{getLast}{getLast}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} get\+Last) (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self)}
+
+\Hypertarget{struct_doubly_linked_deque_acff22f7405e034794ec01e59d1c58a4e}\label{struct_doubly_linked_deque_acff22f7405e034794ec01e59d1c58a4e} 
+\index{DoublyLinkedDeque@{DoublyLinkedDeque}!getLastValue@{getLastValue}}
+\index{getLastValue@{getLastValue}!DoublyLinkedDeque@{DoublyLinkedDeque}}
+\doxysubsubsection{\texorpdfstring{getLastValue}{getLastValue}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} get\+Last\+Value) (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self)}
+
+\Hypertarget{struct_doubly_linked_deque_a9cb15fe18ee087b85ab88517cd21b5d6}\label{struct_doubly_linked_deque_a9cb15fe18ee087b85ab88517cd21b5d6} 
+\index{DoublyLinkedDeque@{DoublyLinkedDeque}!insertLeftAt@{insertLeftAt}}
+\index{insertLeftAt@{insertLeftAt}!DoublyLinkedDeque@{DoublyLinkedDeque}}
+\doxysubsubsection{\texorpdfstring{insertLeftAt}{insertLeftAt}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} insert\+Left\+At) (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}at, void \texorpdfstring{$\ast$}{*}value)}
+
+\Hypertarget{struct_doubly_linked_deque_a7150298bf12982a4622d2d4ada4b3755}\label{struct_doubly_linked_deque_a7150298bf12982a4622d2d4ada4b3755} 
+\index{DoublyLinkedDeque@{DoublyLinkedDeque}!insertRightAt@{insertRightAt}}
+\index{insertRightAt@{insertRightAt}!DoublyLinkedDeque@{DoublyLinkedDeque}}
+\doxysubsubsection{\texorpdfstring{insertRightAt}{insertRightAt}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} insert\+Right\+At) (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}at, void \texorpdfstring{$\ast$}{*}value)}
+
+\Hypertarget{struct_doubly_linked_deque_a71b3b1d1524aa6ee574dfa43a6ef8e6d}\label{struct_doubly_linked_deque_a71b3b1d1524aa6ee574dfa43a6ef8e6d} 
+\index{DoublyLinkedDeque@{DoublyLinkedDeque}!isLockSupported@{isLockSupported}}
+\index{isLockSupported@{isLockSupported}!DoublyLinkedDeque@{DoublyLinkedDeque}}
+\doxysubsubsection{\texorpdfstring{isLockSupported}{isLockSupported}}
+{\footnotesize\ttfamily unsigned char is\+Lock\+Supported}
+
+is\+Lock\+Supported,lock은 concurrent 를 위함 \Hypertarget{struct_doubly_linked_deque_a4a201a6c1a79420dd5142d4c40741d7d}\label{struct_doubly_linked_deque_a4a201a6c1a79420dd5142d4c40741d7d} 
+\index{DoublyLinkedDeque@{DoublyLinkedDeque}!last@{last}}
+\index{last@{last}!DoublyLinkedDeque@{DoublyLinkedDeque}}
+\doxysubsubsection{\texorpdfstring{last}{last}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}}\texorpdfstring{$\ast$}{*} last}
+
+\Hypertarget{struct_doubly_linked_deque_ac301e000199ad937f060277b0736d4e1}\label{struct_doubly_linked_deque_ac301e000199ad937f060277b0736d4e1} 
+\index{DoublyLinkedDeque@{DoublyLinkedDeque}!lock@{lock}}
+\index{lock@{lock}!DoublyLinkedDeque@{DoublyLinkedDeque}}
+\doxysubsubsection{\texorpdfstring{lock}{lock}}
+{\footnotesize\ttfamily sem\+\_\+t lock}
+
+\Hypertarget{struct_doubly_linked_deque_af84ec86a0705132a1086b227440a8b78}\label{struct_doubly_linked_deque_af84ec86a0705132a1086b227440a8b78} 
+\index{DoublyLinkedDeque@{DoublyLinkedDeque}!popAt@{popAt}}
+\index{popAt@{popAt}!DoublyLinkedDeque@{DoublyLinkedDeque}}
+\doxysubsubsection{\texorpdfstring{popAt}{popAt}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} pop\+At) (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}at)}
+
+\Hypertarget{struct_doubly_linked_deque_a974470e7a49508b65792c2fbf8983a40}\label{struct_doubly_linked_deque_a974470e7a49508b65792c2fbf8983a40} 
+\index{DoublyLinkedDeque@{DoublyLinkedDeque}!popFirst@{popFirst}}
+\index{popFirst@{popFirst}!DoublyLinkedDeque@{DoublyLinkedDeque}}
+\doxysubsubsection{\texorpdfstring{popFirst}{popFirst}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} pop\+First) (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self)}
+
+\Hypertarget{struct_doubly_linked_deque_a4422e80ec9bf450547101fb6b3926082}\label{struct_doubly_linked_deque_a4422e80ec9bf450547101fb6b3926082} 
+\index{DoublyLinkedDeque@{DoublyLinkedDeque}!popLast@{popLast}}
+\index{popLast@{popLast}!DoublyLinkedDeque@{DoublyLinkedDeque}}
+\doxysubsubsection{\texorpdfstring{popLast}{popLast}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} pop\+Last) (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self)}
+
+\Hypertarget{struct_doubly_linked_deque_a0ee265e421492a38d2b652d2463c97c9}\label{struct_doubly_linked_deque_a0ee265e421492a38d2b652d2463c97c9} 
+\index{DoublyLinkedDeque@{DoublyLinkedDeque}!pushFirst@{pushFirst}}
+\index{pushFirst@{pushFirst}!DoublyLinkedDeque@{DoublyLinkedDeque}}
+\doxysubsubsection{\texorpdfstring{pushFirst}{pushFirst}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} push\+First) (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self, void \texorpdfstring{$\ast$}{*}value)}
+
+\Hypertarget{struct_doubly_linked_deque_adda14da3a0a8373db48ee73ac8ffb6e8}\label{struct_doubly_linked_deque_adda14da3a0a8373db48ee73ac8ffb6e8} 
+\index{DoublyLinkedDeque@{DoublyLinkedDeque}!pushLast@{pushLast}}
+\index{pushLast@{pushLast}!DoublyLinkedDeque@{DoublyLinkedDeque}}
+\doxysubsubsection{\texorpdfstring{pushLast}{pushLast}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} push\+Last) (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self, void \texorpdfstring{$\ast$}{*}value)}
+
+\Hypertarget{struct_doubly_linked_deque_a132e911b96716e5500ef34cd1156af42}\label{struct_doubly_linked_deque_a132e911b96716e5500ef34cd1156af42} 
+\index{DoublyLinkedDeque@{DoublyLinkedDeque}!switchNode@{switchNode}}
+\index{switchNode@{switchNode}!DoublyLinkedDeque@{DoublyLinkedDeque}}
+\doxysubsubsection{\texorpdfstring{switchNode}{switchNode}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} switch\+Node) (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}dest, struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}src)}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Buffer\+Cache\+Project/shared/\mbox{\hyperlink{doubly__linked__deque_8h}{doubly\+\_\+linked\+\_\+deque.\+h}}\end{DoxyCompactItemize}

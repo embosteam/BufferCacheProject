@@ -1,0 +1,90 @@
+\doxysection{Buffer\+Cache\+Project/shared/hash\+\_\+controller.c File Reference}
+\hypertarget{hash__controller_8c}{}\label{hash__controller_8c}\index{BufferCacheProject/shared/hash\_controller.c@{BufferCacheProject/shared/hash\_controller.c}}
+{\ttfamily \#include "{}hash\+\_\+controller.\+h"{}}\newline
+Include dependency graph for hash\+\_\+controller.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hash__controller_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hash__controller_8c_a39ae6247d6b442d9ea58d4826a0df9b0}{MD5\+Fetch\+Hash\+Value}} (char \texorpdfstring{$\ast$}{*}buffer, int length)
+\item 
+unsigned char \mbox{\hyperlink{hash__controller_8c_a21ee23216439241d05f6127f50836023}{MD5\+Is\+Equal\+Md5\+Hash}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}c1, uint8\+\_\+t \texorpdfstring{$\ast$}{*}c2)
+\item 
+void \mbox{\hyperlink{hash__controller_8c_a91e024d94a3bcc1e3a0bf121b0d7ceeb}{MD5\+Copy\+Hash\+Value}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}dest, uint8\+\_\+t \texorpdfstring{$\ast$}{*}src)
+\item 
+struct \mbox{\hyperlink{struct_m_d5_controller}{MD5\+Controller}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hash__controller_8c_a96cea6468e87b55f294ab230b0220519}{new\+MD5\+Controller}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{hash__controller_8c_a91e024d94a3bcc1e3a0bf121b0d7ceeb}\label{hash__controller_8c_a91e024d94a3bcc1e3a0bf121b0d7ceeb} 
+\index{hash\_controller.c@{hash\_controller.c}!MD5CopyHashValue@{MD5CopyHashValue}}
+\index{MD5CopyHashValue@{MD5CopyHashValue}!hash\_controller.c@{hash\_controller.c}}
+\doxysubsubsection{\texorpdfstring{MD5CopyHashValue()}{MD5CopyHashValue()}}
+{\footnotesize\ttfamily void MD5\+Copy\+Hash\+Value (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{dest,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{src }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hash__controller_8c_a91e024d94a3bcc1e3a0bf121b0d7ceeb_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{hash__controller_8c_a39ae6247d6b442d9ea58d4826a0df9b0}\label{hash__controller_8c_a39ae6247d6b442d9ea58d4826a0df9b0} 
+\index{hash\_controller.c@{hash\_controller.c}!MD5FetchHashValue@{MD5FetchHashValue}}
+\index{MD5FetchHashValue@{MD5FetchHashValue}!hash\_controller.c@{hash\_controller.c}}
+\doxysubsubsection{\texorpdfstring{MD5FetchHashValue()}{MD5FetchHashValue()}}
+{\footnotesize\ttfamily uint8\+\_\+t \texorpdfstring{$\ast$}{*} MD5\+Fetch\+Hash\+Value (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{int}]{length }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hash__controller_8c_a39ae6247d6b442d9ea58d4826a0df9b0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hash__controller_8c_a39ae6247d6b442d9ea58d4826a0df9b0_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{hash__controller_8c_a21ee23216439241d05f6127f50836023}\label{hash__controller_8c_a21ee23216439241d05f6127f50836023} 
+\index{hash\_controller.c@{hash\_controller.c}!MD5IsEqualMd5Hash@{MD5IsEqualMd5Hash}}
+\index{MD5IsEqualMd5Hash@{MD5IsEqualMd5Hash}!hash\_controller.c@{hash\_controller.c}}
+\doxysubsubsection{\texorpdfstring{MD5IsEqualMd5Hash()}{MD5IsEqualMd5Hash()}}
+{\footnotesize\ttfamily unsigned char MD5\+Is\+Equal\+Md5\+Hash (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{c1,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{c2 }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hash__controller_8c_a21ee23216439241d05f6127f50836023_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{hash__controller_8c_a96cea6468e87b55f294ab230b0220519}\label{hash__controller_8c_a96cea6468e87b55f294ab230b0220519} 
+\index{hash\_controller.c@{hash\_controller.c}!newMD5Controller@{newMD5Controller}}
+\index{newMD5Controller@{newMD5Controller}!hash\_controller.c@{hash\_controller.c}}
+\doxysubsubsection{\texorpdfstring{newMD5Controller()}{newMD5Controller()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_m_d5_controller}{MD5\+Controller}} \texorpdfstring{$\ast$}{*} new\+MD5\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hash__controller_8c_a96cea6468e87b55f294ab230b0220519_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hash__controller_8c_a96cea6468e87b55f294ab230b0220519_icgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,33 @@
+\doxysection{config.\+h}
+\hypertarget{config_8h_source}{}\label{config_8h_source}\index{BufferCacheProject/config.h@{BufferCacheProject/config.h}}
+\mbox{\hyperlink{config_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ \_\_HEADER\_BUFFER\_CACHE\_CONFIG\_\_}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_HEADER\_BUFFER\_CACHE\_CONFIG\_\_}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\ \ \ \ \#define\ EVICTION\_FLUSH\_TYPE\_SINGLE\_FLUSH\_THREAD\ 0}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\ \ \ \ \#define\ EVICTION\_FLUSH\_TYPE\_THREAD\_POOL\ 1}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ \#define\ REPLACEMENT\_POLICY\_TYPE\_FIFO\ 0}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ \ \ \ \#define\ REPLACEMENT\_POLICY\_TYPE\_LFU\ 1}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ \ \ \ \#define\ REPLACEMENT\_POLICY\_TYPE\_LRU\ 2}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ \ \ \ }}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\ \ \ \ \#define\ CONFIG\_REPLACEMENT\_POLICY\_TYPE\ 0}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\ \ \ \ \#define\ CONFIG\_TOTAL\_N\ 1024}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\ \ \ \ \#define\ CONFIG\_MANANAGEABLE\_N\ 500}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_MMAP\_RW\ 1}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\ \ \ \ \#define\ CONFIG\_RANDOM\_DISTIRUBUTION\_TYPE\ 2}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\ \ \ \ \#define\ CONFIG\_RANDOM\_ACCESS\_SEQUENCE\_MAX\_VALUE\ 1023}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\ \ \ \ \#define\ CONFIG\_RANDOM\_ACCESS\_SEQUENCE\_ELEMENT\_COUNT\ 10000}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\ \ \ \ \#define\ CONFIG\_RANDOM\_WRITE\_COUNT\ 10000}}
+\DoxyCodeLine{00026\ \ \ \ \ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\ \ \ \ \#define\ CONFIG\_EVICTION\_FLUSH\_TYPE\ 0}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\ \ \ \ \#define\ CONFIG\_THREAD\_POOL\_NUMBER\_OF\_INTERNAL\_THREAD\ 3}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\ \ \ \ \#define\ CONFIG\_THREAD\_POOL\_NUMBER\_OF\_PACKET\_SIZE\_FOR\_MEMORY\_BUFFER\ 50}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\ \ \ \ \#define\ CONFIG\_DEBUG\_MODE\ 0}}
+\DoxyCodeLine{00031\ \ \ \ \ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,66 @@
+\doxysection{replacement\+\_\+policy.\+h}
+\hypertarget{replacement__policy_8h_source}{}\label{replacement__policy_8h_source}\index{BufferCacheProject/shared/replacement\_policy.h@{BufferCacheProject/shared/replacement\_policy.h}}
+\mbox{\hyperlink{replacement__policy_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ \_\_HEADER\_REPLACEMENT\_POLICY\_\_}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_HEADER\_REPLACEMENT\_POLICY\_\_}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdio.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdlib.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\ \ \ \ \#include\ <unistd.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\ \ \ \ \#include\ <memory.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \ \ \ \#include\ <semaphore.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\ \ \ \ \#include\ <pthread.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \ \ \ \#include\ <time.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{linked__queue_8h}{linked\_queue.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{doubly__linked__deque_8h}{doubly\_linked\_deque.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{memory__buffer__structures_8h}{memory\_buffer\_structures.h}}"{}}}
+\DoxyCodeLine{00014\ \ \ \ \ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\ \ \ \ \#define\ REPLACEMENT\_POLICY\_TYPE\_FIFO\ 0}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\ \ \ \ \#define\ REPLACEMENT\_POLICY\_TYPE\_LFU\ 1}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\ \ \ \ \#define\ REPLACEMENT\_POLICY\_TYPE\_LRU\ 2}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}}\{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_f_i_f_o_policy_a71b3b1d1524aa6ee574dfa43a6ef8e6d}{isLockSupported}}:1;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ sem\_t\ \mbox{\hyperlink{struct_f_i_f_o_policy_ac301e000199ad937f060277b0736d4e1}{lock}};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque}{DoublyLinkedDeque}}*\ \mbox{\hyperlink{struct_f_i_f_o_policy_a5e57dc5eaa6ab652e2febf67473acd52}{deque}};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_f_i_f_o_policy_a75291e281aa41e0056fee08069eee970}{updateAccessInfo}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}}*\ self,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ hash\_wrapper);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_f_i_f_o_policy_a0428a66b1c8a597b71bc3b19f14b60a0}{deleteAt}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}}*\ self,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ hashmap\_wrapper);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{DoublyLinkedDequeInternalNode}}*\ (*getEvictableNode)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}}*\ self);}
+\DoxyCodeLine{00025\ \ \ \ \ \};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_r_u_policy}{LRUPolicy}}\{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_l_r_u_policy_a71b3b1d1524aa6ee574dfa43a6ef8e6d}{isLockSupported}}:1;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ sem\_t\ \mbox{\hyperlink{struct_l_r_u_policy_ac301e000199ad937f060277b0736d4e1}{lock}};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque}{DoublyLinkedDeque}}*\ \mbox{\hyperlink{struct_l_r_u_policy_a5e57dc5eaa6ab652e2febf67473acd52}{deque}};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_l_r_u_policy_a5e4b700b6e622c4f7bc8f5e33c200e7f}{updateAccessInfo}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_r_u_policy}{LRUPolicy}}*\ self,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ hash\_wrapper);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_l_r_u_policy_a3f9864402246dac8c846178779abd4a6}{deleteAt}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_r_u_policy}{LRUPolicy}}*\ self,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ hashmap\_wrapper);}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{DoublyLinkedDequeInternalNode}}*\ (*getEvictableNode)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_r_u_policy}{LRUPolicy}}*\ self);}
+\DoxyCodeLine{00033\ \ \ \ \ \};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_f_u_policy}{LFUPolicy}}\{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_l_f_u_policy_a71b3b1d1524aa6ee574dfa43a6ef8e6d}{isLockSupported}}:1;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ sem\_t\ \mbox{\hyperlink{struct_l_f_u_policy_ac301e000199ad937f060277b0736d4e1}{lock}};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque}{DoublyLinkedDeque}}*\ \mbox{\hyperlink{struct_l_f_u_policy_a5e57dc5eaa6ab652e2febf67473acd52}{deque}};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_l_f_u_policy_aa9a77445760168931715aa6c5d8d2413}{updateAccessInfo}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_f_u_policy}{LFUPolicy}}*\ self,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ hash\_wrapper);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_l_f_u_policy_a82a4fa8b56aee7b146b2ac157bcdf2e2}{deleteAt}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_f_u_policy}{LFUPolicy}}*\ self,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ hashmap\_wrapper);}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{DoublyLinkedDequeInternalNode}}*\ (*getEvictableNode)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_f_u_policy}{LFUPolicy}}*\ self);}
+\DoxyCodeLine{00041\ \ \ \ \ \};}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_replacement_policy_manager}{ReplacementPolicyManager}}\{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}}*\ \mbox{\hyperlink{struct_replacement_policy_manager_a79ebec178248e0b4565965ea0327820c}{fifo}};}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_r_u_policy}{LRUPolicy}}*\ \mbox{\hyperlink{struct_replacement_policy_manager_adf73b1428faf56ab02bf9b5126044882}{lru}};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_f_u_policy}{LFUPolicy}}*\ \mbox{\hyperlink{struct_replacement_policy_manager_a845251053de82d98428e85f6ee08c700}{lfu}};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_replacement_policy_manager_a2c1b1150934005505b4dde8a2ca4a107}{primary\_policy\_type}};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_replacement_policy_manager_a5252649a58cbd2921ec2fe00a7d1b980}{resetCachePolicies}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_replacement_policy_manager}{ReplacementPolicyManager}}*\ self);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_replacement_policy_manager_a4b289ad7967825d40ceef95b3136777f}{updateAccessInfo}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_replacement_policy_manager}{ReplacementPolicyManager}}*\ self,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ hashmap\_wrapper);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ pthread\_t\ (*\mbox{\hyperlink{struct_replacement_policy_manager_a016fa4ffe29734f63dabc5fd4b5ee003}{updateAccessInfoWithThread}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_replacement_policy_manager}{ReplacementPolicyManager}}*\ self,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ hashmap\_wrapper);}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_replacement_policy_manager_a195305e79ad388dcbf533f29b5122348}{deleteAt}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_replacement_policy_manager}{ReplacementPolicyManager}}*\ self,\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ hashmap\_wrapper);}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_replacement_policy_manager_aff3f58a9be8bef8c1f67ba7252e08471}{debugPolicyContent}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_replacement_policy_manager}{ReplacementPolicyManager}}*\ self,\textcolor{keywordtype}{int}\ policy\_type);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{DoublyLinkedDequeInternalNode}}*\ (*getEvictableNode)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_replacement_policy_manager}{ReplacementPolicyManager}}*\ self,\textcolor{keywordtype}{int}\ policy\_type);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}}*\ \mbox{\hyperlink{replacement__policy_8h_a8617bb3d4c597562542e0d03cd1ac844}{newFIFOPolicy}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ concurrent\_count);}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_replacement_policy_manager}{ReplacementPolicyManager}}*\ \mbox{\hyperlink{replacement__policy_8h_aac1fadbf3cd284ef42937aee93858861}{newReplacementPolicyManager}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_replacement_policy_manager_a2c1b1150934005505b4dde8a2ca4a107}{primary\_policy\_type}},\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ concurrent\_count);}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

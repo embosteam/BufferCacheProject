@@ -1,0 +1,85 @@
+\doxysection{Buffer\+Cache\+Project/shared/array\+\_\+stack.h File Reference}
+\hypertarget{array__stack_8h}{}\label{array__stack_8h}\index{BufferCacheProject/shared/array\_stack.h@{BufferCacheProject/shared/array\_stack.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$memory.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$semaphore.\+h$>$}\newline
+Include dependency graph for array\+\_\+stack.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{array__stack_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{array__stack_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_a_stack}{AStack}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{array__stack_8h_af8349e4f4c910a4014fa85a1c0bc4e2c}{\+\_\+\+\_\+\+HEADER\+\_\+\+ARRAY\+\_\+\+STACK\+\_\+\+\_\+}}
+\item 
+\#define \mbox{\hyperlink{array__stack_8h_af722cc1499ac0e48664c9b62f9457b2c}{ARRAY\+\_\+\+STACK\+\_\+\+MAX\+\_\+\+CAPACITY}}~1024
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{array__stack_8h_a1a52ce8809bcb0eeb5dd8fd44ceedf37}{new\+AStack\+Pointer}} (unsigned int concurrent\+\_\+count, unsigned int fixed\+\_\+capacity)
+\item 
+struct \mbox{\hyperlink{struct_a_stack}{AStack}} \mbox{\hyperlink{array__stack_8h_ac9bd9078e49e59e5f59055ff975459f4}{new\+AStack}} (unsigned int concurrent\+\_\+count, unsigned int fixed\+\_\+capacity)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{array__stack_8h_af8349e4f4c910a4014fa85a1c0bc4e2c}\label{array__stack_8h_af8349e4f4c910a4014fa85a1c0bc4e2c} 
+\index{array\_stack.h@{array\_stack.h}!\_\_HEADER\_ARRAY\_STACK\_\_@{\_\_HEADER\_ARRAY\_STACK\_\_}}
+\index{\_\_HEADER\_ARRAY\_STACK\_\_@{\_\_HEADER\_ARRAY\_STACK\_\_}!array\_stack.h@{array\_stack.h}}
+\doxysubsubsection{\texorpdfstring{\_\_HEADER\_ARRAY\_STACK\_\_}{\_\_HEADER\_ARRAY\_STACK\_\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+HEADER\+\_\+\+ARRAY\+\_\+\+STACK\+\_\+\+\_\+}
+
+\Hypertarget{array__stack_8h_af722cc1499ac0e48664c9b62f9457b2c}\label{array__stack_8h_af722cc1499ac0e48664c9b62f9457b2c} 
+\index{array\_stack.h@{array\_stack.h}!ARRAY\_STACK\_MAX\_CAPACITY@{ARRAY\_STACK\_MAX\_CAPACITY}}
+\index{ARRAY\_STACK\_MAX\_CAPACITY@{ARRAY\_STACK\_MAX\_CAPACITY}!array\_stack.h@{array\_stack.h}}
+\doxysubsubsection{\texorpdfstring{ARRAY\_STACK\_MAX\_CAPACITY}{ARRAY\_STACK\_MAX\_CAPACITY}}
+{\footnotesize\ttfamily \#define ARRAY\+\_\+\+STACK\+\_\+\+MAX\+\_\+\+CAPACITY~1024}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{array__stack_8h_ac9bd9078e49e59e5f59055ff975459f4}\label{array__stack_8h_ac9bd9078e49e59e5f59055ff975459f4} 
+\index{array\_stack.h@{array\_stack.h}!newAStack@{newAStack}}
+\index{newAStack@{newAStack}!array\_stack.h@{array\_stack.h}}
+\doxysubsubsection{\texorpdfstring{newAStack()}{newAStack()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_a_stack}{AStack}} new\+AStack (\begin{DoxyParamCaption}\item[{unsigned int}]{concurrent\+\_\+count,  }\item[{unsigned int}]{fixed\+\_\+capacity }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{array__stack_8h_ac9bd9078e49e59e5f59055ff975459f4_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{array__stack_8h_a1a52ce8809bcb0eeb5dd8fd44ceedf37}\label{array__stack_8h_a1a52ce8809bcb0eeb5dd8fd44ceedf37} 
+\index{array\_stack.h@{array\_stack.h}!newAStackPointer@{newAStackPointer}}
+\index{newAStackPointer@{newAStackPointer}!array\_stack.h@{array\_stack.h}}
+\doxysubsubsection{\texorpdfstring{newAStackPointer()}{newAStackPointer()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_a_stack}{AStack}} \texorpdfstring{$\ast$}{*} new\+AStack\+Pointer (\begin{DoxyParamCaption}\item[{unsigned int}]{concurrent\+\_\+count,  }\item[{unsigned int}]{fixed\+\_\+capacity }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{array__stack_8h_a1a52ce8809bcb0eeb5dd8fd44ceedf37_cgraph}
+\end{center}
+\end{figure}

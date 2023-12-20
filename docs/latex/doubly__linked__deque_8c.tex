@@ -1,0 +1,276 @@
+\doxysection{Buffer\+Cache\+Project/shared/doubly\+\_\+linked\+\_\+deque.c File Reference}
+\hypertarget{doubly__linked__deque_8c}{}\label{doubly__linked__deque_8c}\index{BufferCacheProject/shared/doubly\_linked\_deque.c@{BufferCacheProject/shared/doubly\_linked\_deque.c}}
+{\ttfamily \#include "{}doubly\+\_\+linked\+\_\+deque.\+h"{}}\newline
+Include dependency graph for doubly\+\_\+linked\+\_\+deque.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{doubly__linked__deque_8c_ad80cf2e694f0410287443abf9d784eeb}{new\+Doubly\+LInked\+Deque\+Internal\+Node}} (void \texorpdfstring{$\ast$}{*}value)
+\item 
+int \mbox{\hyperlink{doubly__linked__deque_8c_a46b6a02a120c2e1a7586ca98eaac6ae4}{pop\+First}} (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self)
+\item 
+int \mbox{\hyperlink{doubly__linked__deque_8c_a04ceb696edea9fe032084632ec49019a}{pop\+Last}} (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self)
+\item 
+int \mbox{\hyperlink{doubly__linked__deque_8c_ae805690735ce756a9942e52742f5fe68}{pop\+At}} (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}at)
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{doubly__linked__deque_8c_a110a53aaf6137b87ac49cabd715c46a8}{push\+First}} (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self, void \texorpdfstring{$\ast$}{*}value)
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{doubly__linked__deque_8c_a86989c712ca108289826c83a3c30c16d}{push\+Last}} (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self, void \texorpdfstring{$\ast$}{*}value)
+\item 
+int \mbox{\hyperlink{doubly__linked__deque_8c_a3f1504c5bdaf26d667e8a4ddc5f2d1fa}{insert\+Left\+At}} (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}at, void \texorpdfstring{$\ast$}{*}value)
+\item 
+int \mbox{\hyperlink{doubly__linked__deque_8c_a332084f121d9d3f5b8660831234608c7}{insert\+Right\+At}} (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}at, void \texorpdfstring{$\ast$}{*}value)
+\item 
+int \mbox{\hyperlink{doubly__linked__deque_8c_ad1d2e650fb0956997af637b7c44e65ec}{switch\+Node}} (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}dest, struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}src)
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{doubly__linked__deque_8c_a8cdc806375c3447840f735c43c07ebda}{get\+First}} (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self)
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{doubly__linked__deque_8c_a394b481284e56ee0e4f506b4055ab143}{get\+Last}} (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{doubly__linked__deque_8c_a9972d5af0e381546a99bb6880aefd5ae}{get\+First\+Value}} (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{doubly__linked__deque_8c_a10a3df2bd6601f2cc12417518a5613c6}{get\+Last\+Value}} (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self)
+\item 
+unsigned int \mbox{\hyperlink{doubly__linked__deque_8c_a334ba33592f84cfc1cb9d3acf3a3f246}{get\+Count}} (struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}self)
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{doubly__linked__deque_8c_a7dec34cd55d4ec3bb1801d17d5461e84}{new\+Doubly\+Linked\+Deque}} (unsigned int concurrent\+\_\+count)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{doubly__linked__deque_8c_a334ba33592f84cfc1cb9d3acf3a3f246}\label{doubly__linked__deque_8c_a334ba33592f84cfc1cb9d3acf3a3f246} 
+\index{doubly\_linked\_deque.c@{doubly\_linked\_deque.c}!getCount@{getCount}}
+\index{getCount@{getCount}!doubly\_linked\_deque.c@{doubly\_linked\_deque.c}}
+\doxysubsubsection{\texorpdfstring{getCount()}{getCount()}}
+{\footnotesize\ttfamily unsigned int get\+Count (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8c_a334ba33592f84cfc1cb9d3acf3a3f246_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{doubly__linked__deque_8c_a8cdc806375c3447840f735c43c07ebda}\label{doubly__linked__deque_8c_a8cdc806375c3447840f735c43c07ebda} 
+\index{doubly\_linked\_deque.c@{doubly\_linked\_deque.c}!getFirst@{getFirst}}
+\index{getFirst@{getFirst}!doubly\_linked\_deque.c@{doubly\_linked\_deque.c}}
+\doxysubsubsection{\texorpdfstring{getFirst()}{getFirst()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} get\+First (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8c_a8cdc806375c3447840f735c43c07ebda_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{doubly__linked__deque_8c_a9972d5af0e381546a99bb6880aefd5ae}\label{doubly__linked__deque_8c_a9972d5af0e381546a99bb6880aefd5ae} 
+\index{doubly\_linked\_deque.c@{doubly\_linked\_deque.c}!getFirstValue@{getFirstValue}}
+\index{getFirstValue@{getFirstValue}!doubly\_linked\_deque.c@{doubly\_linked\_deque.c}}
+\doxysubsubsection{\texorpdfstring{getFirstValue()}{getFirstValue()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} get\+First\+Value (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8c_a9972d5af0e381546a99bb6880aefd5ae_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{doubly__linked__deque_8c_a394b481284e56ee0e4f506b4055ab143}\label{doubly__linked__deque_8c_a394b481284e56ee0e4f506b4055ab143} 
+\index{doubly\_linked\_deque.c@{doubly\_linked\_deque.c}!getLast@{getLast}}
+\index{getLast@{getLast}!doubly\_linked\_deque.c@{doubly\_linked\_deque.c}}
+\doxysubsubsection{\texorpdfstring{getLast()}{getLast()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} get\+Last (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8c_a394b481284e56ee0e4f506b4055ab143_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{doubly__linked__deque_8c_a10a3df2bd6601f2cc12417518a5613c6}\label{doubly__linked__deque_8c_a10a3df2bd6601f2cc12417518a5613c6} 
+\index{doubly\_linked\_deque.c@{doubly\_linked\_deque.c}!getLastValue@{getLastValue}}
+\index{getLastValue@{getLastValue}!doubly\_linked\_deque.c@{doubly\_linked\_deque.c}}
+\doxysubsubsection{\texorpdfstring{getLastValue()}{getLastValue()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} get\+Last\+Value (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8c_a10a3df2bd6601f2cc12417518a5613c6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{doubly__linked__deque_8c_a3f1504c5bdaf26d667e8a4ddc5f2d1fa}\label{doubly__linked__deque_8c_a3f1504c5bdaf26d667e8a4ddc5f2d1fa} 
+\index{doubly\_linked\_deque.c@{doubly\_linked\_deque.c}!insertLeftAt@{insertLeftAt}}
+\index{insertLeftAt@{insertLeftAt}!doubly\_linked\_deque.c@{doubly\_linked\_deque.c}}
+\doxysubsubsection{\texorpdfstring{insertLeftAt()}{insertLeftAt()}}
+{\footnotesize\ttfamily int insert\+Left\+At (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}}]{at,  }\item[{void \texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8c_a3f1504c5bdaf26d667e8a4ddc5f2d1fa_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8c_a3f1504c5bdaf26d667e8a4ddc5f2d1fa_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{doubly__linked__deque_8c_a332084f121d9d3f5b8660831234608c7}\label{doubly__linked__deque_8c_a332084f121d9d3f5b8660831234608c7} 
+\index{doubly\_linked\_deque.c@{doubly\_linked\_deque.c}!insertRightAt@{insertRightAt}}
+\index{insertRightAt@{insertRightAt}!doubly\_linked\_deque.c@{doubly\_linked\_deque.c}}
+\doxysubsubsection{\texorpdfstring{insertRightAt()}{insertRightAt()}}
+{\footnotesize\ttfamily int insert\+Right\+At (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}}]{at,  }\item[{void \texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8c_a332084f121d9d3f5b8660831234608c7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8c_a332084f121d9d3f5b8660831234608c7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{doubly__linked__deque_8c_a7dec34cd55d4ec3bb1801d17d5461e84}\label{doubly__linked__deque_8c_a7dec34cd55d4ec3bb1801d17d5461e84} 
+\index{doubly\_linked\_deque.c@{doubly\_linked\_deque.c}!newDoublyLinkedDeque@{newDoublyLinkedDeque}}
+\index{newDoublyLinkedDeque@{newDoublyLinkedDeque}!doubly\_linked\_deque.c@{doubly\_linked\_deque.c}}
+\doxysubsubsection{\texorpdfstring{newDoublyLinkedDeque()}{newDoublyLinkedDeque()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*} new\+Doubly\+Linked\+Deque (\begin{DoxyParamCaption}\item[{unsigned int}]{concurrent\+\_\+count }\end{DoxyParamCaption})}
+
+doubly linked deque를 생성하는 함수 사실상 new \doxylink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque(concurrent\+\_\+count)}; concurrent\+\_\+count\+: 세마포어 내부 갯수 Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8c_a7dec34cd55d4ec3bb1801d17d5461e84_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8c_a7dec34cd55d4ec3bb1801d17d5461e84_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{doubly__linked__deque_8c_ad80cf2e694f0410287443abf9d784eeb}\label{doubly__linked__deque_8c_ad80cf2e694f0410287443abf9d784eeb} 
+\index{doubly\_linked\_deque.c@{doubly\_linked\_deque.c}!newDoublyLInkedDequeInternalNode@{newDoublyLInkedDequeInternalNode}}
+\index{newDoublyLInkedDequeInternalNode@{newDoublyLInkedDequeInternalNode}!doubly\_linked\_deque.c@{doubly\_linked\_deque.c}}
+\doxysubsubsection{\texorpdfstring{newDoublyLInkedDequeInternalNode()}{newDoublyLInkedDequeInternalNode()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} new\+Doubly\+LInked\+Deque\+Internal\+Node (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8c_ad80cf2e694f0410287443abf9d784eeb_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{doubly__linked__deque_8c_ae805690735ce756a9942e52742f5fe68}\label{doubly__linked__deque_8c_ae805690735ce756a9942e52742f5fe68} 
+\index{doubly\_linked\_deque.c@{doubly\_linked\_deque.c}!popAt@{popAt}}
+\index{popAt@{popAt}!doubly\_linked\_deque.c@{doubly\_linked\_deque.c}}
+\doxysubsubsection{\texorpdfstring{popAt()}{popAt()}}
+{\footnotesize\ttfamily int pop\+At (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}}]{at }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8c_ae805690735ce756a9942e52742f5fe68_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{doubly__linked__deque_8c_a46b6a02a120c2e1a7586ca98eaac6ae4}\label{doubly__linked__deque_8c_a46b6a02a120c2e1a7586ca98eaac6ae4} 
+\index{doubly\_linked\_deque.c@{doubly\_linked\_deque.c}!popFirst@{popFirst}}
+\index{popFirst@{popFirst}!doubly\_linked\_deque.c@{doubly\_linked\_deque.c}}
+\doxysubsubsection{\texorpdfstring{popFirst()}{popFirst()}}
+{\footnotesize\ttfamily int pop\+First (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8c_a46b6a02a120c2e1a7586ca98eaac6ae4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{doubly__linked__deque_8c_a04ceb696edea9fe032084632ec49019a}\label{doubly__linked__deque_8c_a04ceb696edea9fe032084632ec49019a} 
+\index{doubly\_linked\_deque.c@{doubly\_linked\_deque.c}!popLast@{popLast}}
+\index{popLast@{popLast}!doubly\_linked\_deque.c@{doubly\_linked\_deque.c}}
+\doxysubsubsection{\texorpdfstring{popLast()}{popLast()}}
+{\footnotesize\ttfamily int pop\+Last (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8c_a04ceb696edea9fe032084632ec49019a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{doubly__linked__deque_8c_a110a53aaf6137b87ac49cabd715c46a8}\label{doubly__linked__deque_8c_a110a53aaf6137b87ac49cabd715c46a8} 
+\index{doubly\_linked\_deque.c@{doubly\_linked\_deque.c}!pushFirst@{pushFirst}}
+\index{pushFirst@{pushFirst}!doubly\_linked\_deque.c@{doubly\_linked\_deque.c}}
+\doxysubsubsection{\texorpdfstring{pushFirst()}{pushFirst()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} push\+First (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{void \texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{doubly__linked__deque_8c_a110a53aaf6137b87ac49cabd715c46a8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8c_a110a53aaf6137b87ac49cabd715c46a8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{doubly__linked__deque_8c_a86989c712ca108289826c83a3c30c16d}\label{doubly__linked__deque_8c_a86989c712ca108289826c83a3c30c16d} 
+\index{doubly\_linked\_deque.c@{doubly\_linked\_deque.c}!pushLast@{pushLast}}
+\index{pushLast@{pushLast}!doubly\_linked\_deque.c@{doubly\_linked\_deque.c}}
+\doxysubsubsection{\texorpdfstring{pushLast()}{pushLast()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} push\+Last (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{void \texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{doubly__linked__deque_8c_a86989c712ca108289826c83a3c30c16d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8c_a86989c712ca108289826c83a3c30c16d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{doubly__linked__deque_8c_ad1d2e650fb0956997af637b7c44e65ec}\label{doubly__linked__deque_8c_ad1d2e650fb0956997af637b7c44e65ec} 
+\index{doubly\_linked\_deque.c@{doubly\_linked\_deque.c}!switchNode@{switchNode}}
+\index{switchNode@{switchNode}!doubly\_linked\_deque.c@{doubly\_linked\_deque.c}}
+\doxysubsubsection{\texorpdfstring{switchNode()}{switchNode()}}
+{\footnotesize\ttfamily int switch\+Node (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_doubly_linked_deque}{Doubly\+Linked\+Deque}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}}]{dest,  }\item[{struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*}}]{src }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__deque_8c_ad1d2e650fb0956997af637b7c44e65ec_icgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,141 @@
+\doxysection{Memory\+Buffer\+Header Struct Reference}
+\hypertarget{struct_memory_buffer_header}{}\label{struct_memory_buffer_header}\index{MemoryBufferHeader@{MemoryBufferHeader}}
+
+
+{\ttfamily \#include $<$memory\+\_\+buffer\+\_\+structures.\+h$>$}
+
+
+
+Collaboration diagram for Memory\+Buffer\+Header\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{struct_memory_buffer_header__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{unsigned}} \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{char}} \mbox{\hyperlink{struct_memory_buffer_header_af54df8ced17d8e30049d4285fe57bb47}{is\+Valid}}\+:1
+\item 
+\mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{unsigned}} \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{char}} \mbox{\hyperlink{struct_memory_buffer_header_a0efd73dc14eca48090ab872bde47ff17}{is\+Dirty}}\+:1
+\item 
+\mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{unsigned}} \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{char}} \mbox{\hyperlink{struct_memory_buffer_header_a8410ae3c7e16d2847ebe2c8a8e1cbf4d}{is\+Buffer\+Being\+Written\+Now}}\+:1
+\item 
+\mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{int}} \mbox{\hyperlink{struct_memory_buffer_header_aada43897d2b6d6ac71380884bd9aaa5c}{request\+\_\+write\+\_\+count}}
+\item 
+\mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{sem\+\_\+t}} \mbox{\hyperlink{struct_memory_buffer_header_aec422132303af13d66b952380536cd57}{write\+\_\+lock}}
+\item 
+long \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{block\+\_\+number}}
+\item 
+\mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{long}} \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{long}} \mbox{\hyperlink{struct_memory_buffer_header_a434c6ab9795b67b9e15481e511dbb757}{block\+\_\+size\+\_\+byte}}
+\item 
+\mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{uint8\+\_\+t}} \mbox{\hyperlink{struct_memory_buffer_header_ac2889b9baf13e251cff81580b2f7f253}{buffer\+\_\+precalculated\+\_\+hash}} \mbox{[}16\mbox{]}
+\item 
+\mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{long}} \mbox{\hyperlink{struct_memory_buffer_header_aeb5b9fb344aa0c9403e1a364cb8c95a1}{lastest\+Accessed\+Time\+Stamp}}
+\item 
+\mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{unsigned}} \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{int}} \mbox{\hyperlink{struct_memory_buffer_header_a63e4e44ab81b270bffc9ef458edcb184}{access\+\_\+count}}
+\item 
+\mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{unsigned}} \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{long}} \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{long}} \mbox{\hyperlink{struct_memory_buffer_header_a5c9b5144fcac586de3d7f55596a3e7ef}{lastest\+\_\+accessing\+\_\+timestamp}}
+\item 
+\mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{struct}} \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_memory_buffer_header_a08812e83596e4802b3acea42beaea367}{lru\+\_\+node}}
+\item 
+\mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{struct}} \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_memory_buffer_header_a927f0494cc65bcd352eef62773691f87}{fifo\+\_\+node}}
+\item 
+\mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{struct}} \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_memory_buffer_header_a3abb9733b54f64c1523007fc5f77bd70}{lfu\+\_\+node}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+각 버퍼에 붙는 메모리 버퍼 헤더 
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_memory_buffer_header_a63e4e44ab81b270bffc9ef458edcb184}\label{struct_memory_buffer_header_a63e4e44ab81b270bffc9ef458edcb184} 
+\index{MemoryBufferHeader@{MemoryBufferHeader}!access\_count@{access\_count}}
+\index{access\_count@{access\_count}!MemoryBufferHeader@{MemoryBufferHeader}}
+\doxysubsubsection{\texorpdfstring{access\_count}{access\_count}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{unsigned}} \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{int}} access\+\_\+count}
+
+\Hypertarget{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}\label{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d} 
+\index{MemoryBufferHeader@{MemoryBufferHeader}!block\_number@{block\_number}}
+\index{block\_number@{block\_number}!MemoryBufferHeader@{MemoryBufferHeader}}
+\doxysubsubsection{\texorpdfstring{block\_number}{block\_number}}
+{\footnotesize\ttfamily long block\+\_\+number}
+
+\Hypertarget{struct_memory_buffer_header_a434c6ab9795b67b9e15481e511dbb757}\label{struct_memory_buffer_header_a434c6ab9795b67b9e15481e511dbb757} 
+\index{MemoryBufferHeader@{MemoryBufferHeader}!block\_size\_byte@{block\_size\_byte}}
+\index{block\_size\_byte@{block\_size\_byte}!MemoryBufferHeader@{MemoryBufferHeader}}
+\doxysubsubsection{\texorpdfstring{block\_size\_byte}{block\_size\_byte}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{long}} \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{long}} block\+\_\+size\+\_\+byte}
+
+\Hypertarget{struct_memory_buffer_header_ac2889b9baf13e251cff81580b2f7f253}\label{struct_memory_buffer_header_ac2889b9baf13e251cff81580b2f7f253} 
+\index{MemoryBufferHeader@{MemoryBufferHeader}!buffer\_precalculated\_hash@{buffer\_precalculated\_hash}}
+\index{buffer\_precalculated\_hash@{buffer\_precalculated\_hash}!MemoryBufferHeader@{MemoryBufferHeader}}
+\doxysubsubsection{\texorpdfstring{buffer\_precalculated\_hash}{buffer\_precalculated\_hash}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{uint8\+\_\+t}} buffer\+\_\+precalculated\+\_\+hash\mbox{[}16\mbox{]}}
+
+\Hypertarget{struct_memory_buffer_header_a927f0494cc65bcd352eef62773691f87}\label{struct_memory_buffer_header_a927f0494cc65bcd352eef62773691f87} 
+\index{MemoryBufferHeader@{MemoryBufferHeader}!fifo\_node@{fifo\_node}}
+\index{fifo\_node@{fifo\_node}!MemoryBufferHeader@{MemoryBufferHeader}}
+\doxysubsubsection{\texorpdfstring{fifo\_node}{fifo\_node}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{struct}} \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}}\texorpdfstring{$\ast$}{*} fifo\+\_\+node}
+
+\Hypertarget{struct_memory_buffer_header_a8410ae3c7e16d2847ebe2c8a8e1cbf4d}\label{struct_memory_buffer_header_a8410ae3c7e16d2847ebe2c8a8e1cbf4d} 
+\index{MemoryBufferHeader@{MemoryBufferHeader}!isBufferBeingWrittenNow@{isBufferBeingWrittenNow}}
+\index{isBufferBeingWrittenNow@{isBufferBeingWrittenNow}!MemoryBufferHeader@{MemoryBufferHeader}}
+\doxysubsubsection{\texorpdfstring{isBufferBeingWrittenNow}{isBufferBeingWrittenNow}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{unsigned}} \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{char}} is\+Buffer\+Being\+Written\+Now}
+
+\Hypertarget{struct_memory_buffer_header_a0efd73dc14eca48090ab872bde47ff17}\label{struct_memory_buffer_header_a0efd73dc14eca48090ab872bde47ff17} 
+\index{MemoryBufferHeader@{MemoryBufferHeader}!isDirty@{isDirty}}
+\index{isDirty@{isDirty}!MemoryBufferHeader@{MemoryBufferHeader}}
+\doxysubsubsection{\texorpdfstring{isDirty}{isDirty}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{unsigned}} \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{char}} is\+Dirty}
+
+\Hypertarget{struct_memory_buffer_header_af54df8ced17d8e30049d4285fe57bb47}\label{struct_memory_buffer_header_af54df8ced17d8e30049d4285fe57bb47} 
+\index{MemoryBufferHeader@{MemoryBufferHeader}!isValid@{isValid}}
+\index{isValid@{isValid}!MemoryBufferHeader@{MemoryBufferHeader}}
+\doxysubsubsection{\texorpdfstring{isValid}{isValid}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{unsigned}} \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{char}} is\+Valid}
+
+\Hypertarget{struct_memory_buffer_header_a5c9b5144fcac586de3d7f55596a3e7ef}\label{struct_memory_buffer_header_a5c9b5144fcac586de3d7f55596a3e7ef} 
+\index{MemoryBufferHeader@{MemoryBufferHeader}!lastest\_accessing\_timestamp@{lastest\_accessing\_timestamp}}
+\index{lastest\_accessing\_timestamp@{lastest\_accessing\_timestamp}!MemoryBufferHeader@{MemoryBufferHeader}}
+\doxysubsubsection{\texorpdfstring{lastest\_accessing\_timestamp}{lastest\_accessing\_timestamp}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{unsigned}} \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{long}} \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{long}} lastest\+\_\+accessing\+\_\+timestamp}
+
+\Hypertarget{struct_memory_buffer_header_aeb5b9fb344aa0c9403e1a364cb8c95a1}\label{struct_memory_buffer_header_aeb5b9fb344aa0c9403e1a364cb8c95a1} 
+\index{MemoryBufferHeader@{MemoryBufferHeader}!lastestAccessedTimeStamp@{lastestAccessedTimeStamp}}
+\index{lastestAccessedTimeStamp@{lastestAccessedTimeStamp}!MemoryBufferHeader@{MemoryBufferHeader}}
+\doxysubsubsection{\texorpdfstring{lastestAccessedTimeStamp}{lastestAccessedTimeStamp}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{long}} lastest\+Accessed\+Time\+Stamp}
+
+\Hypertarget{struct_memory_buffer_header_a3abb9733b54f64c1523007fc5f77bd70}\label{struct_memory_buffer_header_a3abb9733b54f64c1523007fc5f77bd70} 
+\index{MemoryBufferHeader@{MemoryBufferHeader}!lfu\_node@{lfu\_node}}
+\index{lfu\_node@{lfu\_node}!MemoryBufferHeader@{MemoryBufferHeader}}
+\doxysubsubsection{\texorpdfstring{lfu\_node}{lfu\_node}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{struct}} \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}}\texorpdfstring{$\ast$}{*} lfu\+\_\+node}
+
+\Hypertarget{struct_memory_buffer_header_a08812e83596e4802b3acea42beaea367}\label{struct_memory_buffer_header_a08812e83596e4802b3acea42beaea367} 
+\index{MemoryBufferHeader@{MemoryBufferHeader}!lru\_node@{lru\_node}}
+\index{lru\_node@{lru\_node}!MemoryBufferHeader@{MemoryBufferHeader}}
+\doxysubsubsection{\texorpdfstring{lru\_node}{lru\_node}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{struct}} \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}}\texorpdfstring{$\ast$}{*} lru\+\_\+node}
+
+\Hypertarget{struct_memory_buffer_header_aada43897d2b6d6ac71380884bd9aaa5c}\label{struct_memory_buffer_header_aada43897d2b6d6ac71380884bd9aaa5c} 
+\index{MemoryBufferHeader@{MemoryBufferHeader}!request\_write\_count@{request\_write\_count}}
+\index{request\_write\_count@{request\_write\_count}!MemoryBufferHeader@{MemoryBufferHeader}}
+\doxysubsubsection{\texorpdfstring{request\_write\_count}{request\_write\_count}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{int}} request\+\_\+write\+\_\+count}
+
+\Hypertarget{struct_memory_buffer_header_aec422132303af13d66b952380536cd57}\label{struct_memory_buffer_header_aec422132303af13d66b952380536cd57} 
+\index{MemoryBufferHeader@{MemoryBufferHeader}!write\_lock@{write\_lock}}
+\index{write\_lock@{write\_lock}!MemoryBufferHeader@{MemoryBufferHeader}}
+\doxysubsubsection{\texorpdfstring{write\_lock}{write\_lock}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{sem\+\_\+t}} write\+\_\+lock}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Buffer\+Cache\+Project/shared/\mbox{\hyperlink{memory__buffer__structures_8h}{memory\+\_\+buffer\+\_\+structures.\+h}}\end{DoxyCompactItemize}

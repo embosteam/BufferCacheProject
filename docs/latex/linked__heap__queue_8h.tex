@@ -1,0 +1,175 @@
+\doxysection{Buffer\+Cache\+Project/shared/linked\+\_\+heap\+\_\+queue.h File Reference}
+\hypertarget{linked__heap__queue_8h}{}\label{linked__heap__queue_8h}\index{BufferCacheProject/shared/linked\_heap\_queue.h@{BufferCacheProject/shared/linked\_heap\_queue.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$semaphore.\+h$>$}\newline
+{\ttfamily \#include $<$memory.\+h$>$}\newline
+{\ttfamily \#include "{}linked\+\_\+heap.\+h"{}}\newline
+Include dependency graph for linked\+\_\+heap\+\_\+queue.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap__queue_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap__queue_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_l_h_queue}{LHQueue}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_l_h_queue}{LHQueue}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linked__heap__queue_8h_af99adab943aee1936e733d5eace4b8dc}{new\+LHQueue}} (int concurrent\+\_\+mode, int(\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{thread__pool_8c_ae00f4b5af832677b4e133e3c343f1c39}{fetch\+Key\+From\+Value}})(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}), int(\texorpdfstring{$\ast$}{*}comparator)(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}))
+\item 
+struct \mbox{\hyperlink{struct_l_h_queue}{LHQueue}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linked__heap__queue_8h_a0d5d343a1f486124887284c9c9f0a13a}{new\+LHQueue2}} (int concurrent\+\_\+mode, int(\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{thread__pool_8c_ae00f4b5af832677b4e133e3c343f1c39}{fetch\+Key\+From\+Value}})(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}))
+\item 
+unsigned int \mbox{\hyperlink{linked__heap__queue_8h_a9ef2904f342af8b67c7a4e4d7ee01d3a}{LHQueue\+\_\+get\+Size}} (struct \mbox{\hyperlink{struct_l_h_queue}{LHQueue}} \texorpdfstring{$\ast$}{*}q)
+\item 
+unsigned int \mbox{\hyperlink{linked__heap__queue_8h_ac56ab4e2d4483d214496db3f19bfd25f}{LHQueue\+\_\+is\+Empty}} (struct \mbox{\hyperlink{struct_l_h_queue}{LHQueue}} \texorpdfstring{$\ast$}{*}q)
+\item 
+void \mbox{\hyperlink{linked__heap__queue_8h_a8a4de86ae7df46926d78213e4e3d455c}{LHQueue\+\_\+clear}} (struct \mbox{\hyperlink{struct_l_h_queue}{LHQueue}} \texorpdfstring{$\ast$}{*}q)
+\item 
+void \mbox{\hyperlink{linked__heap__queue_8h_ac0818024698ded019625f999076f6d0c}{LHQueue\+\_\+free\+Internal}} (struct \mbox{\hyperlink{struct_l_h_queue}{LHQueue}} \texorpdfstring{$\ast$}{*}q)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linked__heap__queue_8h_a59fbcde7d4efecd1a9fbd7c2ce44fc77}{LHQueue\+\_\+front}} (struct \mbox{\hyperlink{struct_l_h_queue}{LHQueue}} \texorpdfstring{$\ast$}{*}q)
+\item 
+void \mbox{\hyperlink{linked__heap__queue_8h_a41d20f62fb6226f86cffecef1847bbb3}{LHQueue\+\_\+pop}} (struct \mbox{\hyperlink{struct_l_h_queue}{LHQueue}} \texorpdfstring{$\ast$}{*}q)
+\item 
+void \mbox{\hyperlink{linked__heap__queue_8h_a8de7ec2a79b7bf5ffa315278f1ad78d1}{LHQueue\+\_\+push}} (struct \mbox{\hyperlink{struct_l_h_queue}{LHQueue}} \texorpdfstring{$\ast$}{*}q, void \texorpdfstring{$\ast$}{*}value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{linked__heap__queue_8h_a8a4de86ae7df46926d78213e4e3d455c}\label{linked__heap__queue_8h_a8a4de86ae7df46926d78213e4e3d455c} 
+\index{linked\_heap\_queue.h@{linked\_heap\_queue.h}!LHQueue\_clear@{LHQueue\_clear}}
+\index{LHQueue\_clear@{LHQueue\_clear}!linked\_heap\_queue.h@{linked\_heap\_queue.h}}
+\doxysubsubsection{\texorpdfstring{LHQueue\_clear()}{LHQueue\_clear()}}
+{\footnotesize\ttfamily void LHQueue\+\_\+clear (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_h_queue}{LHQueue}} \texorpdfstring{$\ast$}{*}}]{q }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap__queue_8h_a8a4de86ae7df46926d78213e4e3d455c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap__queue_8h_ac0818024698ded019625f999076f6d0c}\label{linked__heap__queue_8h_ac0818024698ded019625f999076f6d0c} 
+\index{linked\_heap\_queue.h@{linked\_heap\_queue.h}!LHQueue\_freeInternal@{LHQueue\_freeInternal}}
+\index{LHQueue\_freeInternal@{LHQueue\_freeInternal}!linked\_heap\_queue.h@{linked\_heap\_queue.h}}
+\doxysubsubsection{\texorpdfstring{LHQueue\_freeInternal()}{LHQueue\_freeInternal()}}
+{\footnotesize\ttfamily void LHQueue\+\_\+free\+Internal (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_h_queue}{LHQueue}} \texorpdfstring{$\ast$}{*}}]{q }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap__queue_8h_ac0818024698ded019625f999076f6d0c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap__queue_8h_a59fbcde7d4efecd1a9fbd7c2ce44fc77}\label{linked__heap__queue_8h_a59fbcde7d4efecd1a9fbd7c2ce44fc77} 
+\index{linked\_heap\_queue.h@{linked\_heap\_queue.h}!LHQueue\_front@{LHQueue\_front}}
+\index{LHQueue\_front@{LHQueue\_front}!linked\_heap\_queue.h@{linked\_heap\_queue.h}}
+\doxysubsubsection{\texorpdfstring{LHQueue\_front()}{LHQueue\_front()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} LHQueue\+\_\+front (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_h_queue}{LHQueue}} \texorpdfstring{$\ast$}{*}}]{q }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap__queue_8h_a59fbcde7d4efecd1a9fbd7c2ce44fc77_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap__queue_8h_a9ef2904f342af8b67c7a4e4d7ee01d3a}\label{linked__heap__queue_8h_a9ef2904f342af8b67c7a4e4d7ee01d3a} 
+\index{linked\_heap\_queue.h@{linked\_heap\_queue.h}!LHQueue\_getSize@{LHQueue\_getSize}}
+\index{LHQueue\_getSize@{LHQueue\_getSize}!linked\_heap\_queue.h@{linked\_heap\_queue.h}}
+\doxysubsubsection{\texorpdfstring{LHQueue\_getSize()}{LHQueue\_getSize()}}
+{\footnotesize\ttfamily unsigned int LHQueue\+\_\+get\+Size (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_h_queue}{LHQueue}} \texorpdfstring{$\ast$}{*}}]{q }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap__queue_8h_a9ef2904f342af8b67c7a4e4d7ee01d3a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap__queue_8h_ac56ab4e2d4483d214496db3f19bfd25f}\label{linked__heap__queue_8h_ac56ab4e2d4483d214496db3f19bfd25f} 
+\index{linked\_heap\_queue.h@{linked\_heap\_queue.h}!LHQueue\_isEmpty@{LHQueue\_isEmpty}}
+\index{LHQueue\_isEmpty@{LHQueue\_isEmpty}!linked\_heap\_queue.h@{linked\_heap\_queue.h}}
+\doxysubsubsection{\texorpdfstring{LHQueue\_isEmpty()}{LHQueue\_isEmpty()}}
+{\footnotesize\ttfamily unsigned int LHQueue\+\_\+is\+Empty (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_h_queue}{LHQueue}} \texorpdfstring{$\ast$}{*}}]{q }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap__queue_8h_ac56ab4e2d4483d214496db3f19bfd25f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap__queue_8h_a41d20f62fb6226f86cffecef1847bbb3}\label{linked__heap__queue_8h_a41d20f62fb6226f86cffecef1847bbb3} 
+\index{linked\_heap\_queue.h@{linked\_heap\_queue.h}!LHQueue\_pop@{LHQueue\_pop}}
+\index{LHQueue\_pop@{LHQueue\_pop}!linked\_heap\_queue.h@{linked\_heap\_queue.h}}
+\doxysubsubsection{\texorpdfstring{LHQueue\_pop()}{LHQueue\_pop()}}
+{\footnotesize\ttfamily void LHQueue\+\_\+pop (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_h_queue}{LHQueue}} \texorpdfstring{$\ast$}{*}}]{q }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap__queue_8h_a41d20f62fb6226f86cffecef1847bbb3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap__queue_8h_a8de7ec2a79b7bf5ffa315278f1ad78d1}\label{linked__heap__queue_8h_a8de7ec2a79b7bf5ffa315278f1ad78d1} 
+\index{linked\_heap\_queue.h@{linked\_heap\_queue.h}!LHQueue\_push@{LHQueue\_push}}
+\index{LHQueue\_push@{LHQueue\_push}!linked\_heap\_queue.h@{linked\_heap\_queue.h}}
+\doxysubsubsection{\texorpdfstring{LHQueue\_push()}{LHQueue\_push()}}
+{\footnotesize\ttfamily void LHQueue\+\_\+push (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_h_queue}{LHQueue}} \texorpdfstring{$\ast$}{*}}]{q,  }\item[{void \texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap__queue_8h_a8de7ec2a79b7bf5ffa315278f1ad78d1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap__queue_8h_af99adab943aee1936e733d5eace4b8dc}\label{linked__heap__queue_8h_af99adab943aee1936e733d5eace4b8dc} 
+\index{linked\_heap\_queue.h@{linked\_heap\_queue.h}!newLHQueue@{newLHQueue}}
+\index{newLHQueue@{newLHQueue}!linked\_heap\_queue.h@{linked\_heap\_queue.h}}
+\doxysubsubsection{\texorpdfstring{newLHQueue()}{newLHQueue()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_l_h_queue}{LHQueue}} \texorpdfstring{$\ast$}{*} new\+LHQueue (\begin{DoxyParamCaption}\item[{int}]{concurrent\+\_\+mode,  }\item[{int(\texorpdfstring{$\ast$}{*})(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})}]{fetch\+Key\+From\+Value,  }\item[{int(\texorpdfstring{$\ast$}{*})(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})}]{comparator }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap__queue_8h_af99adab943aee1936e733d5eace4b8dc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap__queue_8h_af99adab943aee1936e733d5eace4b8dc_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{linked__heap__queue_8h_a0d5d343a1f486124887284c9c9f0a13a}\label{linked__heap__queue_8h_a0d5d343a1f486124887284c9c9f0a13a} 
+\index{linked\_heap\_queue.h@{linked\_heap\_queue.h}!newLHQueue2@{newLHQueue2}}
+\index{newLHQueue2@{newLHQueue2}!linked\_heap\_queue.h@{linked\_heap\_queue.h}}
+\doxysubsubsection{\texorpdfstring{newLHQueue2()}{newLHQueue2()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_l_h_queue}{LHQueue}} \texorpdfstring{$\ast$}{*} new\+LHQueue2 (\begin{DoxyParamCaption}\item[{int}]{concurrent\+\_\+mode,  }\item[{int(\texorpdfstring{$\ast$}{*})(struct \mbox{\hyperlink{struct_l_heap}{LHeap}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})}]{fetch\+Key\+From\+Value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{linked__heap__queue_8h_a0d5d343a1f486124887284c9c9f0a13a_cgraph}
+\end{center}
+\end{figure}

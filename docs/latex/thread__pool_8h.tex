@@ -1,0 +1,195 @@
+\doxysection{Buffer\+Cache\+Project/delayed\+\_\+write/thread\+\_\+pool.h File Reference}
+\hypertarget{thread__pool_8h}{}\label{thread__pool_8h}\index{BufferCacheProject/delayed\_write/thread\_pool.h@{BufferCacheProject/delayed\_write/thread\_pool.h}}
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$semaphore.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$memory.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$sys/time.\+h$>$}\newline
+{\ttfamily \#include "{}../shared/memory\+\_\+buffer.\+h"{}}\newline
+{\ttfamily \#include "{}../shared/linked\+\_\+queue.\+h"{}}\newline
+{\ttfamily \#include "{}../shared/linked\+\_\+heap\+\_\+queue.\+h"{}}\newline
+{\ttfamily \#include "{}disk\+\_\+write.\+h"{}}\newline
+{\ttfamily \#include "{}flush\+\_\+thread.\+h"{}}\newline
+{\ttfamily \#include "{}../config.\+h"{}}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$locale.\+h$>$}\newline
+Include dependency graph for thread\+\_\+pool.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread__pool_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread__pool_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_queue_unit1}{Queue\+Unit1}}
+\item 
+struct \mbox{\hyperlink{struct_queue_unit2}{Queue\+Unit2}}
+\item 
+struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{thread__pool_8h_a5b23ac57b1008aed0bc105fc1ded6a37}{\+\_\+\+\_\+\+HEADER\+\_\+\+THREAD\+\_\+\+POOL\+\_\+\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{thread__pool_8h_ac9dfbc232963a72c88fae241cff7abf9}{new\+Thread\+Pool}} (int n, unsigned int max\+\_\+buffer\+\_\+continous\+\_\+sequential\+\_\+length)
+\item 
+void \mbox{\hyperlink{thread__pool_8h_ad0913d7ca7d40a56f666b8c01f11334e}{Thread\+Pool\+Release\+Internal\+Resource}} (struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{buffer_8c_a5e09d7a30eb3306bd3912e76febcdfb8}{tp}})
+\item 
+void \mbox{\hyperlink{thread__pool_8h_a70dde64deb2d8dad83d7dfc897176766}{Thread\+Pool\+Main\+Pooling1}} (void \texorpdfstring{$\ast$}{*}parm)
+\item 
+void \mbox{\hyperlink{thread__pool_8h_afbec7f7f983da4578ec8382b2c85d78b}{Thread\+Pool\+Add\+Queue}} (struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{buffer_8c_a5e09d7a30eb3306bd3912e76febcdfb8}{tp}}, int \mbox{\hyperlink{buffer_8c_ace5f86cdc8deb8e6196ddf6b0c02a73c}{disk\+\_\+fd}}, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}buffer, int priority)
+\item 
+void \mbox{\hyperlink{thread__pool_8h_a78c77b2808207d670b99e1247df9a969}{Thread\+Pool\+Add\+Queue2}} (struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{buffer_8c_a5e09d7a30eb3306bd3912e76febcdfb8}{tp}}, char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{buffer_8c_a3419d6e5ea39d2522ff48b26a1da52b9}{disk\+\_\+buffer}}, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}buffer, int priority)
+\item 
+void \mbox{\hyperlink{thread__pool_8h_a636c30c80da5f5d0e2a3eee35aa06165}{Thread\+Pool\+Wait\+Internal\+Thread}} (struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{buffer_8c_a5e09d7a30eb3306bd3912e76febcdfb8}{tp}}, unsigned char)
+\item 
+void \mbox{\hyperlink{thread__pool_8h_a47870ae85e5146385c33999f451c2382}{Thread\+Pool\+Close}} (struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{buffer_8c_a5e09d7a30eb3306bd3912e76febcdfb8}{tp}})
+\item 
+int \mbox{\hyperlink{thread__pool_8h_ae81ebba71311de91b55f877d75fb5114}{Thread\+Pool\+Should\+Terminate\+Thread\+Pool}} (struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{buffer_8c_a5e09d7a30eb3306bd3912e76febcdfb8}{tp}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{thread__pool_8h_a5b23ac57b1008aed0bc105fc1ded6a37}\label{thread__pool_8h_a5b23ac57b1008aed0bc105fc1ded6a37} 
+\index{thread\_pool.h@{thread\_pool.h}!\_\_HEADER\_THREAD\_POOL\_\_@{\_\_HEADER\_THREAD\_POOL\_\_}}
+\index{\_\_HEADER\_THREAD\_POOL\_\_@{\_\_HEADER\_THREAD\_POOL\_\_}!thread\_pool.h@{thread\_pool.h}}
+\doxysubsubsection{\texorpdfstring{\_\_HEADER\_THREAD\_POOL\_\_}{\_\_HEADER\_THREAD\_POOL\_\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+HEADER\+\_\+\+THREAD\+\_\+\+POOL\+\_\+\+\_\+}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{thread__pool_8h_ac9dfbc232963a72c88fae241cff7abf9}\label{thread__pool_8h_ac9dfbc232963a72c88fae241cff7abf9} 
+\index{thread\_pool.h@{thread\_pool.h}!newThreadPool@{newThreadPool}}
+\index{newThreadPool@{newThreadPool}!thread\_pool.h@{thread\_pool.h}}
+\doxysubsubsection{\texorpdfstring{newThreadPool()}{newThreadPool()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*} new\+Thread\+Pool (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{unsigned int}]{max\+\_\+buffer\+\_\+continous\+\_\+sequential\+\_\+length }\end{DoxyParamCaption})}
+
+\doxylink{struct_thread_pool}{Thread\+Pool} 인스턴스를 생성 Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread__pool_8h_ac9dfbc232963a72c88fae241cff7abf9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{thread__pool_8h_ac9dfbc232963a72c88fae241cff7abf9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{thread__pool_8h_afbec7f7f983da4578ec8382b2c85d78b}\label{thread__pool_8h_afbec7f7f983da4578ec8382b2c85d78b} 
+\index{thread\_pool.h@{thread\_pool.h}!ThreadPoolAddQueue@{ThreadPoolAddQueue}}
+\index{ThreadPoolAddQueue@{ThreadPoolAddQueue}!thread\_pool.h@{thread\_pool.h}}
+\doxysubsubsection{\texorpdfstring{ThreadPoolAddQueue()}{ThreadPoolAddQueue()}}
+{\footnotesize\ttfamily void Thread\+Pool\+Add\+Queue (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*}}]{tp,  }\item[{int}]{disk\+\_\+fd,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{int}]{priority }\end{DoxyParamCaption})}
+
+threadpool에 작업 단위를 추가하는 내부 함수 Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread__pool_8h_afbec7f7f983da4578ec8382b2c85d78b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{thread__pool_8h_a78c77b2808207d670b99e1247df9a969}\label{thread__pool_8h_a78c77b2808207d670b99e1247df9a969} 
+\index{thread\_pool.h@{thread\_pool.h}!ThreadPoolAddQueue2@{ThreadPoolAddQueue2}}
+\index{ThreadPoolAddQueue2@{ThreadPoolAddQueue2}!thread\_pool.h@{thread\_pool.h}}
+\doxysubsubsection{\texorpdfstring{ThreadPoolAddQueue2()}{ThreadPoolAddQueue2()}}
+{\footnotesize\ttfamily void Thread\+Pool\+Add\+Queue2 (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*}}]{tp,  }\item[{char \texorpdfstring{$\ast$}{*}}]{disk\+\_\+buffer,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{int}]{priority }\end{DoxyParamCaption})}
+
+threadpool에 작업 단위를 추가하는 내부 함수 Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread__pool_8h_a78c77b2808207d670b99e1247df9a969_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{thread__pool_8h_a47870ae85e5146385c33999f451c2382}\label{thread__pool_8h_a47870ae85e5146385c33999f451c2382} 
+\index{thread\_pool.h@{thread\_pool.h}!ThreadPoolClose@{ThreadPoolClose}}
+\index{ThreadPoolClose@{ThreadPoolClose}!thread\_pool.h@{thread\_pool.h}}
+\doxysubsubsection{\texorpdfstring{ThreadPoolClose()}{ThreadPoolClose()}}
+{\footnotesize\ttfamily void Thread\+Pool\+Close (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*}}]{tp }\end{DoxyParamCaption})}
+
+thread.\+join을 통해 thread를 정리하는 함수 Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread__pool_8h_a47870ae85e5146385c33999f451c2382_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{thread__pool_8h_a70dde64deb2d8dad83d7dfc897176766}\label{thread__pool_8h_a70dde64deb2d8dad83d7dfc897176766} 
+\index{thread\_pool.h@{thread\_pool.h}!ThreadPoolMainPooling1@{ThreadPoolMainPooling1}}
+\index{ThreadPoolMainPooling1@{ThreadPoolMainPooling1}!thread\_pool.h@{thread\_pool.h}}
+\doxysubsubsection{\texorpdfstring{ThreadPoolMainPooling1()}{ThreadPoolMainPooling1()}}
+{\footnotesize\ttfamily void Thread\+Pool\+Main\+Pooling1 (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{arg }\end{DoxyParamCaption})}
+
+threadpool 폴링을 하는 함수 Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread__pool_8h_a70dde64deb2d8dad83d7dfc897176766_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread__pool_8h_a70dde64deb2d8dad83d7dfc897176766_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{thread__pool_8h_ad0913d7ca7d40a56f666b8c01f11334e}\label{thread__pool_8h_ad0913d7ca7d40a56f666b8c01f11334e} 
+\index{thread\_pool.h@{thread\_pool.h}!ThreadPoolReleaseInternalResource@{ThreadPoolReleaseInternalResource}}
+\index{ThreadPoolReleaseInternalResource@{ThreadPoolReleaseInternalResource}!thread\_pool.h@{thread\_pool.h}}
+\doxysubsubsection{\texorpdfstring{ThreadPoolReleaseInternalResource()}{ThreadPoolReleaseInternalResource()}}
+{\footnotesize\ttfamily void Thread\+Pool\+Release\+Internal\+Resource (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*}}]{tp }\end{DoxyParamCaption})}
+
+클래스 destructor 함수에 해당하는 함수 Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread__pool_8h_ad0913d7ca7d40a56f666b8c01f11334e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{thread__pool_8h_ae81ebba71311de91b55f877d75fb5114}\label{thread__pool_8h_ae81ebba71311de91b55f877d75fb5114} 
+\index{thread\_pool.h@{thread\_pool.h}!ThreadPoolShouldTerminateThreadPool@{ThreadPoolShouldTerminateThreadPool}}
+\index{ThreadPoolShouldTerminateThreadPool@{ThreadPoolShouldTerminateThreadPool}!thread\_pool.h@{thread\_pool.h}}
+\doxysubsubsection{\texorpdfstring{ThreadPoolShouldTerminateThreadPool()}{ThreadPoolShouldTerminateThreadPool()}}
+{\footnotesize\ttfamily int Thread\+Pool\+Should\+Terminate\+Thread\+Pool (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*}}]{tp }\end{DoxyParamCaption})}
+
+pooling 을 그만두어야 할지 상태를 체크하는 함수 리턴값\+: 참/거짓 Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread__pool_8h_ae81ebba71311de91b55f877d75fb5114_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{thread__pool_8h_a636c30c80da5f5d0e2a3eee35aa06165}\label{thread__pool_8h_a636c30c80da5f5d0e2a3eee35aa06165} 
+\index{thread\_pool.h@{thread\_pool.h}!ThreadPoolWaitInternalThread@{ThreadPoolWaitInternalThread}}
+\index{ThreadPoolWaitInternalThread@{ThreadPoolWaitInternalThread}!thread\_pool.h@{thread\_pool.h}}
+\doxysubsubsection{\texorpdfstring{ThreadPoolWaitInternalThread()}{ThreadPoolWaitInternalThread()}}
+{\footnotesize\ttfamily void Thread\+Pool\+Wait\+Internal\+Thread (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*}}]{tp,  }\item[{unsigned char}]{pooling\+\_\+mode }\end{DoxyParamCaption})}
+
+모든 쓰레드가 종료될때까지 기다리는 함수 Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread__pool_8h_a636c30c80da5f5d0e2a3eee35aa06165_icgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,154 @@
+\doxysection{Thread\+Pool Struct Reference}
+\hypertarget{struct_thread_pool}{}\label{struct_thread_pool}\index{ThreadPool@{ThreadPool}}
+
+
+{\ttfamily \#include $<$thread\+\_\+pool.\+h$>$}
+
+
+
+Collaboration diagram for Thread\+Pool\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{struct_thread_pool__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+sem\+\_\+t \mbox{\hyperlink{struct_thread_pool_a9442765f17991c2e7e86eca84f2d6b33}{thread\+\_\+running\+\_\+queue\+\_\+lock}}
+\item 
+sem\+\_\+t \mbox{\hyperlink{struct_thread_pool_ad3eece655b099481d54e051e3b9bac18}{thread\+\_\+unit\+\_\+queue\+\_\+lock}}
+\item 
+sem\+\_\+t \mbox{\hyperlink{struct_thread_pool_aa511ada3f4dd9e779789b7abaeafa238}{thread\+\_\+should\+\_\+terminate\+\_\+state\+\_\+lock}}
+\item 
+int \mbox{\hyperlink{struct_thread_pool_a12b25401a3e06677eabc16fb5970dd9e}{thread\+\_\+should\+\_\+terminate\+\_\+state}}
+\item 
+struct \mbox{\hyperlink{struct_l_queue}{LQueue}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_thread_pool_a70a58bca721ac7f529d752369dbce593}{running\+\_\+queue}}
+\item 
+struct \mbox{\hyperlink{struct_l_h_queue}{LHQueue}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_thread_pool_aabdd3dc35633b47a00272323e6ebaefe}{thread\+\_\+unit\+\_\+queue}}
+\item 
+int \mbox{\hyperlink{struct_thread_pool_aebbd16b7a467b1ed6ded4f3b74695d56}{number\+\_\+of\+\_\+thread}}
+\item 
+unsigned int \mbox{\hyperlink{struct_thread_pool_a655706fe8af60debf5e90cb7cb7e9363}{max\+\_\+buffer\+\_\+continous\+\_\+sequential\+\_\+length}}
+\item 
+pthread\+\_\+t \mbox{\hyperlink{struct_thread_pool_a3a3300f782069c64bf088dedeb5a5f6d}{pooling\+\_\+tid}}
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_thread_pool_af01b26fe55dfebc96a50cf94a951bba4}{pooling}} )(void \texorpdfstring{$\ast$}{*})
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_thread_pool_ae55de7e02f4a7bc8d77fa3515d0eb5fe}{release\+Internal\+Resource}} )(struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*})
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_thread_pool_a7c77615931385f5d4cdb984d1970d237}{close}} )(struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*})
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_thread_pool_abe0be7d8f8e7dcb892c5b6a2cc9c12f5}{wait\+Internal\+Thread}} )(struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*}, unsigned char)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_thread_pool_a93e0977715e06f3ea3c8c3e00f1d39f2}{add\+Queue}} )(struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*}, int, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}, int priority)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_thread_pool_ac301278d4d1c4171822b215828f6653e}{add\+Queue2}} )(struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*}, char \texorpdfstring{$\ast$}{*}, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}, int priority)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_thread_pool_a8a07b4efa5f9a962c7b230cb3a6bcd9c}{should\+Terminate\+Thread\+Pool}} )(struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_thread_pool_a93e0977715e06f3ea3c8c3e00f1d39f2}\label{struct_thread_pool_a93e0977715e06f3ea3c8c3e00f1d39f2} 
+\index{ThreadPool@{ThreadPool}!addQueue@{addQueue}}
+\index{addQueue@{addQueue}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{addQueue}{addQueue}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} add\+Queue) (struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*}, int, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}, int priority)}
+
+\Hypertarget{struct_thread_pool_ac301278d4d1c4171822b215828f6653e}\label{struct_thread_pool_ac301278d4d1c4171822b215828f6653e} 
+\index{ThreadPool@{ThreadPool}!addQueue2@{addQueue2}}
+\index{addQueue2@{addQueue2}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{addQueue2}{addQueue2}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} add\+Queue2) (struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*}, char \texorpdfstring{$\ast$}{*}, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}, int priority)}
+
+\Hypertarget{struct_thread_pool_a7c77615931385f5d4cdb984d1970d237}\label{struct_thread_pool_a7c77615931385f5d4cdb984d1970d237} 
+\index{ThreadPool@{ThreadPool}!close@{close}}
+\index{close@{close}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{close}{close}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} close) (struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_thread_pool_a655706fe8af60debf5e90cb7cb7e9363}\label{struct_thread_pool_a655706fe8af60debf5e90cb7cb7e9363} 
+\index{ThreadPool@{ThreadPool}!max\_buffer\_continous\_sequential\_length@{max\_buffer\_continous\_sequential\_length}}
+\index{max\_buffer\_continous\_sequential\_length@{max\_buffer\_continous\_sequential\_length}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{max\_buffer\_continous\_sequential\_length}{max\_buffer\_continous\_sequential\_length}}
+{\footnotesize\ttfamily unsigned int max\+\_\+buffer\+\_\+continous\+\_\+sequential\+\_\+length}
+
+\Hypertarget{struct_thread_pool_aebbd16b7a467b1ed6ded4f3b74695d56}\label{struct_thread_pool_aebbd16b7a467b1ed6ded4f3b74695d56} 
+\index{ThreadPool@{ThreadPool}!number\_of\_thread@{number\_of\_thread}}
+\index{number\_of\_thread@{number\_of\_thread}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{number\_of\_thread}{number\_of\_thread}}
+{\footnotesize\ttfamily int number\+\_\+of\+\_\+thread}
+
+\Hypertarget{struct_thread_pool_af01b26fe55dfebc96a50cf94a951bba4}\label{struct_thread_pool_af01b26fe55dfebc96a50cf94a951bba4} 
+\index{ThreadPool@{ThreadPool}!pooling@{pooling}}
+\index{pooling@{pooling}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{pooling}{pooling}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} pooling) (void \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_thread_pool_a3a3300f782069c64bf088dedeb5a5f6d}\label{struct_thread_pool_a3a3300f782069c64bf088dedeb5a5f6d} 
+\index{ThreadPool@{ThreadPool}!pooling\_tid@{pooling\_tid}}
+\index{pooling\_tid@{pooling\_tid}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{pooling\_tid}{pooling\_tid}}
+{\footnotesize\ttfamily pthread\+\_\+t pooling\+\_\+tid}
+
+\Hypertarget{struct_thread_pool_ae55de7e02f4a7bc8d77fa3515d0eb5fe}\label{struct_thread_pool_ae55de7e02f4a7bc8d77fa3515d0eb5fe} 
+\index{ThreadPool@{ThreadPool}!releaseInternalResource@{releaseInternalResource}}
+\index{releaseInternalResource@{releaseInternalResource}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{releaseInternalResource}{releaseInternalResource}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} release\+Internal\+Resource) (struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_thread_pool_a70a58bca721ac7f529d752369dbce593}\label{struct_thread_pool_a70a58bca721ac7f529d752369dbce593} 
+\index{ThreadPool@{ThreadPool}!running\_queue@{running\_queue}}
+\index{running\_queue@{running\_queue}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{running\_queue}{running\_queue}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_l_queue}{LQueue}}\texorpdfstring{$\ast$}{*} running\+\_\+queue}
+
+\Hypertarget{struct_thread_pool_a8a07b4efa5f9a962c7b230cb3a6bcd9c}\label{struct_thread_pool_a8a07b4efa5f9a962c7b230cb3a6bcd9c} 
+\index{ThreadPool@{ThreadPool}!shouldTerminateThreadPool@{shouldTerminateThreadPool}}
+\index{shouldTerminateThreadPool@{shouldTerminateThreadPool}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{shouldTerminateThreadPool}{shouldTerminateThreadPool}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} should\+Terminate\+Thread\+Pool) (struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_thread_pool_a9442765f17991c2e7e86eca84f2d6b33}\label{struct_thread_pool_a9442765f17991c2e7e86eca84f2d6b33} 
+\index{ThreadPool@{ThreadPool}!thread\_running\_queue\_lock@{thread\_running\_queue\_lock}}
+\index{thread\_running\_queue\_lock@{thread\_running\_queue\_lock}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{thread\_running\_queue\_lock}{thread\_running\_queue\_lock}}
+{\footnotesize\ttfamily sem\+\_\+t thread\+\_\+running\+\_\+queue\+\_\+lock}
+
+\Hypertarget{struct_thread_pool_a12b25401a3e06677eabc16fb5970dd9e}\label{struct_thread_pool_a12b25401a3e06677eabc16fb5970dd9e} 
+\index{ThreadPool@{ThreadPool}!thread\_should\_terminate\_state@{thread\_should\_terminate\_state}}
+\index{thread\_should\_terminate\_state@{thread\_should\_terminate\_state}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{thread\_should\_terminate\_state}{thread\_should\_terminate\_state}}
+{\footnotesize\ttfamily int thread\+\_\+should\+\_\+terminate\+\_\+state}
+
+\Hypertarget{struct_thread_pool_aa511ada3f4dd9e779789b7abaeafa238}\label{struct_thread_pool_aa511ada3f4dd9e779789b7abaeafa238} 
+\index{ThreadPool@{ThreadPool}!thread\_should\_terminate\_state\_lock@{thread\_should\_terminate\_state\_lock}}
+\index{thread\_should\_terminate\_state\_lock@{thread\_should\_terminate\_state\_lock}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{thread\_should\_terminate\_state\_lock}{thread\_should\_terminate\_state\_lock}}
+{\footnotesize\ttfamily sem\+\_\+t thread\+\_\+should\+\_\+terminate\+\_\+state\+\_\+lock}
+
+\Hypertarget{struct_thread_pool_aabdd3dc35633b47a00272323e6ebaefe}\label{struct_thread_pool_aabdd3dc35633b47a00272323e6ebaefe} 
+\index{ThreadPool@{ThreadPool}!thread\_unit\_queue@{thread\_unit\_queue}}
+\index{thread\_unit\_queue@{thread\_unit\_queue}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{thread\_unit\_queue}{thread\_unit\_queue}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_l_h_queue}{LHQueue}}\texorpdfstring{$\ast$}{*} thread\+\_\+unit\+\_\+queue}
+
+\Hypertarget{struct_thread_pool_ad3eece655b099481d54e051e3b9bac18}\label{struct_thread_pool_ad3eece655b099481d54e051e3b9bac18} 
+\index{ThreadPool@{ThreadPool}!thread\_unit\_queue\_lock@{thread\_unit\_queue\_lock}}
+\index{thread\_unit\_queue\_lock@{thread\_unit\_queue\_lock}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{thread\_unit\_queue\_lock}{thread\_unit\_queue\_lock}}
+{\footnotesize\ttfamily sem\+\_\+t thread\+\_\+unit\+\_\+queue\+\_\+lock}
+
+\Hypertarget{struct_thread_pool_abe0be7d8f8e7dcb892c5b6a2cc9c12f5}\label{struct_thread_pool_abe0be7d8f8e7dcb892c5b6a2cc9c12f5} 
+\index{ThreadPool@{ThreadPool}!waitInternalThread@{waitInternalThread}}
+\index{waitInternalThread@{waitInternalThread}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{waitInternalThread}{waitInternalThread}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} wait\+Internal\+Thread) (struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*}, unsigned char)}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Buffer\+Cache\+Project/delayed\+\_\+write/\mbox{\hyperlink{thread__pool_8h}{thread\+\_\+pool.\+h}}\end{DoxyCompactItemize}

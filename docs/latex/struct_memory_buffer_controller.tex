@@ -1,0 +1,141 @@
+\doxysection{Memory\+Buffer\+Controller Struct Reference}
+\hypertarget{struct_memory_buffer_controller}{}\label{struct_memory_buffer_controller}\index{MemoryBufferController@{MemoryBufferController}}
+
+
+{\ttfamily \#include $<$memory\+\_\+buffer.\+h$>$}
+
+
+
+Collaboration diagram for Memory\+Buffer\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{struct_memory_buffer_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_m_d5_controller}{MD5\+Controller}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_memory_buffer_controller_a377aaadc7d880e391471e3d233f6b607}{hash\+\_\+controller}}
+\item 
+struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_memory_buffer_controller_acf1774423f01253676482fb9f48e2d03}{replacement\+\_\+policy\+\_\+manager}}
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_memory_buffer_controller_aaffed2038894a8258855cf378b9792e8}{read\+Memory\+Buffer}} )(struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}, int)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_memory_buffer_controller_a0db72ec96f84555b957b0f5bf6af319b}{write\+Memory\+Buffer}} )(struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}, int, char \texorpdfstring{$\ast$}{*})
+\item 
+unsigned char(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_memory_buffer_controller_aa47fb3df947cc51c6081bfd7e5fa1558}{check\+Content\+Validation}} )(struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}, char \texorpdfstring{$\ast$}{*})
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_memory_buffer_controller_aef41633fe32907d8a7e884c493649f6e}{check\+Content\+Validation\+And\+Set\+Valid\+Bit}} )(struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}, char \texorpdfstring{$\ast$}{*})
+\item 
+struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_memory_buffer_controller_a0493b035e336c0341f79a2478b176393}{get\+Memory\+Buffer\+Map}} )(struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}, int)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_memory_buffer_controller_af8b763913992316e353cce08ba69cd05}{free\+Memory\+Buffer\+At}} )(struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}memory\+\_\+buffer\+\_\+wrapper, int block\+\_\+number, unsigned char free\+\_\+content)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_memory_buffer_controller_a5767feac68a35c91db484db1e6763f56}{all\+Free\+Memory\+Buffer}} )(struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}memory\+\_\+buffer\+\_\+wrapper)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_memory_buffer_controller_a4f4ab677b6ec22f29cee5b93594b9c8b}{put\+Memory\+Buffer\+At}} )(struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}memory\+\_\+buffer\+\_\+wrapper, int block\+\_\+number, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}mem\+\_\+buffer)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_memory_buffer_controller_a3d941687191b8afb4b0ef7a1bc92e86c}{set\+Memory\+Buffer\+At}} )(struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}memory\+\_\+buffer\+\_\+wrapper, int block\+\_\+number, char \texorpdfstring{$\ast$}{*}buffer, long long buffer\+\_\+length\+\_\+byte)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_memory_buffer_controller_a2a3b0996d2896bc48a2b86338058b432}{should\+Find\+Evictable\+Buffer}} )(struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}manager)
+\item 
+struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_memory_buffer_controller_a8721bfe29081a2eb31ad7b53ee712df3}{find\+Evictable\+Buffer}} )(struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}manager)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_memory_buffer_controller_a3a5ec3a71fc48ecd2c56c1698177194b}{delete\+Memory\+Buffer}} )(struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}manager, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}mem\+\_\+buffer)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+MVC패턴과 유사하게 메모리 버퍼 컨트롤러에 해당하는 함수들을 정의해둔 구조체 
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_memory_buffer_controller_a5767feac68a35c91db484db1e6763f56}\label{struct_memory_buffer_controller_a5767feac68a35c91db484db1e6763f56} 
+\index{MemoryBufferController@{MemoryBufferController}!allFreeMemoryBuffer@{allFreeMemoryBuffer}}
+\index{allFreeMemoryBuffer@{allFreeMemoryBuffer}!MemoryBufferController@{MemoryBufferController}}
+\doxysubsubsection{\texorpdfstring{allFreeMemoryBuffer}{allFreeMemoryBuffer}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} all\+Free\+Memory\+Buffer) (struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}memory\+\_\+buffer\+\_\+wrapper)}
+
+\Hypertarget{struct_memory_buffer_controller_aa47fb3df947cc51c6081bfd7e5fa1558}\label{struct_memory_buffer_controller_aa47fb3df947cc51c6081bfd7e5fa1558} 
+\index{MemoryBufferController@{MemoryBufferController}!checkContentValidation@{checkContentValidation}}
+\index{checkContentValidation@{checkContentValidation}!MemoryBufferController@{MemoryBufferController}}
+\doxysubsubsection{\texorpdfstring{checkContentValidation}{checkContentValidation}}
+{\footnotesize\ttfamily unsigned char(\texorpdfstring{$\ast$}{*} check\+Content\+Validation) (struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}, char \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_memory_buffer_controller_aef41633fe32907d8a7e884c493649f6e}\label{struct_memory_buffer_controller_aef41633fe32907d8a7e884c493649f6e} 
+\index{MemoryBufferController@{MemoryBufferController}!checkContentValidationAndSetValidBit@{checkContentValidationAndSetValidBit}}
+\index{checkContentValidationAndSetValidBit@{checkContentValidationAndSetValidBit}!MemoryBufferController@{MemoryBufferController}}
+\doxysubsubsection{\texorpdfstring{checkContentValidationAndSetValidBit}{checkContentValidationAndSetValidBit}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} check\+Content\+Validation\+And\+Set\+Valid\+Bit) (struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}, char \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_memory_buffer_controller_a3a5ec3a71fc48ecd2c56c1698177194b}\label{struct_memory_buffer_controller_a3a5ec3a71fc48ecd2c56c1698177194b} 
+\index{MemoryBufferController@{MemoryBufferController}!deleteMemoryBuffer@{deleteMemoryBuffer}}
+\index{deleteMemoryBuffer@{deleteMemoryBuffer}!MemoryBufferController@{MemoryBufferController}}
+\doxysubsubsection{\texorpdfstring{deleteMemoryBuffer}{deleteMemoryBuffer}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} delete\+Memory\+Buffer) (struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}manager, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}mem\+\_\+buffer)}
+
+\Hypertarget{struct_memory_buffer_controller_a8721bfe29081a2eb31ad7b53ee712df3}\label{struct_memory_buffer_controller_a8721bfe29081a2eb31ad7b53ee712df3} 
+\index{MemoryBufferController@{MemoryBufferController}!findEvictableBuffer@{findEvictableBuffer}}
+\index{findEvictableBuffer@{findEvictableBuffer}!MemoryBufferController@{MemoryBufferController}}
+\doxysubsubsection{\texorpdfstring{findEvictableBuffer}{findEvictableBuffer}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} find\+Evictable\+Buffer) (struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}manager)}
+
+\Hypertarget{struct_memory_buffer_controller_af8b763913992316e353cce08ba69cd05}\label{struct_memory_buffer_controller_af8b763913992316e353cce08ba69cd05} 
+\index{MemoryBufferController@{MemoryBufferController}!freeMemoryBufferAt@{freeMemoryBufferAt}}
+\index{freeMemoryBufferAt@{freeMemoryBufferAt}!MemoryBufferController@{MemoryBufferController}}
+\doxysubsubsection{\texorpdfstring{freeMemoryBufferAt}{freeMemoryBufferAt}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} free\+Memory\+Buffer\+At) (struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}memory\+\_\+buffer\+\_\+wrapper, int block\+\_\+number, unsigned char free\+\_\+content)}
+
+\Hypertarget{struct_memory_buffer_controller_a0493b035e336c0341f79a2478b176393}\label{struct_memory_buffer_controller_a0493b035e336c0341f79a2478b176393} 
+\index{MemoryBufferController@{MemoryBufferController}!getMemoryBufferMap@{getMemoryBufferMap}}
+\index{getMemoryBufferMap@{getMemoryBufferMap}!MemoryBufferController@{MemoryBufferController}}
+\doxysubsubsection{\texorpdfstring{getMemoryBufferMap}{getMemoryBufferMap}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} get\+Memory\+Buffer\+Map) (struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}, int)}
+
+\Hypertarget{struct_memory_buffer_controller_a377aaadc7d880e391471e3d233f6b607}\label{struct_memory_buffer_controller_a377aaadc7d880e391471e3d233f6b607} 
+\index{MemoryBufferController@{MemoryBufferController}!hash\_controller@{hash\_controller}}
+\index{hash\_controller@{hash\_controller}!MemoryBufferController@{MemoryBufferController}}
+\doxysubsubsection{\texorpdfstring{hash\_controller}{hash\_controller}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_m_d5_controller}{MD5\+Controller}}\texorpdfstring{$\ast$}{*} hash\+\_\+controller}
+
+\Hypertarget{struct_memory_buffer_controller_a4f4ab677b6ec22f29cee5b93594b9c8b}\label{struct_memory_buffer_controller_a4f4ab677b6ec22f29cee5b93594b9c8b} 
+\index{MemoryBufferController@{MemoryBufferController}!putMemoryBufferAt@{putMemoryBufferAt}}
+\index{putMemoryBufferAt@{putMemoryBufferAt}!MemoryBufferController@{MemoryBufferController}}
+\doxysubsubsection{\texorpdfstring{putMemoryBufferAt}{putMemoryBufferAt}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} put\+Memory\+Buffer\+At) (struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}memory\+\_\+buffer\+\_\+wrapper, int block\+\_\+number, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}mem\+\_\+buffer)}
+
+\Hypertarget{struct_memory_buffer_controller_aaffed2038894a8258855cf378b9792e8}\label{struct_memory_buffer_controller_aaffed2038894a8258855cf378b9792e8} 
+\index{MemoryBufferController@{MemoryBufferController}!readMemoryBuffer@{readMemoryBuffer}}
+\index{readMemoryBuffer@{readMemoryBuffer}!MemoryBufferController@{MemoryBufferController}}
+\doxysubsubsection{\texorpdfstring{readMemoryBuffer}{readMemoryBuffer}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} read\+Memory\+Buffer) (struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}, int)}
+
+\Hypertarget{struct_memory_buffer_controller_acf1774423f01253676482fb9f48e2d03}\label{struct_memory_buffer_controller_acf1774423f01253676482fb9f48e2d03} 
+\index{MemoryBufferController@{MemoryBufferController}!replacement\_policy\_manager@{replacement\_policy\_manager}}
+\index{replacement\_policy\_manager@{replacement\_policy\_manager}!MemoryBufferController@{MemoryBufferController}}
+\doxysubsubsection{\texorpdfstring{replacement\_policy\_manager}{replacement\_policy\_manager}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}}\texorpdfstring{$\ast$}{*} replacement\+\_\+policy\+\_\+manager}
+
+\Hypertarget{struct_memory_buffer_controller_a3d941687191b8afb4b0ef7a1bc92e86c}\label{struct_memory_buffer_controller_a3d941687191b8afb4b0ef7a1bc92e86c} 
+\index{MemoryBufferController@{MemoryBufferController}!setMemoryBufferAt@{setMemoryBufferAt}}
+\index{setMemoryBufferAt@{setMemoryBufferAt}!MemoryBufferController@{MemoryBufferController}}
+\doxysubsubsection{\texorpdfstring{setMemoryBufferAt}{setMemoryBufferAt}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} set\+Memory\+Buffer\+At) (struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}memory\+\_\+buffer\+\_\+wrapper, int block\+\_\+number, char \texorpdfstring{$\ast$}{*}buffer, long long buffer\+\_\+length\+\_\+byte)}
+
+\Hypertarget{struct_memory_buffer_controller_a2a3b0996d2896bc48a2b86338058b432}\label{struct_memory_buffer_controller_a2a3b0996d2896bc48a2b86338058b432} 
+\index{MemoryBufferController@{MemoryBufferController}!shouldFindEvictableBuffer@{shouldFindEvictableBuffer}}
+\index{shouldFindEvictableBuffer@{shouldFindEvictableBuffer}!MemoryBufferController@{MemoryBufferController}}
+\doxysubsubsection{\texorpdfstring{shouldFindEvictableBuffer}{shouldFindEvictableBuffer}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} should\+Find\+Evictable\+Buffer) (struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer_manager}{Memory\+Buffer\+Manager}} \texorpdfstring{$\ast$}{*}manager)}
+
+\Hypertarget{struct_memory_buffer_controller_a0db72ec96f84555b957b0f5bf6af319b}\label{struct_memory_buffer_controller_a0db72ec96f84555b957b0f5bf6af319b} 
+\index{MemoryBufferController@{MemoryBufferController}!writeMemoryBuffer@{writeMemoryBuffer}}
+\index{writeMemoryBuffer@{writeMemoryBuffer}!MemoryBufferController@{MemoryBufferController}}
+\doxysubsubsection{\texorpdfstring{writeMemoryBuffer}{writeMemoryBuffer}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} write\+Memory\+Buffer) (struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*}, int, char \texorpdfstring{$\ast$}{*})}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Buffer\+Cache\+Project/shared/\mbox{\hyperlink{memory__buffer_8h}{memory\+\_\+buffer.\+h}}\end{DoxyCompactItemize}

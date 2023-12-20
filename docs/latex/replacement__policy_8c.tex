@@ -1,0 +1,348 @@
+\doxysection{Buffer\+Cache\+Project/shared/replacement\+\_\+policy.c File Reference}
+\hypertarget{replacement__policy_8c}{}\label{replacement__policy_8c}\index{BufferCacheProject/shared/replacement\_policy.c@{BufferCacheProject/shared/replacement\_policy.c}}
+{\ttfamily \#include "{}replacement\+\_\+policy.\+h"{}}\newline
+Include dependency graph for replacement\+\_\+policy.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_update_access_info_with_thread_param}{Update\+Access\+Info\+With\+Thread\+Param}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{replacement__policy_8c_ab86bc5196e4a0749b34bfb6e73c8cfbf}{FIFOPolicy\+\_\+update\+Access\+Info}} (struct \mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hash\+\_\+wrapper)
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{replacement__policy_8c_a5caa4b2bfcd4df30c3cdec32c48c61d9}{FIFOPolicy\+\_\+get\+Evictable\+Node}} (struct \mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}} \texorpdfstring{$\ast$}{*}self)
+\item 
+void \mbox{\hyperlink{replacement__policy_8c_a9278e89a9b98da5fddbe8a33f1699a8c}{FIFOPolicy\+\_\+delete\+At}} (struct \mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hash\+\_\+wrapper)
+\item 
+void \mbox{\hyperlink{replacement__policy_8c_ac074814949ae28a823b1ea8407e0b385}{LFUPolicy\+\_\+update\+Access\+Info}} (struct \mbox{\hyperlink{struct_l_f_u_policy}{LFUPolicy}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hash\+\_\+wrapper)
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{replacement__policy_8c_aa8edff69ebfadb0feadfb99c06ef96b3}{LFUPolicy\+\_\+get\+Evictable\+Node}} (struct \mbox{\hyperlink{struct_l_f_u_policy}{LFUPolicy}} \texorpdfstring{$\ast$}{*}self)
+\item 
+void \mbox{\hyperlink{replacement__policy_8c_a586509b197f7f2132643bcc24046a3d3}{LFUPolicy\+\_\+delete\+At}} (struct \mbox{\hyperlink{struct_l_f_u_policy}{LFUPolicy}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hash\+\_\+wrapper)
+\item 
+void \mbox{\hyperlink{replacement__policy_8c_acc8439786784ed57f1daf5a55834148e}{LRUPolicy\+\_\+update\+Access\+Info}} (struct \mbox{\hyperlink{struct_l_r_u_policy}{LRUPolicy}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hash\+\_\+wrapper)
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{replacement__policy_8c_aa358fd0c05174ac8b75c8096f274b68d}{LRUPolicy\+\_\+get\+Evictable\+Node}} (struct \mbox{\hyperlink{struct_l_r_u_policy}{LRUPolicy}} \texorpdfstring{$\ast$}{*}self)
+\item 
+void \mbox{\hyperlink{replacement__policy_8c_ab3d208fd62cbc0fb82206512bafa16a9}{LRUPolicy\+\_\+delete\+At}} (struct \mbox{\hyperlink{struct_l_r_u_policy}{LRUPolicy}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hash\+\_\+wrapper)
+\item 
+struct \mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{replacement__policy_8c_a8617bb3d4c597562542e0d03cd1ac844}{new\+FIFOPolicy}} (unsigned int concurrent\+\_\+count)
+\item 
+struct \mbox{\hyperlink{struct_l_f_u_policy}{LFUPolicy}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{replacement__policy_8c_ae4a5921b32aaa37d5efda7377c2f3c43}{new\+LFUPolicy}} (unsigned int concurrent\+\_\+count)
+\item 
+struct \mbox{\hyperlink{struct_l_r_u_policy}{LRUPolicy}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{replacement__policy_8c_ac28bab72869cc4f9503aed3d4f03ec42}{new\+LRUPolicy}} (unsigned int concurrent\+\_\+count)
+\item 
+void \mbox{\hyperlink{replacement__policy_8c_a02cd97704fd34aa8799bb1eac3f17c9a}{Replacement\+Policy\+Manager\+\_\+update\+Access\+Info}} (struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hashmap\+\_\+wrapper)
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{replacement__policy_8c_aa5358e7fa72bc0d70dce27ee6fb48622}{Replacement\+Policy\+Manager\+\_\+get\+Evictable\+Node}} (struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}self, int policy\+\_\+type)
+\item 
+void \mbox{\hyperlink{replacement__policy_8c_a914e89a026f5bfd733ada4257c651aef}{Replacement\+Policy\+Manager\+\_\+delete\+At}} (struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hashmap\+\_\+wrapper)
+\item 
+void \mbox{\hyperlink{replacement__policy_8c_ac0f38d40ffeb6725ce9a4b7b5b2ac70b}{Replacement\+Policy\+Manager\+\_\+debug\+Policy\+Content}} (struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}self, int policy\+\_\+type)
+\item 
+void \mbox{\hyperlink{replacement__policy_8c_a6a78060e30755cdfea8020b7a442ba83}{update\+Access\+Info\+With\+Thread\+Middle\+Func}} (void \texorpdfstring{$\ast$}{*}args)
+\item 
+pthread\+\_\+t \mbox{\hyperlink{replacement__policy_8c_a271996c957c340cbe6c713b84576a22e}{update\+Access\+Info\+With\+Thread}} (struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}self, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}hashmap\+\_\+wrapper)
+\item 
+struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{replacement__policy_8c_aac1fadbf3cd284ef42937aee93858861}{new\+Replacement\+Policy\+Manager}} (unsigned char primary\+\_\+policy\+\_\+type, unsigned int concurrent\+\_\+count)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{replacement__policy_8c_a9278e89a9b98da5fddbe8a33f1699a8c}\label{replacement__policy_8c_a9278e89a9b98da5fddbe8a33f1699a8c} 
+\index{replacement\_policy.c@{replacement\_policy.c}!FIFOPolicy\_deleteAt@{FIFOPolicy\_deleteAt}}
+\index{FIFOPolicy\_deleteAt@{FIFOPolicy\_deleteAt}!replacement\_policy.c@{replacement\_policy.c}}
+\doxysubsubsection{\texorpdfstring{FIFOPolicy\_deleteAt()}{FIFOPolicy\_deleteAt()}}
+{\footnotesize\ttfamily void FIFOPolicy\+\_\+delete\+At (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}}]{hash\+\_\+wrapper }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_a9278e89a9b98da5fddbe8a33f1699a8c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{replacement__policy_8c_a5caa4b2bfcd4df30c3cdec32c48c61d9}\label{replacement__policy_8c_a5caa4b2bfcd4df30c3cdec32c48c61d9} 
+\index{replacement\_policy.c@{replacement\_policy.c}!FIFOPolicy\_getEvictableNode@{FIFOPolicy\_getEvictableNode}}
+\index{FIFOPolicy\_getEvictableNode@{FIFOPolicy\_getEvictableNode}!replacement\_policy.c@{replacement\_policy.c}}
+\doxysubsubsection{\texorpdfstring{FIFOPolicy\_getEvictableNode()}{FIFOPolicy\_getEvictableNode()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} FIFOPolicy\+\_\+get\+Evictable\+Node (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_a5caa4b2bfcd4df30c3cdec32c48c61d9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{replacement__policy_8c_ab86bc5196e4a0749b34bfb6e73c8cfbf}\label{replacement__policy_8c_ab86bc5196e4a0749b34bfb6e73c8cfbf} 
+\index{replacement\_policy.c@{replacement\_policy.c}!FIFOPolicy\_updateAccessInfo@{FIFOPolicy\_updateAccessInfo}}
+\index{FIFOPolicy\_updateAccessInfo@{FIFOPolicy\_updateAccessInfo}!replacement\_policy.c@{replacement\_policy.c}}
+\doxysubsubsection{\texorpdfstring{FIFOPolicy\_updateAccessInfo()}{FIFOPolicy\_updateAccessInfo()}}
+{\footnotesize\ttfamily void FIFOPolicy\+\_\+update\+Access\+Info (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}}]{hash\+\_\+wrapper }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_ab86bc5196e4a0749b34bfb6e73c8cfbf_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{replacement__policy_8c_a586509b197f7f2132643bcc24046a3d3}\label{replacement__policy_8c_a586509b197f7f2132643bcc24046a3d3} 
+\index{replacement\_policy.c@{replacement\_policy.c}!LFUPolicy\_deleteAt@{LFUPolicy\_deleteAt}}
+\index{LFUPolicy\_deleteAt@{LFUPolicy\_deleteAt}!replacement\_policy.c@{replacement\_policy.c}}
+\doxysubsubsection{\texorpdfstring{LFUPolicy\_deleteAt()}{LFUPolicy\_deleteAt()}}
+{\footnotesize\ttfamily void LFUPolicy\+\_\+delete\+At (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_f_u_policy}{LFUPolicy}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}}]{hash\+\_\+wrapper }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_a586509b197f7f2132643bcc24046a3d3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{replacement__policy_8c_aa8edff69ebfadb0feadfb99c06ef96b3}\label{replacement__policy_8c_aa8edff69ebfadb0feadfb99c06ef96b3} 
+\index{replacement\_policy.c@{replacement\_policy.c}!LFUPolicy\_getEvictableNode@{LFUPolicy\_getEvictableNode}}
+\index{LFUPolicy\_getEvictableNode@{LFUPolicy\_getEvictableNode}!replacement\_policy.c@{replacement\_policy.c}}
+\doxysubsubsection{\texorpdfstring{LFUPolicy\_getEvictableNode()}{LFUPolicy\_getEvictableNode()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} LFUPolicy\+\_\+get\+Evictable\+Node (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_f_u_policy}{LFUPolicy}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_aa8edff69ebfadb0feadfb99c06ef96b3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{replacement__policy_8c_ac074814949ae28a823b1ea8407e0b385}\label{replacement__policy_8c_ac074814949ae28a823b1ea8407e0b385} 
+\index{replacement\_policy.c@{replacement\_policy.c}!LFUPolicy\_updateAccessInfo@{LFUPolicy\_updateAccessInfo}}
+\index{LFUPolicy\_updateAccessInfo@{LFUPolicy\_updateAccessInfo}!replacement\_policy.c@{replacement\_policy.c}}
+\doxysubsubsection{\texorpdfstring{LFUPolicy\_updateAccessInfo()}{LFUPolicy\_updateAccessInfo()}}
+{\footnotesize\ttfamily void LFUPolicy\+\_\+update\+Access\+Info (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_f_u_policy}{LFUPolicy}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}}]{hash\+\_\+wrapper }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_ac074814949ae28a823b1ea8407e0b385_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{replacement__policy_8c_ab3d208fd62cbc0fb82206512bafa16a9}\label{replacement__policy_8c_ab3d208fd62cbc0fb82206512bafa16a9} 
+\index{replacement\_policy.c@{replacement\_policy.c}!LRUPolicy\_deleteAt@{LRUPolicy\_deleteAt}}
+\index{LRUPolicy\_deleteAt@{LRUPolicy\_deleteAt}!replacement\_policy.c@{replacement\_policy.c}}
+\doxysubsubsection{\texorpdfstring{LRUPolicy\_deleteAt()}{LRUPolicy\_deleteAt()}}
+{\footnotesize\ttfamily void LRUPolicy\+\_\+delete\+At (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_r_u_policy}{LRUPolicy}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}}]{hash\+\_\+wrapper }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_ab3d208fd62cbc0fb82206512bafa16a9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{replacement__policy_8c_aa358fd0c05174ac8b75c8096f274b68d}\label{replacement__policy_8c_aa358fd0c05174ac8b75c8096f274b68d} 
+\index{replacement\_policy.c@{replacement\_policy.c}!LRUPolicy\_getEvictableNode@{LRUPolicy\_getEvictableNode}}
+\index{LRUPolicy\_getEvictableNode@{LRUPolicy\_getEvictableNode}!replacement\_policy.c@{replacement\_policy.c}}
+\doxysubsubsection{\texorpdfstring{LRUPolicy\_getEvictableNode()}{LRUPolicy\_getEvictableNode()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} LRUPolicy\+\_\+get\+Evictable\+Node (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_r_u_policy}{LRUPolicy}} \texorpdfstring{$\ast$}{*}}]{self }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_aa358fd0c05174ac8b75c8096f274b68d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{replacement__policy_8c_acc8439786784ed57f1daf5a55834148e}\label{replacement__policy_8c_acc8439786784ed57f1daf5a55834148e} 
+\index{replacement\_policy.c@{replacement\_policy.c}!LRUPolicy\_updateAccessInfo@{LRUPolicy\_updateAccessInfo}}
+\index{LRUPolicy\_updateAccessInfo@{LRUPolicy\_updateAccessInfo}!replacement\_policy.c@{replacement\_policy.c}}
+\doxysubsubsection{\texorpdfstring{LRUPolicy\_updateAccessInfo()}{LRUPolicy\_updateAccessInfo()}}
+{\footnotesize\ttfamily void LRUPolicy\+\_\+update\+Access\+Info (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_l_r_u_policy}{LRUPolicy}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}}]{hash\+\_\+wrapper }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{replacement__policy_8c_acc8439786784ed57f1daf5a55834148e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_acc8439786784ed57f1daf5a55834148e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{replacement__policy_8c_a8617bb3d4c597562542e0d03cd1ac844}\label{replacement__policy_8c_a8617bb3d4c597562542e0d03cd1ac844} 
+\index{replacement\_policy.c@{replacement\_policy.c}!newFIFOPolicy@{newFIFOPolicy}}
+\index{newFIFOPolicy@{newFIFOPolicy}!replacement\_policy.c@{replacement\_policy.c}}
+\doxysubsubsection{\texorpdfstring{newFIFOPolicy()}{newFIFOPolicy()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_f_i_f_o_policy}{FIFOPolicy}} \texorpdfstring{$\ast$}{*} new\+FIFOPolicy (\begin{DoxyParamCaption}\item[{unsigned int}]{concurrent\+\_\+count }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_a8617bb3d4c597562542e0d03cd1ac844_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_a8617bb3d4c597562542e0d03cd1ac844_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{replacement__policy_8c_ae4a5921b32aaa37d5efda7377c2f3c43}\label{replacement__policy_8c_ae4a5921b32aaa37d5efda7377c2f3c43} 
+\index{replacement\_policy.c@{replacement\_policy.c}!newLFUPolicy@{newLFUPolicy}}
+\index{newLFUPolicy@{newLFUPolicy}!replacement\_policy.c@{replacement\_policy.c}}
+\doxysubsubsection{\texorpdfstring{newLFUPolicy()}{newLFUPolicy()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_l_f_u_policy}{LFUPolicy}} \texorpdfstring{$\ast$}{*} new\+LFUPolicy (\begin{DoxyParamCaption}\item[{unsigned int}]{concurrent\+\_\+count }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_ae4a5921b32aaa37d5efda7377c2f3c43_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_ae4a5921b32aaa37d5efda7377c2f3c43_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{replacement__policy_8c_ac28bab72869cc4f9503aed3d4f03ec42}\label{replacement__policy_8c_ac28bab72869cc4f9503aed3d4f03ec42} 
+\index{replacement\_policy.c@{replacement\_policy.c}!newLRUPolicy@{newLRUPolicy}}
+\index{newLRUPolicy@{newLRUPolicy}!replacement\_policy.c@{replacement\_policy.c}}
+\doxysubsubsection{\texorpdfstring{newLRUPolicy()}{newLRUPolicy()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_l_r_u_policy}{LRUPolicy}} \texorpdfstring{$\ast$}{*} new\+LRUPolicy (\begin{DoxyParamCaption}\item[{unsigned int}]{concurrent\+\_\+count }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_ac28bab72869cc4f9503aed3d4f03ec42_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_ac28bab72869cc4f9503aed3d4f03ec42_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{replacement__policy_8c_aac1fadbf3cd284ef42937aee93858861}\label{replacement__policy_8c_aac1fadbf3cd284ef42937aee93858861} 
+\index{replacement\_policy.c@{replacement\_policy.c}!newReplacementPolicyManager@{newReplacementPolicyManager}}
+\index{newReplacementPolicyManager@{newReplacementPolicyManager}!replacement\_policy.c@{replacement\_policy.c}}
+\doxysubsubsection{\texorpdfstring{newReplacementPolicyManager()}{newReplacementPolicyManager()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*} new\+Replacement\+Policy\+Manager (\begin{DoxyParamCaption}\item[{unsigned char}]{primary\+\_\+policy\+\_\+type,  }\item[{unsigned int}]{concurrent\+\_\+count }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_aac1fadbf3cd284ef42937aee93858861_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_aac1fadbf3cd284ef42937aee93858861_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{replacement__policy_8c_ac0f38d40ffeb6725ce9a4b7b5b2ac70b}\label{replacement__policy_8c_ac0f38d40ffeb6725ce9a4b7b5b2ac70b} 
+\index{replacement\_policy.c@{replacement\_policy.c}!ReplacementPolicyManager\_debugPolicyContent@{ReplacementPolicyManager\_debugPolicyContent}}
+\index{ReplacementPolicyManager\_debugPolicyContent@{ReplacementPolicyManager\_debugPolicyContent}!replacement\_policy.c@{replacement\_policy.c}}
+\doxysubsubsection{\texorpdfstring{ReplacementPolicyManager\_debugPolicyContent()}{ReplacementPolicyManager\_debugPolicyContent()}}
+{\footnotesize\ttfamily void Replacement\+Policy\+Manager\+\_\+debug\+Policy\+Content (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{int}]{policy\+\_\+type }\end{DoxyParamCaption})}
+
+교체 정책이 잘 작동하고 있는지 출력을 시각화해주는 함수 Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_ac0f38d40ffeb6725ce9a4b7b5b2ac70b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{replacement__policy_8c_a914e89a026f5bfd733ada4257c651aef}\label{replacement__policy_8c_a914e89a026f5bfd733ada4257c651aef} 
+\index{replacement\_policy.c@{replacement\_policy.c}!ReplacementPolicyManager\_deleteAt@{ReplacementPolicyManager\_deleteAt}}
+\index{ReplacementPolicyManager\_deleteAt@{ReplacementPolicyManager\_deleteAt}!replacement\_policy.c@{replacement\_policy.c}}
+\doxysubsubsection{\texorpdfstring{ReplacementPolicyManager\_deleteAt()}{ReplacementPolicyManager\_deleteAt()}}
+{\footnotesize\ttfamily void Replacement\+Policy\+Manager\+\_\+delete\+At (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}}]{hashmap\+\_\+wrapper }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_a914e89a026f5bfd733ada4257c651aef_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{replacement__policy_8c_aa5358e7fa72bc0d70dce27ee6fb48622}\label{replacement__policy_8c_aa5358e7fa72bc0d70dce27ee6fb48622} 
+\index{replacement\_policy.c@{replacement\_policy.c}!ReplacementPolicyManager\_getEvictableNode@{ReplacementPolicyManager\_getEvictableNode}}
+\index{ReplacementPolicyManager\_getEvictableNode@{ReplacementPolicyManager\_getEvictableNode}!replacement\_policy.c@{replacement\_policy.c}}
+\doxysubsubsection{\texorpdfstring{ReplacementPolicyManager\_getEvictableNode()}{ReplacementPolicyManager\_getEvictableNode()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{Doubly\+Linked\+Deque\+Internal\+Node}} \texorpdfstring{$\ast$}{*} Replacement\+Policy\+Manager\+\_\+get\+Evictable\+Node (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{int}]{policy\+\_\+type }\end{DoxyParamCaption})}
+
+해당 정책에 따른 방출 노드를 반환함,O(1) Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_aa5358e7fa72bc0d70dce27ee6fb48622_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{replacement__policy_8c_a02cd97704fd34aa8799bb1eac3f17c9a}\label{replacement__policy_8c_a02cd97704fd34aa8799bb1eac3f17c9a} 
+\index{replacement\_policy.c@{replacement\_policy.c}!ReplacementPolicyManager\_updateAccessInfo@{ReplacementPolicyManager\_updateAccessInfo}}
+\index{ReplacementPolicyManager\_updateAccessInfo@{ReplacementPolicyManager\_updateAccessInfo}!replacement\_policy.c@{replacement\_policy.c}}
+\doxysubsubsection{\texorpdfstring{ReplacementPolicyManager\_updateAccessInfo()}{ReplacementPolicyManager\_updateAccessInfo()}}
+{\footnotesize\ttfamily void Replacement\+Policy\+Manager\+\_\+update\+Access\+Info (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}}]{hashmap\+\_\+wrapper }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_a02cd97704fd34aa8799bb1eac3f17c9a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{replacement__policy_8c_a271996c957c340cbe6c713b84576a22e}\label{replacement__policy_8c_a271996c957c340cbe6c713b84576a22e} 
+\index{replacement\_policy.c@{replacement\_policy.c}!updateAccessInfoWithThread@{updateAccessInfoWithThread}}
+\index{updateAccessInfoWithThread@{updateAccessInfoWithThread}!replacement\_policy.c@{replacement\_policy.c}}
+\doxysubsubsection{\texorpdfstring{updateAccessInfoWithThread()}{updateAccessInfoWithThread()}}
+{\footnotesize\ttfamily pthread\+\_\+t update\+Access\+Info\+With\+Thread (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_replacement_policy_manager}{Replacement\+Policy\+Manager}} \texorpdfstring{$\ast$}{*}}]{self,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}}]{hashmap\+\_\+wrapper }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_a271996c957c340cbe6c713b84576a22e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_a271996c957c340cbe6c713b84576a22e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{replacement__policy_8c_a6a78060e30755cdfea8020b7a442ba83}\label{replacement__policy_8c_a6a78060e30755cdfea8020b7a442ba83} 
+\index{replacement\_policy.c@{replacement\_policy.c}!updateAccessInfoWithThreadMiddleFunc@{updateAccessInfoWithThreadMiddleFunc}}
+\index{updateAccessInfoWithThreadMiddleFunc@{updateAccessInfoWithThreadMiddleFunc}!replacement\_policy.c@{replacement\_policy.c}}
+\doxysubsubsection{\texorpdfstring{updateAccessInfoWithThreadMiddleFunc()}{updateAccessInfoWithThreadMiddleFunc()}}
+{\footnotesize\ttfamily void update\+Access\+Info\+With\+Thread\+Middle\+Func (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{args }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{replacement__policy_8c_a6a78060e30755cdfea8020b7a442ba83_icgraph}
+\end{center}
+\end{figure}

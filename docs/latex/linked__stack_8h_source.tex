@@ -1,0 +1,38 @@
+\doxysection{linked\+\_\+stack.\+h}
+\hypertarget{linked__stack_8h_source}{}\label{linked__stack_8h_source}\index{BufferCacheProject/shared/linked\_stack.h@{BufferCacheProject/shared/linked\_stack.h}}
+\mbox{\hyperlink{linked__stack_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ \_\_HEADER\_LINKED\_STACK\_\_}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_HEADER\_LINKED\_STACK\_\_}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdio.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdlib.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\ \ \ \ \#include\ <unistd.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\ \ \ \ \#include\ <memory.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \ \ \ \#include\ <semaphore.h>}}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_stack_internal_node}{LStackInternalNode}}\{}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_stack_internal_node}{LStackInternalNode}}*\ \mbox{\hyperlink{struct_l_stack_internal_node_a0145c6a3129b0e19c13ccf27df0ef335}{next}};}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_stack_internal_node}{LStackInternalNode}}*\ \mbox{\hyperlink{struct_l_stack_internal_node_a45f2bb4cb8022bbc29382e603c7463e2}{previous}};}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{struct_l_stack_internal_node_a0f61d63b009d0880a89c843bd50d8d76}{value}};}
+\DoxyCodeLine{00013\ \ \ \ \ \};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_stack}{LStack}}\{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_l_stack_a71b3b1d1524aa6ee574dfa43a6ef8e6d}{isLockSupported}}:1;}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ sem\_t\ \mbox{\hyperlink{struct_l_stack_ac301e000199ad937f060277b0736d4e1}{lock}};}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_l_stack_a16ff2d8e15ade4948398b0aeb80124a8}{count}};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_l_stack_a6ee0faa874bf13e1aa83a99f236d4d82}{fixed\_capacity}};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_stack}{LStack}}*\ \mbox{\hyperlink{struct_l_stack_a7972227986bde4c3fb931f17daddda15}{pointer}};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ (*top)(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_stack}{LStack}}*\ self);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ int\ (*\mbox{\hyperlink{struct_l_stack_ac23c187bf0505062aaa7fd69fe4662eb}{push}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_stack}{LStack}}*\ self,\textcolor{keywordtype}{void}*\ value);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ int\ (*\mbox{\hyperlink{struct_l_stack_ae3d35e6410dd84514d0ba75e47be2762}{pop}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_stack}{LStack}}*\ self);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ char\ (*\mbox{\hyperlink{struct_l_stack_aa613dc9fba3343e6fad29b1ffd283c41}{isEmpty}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_stack}{LStack}}*\ self);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ char\ (*\mbox{\hyperlink{struct_l_stack_a4e30201d40d2e74425ed5bedd8f33452}{isFull}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_stack}{LStack}}*\ self);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ void\ (*\mbox{\hyperlink{struct_l_stack_adcd1bff9ce8af38c550673649f3c9842}{release}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_stack}{LStack}}*\ self);}
+\DoxyCodeLine{00029\ \ \ \ \ \};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_stack}{LStack}}*\ \mbox{\hyperlink{linked__stack_8h_a70b7b857fd06b9b6799973c16a389ef8}{newLStack}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ concurrent\_count,\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_l_stack_a6ee0faa874bf13e1aa83a99f236d4d82}{fixed\_capacity}});}
+\DoxyCodeLine{00031\ \ \ \ \ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

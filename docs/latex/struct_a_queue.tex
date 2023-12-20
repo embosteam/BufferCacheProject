@@ -1,0 +1,162 @@
+\doxysection{AQueue Struct Reference}
+\hypertarget{struct_a_queue}{}\label{struct_a_queue}\index{AQueue@{AQueue}}
+
+
+{\ttfamily \#include $<$array\+\_\+queue.\+h$>$}
+
+
+
+Collaboration diagram for AQueue\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{struct_a_queue__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \mbox{\hyperlink{struct_a_queue_a71b3b1d1524aa6ee574dfa43a6ef8e6d}{is\+Lock\+Supported}}\+:1
+\item 
+sem\+\_\+t \mbox{\hyperlink{struct_a_queue_ac301e000199ad937f060277b0736d4e1}{lock}}
+\item 
+unsigned int \mbox{\hyperlink{struct_a_queue_aac913b3a1f6ef005d66bf7a84428773e}{size}}
+\item 
+unsigned int \mbox{\hyperlink{struct_a_queue_a6ee0faa874bf13e1aa83a99f236d4d82}{fixed\+\_\+capacity}}
+\item 
+void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_a_queue_a690aca5f61a25cc09975dc875d3c1f18}{array\+\_\+space}}
+\item 
+int \mbox{\hyperlink{struct_a_queue_aa984c0e05514e37de118e996d2de7261}{current\+\_\+pointer\+\_\+index}}
+\item 
+void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_a_queue_a29335c71780c855d786882ce2a215fd2}{front}} )(struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*})
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_a_queue_a35ff0f17fed1a01fcc9dca9e6bdde994}{pop}} )(struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*})
+\item 
+unsigned int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_a_queue_a7d0989029760b06f39eda522154f1fae}{get\+Size}} )(struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*})
+\item 
+unsigned int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_a_queue_ae276e0fda94befeef311e1af08f8b293}{is\+Empty}} )(struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*})
+\item 
+unsigned int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_a_queue_a97cc0820a0245463ee517ac895a43fb3}{is\+Full}} )(struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*})
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_a_queue_ad76b365c79050f73a009bc4d307df285}{push}} )(struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_a_queue_a71b61757df0b1f2f7488dcafdc511f20}{clear}} )(struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*})
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_a_queue_af6b70aa70d2693f7c314680860edb279}{free}} )(struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*})
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_a_queue_a51d99d444a1ebaea4e88a996a98b6c07}{release}} )(struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*})
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_a_queue_aece58d4a765043d18c4133794dc2520a}{sort}} )(struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*})
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_a_queue_a6bf866794f59ab2daad7f57b37dd4979}{comparator}} )(void \texorpdfstring{$\ast$}{*}s1, void \texorpdfstring{$\ast$}{*}s2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_a_queue_a690aca5f61a25cc09975dc875d3c1f18}\label{struct_a_queue_a690aca5f61a25cc09975dc875d3c1f18} 
+\index{AQueue@{AQueue}!array\_space@{array\_space}}
+\index{array\_space@{array\_space}!AQueue@{AQueue}}
+\doxysubsubsection{\texorpdfstring{array\_space}{array\_space}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} \texorpdfstring{$\ast$}{*} array\+\_\+space}
+
+\Hypertarget{struct_a_queue_a71b61757df0b1f2f7488dcafdc511f20}\label{struct_a_queue_a71b61757df0b1f2f7488dcafdc511f20} 
+\index{AQueue@{AQueue}!clear@{clear}}
+\index{clear@{clear}!AQueue@{AQueue}}
+\doxysubsubsection{\texorpdfstring{clear}{clear}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} clear) (struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_a_queue_a6bf866794f59ab2daad7f57b37dd4979}\label{struct_a_queue_a6bf866794f59ab2daad7f57b37dd4979} 
+\index{AQueue@{AQueue}!comparator@{comparator}}
+\index{comparator@{comparator}!AQueue@{AQueue}}
+\doxysubsubsection{\texorpdfstring{comparator}{comparator}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} comparator) (void \texorpdfstring{$\ast$}{*}s1, void \texorpdfstring{$\ast$}{*}s2)}
+
+\Hypertarget{struct_a_queue_aa984c0e05514e37de118e996d2de7261}\label{struct_a_queue_aa984c0e05514e37de118e996d2de7261} 
+\index{AQueue@{AQueue}!current\_pointer\_index@{current\_pointer\_index}}
+\index{current\_pointer\_index@{current\_pointer\_index}!AQueue@{AQueue}}
+\doxysubsubsection{\texorpdfstring{current\_pointer\_index}{current\_pointer\_index}}
+{\footnotesize\ttfamily int current\+\_\+pointer\+\_\+index}
+
+\Hypertarget{struct_a_queue_a6ee0faa874bf13e1aa83a99f236d4d82}\label{struct_a_queue_a6ee0faa874bf13e1aa83a99f236d4d82} 
+\index{AQueue@{AQueue}!fixed\_capacity@{fixed\_capacity}}
+\index{fixed\_capacity@{fixed\_capacity}!AQueue@{AQueue}}
+\doxysubsubsection{\texorpdfstring{fixed\_capacity}{fixed\_capacity}}
+{\footnotesize\ttfamily unsigned int fixed\+\_\+capacity}
+
+\Hypertarget{struct_a_queue_af6b70aa70d2693f7c314680860edb279}\label{struct_a_queue_af6b70aa70d2693f7c314680860edb279} 
+\index{AQueue@{AQueue}!free@{free}}
+\index{free@{free}!AQueue@{AQueue}}
+\doxysubsubsection{\texorpdfstring{free}{free}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} free) (struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_a_queue_a29335c71780c855d786882ce2a215fd2}\label{struct_a_queue_a29335c71780c855d786882ce2a215fd2} 
+\index{AQueue@{AQueue}!front@{front}}
+\index{front@{front}!AQueue@{AQueue}}
+\doxysubsubsection{\texorpdfstring{front}{front}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} front) (struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_a_queue_a7d0989029760b06f39eda522154f1fae}\label{struct_a_queue_a7d0989029760b06f39eda522154f1fae} 
+\index{AQueue@{AQueue}!getSize@{getSize}}
+\index{getSize@{getSize}!AQueue@{AQueue}}
+\doxysubsubsection{\texorpdfstring{getSize}{getSize}}
+{\footnotesize\ttfamily unsigned int(\texorpdfstring{$\ast$}{*} get\+Size) (struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_a_queue_ae276e0fda94befeef311e1af08f8b293}\label{struct_a_queue_ae276e0fda94befeef311e1af08f8b293} 
+\index{AQueue@{AQueue}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!AQueue@{AQueue}}
+\doxysubsubsection{\texorpdfstring{isEmpty}{isEmpty}}
+{\footnotesize\ttfamily unsigned int(\texorpdfstring{$\ast$}{*} is\+Empty) (struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_a_queue_a97cc0820a0245463ee517ac895a43fb3}\label{struct_a_queue_a97cc0820a0245463ee517ac895a43fb3} 
+\index{AQueue@{AQueue}!isFull@{isFull}}
+\index{isFull@{isFull}!AQueue@{AQueue}}
+\doxysubsubsection{\texorpdfstring{isFull}{isFull}}
+{\footnotesize\ttfamily unsigned int(\texorpdfstring{$\ast$}{*} is\+Full) (struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_a_queue_a71b3b1d1524aa6ee574dfa43a6ef8e6d}\label{struct_a_queue_a71b3b1d1524aa6ee574dfa43a6ef8e6d} 
+\index{AQueue@{AQueue}!isLockSupported@{isLockSupported}}
+\index{isLockSupported@{isLockSupported}!AQueue@{AQueue}}
+\doxysubsubsection{\texorpdfstring{isLockSupported}{isLockSupported}}
+{\footnotesize\ttfamily unsigned char is\+Lock\+Supported}
+
+\Hypertarget{struct_a_queue_ac301e000199ad937f060277b0736d4e1}\label{struct_a_queue_ac301e000199ad937f060277b0736d4e1} 
+\index{AQueue@{AQueue}!lock@{lock}}
+\index{lock@{lock}!AQueue@{AQueue}}
+\doxysubsubsection{\texorpdfstring{lock}{lock}}
+{\footnotesize\ttfamily sem\+\_\+t lock}
+
+\Hypertarget{struct_a_queue_a35ff0f17fed1a01fcc9dca9e6bdde994}\label{struct_a_queue_a35ff0f17fed1a01fcc9dca9e6bdde994} 
+\index{AQueue@{AQueue}!pop@{pop}}
+\index{pop@{pop}!AQueue@{AQueue}}
+\doxysubsubsection{\texorpdfstring{pop}{pop}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} pop) (struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_a_queue_ad76b365c79050f73a009bc4d307df285}\label{struct_a_queue_ad76b365c79050f73a009bc4d307df285} 
+\index{AQueue@{AQueue}!push@{push}}
+\index{push@{push}!AQueue@{AQueue}}
+\doxysubsubsection{\texorpdfstring{push}{push}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} push) (struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_a_queue_a51d99d444a1ebaea4e88a996a98b6c07}\label{struct_a_queue_a51d99d444a1ebaea4e88a996a98b6c07} 
+\index{AQueue@{AQueue}!release@{release}}
+\index{release@{release}!AQueue@{AQueue}}
+\doxysubsubsection{\texorpdfstring{release}{release}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} release) (struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{struct_a_queue_aac913b3a1f6ef005d66bf7a84428773e}\label{struct_a_queue_aac913b3a1f6ef005d66bf7a84428773e} 
+\index{AQueue@{AQueue}!size@{size}}
+\index{size@{size}!AQueue@{AQueue}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily unsigned int size}
+
+\Hypertarget{struct_a_queue_aece58d4a765043d18c4133794dc2520a}\label{struct_a_queue_aece58d4a765043d18c4133794dc2520a} 
+\index{AQueue@{AQueue}!sort@{sort}}
+\index{sort@{sort}!AQueue@{AQueue}}
+\doxysubsubsection{\texorpdfstring{sort}{sort}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} sort) (struct \mbox{\hyperlink{struct_a_queue}{AQueue}} \texorpdfstring{$\ast$}{*})}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Buffer\+Cache\+Project/shared/\mbox{\hyperlink{array__queue_8h}{array\+\_\+queue.\+h}}\end{DoxyCompactItemize}

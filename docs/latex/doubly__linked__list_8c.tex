@@ -1,0 +1,70 @@
+\doxysection{Buffer\+Cache\+Project/shared/doubly\+\_\+linked\+\_\+list.c File Reference}
+\hypertarget{doubly__linked__list_8c}{}\label{doubly__linked__list_8c}\index{BufferCacheProject/shared/doubly\_linked\_list.c@{BufferCacheProject/shared/doubly\_linked\_list.c}}
+{\ttfamily \#include "{}doubly\+\_\+linked\+\_\+list.\+h"{}}\newline
+Include dependency graph for doubly\+\_\+linked\+\_\+list.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{doubly__linked__list_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_list}{Doubly\+Linked\+List}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{doubly__linked__list_8c_a3b87bd609f58261267793d44a464a631}{create\+New\+Doubly\+Linked\+List}} ()
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_list}{Doubly\+Linked\+List}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{doubly__linked__list_8c_a463963eb9a26b30041fc17a75f4c7823}{append\+Doubly\+Linked\+List\+At\+Next}} (struct \mbox{\hyperlink{struct_doubly_linked_list}{Doubly\+Linked\+List}} \texorpdfstring{$\ast$}{*}pointer, void \texorpdfstring{$\ast$}{*}value)
+\item 
+struct \mbox{\hyperlink{struct_doubly_linked_list}{Doubly\+Linked\+List}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{doubly__linked__list_8c_a38206f8e9edd5cde394ff89c7493b44f}{append\+Doubly\+Linked\+List\+At\+Previous}} (struct \mbox{\hyperlink{struct_doubly_linked_list}{Doubly\+Linked\+List}} \texorpdfstring{$\ast$}{*}pointer, void \texorpdfstring{$\ast$}{*}value)
+\item 
+int \mbox{\hyperlink{doubly__linked__list_8c_a13a25615dc5df05d899664f3417a6899}{pop\+From\+Doubly\+Linked\+List}} (struct \mbox{\hyperlink{struct_doubly_linked_list}{Doubly\+Linked\+List}} \texorpdfstring{$\ast$}{*}pointer)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{doubly__linked__list_8c_a463963eb9a26b30041fc17a75f4c7823}\label{doubly__linked__list_8c_a463963eb9a26b30041fc17a75f4c7823} 
+\index{doubly\_linked\_list.c@{doubly\_linked\_list.c}!appendDoublyLinkedListAtNext@{appendDoublyLinkedListAtNext}}
+\index{appendDoublyLinkedListAtNext@{appendDoublyLinkedListAtNext}!doubly\_linked\_list.c@{doubly\_linked\_list.c}}
+\doxysubsubsection{\texorpdfstring{appendDoublyLinkedListAtNext()}{appendDoublyLinkedListAtNext()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_list}{Doubly\+Linked\+List}} \texorpdfstring{$\ast$}{*} append\+Doubly\+Linked\+List\+At\+Next (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_doubly_linked_list}{Doubly\+Linked\+List}} \texorpdfstring{$\ast$}{*}}]{pointer,  }\item[{void \texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})}
+
+해당 pointer객체를 기준으로 next에 value가 포함된 새 링크드 리스트 노드를 추가하는 함수 리턴값\+: pointer 매개변수의 다음 포인터를 반환 Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__list_8c_a463963eb9a26b30041fc17a75f4c7823_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{doubly__linked__list_8c_a38206f8e9edd5cde394ff89c7493b44f}\label{doubly__linked__list_8c_a38206f8e9edd5cde394ff89c7493b44f} 
+\index{doubly\_linked\_list.c@{doubly\_linked\_list.c}!appendDoublyLinkedListAtPrevious@{appendDoublyLinkedListAtPrevious}}
+\index{appendDoublyLinkedListAtPrevious@{appendDoublyLinkedListAtPrevious}!doubly\_linked\_list.c@{doubly\_linked\_list.c}}
+\doxysubsubsection{\texorpdfstring{appendDoublyLinkedListAtPrevious()}{appendDoublyLinkedListAtPrevious()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_list}{Doubly\+Linked\+List}} \texorpdfstring{$\ast$}{*} append\+Doubly\+Linked\+List\+At\+Previous (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_doubly_linked_list}{Doubly\+Linked\+List}} \texorpdfstring{$\ast$}{*}}]{pointer,  }\item[{void \texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})}
+
+해당 pointer객체를 기준으로 previous에 value가 포함된 새 링크드 리스트 노드를 추가하는 함수 리턴값\+: pointer 매개변수의 이전 포인터를 반환 Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__list_8c_a38206f8e9edd5cde394ff89c7493b44f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{doubly__linked__list_8c_a3b87bd609f58261267793d44a464a631}\label{doubly__linked__list_8c_a3b87bd609f58261267793d44a464a631} 
+\index{doubly\_linked\_list.c@{doubly\_linked\_list.c}!createNewDoublyLinkedList@{createNewDoublyLinkedList}}
+\index{createNewDoublyLinkedList@{createNewDoublyLinkedList}!doubly\_linked\_list.c@{doubly\_linked\_list.c}}
+\doxysubsubsection{\texorpdfstring{createNewDoublyLinkedList()}{createNewDoublyLinkedList()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_doubly_linked_list}{Doubly\+Linked\+List}} \texorpdfstring{$\ast$}{*} create\+New\+Doubly\+Linked\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+링크드 리스트에서 연결될 수 있는 리스트 노드를 생성, 내부 값들은 0으로 초기화 Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{doubly__linked__list_8c_a3b87bd609f58261267793d44a464a631_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{doubly__linked__list_8c_a13a25615dc5df05d899664f3417a6899}\label{doubly__linked__list_8c_a13a25615dc5df05d899664f3417a6899} 
+\index{doubly\_linked\_list.c@{doubly\_linked\_list.c}!popFromDoublyLinkedList@{popFromDoublyLinkedList}}
+\index{popFromDoublyLinkedList@{popFromDoublyLinkedList}!doubly\_linked\_list.c@{doubly\_linked\_list.c}}
+\doxysubsubsection{\texorpdfstring{popFromDoublyLinkedList()}{popFromDoublyLinkedList()}}
+{\footnotesize\ttfamily int pop\+From\+Doubly\+Linked\+List (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_doubly_linked_list}{Doubly\+Linked\+List}} \texorpdfstring{$\ast$}{*}}]{pointer }\end{DoxyParamCaption})}
+
+pointer 객체의 리소스를 해제하고 이전 포인터와 다음 포인터를 연결시켜주는 함수 리턴값\+: 성공시 1, 실패시 0 값을 반환 

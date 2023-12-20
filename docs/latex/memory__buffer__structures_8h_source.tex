@@ -1,0 +1,47 @@
+\doxysection{memory\+\_\+buffer\+\_\+structures.\+h}
+\hypertarget{memory__buffer__structures_8h_source}{}\label{memory__buffer__structures_8h_source}\index{BufferCacheProject/shared/memory\_buffer\_structures.h@{BufferCacheProject/shared/memory\_buffer\_structures.h}}
+\mbox{\hyperlink{memory__buffer__structures_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ \_\_HEADER\_MEMORY\_BUFFER\_STRUCTURES\_\_}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_HEADER\_MEMORY\_BUFFER\_STRUCTURES\_\_}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\ \ \ \ \#include\ <semaphore.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\ \ \ \ \#include\ <pthread.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdlib.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdio.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \ \ \ \#include\ <unistd.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdint.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{doubly__linked__deque_8h}{doubly\_linked\_deque.h}}"{}}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_header}{MemoryBufferHeader}}\{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_memory_buffer_header_af54df8ced17d8e30049d4285fe57bb47}{isValid}}:1;\textcolor{comment}{//Memory버퍼\ 구조체가\ 유효한지\ 확인하는\ field}}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_memory_buffer_header_a0efd73dc14eca48090ab872bde47ff17}{isDirty}}:1;\textcolor{comment}{//버퍼가\ 디스크에\ 반영되지\ 않은\ dirty상태인지\ 확인하는\ field}}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_memory_buffer_header_a8410ae3c7e16d2847ebe2c8a8e1cbf4d}{isBufferBeingWrittenNow}}:1;\textcolor{comment}{//write\_lock과\ 별도로\ 현재\ 버퍼가\ 쓰기\ 중인지\ 나타내는\ 필드}}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_memory_buffer_header_aada43897d2b6d6ac71380884bd9aaa5c}{request\_write\_count}};\textcolor{comment}{//요청이\ 들어간\ 횟수를\ 나타냄}}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{comment}{//pthread\_t\ writeThreadId;}}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{sem\_t}}\ \mbox{\hyperlink{struct_memory_buffer_header_aec422132303af13d66b952380536cd57}{write\_lock}};\textcolor{comment}{//버퍼별로\ 쓰기\ 잠금\ 객체}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{block\_number}};\textcolor{comment}{//버퍼의\ block\ number}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_memory_buffer_header_a434c6ab9795b67b9e15481e511dbb757}{block\_size\_byte}};\textcolor{comment}{//명시적인\ 버퍼의\ 실제\ 바이트단위\ 사이즈}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_memory_buffer_header_a9d0ad0f59c5eb4a2d0bde1b806e2481d}{uint8\_t}}\ \mbox{\hyperlink{struct_memory_buffer_header_ac2889b9baf13e251cff81580b2f7f253}{buffer\_precalculated\_hash}}[16];\textcolor{comment}{//md5해시등을\ 통해\ 해당\ 버퍼\ 내용이\ 동일한\ 값으로\ 유효한지\ 체크하기\ 위한\ field}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_memory_buffer_header_aeb5b9fb344aa0c9403e1a364cb8c95a1}{lastestAccessedTimeStamp}};\textcolor{comment}{//not\ be\ used}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_memory_buffer_header_a63e4e44ab81b270bffc9ef458edcb184}{access\_count}};\textcolor{comment}{//lfu등에서\ 접근한\ 횟수를\ 나타냄}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{struct_memory_buffer_header_a5c9b5144fcac586de3d7f55596a3e7ef}{lastest\_accessing\_timestamp}};\textcolor{comment}{//lru등에서\ 접근한\ 시각을\ 나타냄}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{DoublyLinkedDequeInternalNode}}*\ \mbox{\hyperlink{struct_memory_buffer_header_a08812e83596e4802b3acea42beaea367}{lru\_node}};\textcolor{comment}{//캐시\ lru의\ 해당\ 위치\ 포인터를\ 나타냄}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{DoublyLinkedDequeInternalNode}}*\ \mbox{\hyperlink{struct_memory_buffer_header_a927f0494cc65bcd352eef62773691f87}{fifo\_node}};\textcolor{comment}{//\ 캐시\ fifo의\ 해당\ 위치\ 포인터를\ 나타냄}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_doubly_linked_deque_internal_node}{DoublyLinkedDequeInternalNode}}*\ \mbox{\hyperlink{struct_memory_buffer_header_a3abb9733b54f64c1523007fc5f77bd70}{lfu\_node}};\textcolor{comment}{//캐시\ lfu의\ 해당\ 위치\ 포인터를\ 나타냄}}
+\DoxyCodeLine{00032\ \ \ \ \ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}\{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer_header}{MemoryBufferHeader}}\ \mbox{\hyperlink{struct_memory_buffer_aab716d138c99a473d8b39c429eb2b430}{header}};}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{struct_memory_buffer_aff2566f4c366b48d73479bef43ee4d2e}{buffer}};}
+\DoxyCodeLine{00041\ \ \ \ \ \};}
+\DoxyCodeLine{00042\ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_hash_map_wrapper}{HashMapWrapper}}\{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_hash_map_wrapper_abb8ce20b457315f3b6f15d294d097f36}{block\_number}};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_memory_buffer}{MemoryBuffer}}*\ \mbox{\hyperlink{struct_hash_map_wrapper_a0450549bf7f684aea5f5b219570a3f0e}{memory\_buffer}};}
+\DoxyCodeLine{00046\ \ \ \ \ \};}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

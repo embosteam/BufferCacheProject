@@ -1,0 +1,130 @@
+\doxysection{Buffer\+Cache\+Project/delayed\+\_\+write/flush\+\_\+thread.c File Reference}
+\hypertarget{flush__thread_8c}{}\label{flush__thread_8c}\index{BufferCacheProject/delayed\_write/flush\_thread.c@{BufferCacheProject/delayed\_write/flush\_thread.c}}
+{\ttfamily \#include "{}flush\+\_\+thread.\+h"{}}\newline
+Include dependency graph for flush\+\_\+thread.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{flush__thread_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_write_parameters_in_thread}{Write\+Parameters\+In\+Thread}}
+\item 
+struct \mbox{\hyperlink{struct_multi_write_parameters_in_thread}{Multi\+Write\+Parameters\+In\+Thread}}
+\item 
+struct \mbox{\hyperlink{struct_write_parameters_in_thread2}{Write\+Parameters\+In\+Thread2}}
+\item 
+struct \mbox{\hyperlink{struct_multi_write_parameters_in_thread2}{Multi\+Write\+Parameters\+In\+Thread2}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+pthread\+\_\+t \mbox{\hyperlink{flush__thread_8c_a1329bd878e23ae466de100027d9e666d}{create\+And\+Run\+Flush\+Thread}} (int(\texorpdfstring{$\ast$}{*}runfunction)(void \texorpdfstring{$\ast$}{*}), void \texorpdfstring{$\ast$}{*}arg)
+\item 
+pthread\+\_\+t \mbox{\hyperlink{flush__thread_8c_ab360d2aa10d4fda25fff11874eba66f3}{flush\+Buffer\+With\+Thread}} (int \mbox{\hyperlink{buffer_8c_ace5f86cdc8deb8e6196ddf6b0c02a73c}{disk\+\_\+fd}}, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}mem\+\_\+buffer)
+\item 
+pthread\+\_\+t \mbox{\hyperlink{flush__thread_8c_a751f549e107b8533162ec2fcd717c64e}{flush\+Buffers\+With\+Thread}} (int \mbox{\hyperlink{buffer_8c_ace5f86cdc8deb8e6196ddf6b0c02a73c}{disk\+\_\+fd}}, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}mem\+\_\+buffers, int mem\+\_\+buffer\+\_\+count)
+\item 
+pthread\+\_\+t \mbox{\hyperlink{flush__thread_8c_a529ff1bb035d295c20b09ad1daf50d4b}{flush\+Buffer\+With\+Thread2}} (char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{buffer_8c_a3419d6e5ea39d2522ff48b26a1da52b9}{disk\+\_\+buffer}}, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}mem\+\_\+buffer)
+\item 
+pthread\+\_\+t \mbox{\hyperlink{flush__thread_8c_aac6c712c0069c69bd39058c6f3ecb94f}{flush\+Buffers\+With\+Thread2}} (char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{buffer_8c_a3419d6e5ea39d2522ff48b26a1da52b9}{disk\+\_\+buffer}}, struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}mem\+\_\+buffers, int mem\+\_\+buffer\+\_\+count)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{flush__thread_8c_a1329bd878e23ae466de100027d9e666d}\label{flush__thread_8c_a1329bd878e23ae466de100027d9e666d} 
+\index{flush\_thread.c@{flush\_thread.c}!createAndRunFlushThread@{createAndRunFlushThread}}
+\index{createAndRunFlushThread@{createAndRunFlushThread}!flush\_thread.c@{flush\_thread.c}}
+\doxysubsubsection{\texorpdfstring{createAndRunFlushThread()}{createAndRunFlushThread()}}
+{\footnotesize\ttfamily pthread\+\_\+t create\+And\+Run\+Flush\+Thread (\begin{DoxyParamCaption}\item[{int(\texorpdfstring{$\ast$}{*})(void \texorpdfstring{$\ast$}{*})}]{runfunction,  }\item[{void \texorpdfstring{$\ast$}{*}}]{arg }\end{DoxyParamCaption})}
+
+runfunction(\texorpdfstring{$\ast$}{*}arg) 에 해당하는 함수를 thread로 실행하게 해주는 함수 리턴값\+: runfunction 함수를 실행하는 쓰레드의 id를 반환 thread 종료시 thread가 알아서 자원을 반환하도록 하는 attributeHere is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{flush__thread_8c_a1329bd878e23ae466de100027d9e666d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{flush__thread_8c_a751f549e107b8533162ec2fcd717c64e}\label{flush__thread_8c_a751f549e107b8533162ec2fcd717c64e} 
+\index{flush\_thread.c@{flush\_thread.c}!flushBuffersWithThread@{flushBuffersWithThread}}
+\index{flushBuffersWithThread@{flushBuffersWithThread}!flush\_thread.c@{flush\_thread.c}}
+\doxysubsubsection{\texorpdfstring{flushBuffersWithThread()}{flushBuffersWithThread()}}
+{\footnotesize\ttfamily pthread\+\_\+t flush\+Buffers\+With\+Thread (\begin{DoxyParamCaption}\item[{int}]{disk\+\_\+fd,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{mem\+\_\+buffers,  }\item[{int}]{mem\+\_\+buffer\+\_\+count }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{flush__thread_8c_a751f549e107b8533162ec2fcd717c64e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{flush__thread_8c_a751f549e107b8533162ec2fcd717c64e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{flush__thread_8c_aac6c712c0069c69bd39058c6f3ecb94f}\label{flush__thread_8c_aac6c712c0069c69bd39058c6f3ecb94f} 
+\index{flush\_thread.c@{flush\_thread.c}!flushBuffersWithThread2@{flushBuffersWithThread2}}
+\index{flushBuffersWithThread2@{flushBuffersWithThread2}!flush\_thread.c@{flush\_thread.c}}
+\doxysubsubsection{\texorpdfstring{flushBuffersWithThread2()}{flushBuffersWithThread2()}}
+{\footnotesize\ttfamily pthread\+\_\+t flush\+Buffers\+With\+Thread2 (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{disk\+\_\+buffer,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{mem\+\_\+buffers,  }\item[{int}]{mem\+\_\+buffer\+\_\+count }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{flush__thread_8c_aac6c712c0069c69bd39058c6f3ecb94f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{flush__thread_8c_aac6c712c0069c69bd39058c6f3ecb94f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{flush__thread_8c_ab360d2aa10d4fda25fff11874eba66f3}\label{flush__thread_8c_ab360d2aa10d4fda25fff11874eba66f3} 
+\index{flush\_thread.c@{flush\_thread.c}!flushBufferWithThread@{flushBufferWithThread}}
+\index{flushBufferWithThread@{flushBufferWithThread}!flush\_thread.c@{flush\_thread.c}}
+\doxysubsubsection{\texorpdfstring{flushBufferWithThread()}{flushBufferWithThread()}}
+{\footnotesize\ttfamily pthread\+\_\+t flush\+Buffer\+With\+Thread (\begin{DoxyParamCaption}\item[{int}]{disk\+\_\+fd,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}}]{mem\+\_\+buffer }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{flush__thread_8c_ab360d2aa10d4fda25fff11874eba66f3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{flush__thread_8c_ab360d2aa10d4fda25fff11874eba66f3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{flush__thread_8c_a529ff1bb035d295c20b09ad1daf50d4b}\label{flush__thread_8c_a529ff1bb035d295c20b09ad1daf50d4b} 
+\index{flush\_thread.c@{flush\_thread.c}!flushBufferWithThread2@{flushBufferWithThread2}}
+\index{flushBufferWithThread2@{flushBufferWithThread2}!flush\_thread.c@{flush\_thread.c}}
+\doxysubsubsection{\texorpdfstring{flushBufferWithThread2()}{flushBufferWithThread2()}}
+{\footnotesize\ttfamily pthread\+\_\+t flush\+Buffer\+With\+Thread2 (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{disk\+\_\+buffer,  }\item[{struct \mbox{\hyperlink{struct_memory_buffer}{Memory\+Buffer}} \texorpdfstring{$\ast$}{*}}]{mem\+\_\+buffer }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{flush__thread_8c_a529ff1bb035d295c20b09ad1daf50d4b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{flush__thread_8c_a529ff1bb035d295c20b09ad1daf50d4b_icgraph}
+\end{center}
+\end{figure}

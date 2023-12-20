@@ -1,0 +1,161 @@
+\doxysection{Buffer\+Cache\+Project -\/ 복사본 2312181113/cmos/cmos.c File Reference}
+\hypertarget{cmos_8c}{}\label{cmos_8c}\index{BufferCacheProject -\/ 복사본 2312181113/cmos/cmos.c@{BufferCacheProject -\/ 복사본 2312181113/cmos/cmos.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$sys/io.\+h$>$}\newline
+{\ttfamily \#include $<$sys/perm.\+h$>$}\newline
+Include dependency graph for cmos.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{cmos_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtuple}{tuple}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \mbox{\hyperlink{cmos_8c_a19779c8b7380acf4db79907f5e3ce60a}{read\+Cmos}} (unsigned char index)
+\item 
+struct \mbox{\hyperlink{structtuple}{tuple}} \mbox{\hyperlink{cmos_8c_a349044fb9c48bd904f3e462d3cee5599}{work1}} ()
+\item 
+struct \mbox{\hyperlink{structtuple}{tuple}} \mbox{\hyperlink{cmos_8c_ac769a83ac9ed80f03013f78dfdfb75e2}{Example\+Function}} ()
+\item 
+struct \mbox{\hyperlink{structtuple}{tuple}} \mbox{\hyperlink{cmos_8c_ac32ce9b02e5add9078e07ac982b84315}{work2}} ()
+\item 
+struct \mbox{\hyperlink{structtuple}{tuple}} \mbox{\hyperlink{cmos_8c_aacbf2060e4376632c07a8ca8443b3ccb}{get\+Minute\+And\+Second}} ()
+\item 
+struct \mbox{\hyperlink{structtuple}{tuple}} \mbox{\hyperlink{cmos_8c_a8b625a025b26f8707f035cc96da8c24c}{get\+Year\+And\+Month}} ()
+\item 
+struct \mbox{\hyperlink{structtuple}{tuple}} \mbox{\hyperlink{cmos_8c_a30a345eda4461e40b06cc4e684f52c7e}{get\+Century\+Day\+And\+Hour}} ()
+\item 
+int \mbox{\hyperlink{cmos_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{cmos_8c_ac769a83ac9ed80f03013f78dfdfb75e2}\label{cmos_8c_ac769a83ac9ed80f03013f78dfdfb75e2} 
+\index{cmos.c@{cmos.c}!ExampleFunction@{ExampleFunction}}
+\index{ExampleFunction@{ExampleFunction}!cmos.c@{cmos.c}}
+\doxysubsubsection{\texorpdfstring{ExampleFunction()}{ExampleFunction()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structtuple}{tuple}} Example\+Function (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{cmos_8c_ac769a83ac9ed80f03013f78dfdfb75e2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmos_8c_a30a345eda4461e40b06cc4e684f52c7e}\label{cmos_8c_a30a345eda4461e40b06cc4e684f52c7e} 
+\index{cmos.c@{cmos.c}!getCenturyDayAndHour@{getCenturyDayAndHour}}
+\index{getCenturyDayAndHour@{getCenturyDayAndHour}!cmos.c@{cmos.c}}
+\doxysubsubsection{\texorpdfstring{getCenturyDayAndHour()}{getCenturyDayAndHour()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structtuple}{tuple}} get\+Century\+Day\+And\+Hour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{cmos_8c_a30a345eda4461e40b06cc4e684f52c7e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{cmos_8c_a30a345eda4461e40b06cc4e684f52c7e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmos_8c_aacbf2060e4376632c07a8ca8443b3ccb}\label{cmos_8c_aacbf2060e4376632c07a8ca8443b3ccb} 
+\index{cmos.c@{cmos.c}!getMinuteAndSecond@{getMinuteAndSecond}}
+\index{getMinuteAndSecond@{getMinuteAndSecond}!cmos.c@{cmos.c}}
+\doxysubsubsection{\texorpdfstring{getMinuteAndSecond()}{getMinuteAndSecond()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structtuple}{tuple}} get\+Minute\+And\+Second (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{cmos_8c_aacbf2060e4376632c07a8ca8443b3ccb_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{cmos_8c_aacbf2060e4376632c07a8ca8443b3ccb_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmos_8c_a8b625a025b26f8707f035cc96da8c24c}\label{cmos_8c_a8b625a025b26f8707f035cc96da8c24c} 
+\index{cmos.c@{cmos.c}!getYearAndMonth@{getYearAndMonth}}
+\index{getYearAndMonth@{getYearAndMonth}!cmos.c@{cmos.c}}
+\doxysubsubsection{\texorpdfstring{getYearAndMonth()}{getYearAndMonth()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structtuple}{tuple}} get\+Year\+And\+Month (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{cmos_8c_a8b625a025b26f8707f035cc96da8c24c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{cmos_8c_a8b625a025b26f8707f035cc96da8c24c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmos_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{cmos_8c_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{cmos.c@{cmos.c}!main@{main}}
+\index{main@{main}!cmos.c@{cmos.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cmos_8c_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmos_8c_a19779c8b7380acf4db79907f5e3ce60a}\label{cmos_8c_a19779c8b7380acf4db79907f5e3ce60a} 
+\index{cmos.c@{cmos.c}!readCmos@{readCmos}}
+\index{readCmos@{readCmos}!cmos.c@{cmos.c}}
+\doxysubsubsection{\texorpdfstring{readCmos()}{readCmos()}}
+{\footnotesize\ttfamily unsigned char read\+Cmos (\begin{DoxyParamCaption}\item[{unsigned char}]{index }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cmos_8c_a19779c8b7380acf4db79907f5e3ce60a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmos_8c_a349044fb9c48bd904f3e462d3cee5599}\label{cmos_8c_a349044fb9c48bd904f3e462d3cee5599} 
+\index{cmos.c@{cmos.c}!work1@{work1}}
+\index{work1@{work1}!cmos.c@{cmos.c}}
+\doxysubsubsection{\texorpdfstring{work1()}{work1()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structtuple}{tuple}} work1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{cmos_8c_ac32ce9b02e5add9078e07ac982b84315}\label{cmos_8c_ac32ce9b02e5add9078e07ac982b84315} 
+\index{cmos.c@{cmos.c}!work2@{work2}}
+\index{work2@{work2}!cmos.c@{cmos.c}}
+\doxysubsubsection{\texorpdfstring{work2()}{work2()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structtuple}{tuple}} work2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+

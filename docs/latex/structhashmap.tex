@@ -1,0 +1,206 @@
+\doxysection{hashmap Struct Reference}
+\hypertarget{structhashmap}{}\label{structhashmap}\index{hashmap@{hashmap}}
+
+
+Collaboration diagram for hashmap\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=163pt]{structhashmap__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structhashmap_a8c0b3ef742775c1507b24e58f75d1a63}{malloc}} )(size\+\_\+t)
+\item 
+void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structhashmap_a6971dce67c8b7859a6ba9f24c953791b}{realloc}} )(void \texorpdfstring{$\ast$}{*}, size\+\_\+t)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structhashmap_a00cac9e5111cbc007e391e5017fa5af5}{free}} )(void \texorpdfstring{$\ast$}{*})
+\item 
+size\+\_\+t \mbox{\hyperlink{structhashmap_ae8214a3e983e767cced72e5b5dc29d4f}{elsize}}
+\item 
+size\+\_\+t \mbox{\hyperlink{structhashmap_a856fa22aef923b4a345805d81580aebe}{cap}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{structhashmap_a2fcbe9703457f43e4e755b51f580fb19}{seed0}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{structhashmap_a52f78e265d0e3c26dda140981d6fd5f8}{seed1}}
+\item 
+uint64\+\_\+t(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structhashmap_ac40f2094c9daaf4cfa5fc014df1b846f}{hash}} )(const void \texorpdfstring{$\ast$}{*}item, uint64\+\_\+t \mbox{\hyperlink{structhashmap_a2fcbe9703457f43e4e755b51f580fb19}{seed0}}, uint64\+\_\+t \mbox{\hyperlink{structhashmap_a52f78e265d0e3c26dda140981d6fd5f8}{seed1}})
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structhashmap_a101e764c3867cc17c1faa32988b0da58}{compare}} )(const void \texorpdfstring{$\ast$}{*}a, const void \texorpdfstring{$\ast$}{*}b, void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structhashmap_a697ce711b67313990d351b5c95f87aed}{udata}})
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structhashmap_a14c4159dc425beabdeb517acfee1a9ed}{elfree}} )(void \texorpdfstring{$\ast$}{*}item)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structhashmap_a697ce711b67313990d351b5c95f87aed}{udata}}
+\item 
+size\+\_\+t \mbox{\hyperlink{structhashmap_a188d339b683aa645347591d98f047bf9}{bucketsz}}
+\item 
+size\+\_\+t \mbox{\hyperlink{structhashmap_a4b473cc6f023a8b4e9d104ec80c511f6}{nbuckets}}
+\item 
+size\+\_\+t \mbox{\hyperlink{structhashmap_a76d971a3c552bc58ba9f0d5fceae9806}{count}}
+\item 
+size\+\_\+t \mbox{\hyperlink{structhashmap_a97bfab9f86be5ac6808df0cfde3de97c}{mask}}
+\item 
+size\+\_\+t \mbox{\hyperlink{structhashmap_abc890f16aeb2ff8de6d6ad1869c5372b}{growat}}
+\item 
+size\+\_\+t \mbox{\hyperlink{structhashmap_a814cd74a5dae2c51d1b4e9ebed950ffc}{shrinkat}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structhashmap_ab6dfab26dcdda27831ff87037a2461bc}{loadfactor}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structhashmap_a68fd61268484836352abac42d9486ad6}{growpower}}
+\item 
+bool \mbox{\hyperlink{structhashmap_a2f22423766bf31e8b4ebf987bba0face}{oom}}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structhashmap_aacfb45b159f82949693510e239659587}{buckets}}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structhashmap_a10a5ed35493a2ad5402e4505ffb07c54}{spare}}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structhashmap_a287b0d22ef0608cceccc211a621ed9ca}{edata}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{structhashmap_aacfb45b159f82949693510e239659587}\label{structhashmap_aacfb45b159f82949693510e239659587} 
+\index{hashmap@{hashmap}!buckets@{buckets}}
+\index{buckets@{buckets}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{buckets}{buckets}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} buckets}
+
+\Hypertarget{structhashmap_a188d339b683aa645347591d98f047bf9}\label{structhashmap_a188d339b683aa645347591d98f047bf9} 
+\index{hashmap@{hashmap}!bucketsz@{bucketsz}}
+\index{bucketsz@{bucketsz}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{bucketsz}{bucketsz}}
+{\footnotesize\ttfamily size\+\_\+t bucketsz}
+
+\Hypertarget{structhashmap_a856fa22aef923b4a345805d81580aebe}\label{structhashmap_a856fa22aef923b4a345805d81580aebe} 
+\index{hashmap@{hashmap}!cap@{cap}}
+\index{cap@{cap}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{cap}{cap}}
+{\footnotesize\ttfamily size\+\_\+t cap}
+
+\Hypertarget{structhashmap_a101e764c3867cc17c1faa32988b0da58}\label{structhashmap_a101e764c3867cc17c1faa32988b0da58} 
+\index{hashmap@{hashmap}!compare@{compare}}
+\index{compare@{compare}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{compare}{compare}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} compare) (const void \texorpdfstring{$\ast$}{*}a, const void \texorpdfstring{$\ast$}{*}b, void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structhashmap_a697ce711b67313990d351b5c95f87aed}{udata}})}
+
+\Hypertarget{structhashmap_a76d971a3c552bc58ba9f0d5fceae9806}\label{structhashmap_a76d971a3c552bc58ba9f0d5fceae9806} 
+\index{hashmap@{hashmap}!count@{count}}
+\index{count@{count}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{count}{count}}
+{\footnotesize\ttfamily size\+\_\+t count}
+
+\Hypertarget{structhashmap_a287b0d22ef0608cceccc211a621ed9ca}\label{structhashmap_a287b0d22ef0608cceccc211a621ed9ca} 
+\index{hashmap@{hashmap}!edata@{edata}}
+\index{edata@{edata}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{edata}{edata}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} edata}
+
+\Hypertarget{structhashmap_a14c4159dc425beabdeb517acfee1a9ed}\label{structhashmap_a14c4159dc425beabdeb517acfee1a9ed} 
+\index{hashmap@{hashmap}!elfree@{elfree}}
+\index{elfree@{elfree}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{elfree}{elfree}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} elfree) (void \texorpdfstring{$\ast$}{*}item)}
+
+\Hypertarget{structhashmap_ae8214a3e983e767cced72e5b5dc29d4f}\label{structhashmap_ae8214a3e983e767cced72e5b5dc29d4f} 
+\index{hashmap@{hashmap}!elsize@{elsize}}
+\index{elsize@{elsize}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{elsize}{elsize}}
+{\footnotesize\ttfamily size\+\_\+t elsize}
+
+\Hypertarget{structhashmap_a00cac9e5111cbc007e391e5017fa5af5}\label{structhashmap_a00cac9e5111cbc007e391e5017fa5af5} 
+\index{hashmap@{hashmap}!free@{free}}
+\index{free@{free}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{free}{free}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} free) (void \texorpdfstring{$\ast$}{*})}
+
+\Hypertarget{structhashmap_abc890f16aeb2ff8de6d6ad1869c5372b}\label{structhashmap_abc890f16aeb2ff8de6d6ad1869c5372b} 
+\index{hashmap@{hashmap}!growat@{growat}}
+\index{growat@{growat}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{growat}{growat}}
+{\footnotesize\ttfamily size\+\_\+t growat}
+
+\Hypertarget{structhashmap_a68fd61268484836352abac42d9486ad6}\label{structhashmap_a68fd61268484836352abac42d9486ad6} 
+\index{hashmap@{hashmap}!growpower@{growpower}}
+\index{growpower@{growpower}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{growpower}{growpower}}
+{\footnotesize\ttfamily uint8\+\_\+t growpower}
+
+\Hypertarget{structhashmap_ac40f2094c9daaf4cfa5fc014df1b846f}\label{structhashmap_ac40f2094c9daaf4cfa5fc014df1b846f} 
+\index{hashmap@{hashmap}!hash@{hash}}
+\index{hash@{hash}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{hash}{hash}}
+{\footnotesize\ttfamily uint64\+\_\+t(\texorpdfstring{$\ast$}{*} hash) (const void \texorpdfstring{$\ast$}{*}item, uint64\+\_\+t \mbox{\hyperlink{structhashmap_a2fcbe9703457f43e4e755b51f580fb19}{seed0}}, uint64\+\_\+t \mbox{\hyperlink{structhashmap_a52f78e265d0e3c26dda140981d6fd5f8}{seed1}})}
+
+\Hypertarget{structhashmap_ab6dfab26dcdda27831ff87037a2461bc}\label{structhashmap_ab6dfab26dcdda27831ff87037a2461bc} 
+\index{hashmap@{hashmap}!loadfactor@{loadfactor}}
+\index{loadfactor@{loadfactor}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{loadfactor}{loadfactor}}
+{\footnotesize\ttfamily uint8\+\_\+t loadfactor}
+
+\Hypertarget{structhashmap_a8c0b3ef742775c1507b24e58f75d1a63}\label{structhashmap_a8c0b3ef742775c1507b24e58f75d1a63} 
+\index{hashmap@{hashmap}!malloc@{malloc}}
+\index{malloc@{malloc}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{malloc}{malloc}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} malloc) (size\+\_\+t)}
+
+\Hypertarget{structhashmap_a97bfab9f86be5ac6808df0cfde3de97c}\label{structhashmap_a97bfab9f86be5ac6808df0cfde3de97c} 
+\index{hashmap@{hashmap}!mask@{mask}}
+\index{mask@{mask}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{mask}{mask}}
+{\footnotesize\ttfamily size\+\_\+t mask}
+
+\Hypertarget{structhashmap_a4b473cc6f023a8b4e9d104ec80c511f6}\label{structhashmap_a4b473cc6f023a8b4e9d104ec80c511f6} 
+\index{hashmap@{hashmap}!nbuckets@{nbuckets}}
+\index{nbuckets@{nbuckets}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{nbuckets}{nbuckets}}
+{\footnotesize\ttfamily size\+\_\+t nbuckets}
+
+\Hypertarget{structhashmap_a2f22423766bf31e8b4ebf987bba0face}\label{structhashmap_a2f22423766bf31e8b4ebf987bba0face} 
+\index{hashmap@{hashmap}!oom@{oom}}
+\index{oom@{oom}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{oom}{oom}}
+{\footnotesize\ttfamily bool oom}
+
+\Hypertarget{structhashmap_a6971dce67c8b7859a6ba9f24c953791b}\label{structhashmap_a6971dce67c8b7859a6ba9f24c953791b} 
+\index{hashmap@{hashmap}!realloc@{realloc}}
+\index{realloc@{realloc}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{realloc}{realloc}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} realloc) (void \texorpdfstring{$\ast$}{*}, size\+\_\+t)}
+
+\Hypertarget{structhashmap_a2fcbe9703457f43e4e755b51f580fb19}\label{structhashmap_a2fcbe9703457f43e4e755b51f580fb19} 
+\index{hashmap@{hashmap}!seed0@{seed0}}
+\index{seed0@{seed0}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{seed0}{seed0}}
+{\footnotesize\ttfamily uint64\+\_\+t seed0}
+
+\Hypertarget{structhashmap_a52f78e265d0e3c26dda140981d6fd5f8}\label{structhashmap_a52f78e265d0e3c26dda140981d6fd5f8} 
+\index{hashmap@{hashmap}!seed1@{seed1}}
+\index{seed1@{seed1}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{seed1}{seed1}}
+{\footnotesize\ttfamily uint64\+\_\+t seed1}
+
+\Hypertarget{structhashmap_a814cd74a5dae2c51d1b4e9ebed950ffc}\label{structhashmap_a814cd74a5dae2c51d1b4e9ebed950ffc} 
+\index{hashmap@{hashmap}!shrinkat@{shrinkat}}
+\index{shrinkat@{shrinkat}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{shrinkat}{shrinkat}}
+{\footnotesize\ttfamily size\+\_\+t shrinkat}
+
+\Hypertarget{structhashmap_a10a5ed35493a2ad5402e4505ffb07c54}\label{structhashmap_a10a5ed35493a2ad5402e4505ffb07c54} 
+\index{hashmap@{hashmap}!spare@{spare}}
+\index{spare@{spare}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{spare}{spare}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} spare}
+
+\Hypertarget{structhashmap_a697ce711b67313990d351b5c95f87aed}\label{structhashmap_a697ce711b67313990d351b5c95f87aed} 
+\index{hashmap@{hashmap}!udata@{udata}}
+\index{udata@{udata}!hashmap@{hashmap}}
+\doxysubsubsection{\texorpdfstring{udata}{udata}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} udata}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Buffer\+Cache\+Project/shared/\mbox{\hyperlink{hashmap_8c}{hashmap.\+c}}\end{DoxyCompactItemize}

@@ -1,0 +1,117 @@
+\doxysection{Memory\+Buffer\+Manager Struct Reference}
+\hypertarget{struct_memory_buffer_manager}{}\label{struct_memory_buffer_manager}\index{MemoryBufferManager@{MemoryBufferManager}}
+
+
+{\ttfamily \#include $<$memory\+\_\+buffer.\+h$>$}
+
+
+
+Collaboration diagram for Memory\+Buffer\+Manager\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{struct_memory_buffer_manager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{struct_memory_buffer_manager_afb7bf76ece3750625fc4df0087b59c97}{total\+\_\+number\+\_\+of\+\_\+memory\+\_\+buffers}}
+\item 
+int \mbox{\hyperlink{struct_memory_buffer_manager_a6dccc1604d2bee83d52f7b791161733d}{manageable\+\_\+number\+\_\+of\+\_\+memory\+\_\+buffers}}
+\item 
+long long \mbox{\hyperlink{struct_memory_buffer_manager_a1c16ffccf19004ecabf2b4eded46ec98}{explicit\+\_\+block\+\_\+size}}
+\item 
+unsigned int \mbox{\hyperlink{struct_memory_buffer_manager_acc351faa3524d4e3494fed6010ac4ece}{current\+\_\+memory\+\_\+buffer\+\_\+count}}
+\item 
+struct \mbox{\hyperlink{structhashmap}{hashmap}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_memory_buffer_manager_a2eb509a2d41dbb89ba93327c45548b2f}{memory\+\_\+buffers}}
+\item 
+struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_memory_buffer_manager_a583e5d2342b218bbe94fca5362f777a2}{controller}}
+\item 
+double \mbox{\hyperlink{struct_memory_buffer_manager_a23a2c122c70b2d933409f5454d2b16c3}{pure\+\_\+hashmap\+\_\+get\+\_\+time}}
+\item 
+double \mbox{\hyperlink{struct_memory_buffer_manager_a3e8a15c823102addb29e70cbbce101a8}{pure\+\_\+hashmap\+\_\+set\+\_\+time}}
+\item 
+int \mbox{\hyperlink{struct_memory_buffer_manager_ace5f86cdc8deb8e6196ddf6b0c02a73c}{disk\+\_\+fd}}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_memory_buffer_manager_a3419d6e5ea39d2522ff48b26a1da52b9}{disk\+\_\+buffer}}
+\item 
+struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_memory_buffer_manager_a5e09d7a30eb3306bd3912e76febcdfb8}{tp}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+전체적인 메모리를 관리하는 구조체 
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_memory_buffer_manager_a583e5d2342b218bbe94fca5362f777a2}\label{struct_memory_buffer_manager_a583e5d2342b218bbe94fca5362f777a2} 
+\index{MemoryBufferManager@{MemoryBufferManager}!controller@{controller}}
+\index{controller@{controller}!MemoryBufferManager@{MemoryBufferManager}}
+\doxysubsubsection{\texorpdfstring{controller}{controller}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_memory_buffer_controller}{Memory\+Buffer\+Controller}}\texorpdfstring{$\ast$}{*} controller}
+
+\Hypertarget{struct_memory_buffer_manager_acc351faa3524d4e3494fed6010ac4ece}\label{struct_memory_buffer_manager_acc351faa3524d4e3494fed6010ac4ece} 
+\index{MemoryBufferManager@{MemoryBufferManager}!current\_memory\_buffer\_count@{current\_memory\_buffer\_count}}
+\index{current\_memory\_buffer\_count@{current\_memory\_buffer\_count}!MemoryBufferManager@{MemoryBufferManager}}
+\doxysubsubsection{\texorpdfstring{current\_memory\_buffer\_count}{current\_memory\_buffer\_count}}
+{\footnotesize\ttfamily unsigned int current\+\_\+memory\+\_\+buffer\+\_\+count}
+
+\Hypertarget{struct_memory_buffer_manager_a3419d6e5ea39d2522ff48b26a1da52b9}\label{struct_memory_buffer_manager_a3419d6e5ea39d2522ff48b26a1da52b9} 
+\index{MemoryBufferManager@{MemoryBufferManager}!disk\_buffer@{disk\_buffer}}
+\index{disk\_buffer@{disk\_buffer}!MemoryBufferManager@{MemoryBufferManager}}
+\doxysubsubsection{\texorpdfstring{disk\_buffer}{disk\_buffer}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} disk\+\_\+buffer}
+
+\Hypertarget{struct_memory_buffer_manager_ace5f86cdc8deb8e6196ddf6b0c02a73c}\label{struct_memory_buffer_manager_ace5f86cdc8deb8e6196ddf6b0c02a73c} 
+\index{MemoryBufferManager@{MemoryBufferManager}!disk\_fd@{disk\_fd}}
+\index{disk\_fd@{disk\_fd}!MemoryBufferManager@{MemoryBufferManager}}
+\doxysubsubsection{\texorpdfstring{disk\_fd}{disk\_fd}}
+{\footnotesize\ttfamily int disk\+\_\+fd}
+
+\Hypertarget{struct_memory_buffer_manager_a1c16ffccf19004ecabf2b4eded46ec98}\label{struct_memory_buffer_manager_a1c16ffccf19004ecabf2b4eded46ec98} 
+\index{MemoryBufferManager@{MemoryBufferManager}!explicit\_block\_size@{explicit\_block\_size}}
+\index{explicit\_block\_size@{explicit\_block\_size}!MemoryBufferManager@{MemoryBufferManager}}
+\doxysubsubsection{\texorpdfstring{explicit\_block\_size}{explicit\_block\_size}}
+{\footnotesize\ttfamily long long explicit\+\_\+block\+\_\+size}
+
+\Hypertarget{struct_memory_buffer_manager_a6dccc1604d2bee83d52f7b791161733d}\label{struct_memory_buffer_manager_a6dccc1604d2bee83d52f7b791161733d} 
+\index{MemoryBufferManager@{MemoryBufferManager}!manageable\_number\_of\_memory\_buffers@{manageable\_number\_of\_memory\_buffers}}
+\index{manageable\_number\_of\_memory\_buffers@{manageable\_number\_of\_memory\_buffers}!MemoryBufferManager@{MemoryBufferManager}}
+\doxysubsubsection{\texorpdfstring{manageable\_number\_of\_memory\_buffers}{manageable\_number\_of\_memory\_buffers}}
+{\footnotesize\ttfamily int manageable\+\_\+number\+\_\+of\+\_\+memory\+\_\+buffers}
+
+\Hypertarget{struct_memory_buffer_manager_a2eb509a2d41dbb89ba93327c45548b2f}\label{struct_memory_buffer_manager_a2eb509a2d41dbb89ba93327c45548b2f} 
+\index{MemoryBufferManager@{MemoryBufferManager}!memory\_buffers@{memory\_buffers}}
+\index{memory\_buffers@{memory\_buffers}!MemoryBufferManager@{MemoryBufferManager}}
+\doxysubsubsection{\texorpdfstring{memory\_buffers}{memory\_buffers}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structhashmap}{hashmap}}\texorpdfstring{$\ast$}{*} memory\+\_\+buffers}
+
+\Hypertarget{struct_memory_buffer_manager_a23a2c122c70b2d933409f5454d2b16c3}\label{struct_memory_buffer_manager_a23a2c122c70b2d933409f5454d2b16c3} 
+\index{MemoryBufferManager@{MemoryBufferManager}!pure\_hashmap\_get\_time@{pure\_hashmap\_get\_time}}
+\index{pure\_hashmap\_get\_time@{pure\_hashmap\_get\_time}!MemoryBufferManager@{MemoryBufferManager}}
+\doxysubsubsection{\texorpdfstring{pure\_hashmap\_get\_time}{pure\_hashmap\_get\_time}}
+{\footnotesize\ttfamily double pure\+\_\+hashmap\+\_\+get\+\_\+time}
+
+\Hypertarget{struct_memory_buffer_manager_a3e8a15c823102addb29e70cbbce101a8}\label{struct_memory_buffer_manager_a3e8a15c823102addb29e70cbbce101a8} 
+\index{MemoryBufferManager@{MemoryBufferManager}!pure\_hashmap\_set\_time@{pure\_hashmap\_set\_time}}
+\index{pure\_hashmap\_set\_time@{pure\_hashmap\_set\_time}!MemoryBufferManager@{MemoryBufferManager}}
+\doxysubsubsection{\texorpdfstring{pure\_hashmap\_set\_time}{pure\_hashmap\_set\_time}}
+{\footnotesize\ttfamily double pure\+\_\+hashmap\+\_\+set\+\_\+time}
+
+\Hypertarget{struct_memory_buffer_manager_afb7bf76ece3750625fc4df0087b59c97}\label{struct_memory_buffer_manager_afb7bf76ece3750625fc4df0087b59c97} 
+\index{MemoryBufferManager@{MemoryBufferManager}!total\_number\_of\_memory\_buffers@{total\_number\_of\_memory\_buffers}}
+\index{total\_number\_of\_memory\_buffers@{total\_number\_of\_memory\_buffers}!MemoryBufferManager@{MemoryBufferManager}}
+\doxysubsubsection{\texorpdfstring{total\_number\_of\_memory\_buffers}{total\_number\_of\_memory\_buffers}}
+{\footnotesize\ttfamily int total\+\_\+number\+\_\+of\+\_\+memory\+\_\+buffers}
+
+\Hypertarget{struct_memory_buffer_manager_a5e09d7a30eb3306bd3912e76febcdfb8}\label{struct_memory_buffer_manager_a5e09d7a30eb3306bd3912e76febcdfb8} 
+\index{MemoryBufferManager@{MemoryBufferManager}!tp@{tp}}
+\index{tp@{tp}!MemoryBufferManager@{MemoryBufferManager}}
+\doxysubsubsection{\texorpdfstring{tp}{tp}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_thread_pool}{Thread\+Pool}}\texorpdfstring{$\ast$}{*} tp}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Buffer\+Cache\+Project/shared/\mbox{\hyperlink{memory__buffer_8h}{memory\+\_\+buffer.\+h}}\end{DoxyCompactItemize}

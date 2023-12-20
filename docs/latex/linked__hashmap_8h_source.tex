@@ -1,0 +1,44 @@
+\doxysection{linked\+\_\+hashmap.\+h}
+\hypertarget{linked__hashmap_8h_source}{}\label{linked__hashmap_8h_source}\index{BufferCacheProject/shared/linked\_hashmap.h@{BufferCacheProject/shared/linked\_hashmap.h}}
+\mbox{\hyperlink{linked__hashmap_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ \_\_HEADER\_LINKED\_HASHMAP\_\_}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ \_\_HEADER\_LINKED\_HASHMAP\_\_}}
+\DoxyCodeLine{00004\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_binary_node}{BinaryNode}}\{}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_binary_node}{BinaryNode}}*\ \mbox{\hyperlink{struct_binary_node_a250bf373a3878697a74bc41c89dc7a0a}{nexts}}[2];}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{struct_binary_node_a735984d41155bc1032e09bece8f8d66d}{data}};}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_binary_node}{BinaryNode}}*\ \mbox{\hyperlink{struct_binary_node_aecdc27612394471dcc41614932a4bf45}{parent}};}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_l_hash_map}{LHashMap}}\{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_binary_node}{BinaryNode}}*\ \mbox{\hyperlink{struct_l_hash_map_adb643c5e130050941aa6bc83885589c8}{root\_node}};}
+\DoxyCodeLine{00014\ \ \ \ \ \};}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{linked__hashmap_8h_ac3eebe8de1967d70b36b316db519e42a}{getHash}}(\textcolor{keywordtype}{int}\ value)\{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ total\_n\ =\ \textcolor{keyword}{sizeof}(int)*8;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ value2\ =\ (\textcolor{keywordtype}{unsigned}\ int)\ value;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ key[16]\ =\ \{0,\};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;i<total\_n;i+=2)\{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ key[i]\ =\ (value2>>i)\&0x3;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ key;}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{linked__hashmap_8h_a2294877d12c83441ae358023c41b4a77}{innerSearch}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_binary_node}{BinaryNode}}*\ node,\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ key\_seq,\textcolor{keywordtype}{int}\ hop)\{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ key\ =\ key\_seq[16-\/hop];}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{linked__hashmap_8h_abbda75673f4a209c761ea70ed32b507c}{get}}(\textcolor{keywordtype}{int}\ block\_number)\{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ value\ =\ NULL;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ key\ =\ \mbox{\hyperlink{linked__hashmap_8h_ac3eebe8de1967d70b36b316db519e42a}{getHash}}(block\_number);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ value;}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
