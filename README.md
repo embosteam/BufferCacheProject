@@ -54,7 +54,8 @@
   * [x] 빠른 탐색을 위한 데이터 구조 (e.g., hash)는 자유롭게 정한다.  
   * [x] 읽기 요청 블록이 Buffer에 없다면 Disk에서 Buffer로 읽은 후, Buffer의 내용을 상위 레이어에 전달한다. 요청한 블록이 Buffer에 있다면 파일에서 읽지 않고 Buffer의 내용을 전달한다.
   * [x] (버퍼읽는 알고리즘의 성능을 평가함)자료구조 및 탐색구조 최적화
-  * [ ] hit , miss에 관한 경과시간 그래프 데이터 산출
+  * [x] hit , miss에 관한 경과시간 그래프 데이터 산출
+
 * Delayed Write 영역
   * [x] 응용이 Write한 내용을 Buffer에 기록하고 리턴한다.
   * [x] 모든 Buffer가 사용 중인 경우, Victim을 선정하여 Buffer에서 방출시킨 후, 빈 Buffer를 만들어 기록한다.
@@ -69,8 +70,40 @@
   * [x] Buffer 부족 시(read/write시 둘다 포함), Victim을 선정하는 FIFO, LRU, LFU 등 널리 알려진 알고리즘을 3개 이상 구현한다.
   * [x] Normal distribution 또는 Zipfian Distribution을 따르는 Block Access Sequence를 생성하고, 구현한 Replacement Policy에서 Hit가 얼마나 발생하는 지 테스트해 본다. 여기서 Block Access Sequence는 Block Read만 포함하도록 한다.
   * [x] 방출할 버퍼 디스크 상태 최신으로 동기화 요청 구현
-  * [ ] replacement policy 잘 동작하는지 보여주도록 데이터 산출및 시각화 구현
+  * [x] replacement policy 잘 동작하는지 보여주도록 데이터 산출및 시각화 구현
 
+
+
+버퍼캐시 main브랜치 기여도 관련
+---
+  * hashmap,md5,crc파일 제외 최종 line of code: 4285
+
+  | 구분 | main 브랜치 line of code |  비고 |  
+  |---|---|---|  
+  |hsh97Erica| 4285 + alpha | (4285/(4285+144)=0.9675) + (alpha=0.0005) = 0.968  |  
+  |j****n 브랜치에 파일 추가하신분| 0 | j****n 브랜치 노력 가산점 (alpha= 0.0005+0.0045점) |  
+  |그외 나머지 1분| 144(commit 8ff09ce) | (144/(4285+144) = 0.0325) + (alpha=0.00000000001) = 0.03250000001 |  
+  |김**| 0.0 | 외부활동등으로 처음부터 참여하지 않으심|
+
+
+교체정책 동작
+---
+
+  | 구분 | 동작 |
+  |---|---|
+  |lru| ![lru_동작](mdfile_pictures/lru1.PNG) | 
+  |lfu| ![lfu_동작](mdfile_pictures/lfu1.PNG) |
+  |fifo| ![fifo_동작](mdfile_pictures/fifo1.PNG) | 
+
+결과
+---
+  | 구분 | 결과 |
+  |---|---|
+  |mmap사용| ![mmap_사용결과](mdfile_pictures/mmap사용결과.png) | 
+  |mmap미사용| ![mmap_미사용결과](mdfile_pictures/mmap미사용결과.png) |  
+
+
+  * 과정에서 오차 및 최적화 관점에서 해결할 문제가 조금 있음
 
 
 기타 참조 링크
